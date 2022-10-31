@@ -8,19 +8,20 @@ function App() {
     <div>
        <AppRouter />
        <NavBar />
+       <div class="homepage">
        <div>
-        Hello
+        <br></br>
        </div>
       <Typography variant='h2' algin='center'>Welcome to SAIL</Typography>
-      {/* <Typography variant='h3' algin='center'>About SAIL</Typography>
-      <Typography variant='h3' algin='center'>Contact SAIL</Typography> */}
       <h1> April 2023 </h1>
-          <p>
+      <div class='info'>
+          <p >
             Welcome to Illinois Computer Science Sail!
             We are an entirely student-run organization that hosts an annual event where
             high schoolers have the chance to experience what it is like to be a computer science student
             at the University of Illinois at Urbana-Champaign.
           </p>
+          </div>
         <a href="">
           <button class = "button"> Interest From </button>
         </a>
@@ -30,6 +31,11 @@ function App() {
         <a href="">
           <button class = "button"> Student Registration </button>
         </a>
+        <Typography variant='h3' algin='center'>About SAIL</Typography>
+        <p>Q&A style questions?</p>
+      <Typography variant='h3' algin='center'>Contact SAIL</Typography>
+      <p>Google Form Link?</p>
+      </div>
     </div>
     
   );
