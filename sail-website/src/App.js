@@ -20,6 +20,7 @@ function App() {
       <Typography variant='h2' algin='center'>Welcome to SAIL</Typography>
       <h1> April 8th 2023 </h1>
       <div className='info'>
+
           <p >
             Welcome to Illinois Computer Science Sail!
             We are an entirely student-run organization that hosts an annual event where
