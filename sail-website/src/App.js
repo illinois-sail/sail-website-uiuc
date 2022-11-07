@@ -13,7 +13,7 @@ function App() {
         <br></br>
        </div>
       <Typography variant='h2' algin='center'>Welcome to SAIL</Typography>
-      <h1> April 2023 </h1>
+      <h1> April 8th 2023 </h1>
       <div class='info'>
           <p >
             Welcome to Illinois Computer Science Sail!
