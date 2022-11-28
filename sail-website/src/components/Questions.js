@@ -8,13 +8,17 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export default function SimpleAccordion() {
   return (
     <div>
-      <Accordion>
+      <Accordion sx={{
+                  //backgroundColor: '#FAD4C0',
+                }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>What is Sail?</Typography>
+          <Typography variant='h5' sx={{
+                  color: '#1D4E89',
+                }}> What is Sail?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -28,7 +32,9 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>How do I sign up?</Typography>
+          <Typography variant='h5' sx={{
+                  color: '#1D4E89',
+                }}>How do I sign up?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -42,7 +48,9 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Who is Sail for?</Typography>
+          <Typography variant='h5'sx={{
+                  color: '#1D4E89',
+                }}>Who is Sail for?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -56,7 +64,9 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Will Sail be virtual or in-person this year?</Typography>
+          <Typography variant='h5'sx={{
+                  color: '#1D4E89',
+                }}>Will Sail be virtual or in-person this year?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -70,7 +80,9 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Is Sail free to attend?</Typography>
+          <Typography variant='h5'sx={{
+                  color: '#1D4E89',
+                }}>Is Sail free to attend?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -84,7 +96,9 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Other questions?</Typography>
+          <Typography variant='h5'sx={{
+                  color: '#1D4E89',
+                }}>Other questions?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

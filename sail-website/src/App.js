@@ -3,9 +3,10 @@ import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
 import Typography from '@mui/material/Typography';
 import Question from './components/Questions';
+import Login from './components/Login'
 
 import Box from "@mui/material/Box";
-import beachHut from './surf_hut.jpeg'
+import beachHut from './surf_hut.png'
 
 
 function App() {

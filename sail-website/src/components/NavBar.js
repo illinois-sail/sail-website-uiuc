@@ -16,7 +16,7 @@ import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact', 'Register', 'Login'];
-
+const HOME_URL = 'http://localhost:3000/';
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -67,7 +67,7 @@ function NavBar(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
+              <Button key={item} sx={{ color: '#fff' }} href={HOME_URL + item}>
                 {item}
               </Button>
             ))}
