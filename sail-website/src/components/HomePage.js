@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import Home from './Home';
 
 
 // const styles = ({
@@ -13,15 +14,15 @@ import Box from '@mui/material/Box';
 //     }
 // });
 
-class HomePage extends React.Component{
-    render(){
-        return(
+function HomePage() {
             // <Paper style={styles.paperContainer}>
             // </Paper>
+            return (
             <Box
                 sx={{
-                    backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/6155cc6c7ea92ca90868da09d6b95e5df4702f5d/sail-website/src/landing_page.svg"})`,
+                    backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/02b599be355b6696dbba7233a59d04d0d8924a24/sail-website/src/landing_option_3.svg"})`,
                     backgroundSize: 'cover',
+                    // backgroundColor: '#C0FDFB',
                     // resizeMode: "stretch",
                     width: '100%',
                     // minHeight: '100vh',
@@ -34,10 +35,13 @@ class HomePage extends React.Component{
                 // width: '7680px',
                 animation: 'slide 3s linear infinite',
             }}
-            />
-        
-        );
-    }
+            
+            >
+            <Home />
+            </Box>
+
+            
+            );
 }
 
 export default HomePage;

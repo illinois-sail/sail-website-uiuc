@@ -2,6 +2,7 @@ import './App.css';
 import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
+import Home from './components/Home';
 import Typography from '@mui/material/Typography';
 import Question from './components/Questions';
 
@@ -15,7 +16,6 @@ function App() {
        <AppRouter />
        <NavBar />
        <HomePage />
-
        {/* <div className="homepage">
        <div>
         <br></br>
