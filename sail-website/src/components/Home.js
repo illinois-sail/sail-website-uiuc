@@ -14,7 +14,7 @@ function Home() {
        <div>
         <br></br>
        </div>
-      <Typography variant='h2' algin='center'>Welcome to SAIL</Typography>
+      <Typography variant='h2' algin='center' >Welcome to SAIL</Typography>
       <h1> April 8th 2023 </h1>
       <div className='info'>
 
