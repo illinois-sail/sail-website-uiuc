@@ -5,6 +5,7 @@ import Question from './Questions';
 
 import Box from "@mui/material/Box";
 import beachHut from '../surf_hut.png'
+import './Home.css'
 
 
 function Home() {
@@ -14,7 +15,8 @@ function Home() {
        <div>
         <br></br>
        </div>
-      <Typography variant='h2' algin='center' >Welcome to SAIL</Typography>
+      <Typography className = "sail-logo" variant='h2' algin='center' >SAIL</Typography>
+      {/* <h1 class="sail-logo">SAIL</h1> */}
       <h1> April 8th 2023 </h1>
       <div className='info'>
 
@@ -35,10 +37,10 @@ function Home() {
           <button className = "button"> Student Registration </button>
         </a>
         
-      <Typography variant='h3' algin='center'>Contact SAIL</Typography>
+      <Typography variant='h3'  algin='center'>Contact SAIL</Typography>
       <p>Google Form Link?</p>
       </div>
-      <div className="section-about">
+      {/* <div className="section-about"> */}
       <Typography variant='h3' alginItem='center'>About SAIL</Typography>
       <Box
                 sx={{
@@ -51,7 +53,7 @@ function Home() {
                 <img src={beachHut} alt='beach hut' />
             </Box>
       
-      </div>
+      {/* </div> */}
       
     </div>
     
