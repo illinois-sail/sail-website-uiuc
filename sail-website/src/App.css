@@ -3,6 +3,7 @@
 }
 body {
   margin-top: 60px;
+  background-color: bisque;
 }
 
 .App-logo {
@@ -39,7 +40,5 @@ body {
     transform: rotate(360deg);
   }
 }
-.homepage {
-  text-align: center;
-}
+
 
