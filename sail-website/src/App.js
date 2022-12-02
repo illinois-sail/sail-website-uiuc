@@ -15,7 +15,7 @@ function App() {
     <div>
        <AppRouter />
        <NavBar />
-       {/* <HomePage /> */}
+       <HomePage />
        {/* <div className="homepage">
        <div>
         <br></br>
