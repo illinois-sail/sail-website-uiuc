@@ -3,6 +3,7 @@ import NavBar from './NavBar';
 import Typography from '@mui/material/Typography';
 import Question from './Questions';
 
+import { Paper } from '@mui/material';
 import Box from "@mui/material/Box";
 import beachHut from '../surf_hut.png'
 import './Home.css'
@@ -12,22 +13,59 @@ function Home() {
   return (
     <div>
        <div className="homepage">
-       <div>
-        <br></br>
-       </div>
-      <Typography className = "sail-logo" variant='h2' algin='center' >SAIL</Typography>
       {/* <h1 class="sail-logo">SAIL</h1> */}
-      <h1> April 8th 2023 </h1>
-      <div className='info'>
-
-          <p >
+      <div style={{paddingTop: "25em"}} className='info'>
+          {/* <p style={{paddingLeft}}>
             Welcome to Illinois Computer Science Sail!
             We are an entirely student-run organization that hosts an annual event where
             high schoolers have the chance to experience what it is like to be a computer science student
             at the University of Illinois at Urbana-Champaign.
-          </p>
+          </p> */}
+          <Paper sx = {{
+            // laptop: {
+            marginLeft: "15em",
+            marginRight: "15em",
+            marginTop: "2em",
+            marginBottom: "10em",
+            padding: "2em",
+            backgroundColor: '#C0FDFB',
+            // },
+            // desktop: {
+            // marginLeft: "15em",
+            // marginRight: "15em",
+            // marginTop: "4em",
+            // marginBottom: "15em",
+            // padding: "2em",
+            // backgroundColor: '#C0FDFB',
+            // },
+            // tablet: {
+            // marginLeft: "10em",
+            // marginRight: "10em",
+            // marginTop: "2em",
+            // marginBottom: "10em",
+            // padding: "2em",
+            // backgroundColor: '#C0FDFB',
+            // },
+            // mobile: {
+            // marginLeft: "5em",
+            // marginRight: "5em",
+            // marginTop: "2em",
+            // marginBottom: "10em",
+            // padding: "2em",
+            // backgroundColor: '#C0FDFB',
+            // },
+
+            }}>
+              <Typography variant='h4' algin='center'>Welcome to SAIL</Typography>
+              <Typography variant='body2' algin='center'>
+              Welcome to Illinois Computer Science Sail!
+              We are an entirely student-run organization that hosts an annual event where
+              high schoolers have the chance to experience what it is like to be a computer science student
+              at the University of Illinois at Urbana-Champaign.
+              </Typography>
+          </Paper>
           </div>
-        <a href="">
+        {/* <a href="">
           <button className = "button"> Interest From </button>
         </a>
         <a href="">
@@ -38,7 +76,7 @@ function Home() {
         </a>
         
       <Typography variant='h3'  algin='center'>Contact SAIL</Typography>
-      <p>Google Form Link?</p>
+      <p>Google Form Link?</p> */}
       </div>
       {/* <div className="section-about"> */}
       <Typography variant='h3' alginItem='center'>About SAIL</Typography>
