@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'sail2023.wsgi.application'
 # django.db.backends.mysql
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
-        'NAME': os.environ['NAME'],
-        'USER': os.environ['USER'],
-        'PASSWORD': os.environ['PASSWORD'],
+        # 'NAME': os.environ['NAME'],
+        # 'USER': os.environ['USER'],
+        # 'PASSWORD': os.environ['PASSWORD'],
     }
 }
 

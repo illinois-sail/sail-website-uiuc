@@ -11,7 +11,6 @@ class SailUser(AbstractUser):
     last_name = models.CharField(max_length=128)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     TEACHER = 'Teacher'
     STUDENT = 'Student'
@@ -24,6 +23,7 @@ class SailUser(AbstractUser):
     role = models.CharField(max_length=10, 
                             choices=ROLE_CHOICES, 
                             null=True)
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'role']
     
     signed_participant_form = models.BooleanField(default=False)
     signed_photo_form = models.BooleanField(default=False)
