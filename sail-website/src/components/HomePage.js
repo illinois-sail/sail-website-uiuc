@@ -1,7 +1,9 @@
 import React from 'react';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Home from './Home';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+// import { width } from '@mui/system';
 
 
 // const styles = ({
@@ -14,32 +16,58 @@ import Home from './Home';
 //     }
 // });
 
+const theme = createTheme({
+    breakpoints: {
+        values: {
+            mobile: 0,
+            tablet: 768,
+            laptop: 1024,
+            desktop: 1280,
+        },
+    },
+});
+
 function HomePage() {
             // <Paper style={styles.paperContainer}>
             // </Paper>
             return (
+                <ThemeProvider theme={theme}>
             <Box
                 sx={{
-                    backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/02b599be355b6696dbba7233a59d04d0d8924a24/sail-website/src/landing_option_3.svg"})`,
+                    backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/fd91ec28aef31ddc27c219a6e000190e8bff2eed/sail-website/src/landing_with_title.svg"})`,
                     backgroundSize: 'cover',
                     // backgroundColor: '#C0FDFB',
                     // resizeMode: "stretch",
-                    width: '100%',
+                    // margin: 10,
+                    // width: '100%',
                     // minHeight: '100vh',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center center',
                     // backgroundAttachment: 'fixed',
                     // flexGrow: 1,
                     // overflow: 'hidden',
-                height: '1000px',
+                    // maxWidth: '100%',
+                    // height: 'auto',
+                height: {
+                    mobile: '100px',
+                    tablet: '500px',
+                    laptop: '1000px',
+                    desktop: '1000px',
+                },
                 // width: '7680px',
                 animation: 'slide 3s linear infinite',
+                width: {
+                    mobile: '100%',
+                    tablet: '100%',
+                    laptop: '100%',
+                    desktop: '100%',
+                }
             }}
             
             >
             <Home />
             </Box>
-
+</ThemeProvider>
             
             );
 }
