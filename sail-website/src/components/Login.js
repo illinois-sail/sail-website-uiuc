@@ -25,6 +25,15 @@ export default function SignUp() {
   };
 
   return (
+    <Box  sx= {
+      {
+        backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Modern%20Game%20Club%20Basketball%20Sport%20Logo(3)%202.png"})`,
+        backgroundColor: '#FAD4C0',
+        width: '100%',
+        height: '100vh',
+        backgroundSize: 'cover',
+      }
+    }>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -104,5 +113,6 @@ export default function SignUp() {
           </Box>
         </Box>
       </Container>
+      </Box>
   );
 }

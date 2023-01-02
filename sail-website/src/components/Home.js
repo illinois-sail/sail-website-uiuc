@@ -28,7 +28,7 @@ function Home() {
             marginTop: "2em",
             marginBottom: "10em",
             padding: "2em",
-            backgroundColor: '#C0FDFB',
+            backgroundColor: 'transparent',
             // },
             // desktop: {
             // marginLeft: "15em",
@@ -57,7 +57,7 @@ function Home() {
 
             }}>
               <Typography variant='h4' algin='center'>Welcome to SAIL</Typography>
-              <Typography variant='body2' algin='center'>
+              <Typography variant='body1' algin='center'>
               Welcome to Illinois Computer Science Sail!
               We are an entirely student-run organization that hosts an annual event where
               high schoolers have the chance to experience what it is like to be a computer science student

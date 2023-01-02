@@ -1,8 +1,9 @@
 import React from 'react';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Home from './Home';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
+// import { width } from '@mui/system';
 
 
 // const styles = ({
@@ -45,6 +46,8 @@ function HomePage() {
                     // backgroundAttachment: 'fixed',
                     // flexGrow: 1,
                     // overflow: 'hidden',
+                    // maxWidth: '100%',
+                    // height: 'auto',
                 height: {
                     mobile: '100px',
                     tablet: '500px',
