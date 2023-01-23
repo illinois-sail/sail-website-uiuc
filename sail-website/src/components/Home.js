@@ -5,7 +5,7 @@ import Question from './Questions';
 
 import { Paper } from '@mui/material';
 import Box from "@mui/material/Box";
-import beachHut from '../surf_hut.png'
+import beachHut from '../about_hut.png'
 import './Home.css'
 
 
@@ -83,12 +83,14 @@ function Home() {
       <Box
                 sx={{
                   display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-                  mx: 5,
+                  ml: 5,
                   alignItems: 'center',
                 }}
             >
                 <Question />
-                <img src={beachHut} alt='beach hut' />
+                <img sx={{
+                  p:3,
+                }}src={beachHut} alt='beach hut' />
             </Box>
       
       {/* </div> */}
