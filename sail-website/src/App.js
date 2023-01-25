@@ -1,6 +1,8 @@
 import './App.css';
 import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
+//import React from '/react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import HomePage from './components/HomePage';
 import Home from './components/Home';
 import Typography from '@mui/material/Typography';
