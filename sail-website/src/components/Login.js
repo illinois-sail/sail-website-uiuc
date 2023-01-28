@@ -133,7 +133,7 @@ const Login = () => {
 //   //is authenticated? 
 // })
 //THE PROBLEM IS HERE
-//export default connect(null, {})(Login);
+// export default connect(null, {})(Login);
 export default Login; 
 
 // export default function SignUp() {
