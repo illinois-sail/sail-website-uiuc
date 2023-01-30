@@ -8,7 +8,7 @@ import ResetPasswordConfirm from "./ResetPasswordConfirm";
 import Activate from "./Activate"
 import {Provider} from 'react-redux';
 import store from './store';
-import Layout from './layout';  
+import Layout from './Layout';  
 
 function AppRouter() {
   return (

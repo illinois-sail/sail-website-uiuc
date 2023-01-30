@@ -18,7 +18,7 @@ import ResetPasswordConfirm from "./components/ResetPasswordConfirm";
 import Activate from "./components/Activate"
 import {Provider} from 'react-redux';
 import store from './components/store';
-import Layout from './components/layout';  
+import Layout from './components/Layout';  
 
 
 
