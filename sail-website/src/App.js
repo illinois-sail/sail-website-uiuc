@@ -15,10 +15,12 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import ResetPassword from "./components/ResetPassword";
 import ResetPasswordConfirm from "./components/ResetPasswordConfirm";
-import Activate from "./components/Activate";
-import { Provider } from "react-redux";
-import store from "./components/store";
-import Layout from "./components/Layout";
+import Activate from "./components/Activate"
+import {Provider} from 'react-redux';
+import store from './components/store';
+import Layout from './components/Layout';  
+
+
 
 function App() {
   return (
