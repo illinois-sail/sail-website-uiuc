@@ -79,7 +79,7 @@ function Home() {
       <p>Google Form Link?</p> */}
       </div>
       {/* <div className="section-about"> */}
-      <Typography variant='h3' alginItem='center'>About SAIL</Typography>
+      <Typography variant='h3' align='center'>About SAIL</Typography>
       <Box
                 sx={{
                   display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
