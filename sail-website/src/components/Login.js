@@ -119,8 +119,7 @@ export default function SignUp() {
     //   </Box>
 
     // Temporary Template
-    <Container component="main" maxWidth="m">
-      <CssBaseline />
+    <div style={{ backgroundColor: '#FAD4C0', height: '100vh' }}>
       <Box
         sx={{
           marginTop: 40,
@@ -129,10 +128,10 @@ export default function SignUp() {
           alignItems: "center",
         }}
       >
-        <Typography align="center" component="h1" variant="h5">
+        <Typography style={{ fontFamily: 'Cambria'}} align="center" variant="h4">
           Coming Soon!
         </Typography>
       </Box>
-    </Container>
+    </div>
   );
 }
