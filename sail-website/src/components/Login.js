@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 //backend code from django_React_login
 import {connect} from 'react-redux'; 
-import {Link, Redirect} from 'react-router-dom'; 
+import {Redirect} from 'react-router-dom'; //removed link from this
 import {useState} from 'react';
 
 
@@ -169,5 +169,6 @@ const Login = () => {
   );
 }
 
+export default Login;
 //backend code from react-django-login
 // export default connect(null, {})(Login);
