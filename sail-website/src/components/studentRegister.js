@@ -36,6 +36,15 @@ export default function Register() {
   
 
   return (
+    <Box  sx= {
+      {
+        backgroundColor: '#FAD4C0',
+        width: '100%',
+        height: '100%',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'repeat',
+      }
+    }>
       <Container component="main">
         <CssBaseline />
         <Box
@@ -167,7 +176,7 @@ export default function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body1">
+                <Link href="/login" variant="body1">
                   Already have an account? Log in!
                 </Link>
               </Grid>
@@ -175,5 +184,6 @@ export default function Register() {
           </Box>
         </Box>
       </Container>
+    </Box>
   );
 }
