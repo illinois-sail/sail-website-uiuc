@@ -7,29 +7,6 @@ import Button from "@mui/material/Button";
 
 function RegisterMain() {
   return (
-    // <Container component="main" maxWidth="m">
-    //   <CssBaseline />
-    //   <Box
-    //     sx={{
-    //       marginTop: 40,
-    //       display: "flex",
-    //       flexDirection: "column",
-    //       alignItems: "center",
-    //     }}
-    //   >
-    //     <Typography alignItems="center" component="h1" variant="h5">
-    //         Register for an account!
-    //     </Typography>
-    //       <Button href="http://localhost:3000/student">
-    //             Student Registration
-    //         </Button>
-    //         <Button href="http://localhost:3000/teacher">
-    //             Teacher Registration
-    //         </Button>
-    //   </Box>
-    // </Container>
-
-    // Temporary Template
     <div style={{ backgroundColor: '#FAD4C0', height: '100vh' }}>
       <Box
         sx={{
@@ -39,9 +16,15 @@ function RegisterMain() {
           alignItems: "center",
         }}
       >
-        <Typography style={{ fontFamily: 'Cambria'}} align="center" variant="h4">
-          Coming Soon!
+        <Typography alignItems="center" component="h1" variant="h5">
+            Register for an account!
         </Typography>
+          <Button href="/student">
+                Student Registration
+            </Button>
+            <Button href="/teacher">
+                Teacher Registration
+            </Button>
       </Box>
     </div>
   );

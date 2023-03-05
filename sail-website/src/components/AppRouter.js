@@ -13,11 +13,10 @@ import Student from "./studentRegister";
 import Teacher from "./teacherRegister";
 import Success from "./successPage";
 
-function AppRouter() {
+const AppRouter = () => {
   return (
     //PROBLEM WITH PROVIDER
-    //<Provider store ={store}>
-    <>
+    // <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -35,8 +34,7 @@ function AppRouter() {
           <Route path="/activate/:uid/:token" element={<Activate />} />
         </Routes>
       </BrowserRouter>
-    </>
-    //</Provider>
+    // </Provider>
   );
 }
 export default AppRouter;
