@@ -7,12 +7,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function SimpleAccordion() {
   return (
-    <div>
+    <div >
       <Accordion
         disableGutters
         sx={
           {
-            //backgroundColor: '#FAD4C0',
+            backgroundColor: "#64b6ac",
           }
         }
       >
@@ -25,7 +25,7 @@ export default function SimpleAccordion() {
             variant="h5"
             style={{ fontFamily: 'Cambria' }}
             sx={{
-              color: "#1D4E89",
+              color: "#c0fdfb",
             }}
           >
             {" "}
@@ -42,7 +42,12 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion disableGutters
+      sx={
+        {
+          backgroundColor: "#64b6ac",
+        }
+      }>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -51,7 +56,7 @@ export default function SimpleAccordion() {
           <Typography
             variant="h5"
             sx={{
-              color: "#1D4E89",
+              color: "#c0fdfb",
             }}
             style={{ fontFamily: 'Cambria' }}
           >
@@ -66,7 +71,12 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion disableGutters
+      sx={
+        {
+          backgroundColor: "#64b6ac",
+        }
+      }>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -75,7 +85,7 @@ export default function SimpleAccordion() {
           <Typography
             variant="h5"
             sx={{
-              color: "#1D4E89",
+              color: "#c0fdfb",
             }}
             style={{ fontFamily: 'Cambria' }}
           >
@@ -90,7 +100,12 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion disableGutters
+      sx={
+        {
+          backgroundColor: "#64b6ac",
+        }
+      }>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -99,7 +114,7 @@ export default function SimpleAccordion() {
           <Typography
             variant="h5"
             sx={{
-              color: "#1D4E89",
+              color: "#c0fdfb",
             }}
             style={{ fontFamily: 'Cambria' }}
           >
@@ -114,7 +129,12 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion disableGutters
+      sx={
+        {
+          backgroundColor: "#64b6ac",
+        }
+      }>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -123,7 +143,7 @@ export default function SimpleAccordion() {
           <Typography
             variant="h5"
             sx={{
-              color: "#1D4E89",
+              color: "#c0fdfb",
             }}
             style={{ fontFamily: 'Cambria' }}
           >
@@ -134,7 +154,12 @@ export default function SimpleAccordion() {
           <Typography style={{ fontFamily: 'Cambria' }}>YES! And no worries, food will be provided!</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion disableGutters
+      sx={
+        {
+          backgroundColor: "#64b6ac",
+        }
+      }>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -143,7 +168,7 @@ export default function SimpleAccordion() {
           <Typography
             variant="h5"
             sx={{
-              color: "#1D4E89",
+              color: "#c0fdfb",
             }}
             style={{ fontFamily: 'Cambria' }}
           >
