@@ -19,7 +19,8 @@ class StudentSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = SailUser
         fields = (
-            'email', 'first_name', 'last_name',
+            'email'
+            # 'email', 'first_name', 'last_name',
             #  'role',
         #  'signed_participant_form', 'signed_photo_form', 
         )

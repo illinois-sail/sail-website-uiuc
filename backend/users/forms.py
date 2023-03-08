@@ -1,15 +1,29 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import SailUser, Teacher, Student, Follower
-
+from django import forms
+from authtools.forms import UserCreationForm
+    
 class SailUserCreationForm(UserCreationForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
-
+    password1 = forms.CharField(required=False, widget=forms.PasswordInput)
+    password2 = forms.CharField(required=False, widget=forms.PasswordInput)
+    # class Meta:
+    #     model = SailUser
+    #     fields = ['email', 'first_name', 'last_name', 'password1', 'password2']
     class Meta:
         model = SailUser
-        fields = ['email', 'first_name', 'last_name', 'password1', 'password2']
-
+        fields = ['email', 'first_name', 'last_name', 'gender_identification', 'dietary_restrictions', 'shirt_size', 
+                    'home_city', 'home_state', 'home_zip_code', 'high_school', 'year_in_school', 
+                    'phone_number', 'parent_name', 'parent_phone_number',
+                    'parent_email', 'admitted_student', 'parent_attending']
+        help_texts = {
+            'dietary_restrictions': "Describe any dietary restrictions you have. Leave blank if you don't have any.",
+            'home_state': "Enter the two-letter abbreviation for your state, in all caps. Leave blank if not in the U.S.",
+            'parent_attending': "Enter Yes if your parent is attending the SAIL parent session.",
+        }
+        
 class SailUserUpdateForm(forms.ModelForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
@@ -30,10 +44,11 @@ class StudentCreationForm(forms.ModelForm):
         fields = ['gender_identification', 'dietary_restrictions', 'shirt_size', 
                   'home_city', 'home_state', 'home_zip_code', 'high_school', 'year_in_school', 
                   'phone_number', 'parent_name', 'parent_phone_number',
-                  'parent_email', 'admitted_student']
+                  'parent_email', 'admitted_student', 'parent_attending']
         help_texts = {
             'dietary_restrictions': "Describe any dietary restrictions you have. Leave blank if you don't have any.",
-            'home_state': "Enter the two-letter abbreviation for your state, in all caps. Leave blank if not in the U.S."
+            'home_state': "Enter the two-letter abbreviation for your state, in all caps. Leave blank if not in the U.S.",
+            'parent_attending': "Enter Yes if your parent is attending the SAIL parent session.",
         }
         exclude = ('user',) # We exclude 'user' because we automatically associate this Student with a SailUser (see register_student() in views.py)
 

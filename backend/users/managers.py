@@ -4,9 +4,9 @@ from django.utils.translation import gettext_lazy as _
 # Credits for UserManager and User 
 # to https://www.fomfus.com/articles/how-to-use-email-as-username-for-django-authentication-removing-the-username
 
+
 class SailUserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
-
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
@@ -36,3 +36,4 @@ class SailUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
 
         return self._create_user(email, password, **extra_fields)
+

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,12 +56,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'sail2023.urls'
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
+APPEND_SLASH=False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -87,7 +91,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-
+        # 'ENGINE': 'django.db.backends.mysql',
         # 'NAME': os.environ['NAME'],
         # 'USER': os.environ['USER'],
         # 'PASSWORD': os.environ['PASSWORD'],
@@ -151,17 +155,17 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_PWD']
 
 DJOSER = {
     'LOGIN_FIELD': 'email',
-    'USER_CREATE_PASSWORD_RETYPE': True,
-    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    # 'USER_CREATE_PASSWORD_RETYPE': True,
+    # 'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+    # 'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
     'SEND_CONFIRMATION_EMAIL':True,
-    'SET_PASSWORD_RETYPE':True,
-    'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
-    'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': 'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
+    # 'SET_PASSWORD_RETYPE':True,
+    # 'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
+    # 'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+    # 'ACTIVATION_URL': 'activate/{uid}/{token}',
+    # 'SEND_ACTIVATION_EMAIL': True,
     'EMAIL': {
-        'activation': 'users.email.CustomActivationEmail',
+        # 'activation': 'users.email.CustomActivationEmail',
         'confirmation':'users.email.CustomConfirmationEmail'
     },
     'SERIALIZERS': {
