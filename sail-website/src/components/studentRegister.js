@@ -70,36 +70,108 @@ const Register = () => {
   const onChangeForm = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmitForm = (e) => {
-    e.preventDefault();
-    if (password !== confirmpassword) {
-      alert("Passwords do not match");
-    } else {
-      console.log(formData);
-      setFormData({
-      email: "",
-      password: "",
-      firstName: "",
-      lastName: "",
-      confirmpassword: "",
-      state: "",
-      city: "",
-      zip: "",
-      gender: "",
-      dietary_restrictions: "",
-      shirt_size: "",
-      high_school: "",
-      year_in_school: "",
-      phone_number: "",
-      parent_name: "",
-      parent_phone_number: "",
-      parent_email: "",
-      admitted_student: "",
-      parent_attending: false,
-      });
-    }
+    const onSubmitForm = (e) => {
+      e.preventDefault();
+    
+      if (password !== confirmpassword) {
+        alert("Passwords do not match");
+      } else {
+        const userData = {
+          email,
+          password,
+          first_name: firstName,
+          last_name: lastName,
+          state: state,
+          city: city,
+          zip: zip,
+          gender: gender,
+          dietary_restrictions: dietary_restrictions,
+          shirt_size: shirt_size,
+          high_school: high_school,
+          year_in_school: year_in_school,
+          phone_number: phone_number,
+          parent_name:parent_name,
+          parent_phone_number:parent_phone_number,
+          parent_email:parent_email,
+          admitted_student:admitted_student,
+          parent_attending:parent_attending,
 
-  };
+        };
+    
+        fetch("http://127.0.0.1:8000/auth/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log("New user created:", data);
+          })
+          .catch((error) => {
+            console.error("Error creating user:", error);
+            
+          });
+    
+        setFormData({
+          email: "",
+          password: "",
+          firstName: "",
+          lastName: "",
+          confirmpassword: "",
+          state: "",
+          city: "",
+          zip: "",
+          gender: "",
+          dietary_restrictions: "",
+          shirt_size: "",
+          high_school: "",
+          year_in_school: "",
+          phone_number: "",
+          parent_name: "",
+          parent_phone_number: "",
+          parent_email: "",
+          admitted_student: "",
+          parent_attending: false,
+        });
+      }
+    };    
+  // const onSubmitForm = (e) => {
+  //   e.preventDefault();
+  //   if (password !== confirmpassword) {
+  //     alert("Passwords do not match");
+  //   } else {
+  //     console.log(formData);
+  //     setFormData({
+  //     email: "",
+  //     password: "",
+  //     firstName: "",
+  //     lastName: "",
+  //     confirmpassword: "",
+  //     state: "",
+  //     city: "",
+  //     zip: "",
+  //     gender: "",
+  //     dietary_restrictions: "",
+  //     shirt_size: "",
+  //     high_school: "",
+  //     year_in_school: "",
+  //     phone_number: "",
+  //     parent_name: "",
+  //     parent_phone_number: "",
+  //     parent_email: "",
+  //     admitted_student: "",
+  //     parent_attending: false,
+  //     });
+  //   }
+
+  // };
 
   return (
     <Box

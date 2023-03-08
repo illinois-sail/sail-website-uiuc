@@ -37,6 +37,7 @@ sqlparse = "==0.4.3"
 tzdata = "==2022.7"
 uritemplate = "==4.1.1"
 urllib3 = "==1.26.13"
+packaging = "==21.3"
 
 [dev-packages]
 
