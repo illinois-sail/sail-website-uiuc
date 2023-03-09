@@ -41,7 +41,7 @@ export default function Register() {
 
   return (
       <Container component="main">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 8,

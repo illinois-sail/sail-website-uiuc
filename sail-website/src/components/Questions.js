@@ -17,7 +17,7 @@ export default function SimpleAccordion() {
           id="panel1a-header"
         >
           <Typography variant='h5' sx={{
-                  color: '#1D4E89',
+                  //color: '#1D4E89',
                 }}> What is Sail?</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -33,7 +33,7 @@ export default function SimpleAccordion() {
           id="panel2a-header"
         >
           <Typography variant='h5' sx={{
-                  color: '#1D4E89',
+                  //color: '#1D4E89',
                 }}>How do I sign up?</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -49,7 +49,7 @@ export default function SimpleAccordion() {
           id="panel2a-header"
         >
           <Typography variant='h5'sx={{
-                  color: '#1D4E89',
+                  //color: '#1D4E89',
                 }}>Who is Sail for?</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -65,12 +65,12 @@ export default function SimpleAccordion() {
           id="panel2a-header"
         >
           <Typography variant='h5'sx={{
-                  color: '#1D4E89',
+                  //color: '#1D4E89',
                 }}>Will Sail be virtual or in-person this year?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          /?DATE? will be a virtual IDEAthon, and we will have a combination of virtual and in-person activities on Saturday, April 2nd. Students attending virtually will be at no disadvantage.
+          April 8th will be a virtual IDEAthon, and we will have a combination of virtual and in-person activities on Saturday, April 9th. Students attending virtually will be at no disadvantage.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -81,7 +81,7 @@ export default function SimpleAccordion() {
           id="panel2a-header"
         >
           <Typography variant='h5'sx={{
-                  color: '#1D4E89',
+                  //color: '#1D4E89',
                 }}>Is Sail free to attend?</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -97,7 +97,7 @@ export default function SimpleAccordion() {
           id="panel2a-header"
         >
           <Typography variant='h5'sx={{
-                  color: '#1D4E89',
+                  //color: '#1D4E89',
                 }}>Other questions?</Typography>
         </AccordionSummary>
         <AccordionDetails>

@@ -35,7 +35,7 @@ export default function SignUp() {
       }
     }>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 8,
@@ -44,7 +44,7 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1 }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">

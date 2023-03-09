@@ -57,7 +57,7 @@ function Home() {
 
             }}>
               <Typography variant='h4' algin='center'>Welcome to SAIL</Typography>
-              <Typography variant='body1' algin='center'>
+              <Typography variant='h5' algin='center'>
               Welcome to Illinois Computer Science Sail!
               We are an entirely student-run organization that hosts an annual event where
               high schoolers have the chance to experience what it is like to be a computer science student
@@ -77,19 +77,22 @@ function Home() {
         
       <Typography variant='h3'  algin='center'>Contact SAIL</Typography>
       <p>Google Form Link?</p> */}
+      <Typography variant='h3' algin='center' sx={{
+                  pb: 1,
+                }}>About SAIL</Typography>
       </div>
       {/* <div className="section-about"> */}
-      <Typography variant='h3' alginItem='center'>About SAIL</Typography>
+      {/* <Typography variant='h3' algin='center'>About SAIL</Typography> */}
       <Box
                 sx={{
                   display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-                  ml: 5,
+                  mx: 5,
                   alignItems: 'center',
                 }}
             >
                 <Question />
                 <img sx={{
-                  p:3,
+                  pr:3,
                 }}src={beachHut} alt='beach hut' />
             </Box>
       

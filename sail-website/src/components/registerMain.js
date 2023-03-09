@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 function RegisterMain() {
     return (
         <Container component="main" maxWidth="m">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 40,
