@@ -58,14 +58,14 @@ function Home() {
           >
             <Typography
               variant="h3"
-              style={{ fontFamily: "Cambria" }}
+              style={{ fontFamily: "Monteserrat", fontWeight: "bold", color: "#063970" }}
               algin="center"
             >
               Welcome to Sail 2023!
             </Typography>
             <Typography
               variant="body1"
-              style={{ fontFamily: "Cambria" }}
+              style={{ fontFamily: "Monteserrat" }}
               algin="center"
             >
               Welcome to Illinois Computer Science Sail! We are an entirely

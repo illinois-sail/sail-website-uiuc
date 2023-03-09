@@ -16,13 +16,10 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  // add these fields below to the form
-  // ['gender', 'dietary_restrictions', 'shirt_size',
-  //'home_city', 'home_state', 'home_zip_code', 'high_school', 'year_in_school',
-  //'phone_number', 'parent_name', 'parent_phone_number',
-  //'parent_email', 'admitted_student', 'parent_attending']
+  const navigate = useNavigate("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -97,7 +94,7 @@ const Register = () => {
     } else {
       const userData = {
         email: email,
-        password: 'defaultUserPassword',
+        password: "defaultUserPassword",
         // re_password: '',
         first_name: firstName,
         last_name: lastName,
@@ -126,19 +123,15 @@ const Register = () => {
       })
         .then((response) => {
           if (!response.ok) {
-            // format response output to frontend in alert
-            alert(
-              "Error registering user. Please try again. If the problem persists, please contact us at sail.cs.illinois.gmail.com."
-            );
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
         .then((data) => {
-          console.log("New user created:", data);
           alert(
             "Registration Successful! Please check your email for registration confirmation."
           );
+          navigate("/home");
           setFormData({
             email: "",
             password: "",
@@ -162,7 +155,9 @@ const Register = () => {
           });
         })
         .catch((error) => {
-          console.error("Error creating user:", error);
+          alert(
+            "Registration Failed. It's possible you may have already registered before. If you did not receive an confirmation email, please contact us at sail.cs.illinois@gmail.com"
+          );
         });
     }
   };
@@ -204,6 +199,7 @@ const Register = () => {
                   value={firstName}
                   onChange={onChangeForm}
                   autoFocus
+                  inputProps={{ maxLength: 128 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -216,6 +212,7 @@ const Register = () => {
                   value={lastName}
                   onChange={onChangeForm}
                   autoComplete="family-name"
+                  inputProps={{ maxLength: 128 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -278,12 +275,13 @@ const Register = () => {
                   required
                   fullWidth
                   name="state"
-                  label="Home State"
+                  label="Home State (2 Letter Abbreviation)"
                   type="state"
                   id="state"
                   autoComplete="state"
                   value={state}
                   onChange={onChangeForm}
+                  inputProps={{ maxLength: 2 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -297,6 +295,7 @@ const Register = () => {
                   autoComplete="city"
                   value={city}
                   onChange={onChangeForm}
+                  inputProps={{ maxLength: 50 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -310,6 +309,7 @@ const Register = () => {
                   autoComplete="zip code"
                   value={zip}
                   onChange={onChangeForm}
+                  inputProps={{ maxLength: 15 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -323,6 +323,7 @@ const Register = () => {
                   autoComplete="high_school"
                   value={high_school}
                   onChange={onChangeForm}
+                  inputProps={{ maxLength: 50 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -338,8 +339,8 @@ const Register = () => {
                     label="Admitted to UIUC"
                     onChange={onChangeForm}
                   >
-                    <MenuItem value={"Yes"}>Yes</MenuItem>
-                    <MenuItem value={"No"}>No</MenuItem>
+                    <MenuItem value={true}>Yes</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -374,6 +375,7 @@ const Register = () => {
                   autoComplete="phone_number"
                   value={phone_number}
                   onChange={onChangeForm}
+                  inputProps={{ maxLength: 20 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -387,6 +389,7 @@ const Register = () => {
                   autoComplete="parent_name"
                   value={parent_name}
                   onChange={onChangeForm}
+                  inputProps={{ maxLength: 100 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -402,10 +405,10 @@ const Register = () => {
                     label="Parent Attending Sail Parent Session"
                     onChange={onChangeForm}
                   >
-                    <MenuItem value={"Yes"}>
+                    <MenuItem value={true}>
                       Yes, my parent will be attending the Sail Parent Session
                     </MenuItem>
-                    <MenuItem value={"No"}>No</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -446,6 +449,7 @@ const Register = () => {
                   autoComplete="dietary_restrictions"
                   value={dietary_restrictions}
                   onChange={onChangeForm}
+                  inputProps={{ maxLength: 250 }}
                 />
               </Grid>
               <Grid item xs={12}>
