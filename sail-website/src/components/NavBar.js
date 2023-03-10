@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import '../fonts.css';
+import { ReactComponent as Plane } from "./paper-plane-small.svg";
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Register', 'Login'];
