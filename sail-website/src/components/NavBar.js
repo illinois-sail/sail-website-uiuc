@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import '../fonts.css';
-import { ReactComponent as Plane } from "./paper-plane-small.svg";
+import Plane from "./paper-plane-small.png";
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Register', 'Login'];
@@ -69,6 +69,7 @@ function NavBar(props) {
     >
       SAIL
     </Typography>
+    {/* <img src={Plane} alt="Paper Plane" styles={{width: '10px', height:'10px'}} /> */}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff',fontFamily: 'sergiotrendy',fontSize:20 }} href={`/${item}`}>
