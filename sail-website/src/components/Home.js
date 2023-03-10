@@ -199,25 +199,20 @@ function Home() {
         About Sail
       </Typography>
       <Hidden smDown>
-      <Box item xs={12} sm={6}
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          ml: 5,
-          alignItems: "center",
-          // marginTop: '-2em'
-        }}
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ marginTop:'0.5em'}}
       >
-        <Question />
-        
-        <img
-          sx={{
-            p: 3,
-          }}
-          src={beachHut}
-          alt="beach hut"
-        />
-      </Box>
+
+      <Grid item xs={3}style={{ width: '50%' }}>
+        <Question/>
+      </Grid>   
+   
+    </Grid> 
       </Hidden>
       <Hidden smUp>
         <Box sx={{
