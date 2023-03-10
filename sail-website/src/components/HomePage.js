@@ -11,6 +11,7 @@ import tablet from "./Tablet.png";
 import desktop from "./Desktop.png";
 import { makeStyles } from "@material-ui/core/styles";
 import mn from "./Mobile_new.png";
+import mns from "./mobile_new_star.png";
 import Footer from "./Footer";
 
 // const styles = ({
@@ -41,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundSize: "cover", // Scale the background image to cover the entire container
     backgroundPosition: "center", // Center the background image within the container
+    // no repeat
+    background: "no-repeat",
     //   backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Mobile.png')`, // Set the background image for mobile devices by default
     //   [theme.breakpoints.up('tablet')]: {
     //     backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Tablet.png')`, // Set the background image for tablets and larger screens
@@ -48,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     //   [theme.breakpoints.up('desktop')]: {
     //     backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Desktop.png')`, // Set the background image for desktop screens
     //   },
-    backgroundImage: `url(${mn})`, // Set the background image for mobile devices by default
+    backgroundImage: `url(${mns})`, // Set the background image for mobile devices by default
     //   [theme.breakpoints.up('sm')]: {
     //     backgroundImage: `url(${tablet})`, // Set the background image for tablets and larger screens
     //   },
@@ -58,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HomePage() {
+const HomePage = () => {
   // <Paper style={styles.paperContainer}>
   // </Paper>
   const classes = useStyles();
@@ -93,6 +96,6 @@ function HomePage() {
       <Footer />
     </div>
   );
-}
+};
 
 export default HomePage;

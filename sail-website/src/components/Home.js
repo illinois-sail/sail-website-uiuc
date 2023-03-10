@@ -15,7 +15,8 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
 import Hidden from "@mui/material/Hidden";
 import "../fonts.css";
-import { ReactComponent as YourSvg } from "./paper-plane-small.svg";
+import { ReactComponent as Plane } from "./paper-plane-small.svg";
+import { ReactComponent as CloudOutline } from "./cloud-outline.svg";
 
 const theme = createTheme({
   typography: {
@@ -62,49 +63,71 @@ function Home() {
     <div className="homepage">
       {/* <h1 class="sail-logo">SAIL</h1> */}
       <ThemeProvider theme={theme}>
-        <YourSvg />
-        <Typography
-          variant="h1"
-          style={{
-            fontFamily: "sergiotrendy",
-            fontStyle: "",
-            marginTop: "0.3em",
-          }}
-          color="#64b6ac"
-        >
-          SAIL 2023
-        </Typography>
+        <div style={{ paddingTop: "2.5%" }}>
+          <Paper
+            sx={{
+              width: "25%",
+              alignItems: "center",
+              marginBottom: "2.5%",
+              marginLeft: "37.5%",
+              marginRight: "37.5%",
+              backgroundColor: "transparent",
+              boxShadow: "0 10px 10px rgba(0, 0, 0, 0.25)",
+              border: "10px solid #64b6ac",
+              borderRadius: "20%",
+            }}
+          >
+            <Plane style={{ scale: "0.8" }} />
+            <Typography
+              variant="h3"
+              style={{
+                fontFamily: "sergiotrendy",
+                fontStyle: "",
+                paddingBottom: "0.1em",
+                paddingTop: "0.1em",
+              }}
+              color="#64b6ac"
+            >
+              SAIL 2023
+            </Typography>
+          </Paper>
+        </div>
       </ThemeProvider>
-      <div style={{ marginTop: "0em" }} className="info">
+      <div style={{}} className="info">
         <Paper
           sx={{
             width: "60%",
             // height : "60%",
             // align: "center",
             alignItems: "center",
-            marginTop: "10%",
+            marginTop: "0%",
             marginBottom: "10%",
             marginLeft: "20%",
             marginRight: "20%",
-            backgroundColor: "transparent",
-            // boxShadow: '0 10px 10px rgba(0, 0, 0, 0.15)'
+            backgroundColor: "#64b6ac",
+            boxShadow: "0 10px 10px rgba(0, 0, 0, 0.35)",
             border: "10px solid #64b6ac",
             borderRadius: "20%",
+            // padding: "0.5em 0em"
           }}
         >
           <Typography
             variant="h3"
-            style={{ fontFamily: "Avenir", paddingBottom: "0.2em" }}
+            style={{
+              fontFamily: "sergiotrendy",
+              paddingBottom: "0.2em",
+              color: "white",
+            }}
             algin="center"
             color={"#47827B"}
           >
             Welcome Fellow Sailors!
           </Typography>
           <Typography
-            variant="h5"
-            style={{ fontFamily: "Avenir", paddingBottom: "0.2em" }}
+            variant="h6"
+            style={{ fontFamily: "Cascadia Code", paddingBottom: "0.2em" }}
             algin="center"
-            color={"#47827B"}
+            color={"#376661"}
           >
             This is Illinois Computer Science Sail! We are an entirely
             student-run organization that hosts an annual event where high
