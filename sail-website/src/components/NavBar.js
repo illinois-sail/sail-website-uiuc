@@ -15,7 +15,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import '../fonts.css';
-import Plane from "./paper-plane-small.png";
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Register', 'Login'];
