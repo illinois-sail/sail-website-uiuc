@@ -5,6 +5,8 @@ import Link from '@material-ui/core/Link';
 import { Stack } from '@mui/system';
 import { Button, Grid } from '@mui/material';
 // import Grid from '@mui/material';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import EmailIcon from '@mui/icons-material/Email';
 
 const Footer = () => {
   return (
@@ -26,11 +28,13 @@ const Footer = () => {
       <Stack direction="row" spacing={2}>
             <Button sx={{ fontFamily: 'avenir', backgroundColor:'#FDE5C1', color: '#333' }} variant="contained" href="/student">
               <Link href="'mailto: sail.cs.illinois@gmail.com'" variant="body1" underline='none'>
+                <EmailIcon />
                 <Typography sx={{ fontWeight: 'bold' }} fontFamily='Avenir'>Email</Typography>
               </Link>
             </Button>
             <Button sx={{ backgroundColor:'#FDE5C1', color: '#333' }} variant="contained" href="/teacher">
               <Link sx={{ color: '#fff',  }} href="'https://www.instagram.com/illinois_cs_sail/'" variant="body1" underline='none'>
+                <InstagramIcon />
                 <Typography color="white"   sx={{ fontWeight: 'bold',  }} fontFamily='Avenir'>Instagram</Typography>
               </Link>
             </Button>
