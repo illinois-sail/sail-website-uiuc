@@ -34,11 +34,11 @@ from .models import SailUser, Teacher, Student, Follower
 class SailUserAdmin(DjangoUserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-    #     (_('Personal info'), {'fields': ('first_name', 'last_name', 'gender_identification', 'home_city', 'home_state', 'home_zip_code', 'high_school', 'year_in_school', 'phone_number', 'dietary_restrictions', 'shirt_size')}),
-    #     (_('Parent info'), {'fields': ('parent_name', 'parent_phone_number', 'parent_email', 'parent_attending')}),
-    #     (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
-    #                                    'groups', 'user_permissions')}),
-    #     (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name', 'gender_identification', 'home_city', 'home_state', 'home_zip_code', 'high_school', 'year_in_school', 'phone_number', 'dietary_restrictions', 'shirt_size')}),
+        (_('Parent info'), {'fields': ('parent_name', 'parent_phone_number', 'parent_email', 'parent_attending')}),
+        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
+                                       'groups', 'user_permissions')}),
+        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
 
 
