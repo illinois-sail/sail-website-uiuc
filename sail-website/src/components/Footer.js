@@ -26,16 +26,14 @@ const Footer = () => {
 
       <Grid item xs={3}>
       <Stack direction="row" spacing={2}>
-            <Button sx={{ fontFamily: 'avenir', backgroundColor:'#FDE5C1', color: '#333' }} variant="contained" href="/student">
-              <Link href="'mailto: sail.cs.illinois@gmail.com'" variant="body1" underline='none'>
-                <EmailIcon />
-                <Typography sx={{ fontWeight: 'bold' }} fontFamily='Avenir'>Email</Typography>
+            <Button sx={{backgroundColor:'#64b6ac', color: '#333'}} variant="contained" href="/student">
+              <Link href="mailto: sail.cs.illinois@gmail.com" variant="body1" underline='none'>
+                <EmailIcon style={{color: "white"}}/>
               </Link>
             </Button>
-            <Button sx={{ backgroundColor:'#FDE5C1', color: '#333' }} variant="contained" href="/teacher">
-              <Link sx={{ color: '#fff',  }} href="'https://www.instagram.com/illinois_cs_sail/'" variant="body1" underline='none'>
-                <InstagramIcon />
-                <Typography color="white"   sx={{ fontWeight: 'bold',  }} fontFamily='Avenir'>Instagram</Typography>
+            <Button sx={{ backgroundColor:'#64b6ac', color: '#333' }} variant="contained" href="/teacher">
+              <Link href="https://www.instagram.com/illinois_cs_sail/" variant="body1" underline='none'>
+                <InstagramIcon  style={{color: "white"}}/>
               </Link>
             </Button>
           </Stack>
