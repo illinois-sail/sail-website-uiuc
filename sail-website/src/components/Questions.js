@@ -4,18 +4,16 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import '../fonts.css'
+import "../fonts.css";
 
 export default function SimpleAccordion() {
   return (
-    <div >
+    <div>
       <Accordion
         disableGutters
-        sx={
-          {
-            backgroundColor: "#64b6ac",
-          }
-        }
+        sx={{
+          backgroundColor: "#64b6ac",
+        }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -24,7 +22,7 @@ export default function SimpleAccordion() {
         >
           <Typography
             variant="h5"
-            style={{ fontFamily: 'sergiotrendy' }}
+            style={{ fontFamily: "sergiotrendy" }}
             sx={{
               color: "#fff",
             }}
@@ -34,19 +32,22 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Avenir',color: "#fff",fontSize:20 }}>
-            This year, Sail will be a two-day event. On Saturday, students will have the chance to
-            attend classes taught by current students at UIUC and learn about
-            different computer science topics, as well as life at UIUC. On Sunday, there will be a virtual IDEA-thon.
+          <Typography
+            style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+          >
+            This year, Sail will be a two-day event. On Saturday, students will
+            have the chance to attend classes taught by current students at UIUC
+            and learn about different computer science topics, as well as life
+            at UIUC. On Sunday, there will be a virtual IDEA-thon.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters
-      sx={
-        {
+      <Accordion
+        disableGutters
+        sx={{
           backgroundColor: "#64b6ac",
-        }
-      }>
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -57,25 +58,27 @@ export default function SimpleAccordion() {
             sx={{
               color: "#fff",
             }}
-            style={{ fontFamily: 'sergiotrendy' }}
+            style={{ fontFamily: "sergiotrendy" }}
           >
             How do I sign up?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Avenir',color: "#fff",fontSize:20 }}>
+          <Typography
+            style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+          >
             Students can register and login by clicking the register button on
             the top right corner of the website. Please fill out the information
             so we can get to know you better!
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters
-      sx={
-        {
+      <Accordion
+        disableGutters
+        sx={{
           backgroundColor: "#64b6ac",
-        }
-      }>
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -86,25 +89,27 @@ export default function SimpleAccordion() {
             sx={{
               color: "#fff",
             }}
-            style={{ fontFamily: 'sergiotrendy' }}
+            style={{ fontFamily: "sergiotrendy" }}
           >
             Who is Sail for?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Avenir',color: "#fff",fontSize:20 }}>
+          <Typography
+            style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+          >
             This year, Sail will have activities for high school students, as
             well as their parents! We will have separate tracks for admitted
             students and parents.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters
-      sx={
-        {
+      <Accordion
+        disableGutters
+        sx={{
           backgroundColor: "#64b6ac",
-        }
-      }>
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -115,23 +120,26 @@ export default function SimpleAccordion() {
             sx={{
               color: "#fff",
             }}
-            style={{ fontFamily: 'sergiotrendy' }}
+            style={{ fontFamily: "sergiotrendy" }}
           >
-            Will Sail be virtual or in-person this year?
+            Will Sail be virtual or in person?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Avenir' ,color: "#fff",fontSize:20}}>
-            On April 8th, there will be a in-person day. On April 9th, we will have a virtual IDEAthon and
+          <Typography
+            style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+          >
+            On April 8th, there will be a in-person day. On April 9th, we will
+            have a virtual IDEAthon and
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters
-      sx={
-        {
+      <Accordion
+        disableGutters
+        sx={{
           backgroundColor: "#64b6ac",
-        }
-      }>
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -142,21 +150,25 @@ export default function SimpleAccordion() {
             sx={{
               color: "#fff",
             }}
-            style={{ fontFamily: 'sergiotrendy' }}
+            style={{ fontFamily: "sergiotrendy" }}
           >
             Is Sail free to attend?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Avenir',color: "#fff",fontSize:20 }}>YES! And no worries, food will be provided!</Typography>
+          <Typography
+            style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+          >
+            YES! And no worries, food will be provided!
+          </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters
-      sx={
-        {
+      <Accordion
+        disableGutters
+        sx={{
           backgroundColor: "#64b6ac",
-        }
-      }>
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -167,13 +179,15 @@ export default function SimpleAccordion() {
             sx={{
               color: "#fff",
             }}
-            style={{ fontFamily: 'sergiotrendy' }}
+            style={{ fontFamily: "sergiotrendy" }}
           >
             Other questions?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Avenir',color: "#fff",fontSize:20 }}>
+          <Typography
+            style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+          >
             Please don&apos;t hesitate to contact us at
             cs-sail@lists.cs.illinois.edu. We&apos;ll get back to you as soon as
             possible!

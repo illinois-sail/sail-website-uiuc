@@ -37,11 +37,11 @@ function RegisterMain() {
             Register for an account!
           </Typography>
           <Stack direction="row" spacing={2}>
-            <Button sx={{fontfamily: 'avenir',backgroundColor:'#FDE5C1'}} variant="contained" href="/student">
-            <Typography sx={{ fontWeight: 'bold' }}color='#1d4e89' fontFamily='Avenir'>Student Registration</Typography>
+            <Button sx={{fontfamily: 'avenir',backgroundColor:'#fff00'}} variant="contained" href="/student">
+            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Avenir'>Student Registration</Typography>
             </Button>
-            <Button sx={{backgroundColor:'#FDE5C1'}} variant="contained" href="/teacher">
-            <Typography sx={{ fontWeight: 'bold' }}color='#1d4e89' fontFamily='Avenir'>Teacher Registration</Typography>
+            <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="/teacher">
+            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Avenir'>Teacher Registration</Typography>
             </Button>
           </Stack>
         </Box>

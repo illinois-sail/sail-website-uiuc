@@ -42,7 +42,7 @@ function HomePageNew() {
       <div>
        <div className="homepage">
       {/* <h1 class="sail-logo">SAIL</h1> */}
-      <div style={{paddingTop: "25em"}} className='info'>
+      <div style={{marginTop: "25em"}} className='info'>
           <Paper sx = {{
             // laptop: {
             marginLeft: "15em",

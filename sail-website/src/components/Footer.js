@@ -8,7 +8,7 @@ import { Button } from '@mui/material';
 const Footer = () => {
   return (
     <Box bgcolor="#333" color="#fff" py={4}>
-      <Typography variant="h2" style={{ fontFamily: "sergiotrendy", color:"#64b6ac", paddingTop: '0.3em',  }} align="center">
+      <Typography variant="h2" style={{ fontFamily: "sergiotrendy", color:"#64b6ac", marginTop: '0.3em',  }} align="center">
         Contact Us
       </Typography>
       <Box
