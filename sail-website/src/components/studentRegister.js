@@ -504,7 +504,7 @@ const Register = () => {
               variant="contained"
               sx={{fontfamily: 'avenir',backgroundColor:'#64b6ac',mt: 3, mb: 2}} 
             >
-              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Avenir'>Register</Typography>
+              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Cascadia Code'>Register</Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
