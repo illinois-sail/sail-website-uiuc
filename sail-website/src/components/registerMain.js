@@ -34,15 +34,15 @@ function RegisterMain() {
           }}
         >
           <Typography color='#fff' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 30}}>
-            Register for an account!
+            Register for Sail 2023!
           </Typography>
           <Stack direction="row" spacing={2}>
             <Button sx={{fontfamily: 'avenir',backgroundColor:'#fff00'}} variant="contained" href="/student">
             <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Cascadia Code'>Student Registration</Typography>
             </Button>
-            <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="/teacher">
+            {/* <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="/teacher">
             <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Cascadia Code'>Teacher Registration</Typography>
-            </Button>
+            </Button> */}
           </Stack>
         </Box>
       </Box>

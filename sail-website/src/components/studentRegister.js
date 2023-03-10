@@ -184,7 +184,7 @@ const Register = () => {
           }}
         >
           <Avatar sx={{ m: 1, backgroundColor: '#64b6ac'}}></Avatar>
-          <Typography textAlgin='center' color='#64b6ac' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 50}}>
+          <Typography textAlign='center' color='#64b6ac' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 50}}>
             Student Registration
           </Typography>
           <Box
