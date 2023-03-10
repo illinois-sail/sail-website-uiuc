@@ -18,6 +18,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 
+import "../App.css";
 const Register = () => {
   const navigate = useNavigate("");
   const [formData, setFormData] = useState({
@@ -165,7 +166,7 @@ const Register = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#FAD4C0",
+        backgroundColor: "##FDE5C1",
         width: "100%",
         height: "100%",
         backgroundSize: "cover",
@@ -173,7 +174,7 @@ const Register = () => {
       }}
     >
       <Container component="main">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 8,
@@ -182,11 +183,15 @@ const Register = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
-          <Typography component="h1" variant="h5">
-            Register
+          <Avatar sx={{ m: 1, backgroundColor: '#64b6ac'}}></Avatar>
+          <Typography textAlgin='center' color='#64b6ac' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 50}}>
+            Student Registration
           </Typography>
-          <Box component="form" onSubmit={onSubmitForm} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            onSubmit={onSubmitForm}
+            sx={{ mt: 3}}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -198,6 +203,7 @@ const Register = () => {
                   label="First Name"
                   value={firstName}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                   autoFocus
                   inputProps={{ maxLength: 128 }}
                 />
@@ -213,6 +219,7 @@ const Register = () => {
                   onChange={onChangeForm}
                   autoComplete="family-name"
                   inputProps={{ maxLength: 128 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -225,6 +232,7 @@ const Register = () => {
                   autoComplete="email"
                   value={email}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               {/* <Grid item xs={12}>
@@ -238,6 +246,7 @@ const Register = () => {
                   value={password}
                   onChange={onChangeForm}
                   autoComplete="new-password"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid> */}
               {/* <Grid item xs={12}>
@@ -251,6 +260,7 @@ const Register = () => {
                   value={re_password}
                   onChange={onChangeForm}
                   autoComplete="new-password"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid> */}
               <Grid item xs={12}>
@@ -263,6 +273,7 @@ const Register = () => {
                     value={gender}
                     label="Gender"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"Male"}>Male</MenuItem>
                     <MenuItem value={"Female"}>Female</MenuItem>
@@ -282,6 +293,7 @@ const Register = () => {
                   value={state}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 2 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -296,6 +308,7 @@ const Register = () => {
                   value={city}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 50 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -310,6 +323,7 @@ const Register = () => {
                   value={zip}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 15 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -324,6 +338,7 @@ const Register = () => {
                   value={high_school}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 50 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -338,6 +353,7 @@ const Register = () => {
                     value={admitted_student}
                     label="Admitted to UIUC"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={true}>Yes</MenuItem>
                     <MenuItem value={false}>No</MenuItem>
@@ -356,6 +372,7 @@ const Register = () => {
                     value={year_in_school}
                     label="Year in School"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"Freshman"}>Freshman</MenuItem>
                     <MenuItem value={"Sophomore"}>Sophomore</MenuItem>
@@ -376,6 +393,7 @@ const Register = () => {
                   value={phone_number}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 20 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -390,6 +408,7 @@ const Register = () => {
                   value={parent_name}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 100 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -404,6 +423,7 @@ const Register = () => {
                     value={parent_attending}
                     label="Parent Attending Sail Parent Session"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={true}>
                       Yes, my parent will be attending the Sail Parent Session
@@ -423,6 +443,7 @@ const Register = () => {
                   autoComplete="parent_phone_number"
                   value={parent_phone_number}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -436,6 +457,7 @@ const Register = () => {
                   autoComplete="parent_email"
                   value={parent_email}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -450,6 +472,7 @@ const Register = () => {
                   value={dietary_restrictions}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 250 }}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -464,6 +487,7 @@ const Register = () => {
                     value={shirt_size}
                     label="Shirt Size"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"XS"}>XS</MenuItem>
                     <MenuItem value={"S"}>S</MenuItem>
@@ -478,14 +502,14 @@ const Register = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{fontfamily: 'avenir',backgroundColor:'#64b6ac',mt: 3, mb: 2}} 
             >
-              Register
+              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Avenir'>Register</Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body1">
-                  Already have an account? Log in!
+                <Typography sx={{ fontWeight: 'bold' }}color='#028293' fontFamily='Avenir'>Already Have An Account? Log In</Typography>
                 </Link>
               </Grid>
             </Grid>

@@ -2,16 +2,19 @@ import React from "react";
 // import Paper from '@mui/material/Paper';
 import Box from "@mui/material/Box";
 import Home from "./Home";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Backdrop } from "@mui/material";
+import Container from "@mui/material/Container";
+// import {createTheme, ThemeProvider} from '@mui/material/styles';
 // import { width } from '@mui/system';
-
-import back from "./backgroundextendedsand.png";
-import back2 from "./beachwithshells.png";
-import back3 from "./background.png";
-import back4 from "../images/beachwithshellsreduced.png";
-import back5 from "../images/editedpaperairplanes.png";
-import back6 from "./beachwithshells-1920v2.png";
-import back7 from "./latest.png";
+import mobile from "./Mobile.png";
+import tablet from "./Tablet.png";
+import desktop from "./Desktop.png";
+import { makeStyles } from "@material-ui/core/styles";
+import mn from "./Mobile_new.png";
+import mns from "./mobile_new_star.png";
+import back from "./final_background.png";
+import Footer from "./Footer";
+import Question from "./Questions";
 
 // const styles = ({
 //     paperContainer: {
@@ -23,59 +26,76 @@ import back7 from "./latest.png";
 //     }
 // });
 
-const theme = createTheme({
-  breakpoints: {
-    values: {
-      mobile: 0,
-      tablet: 768,
-      laptop: 1024,
-      desktop: 1280,
-    },
-  },
-});
+// const theme = createTheme({
+//     breakpoints: {
+//         values: {
+//             mobile: 0,
+//             tablet: 768,
+//             laptop: 1024,
+//             desktop: 1280,
+//         },
+//     },
+// });
 
-function HomePage() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    //height: "100%",
+    //width: "100%",
+    //backgroundSize: "cover", // Scale the background image to cover the entire container
+    //backgroundPosition: "center", // Center the background image within the container
+    // no repeat
+    // background: "no-repeat",
+    //   backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Mobile.png')`, // Set the background image for mobile devices by default
+    //   [theme.breakpoints.up('tablet')]: {
+    //     backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Tablet.png')`, // Set the background image for tablets and larger screens
+    //   },
+    //   [theme.breakpoints.up('desktop')]: {
+    //     backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Desktop.png')`, // Set the background image for desktop screens
+    //   },
+    // backgroundImage: `url(${back})`, // Set the background image for mobile devices by default
+    //   [theme.breakpoints.up('sm')]: {
+    //     backgroundImage: `url(${tablet})`, // Set the background image for tablets and larger screens
+    //   },
+    //   [theme.breakpoints.up('md')]: {
+    //     backgroundImage: `url(${desktop})`, // Set the background image for desktop screens
+    //   },
+  },
+}));
+
+const HomePage = () => {
   // <Paper style={styles.paperContainer}>
   // </Paper>
+  const classes = useStyles();
   return (
-    <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          // backgroundColor: '#FBE0A9',
-          //backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/fd91ec28aef31ddc27c219a6e000190e8bff2eed/sail-website/src/landing_with_title.svg"})`,
-          backgroundImage: `url(${back6})`,
-          backgroundSize: "cover",
-          // resizeMode: "stretch",
-          // marginTop: 20,
-          // width: '100%',
-          // minHeight: '100vh',
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center calc(50%+80px)",
-          backgroundAttachment: "fixed",
-          // flexGrow: 1,
-          // overflow: 'hidden',
-          maxWidth: "100%",
-          height: "auto",
-          //   height: {
-          //     mobile: "100px",
-          //     tablet: "500px",
-          //     laptop: "1000px",
-          //     desktop: "1000px",
-          //   },
-          // width: '7680px',
-          //   animation: "slide 3s linear infinite",
-          //   width: {
-          //     mobile: "100%",
-          //     tablet: "100%",
-          //     laptop: "100%",
-          //     desktop: "100%",
-          //   },
-        }}
+    // <ThemeProvider theme={theme}>
+    <div>
+      {/* <Container
+        className={classes.root}
+        fluid={true}
+        disableGutters={true}
+        maxWidth="xl"
+        maxHeight="100%"
+
+        //     sx={{
+        //         backgroundImage: {
+        //             xs: 'url(${mobile})',
+        //             md: 'url("https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Tablet.png")',
+        //             lg: 'url("https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Desktop.png")',
+        //           },
+        //           backgroundSize: 'cover',
+        //           backgroundRepeat: 'no-repeat',
+        //           backgroundPosition: 'center center',
+        //           height: '100%',
+        //           disableGutters: true,
+
+        // }}
       >
         <Home />
-      </Box>
-    </ThemeProvider>
+      </Container> */}
+      <Home />
+      
+    </div>
   );
-}
+};
 
 export default HomePage;

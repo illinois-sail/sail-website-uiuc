@@ -54,6 +54,7 @@ export default function MultipleSelectCheckmarks() {
           input={<OutlinedInput label="Times" />}
           renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
+          style={{backgroundColor: "white"}}
         >
           {times.map((times) => (
             <MenuItem key={times} value={times}>

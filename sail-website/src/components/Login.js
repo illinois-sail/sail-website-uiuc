@@ -82,17 +82,19 @@ const Login = () => {
   // }
 
   return (
+    <div>
     <Box
       sx={{
-        backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Modern%20Game%20Club%20Basketball%20Sport%20Logo(3)%202.png"})`,
-        backgroundColor: "#FAD4C0",
-        width: "100%",
-        height: "100vh",
-        backgroundSize: "cover",
+        // backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Modern%20Game%20Club%20Basketball%20Sport%20Logo(3)%202.png"})`,
+        // backgroundColor: "#FAD4C0",
+        // width: "100%",
+        // height: "100vh",
+        // backgroundSize: "cover",
+        // backgroundImage: `url(${'./login_page2.png'})`,
       }}
     >
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 8,
@@ -101,10 +103,10 @@ const Login = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "#64b6ac" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography color='#64b6ac' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 50}}>
             Login
           </Typography>
           <Box component="form" onSubmit={onSubmitForm} sx={{ mt: 3 }}>
@@ -166,19 +168,19 @@ const Login = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{fontfamily: 'avenir',backgroundColor:'#64b6ac',mt: 3, mb: 2}} 
             >
-              Log In
+              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Avenir'>Login</Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/register" variant="body1">
-                  Need an account? Sign up!
+                <Typography sx={{ fontWeight: 'bold'}}color='#64b6ac' fontFamily='Avenir'>Don't Have an Account? Sign Up</Typography>
                 </Link>
               </Grid>
-              <Grid item sx={{ mx: 4, mb: 2 }}>
+              <Grid item sx={{ mx: 2, mb: 2 }}>
                 <Link href="/reset-password" variant="body1">
-                  Forgot password?
+                <Typography sx={{ fontWeight: 'bold' }}color='#64b6ac' fontFamily='Avenir'>Forgot Password</Typography>
                 </Link>
               </Grid>
             </Grid>
@@ -186,6 +188,7 @@ const Login = () => {
         </Box>
       </Container>
     </Box>
+  </div>
   );
 };
 
@@ -195,3 +198,6 @@ const Login = () => {
 export default Login;
 //backend code from react-django-login
 //export default connect(mapStateToProps, { login })(Login);
+{/* <Link href="/register" variant="body1">
+                <Typography sx={{ fontWeight: 'bold' }}color='#64b6ac' fontFamily='Avenir'>Don't Have an Account? Sign Up</Typography>
+                </Link> */}

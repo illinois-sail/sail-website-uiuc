@@ -1,120 +1,259 @@
-import AppRouter from "./AppRouter";
-import NavBar from "./NavBar";
 import Typography from "@mui/material/Typography";
 import Question from "./Questions";
-
 import { Paper } from "@mui/material";
 import Box from "@mui/material/Box";
-import beachHut from "../images/about_hut.png";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
 import "./Home.css";
+import SergioTrendy from "../SergioTrendy.ttf";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import Hidden from "@mui/material/Hidden";
+import "../fonts.css";
+import { ReactComponent as Plane } from "./paper-plane-small.svg";
 
+const theme = createTheme({
+  typography: {
+    fontFamily: "MyFont, Arial, sans-serif",
+  },
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontFamily: "MyFont, Arial, sans-serif",
+        },
+      },
+    },
+  },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "@font-face": [
+          {
+            fontFamily: "sergio",
+            src: `url(${SergioTrendy})`,
+          },
+        ],
+      },
+    },
+  },
+});
 
-function Home() {
+const schedule = [
+  { time: "9:00 AM", event: "Checkin and Breakfast" },
+  { time: "9:45 AM", event: "Opening Ceremony" },
+  { time: "10:00 AM", event: "Class #1" },
+  { time: "11:00 AM", event: "Class #2" },
+  { time: "12:00 PM", event: "Lunch" },
+  { time: "1:00 PM", event: "Class #3" },
+  { time: "3:30 PM", event: "Student Q & A Panel" },
+  { time: "4:30 PM", event: "Faculty Talk" },
+  { time: "5:20 PM", event: "Closing Ceremony" },
+];
+
+const Home = () => {
   return (
-    <div>
-      <div className="homepage">
-        {/* <h1 class="sail-logo">SAIL</h1> */}
-        <div style={{ paddingTop: "2em" }} className="info">
-          {/* <p style={{paddingLeft}}>
-            Welcome to Illinois Computer Science Sail!
-            We are an entirely student-run organization that hosts an annual event where
-            high schoolers have the chance to experience what it is like to be a computer science student
-            at the University of Illinois at Urbana-Champaign.
-          </p> */}
+    // <div>
+    <div className="homepage">
+      <ThemeProvider theme={theme}>
+        <div style={{ paddingTop: "2.5%" }}>
           <Paper
             sx={{
-              // laptop: {
-              marginLeft: "15em",
-              marginRight: "15em",
-              marginTop: "2em",
-              marginBottom: "5em",
-              padding: "2em",
-              backgroundColor: "white",
-              // },
-              // desktop: {
-              // marginLeft: "15em",
-              // marginRight: "15em",
-              // marginTop: "4em",
-              // marginBottom: "15em",
-              // padding: "2em",
-              // backgroundColor: '#C0FDFB',
-              // },
-              // tablet: {
-              // marginLeft: "10em",
-              // marginRight: "10em",
-              // marginTop: "2em",
-              // marginBottom: "10em",
-              // padding: "2em",
-              // backgroundColor: '#C0FDFB',
-              // },
-              // mobile: {
-              // marginLeft: "5em",
-              // marginRight: "5em",
-              // marginTop: "2em",
-              // marginBottom: "10em",
-              // padding: "2em",
-              // backgroundColor: '#C0FDFB',
-              // },
+              width: "25%",
+              alignItems: "center",
+              marginBottom: "2.5%",
+              marginLeft: "37.5%",
+              marginRight: "37.5%",
+              backgroundColor: "transparent",
+              boxShadow: "0 10px 10px rgba(0, 0, 0, 0.25)",
+              border: "10px solid #64b6ac",
+              borderRadius: "20%",
             }}
           >
+            <Plane style={{ scale: "0.8" }} />
             <Typography
               variant="h3"
-              style={{ fontFamily: "Monteserrat", fontWeight: "bold", color: "#063970" }}
-              align="center"
+              style={{
+                fontFamily: "sergiotrendy",
+                fontStyle: "",
+                paddingBottom: "0.1em",
+                paddingTop: "0.1em",
+              }}
+              color="#64b6ac"
             >
-              Welcome to Sail 2023!
-            </Typography>
-            <Typography
-              variant="body1"
-              style={{ fontFamily: "Monteserrat" }}
-              align="center"
-            >
-              Welcome to Illinois Computer Science Sail! We are an entirely
-              student-run organization that hosts an annual event where high
-              schoolers have the chance to experience what it is like to be a
-              computer science student at the University of Illinois at
-              Urbana-Champaign.
+              SAIL 2023
             </Typography>
           </Paper>
         </div>
-        {/* <a href="">
-          <button className = "button"> Interest From </button>
-        </a>
-        <a href="">
-          <button className = "button"> Teacher Registration </button>
-        </a>
-        <a href="">
-          <button className = "button"> Student Registration </button>
-        </a>
-        
-      <Typography variant='h3'  algin='center'>Contact SAIL</Typography>
-      <p>Google Form Link?</p> */}
-      </div>
-      {/* <div className="section-about"> */}
-      {/* <Typography variant="h3" style={{ fontFamily: "Cambria", opacity: "100%"}} align="center">
-        About Sail
-      </Typography> */}
-      {/* <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          ml: 5,
-          alignItems: "center",
-        }}
-      > */}
-        <Question />
-        {/* <img
+      </ThemeProvider>
+      <div style={{}} className="info">
+        <Paper
           sx={{
-            p: 3,
+            width: "60%",
+            // height : "60%",
+            // align: "center",
+            alignItems: "center",
+            marginTop: "0%",
+            marginBottom: "10%",
+            marginLeft: "20%",
+            marginRight: "20%",
+            backgroundColor: "#64b6ac",
+            boxShadow: "0 10px 10px rgba(0, 0, 0, 0.35)",
+            border: "10px solid #64b6ac",
+            borderRadius: "20%",
+            // padding: "0.5em 0em"
           }}
-          src={beachHut}
-          alt="beach hut"
-        /> */}
-      {/* </Box> */}
+        >
+          <Typography
+            variant="h3"
+            style={{
+              fontFamily: "sergiotrendy",
+              paddingBottom: "0.2em",
+              color: "white",
+            }}
+            algin="center"
+            color={"#47827B"}
+          >
+            Welcome Fellow Sailors!
+          </Typography>
+          <Typography
+            variant="h6"
+            style={{ fontFamily: "Cascadia Code", paddingBottom: "0.2em" }}
+            algin="center"
+            color={"#376661"}
+          >
+            This is Illinois Computer Science Sail! We are an entirely
+            student-run organization that hosts an annual event where high
+            schoolers have the chance to experience what it is like to be a
+            computer science student at the University of Illinois at
+            Urbana-Champaign. Without further ado, let's get started!
+          </Typography>
+        </Paper>
 
-      {/* </div> */}
+        <Grid container spacing={4} sx={{ mt: 4 }}>
+          <Grid item xs={12} sm={6}>
+            <Card
+              sx={{
+                borderRadius: "10px",
+                p: 2,
+                backgroundColor: "#c0fbfd",
+                marginLeft: "20px",
+                marginRight: "20px",
+                height: "90%",
+              }}
+            >
+              <Typography
+                variant="h3"
+                style={{ fontFamily: "sergiotrendy", color: "#1d4e89" }}
+                sx={{ mb: 2 }}
+              >
+                Saturday Schedule
+              </Typography>
+              {schedule.map((item) => (
+                <Box
+                  key={item.time}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    py: 1,
+                    alignItems: "center",
+                    borderBottom: "1px solid #1d4e89",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
+                    sx={{ textAlign: "left" }}
+                  >
+                    {item.time}
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
+                    sx={{ textAlign: "right" }}
+                  >
+                    {item.event}
+                  </Typography>
+                </Box>
+              ))}
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Card
+              sx={{
+                borderRadius: "10px",
+                p: 2,
+                backgroundColor: "#c0fbfd",
+                marginLeft: "20px",
+                marginRight: "20px",
+                height: "90%",
+              }}
+            >
+              <Typography
+                variant="h3"
+                style={{ fontFamily: "sergiotrendy", color: "#1d4e89" }}
+                sx={{ mb: 2 }}
+              >
+                Sunday Schedule
+              </Typography>
+              <Typography
+                variant="h4"
+                style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
+                sx={{ textAlign: "center center", paddingTop: "25%" }}
+              >
+                Virtual mini-hackathon day!
+              </Typography>
+              <Typography
+                variant="h5"
+                style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
+                sx={{ textAlign: "center center" }}
+              >
+                Keep your calendars open for 12-3pm. Details will be posted
+                soon....
+              </Typography>
+            </Card>
+          </Grid>
+        </Grid>
+      </div>
+      <Typography
+        variant="h2"
+        style={{
+          fontFamily: "sergiotrendy",
+          color: "#64b6ac",
+          marginTop: "0.3em",
+        }}
+        align="center"
+      >
+        About Sail
+      </Typography>
+      <Hidden smDown>
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          style={{ marginTop: "0.5em" }}
+        >
+          <Grid item xs={3} style={{ width: "50%" }}>
+            <Question />
+          </Grid>
+        </Grid>
+      </Hidden>
+      <Hidden smUp>
+        <Box
+          sx={{
+            width: "60%",
+            alignItems: "center",
+            marginLeft: "20%",
+          }}
+        >
+          <Question />
+        </Box>
+      </Hidden>
     </div>
   );
-}
+};
 
 export default Home;

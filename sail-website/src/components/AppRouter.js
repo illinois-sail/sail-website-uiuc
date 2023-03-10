@@ -12,6 +12,8 @@ import Layout from "./Layout";
 import Student from "./studentRegister";
 import Teacher from "./teacherRegister";
 import Success from "./successPage";
+import HomePage from "./HomePage";
+// import HomePageNew from "./HomePageNew";
 
 const AppRouter = () => {
   return (
@@ -19,8 +21,8 @@ const AppRouter = () => {
     // <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/student" element={<Student />} />

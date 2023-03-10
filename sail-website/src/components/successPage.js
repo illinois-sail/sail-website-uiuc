@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 function Success() {
     return (
         <Container component="main" maxWidth="m">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 40,
