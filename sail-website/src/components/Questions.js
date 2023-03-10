@@ -4,17 +4,20 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Paper from "@mui/material/Paper"
 
 export default function SimpleAccordion() {
   return (
     <div>
       <Accordion
         disableGutters
-        sx={
-          {
-            //backgroundColor: '#FAD4C0',
-          }
-        }
+        sx={{
+          //backgroundColor: '#FAD4C0',
+          //set width of component to be 50% and align center
+          width: "50%",
+          margin: "auto",
+          marginTop: "5%",
+        }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -23,7 +26,7 @@ export default function SimpleAccordion() {
         >
           <Typography
             variant="h5"
-            style={{ fontFamily: 'Cambria' }}
+            style={{ fontFamily: "Cambria" }}
             sx={{
               color: "#1D4E89",
             }}
@@ -33,7 +36,7 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Cambria' }}>
+          <Typography style={{ fontFamily: "Cambria" }}>
             This year, Sail will be a two-day, hybrid event. Students will have
             the opportunity to brainstorm ideas for projects during the virtual
             IDEAthon on Friday. On Saturday, students will have the chance to
@@ -42,7 +45,15 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion
+        disableGutters
+        sx={{
+          //backgroundColor: '#FAD4C0',
+          //set width of component to be 50% and align center
+          width: "50%",
+          margin: "auto",
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -53,20 +64,28 @@ export default function SimpleAccordion() {
             sx={{
               color: "#1D4E89",
             }}
-            style={{ fontFamily: 'Cambria' }}
+            style={{ fontFamily: "Cambria" }}
           >
             How do I sign up?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Cambria' }}>
+          <Typography style={{ fontFamily: "Cambria" }}>
             Students can register and login by clicking the register button on
             the top right corner of the website. Please fill out the information
             so we can get to know you better!
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion
+        disableGutters
+        sx={{
+          //backgroundColor: '#FAD4C0',
+          //set width of component to be 50% and align center
+          width: "50%",
+          margin: "auto",
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -77,20 +96,28 @@ export default function SimpleAccordion() {
             sx={{
               color: "#1D4E89",
             }}
-            style={{ fontFamily: 'Cambria' }}
+            style={{ fontFamily: "Cambria" }}
           >
             Who is Sail for?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Cambria' }}>
+          <Typography style={{ fontFamily: "Cambria" }}>
             This year, Sail will have activities for high school students, as
             well as their parents! We will have separate tracks for admitted
             students and parents.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion
+        disableGutters
+        sx={{
+          //backgroundColor: '#FAD4C0',
+          //set width of component to be 50% and align center
+          width: "50%",
+          margin: "auto",
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -101,20 +128,28 @@ export default function SimpleAccordion() {
             sx={{
               color: "#1D4E89",
             }}
-            style={{ fontFamily: 'Cambria' }}
+            style={{ fontFamily: "Cambria" }}
           >
             Will Sail be virtual or in-person this year?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Cambria' }}>
+          <Typography style={{ fontFamily: "Cambria" }}>
             On April 8th-9th 2023, we will have a virtual IDEAthon and
             combination of virtual and in-person activities. Students attending
             virtually will be at no disadvantage.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion
+        disableGutters
+        sx={{
+          //backgroundColor: '#FAD4C0',
+          //set width of component to be 50% and align center
+          width: "50%",
+          margin: "auto",
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -125,16 +160,26 @@ export default function SimpleAccordion() {
             sx={{
               color: "#1D4E89",
             }}
-            style={{ fontFamily: 'Cambria' }}
+            style={{ fontFamily: "Cambria" }}
           >
             Is Sail free to attend?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Cambria' }}>YES! And no worries, food will be provided!</Typography>
+          <Typography style={{ fontFamily: "Cambria" }}>
+            YES! And no worries, food will be provided!
+          </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion disableGutters>
+      <Accordion
+        disableGutters
+        sx={{
+          //backgroundColor: '#FAD4C0',
+          //set width of component to be 50% and align center
+          width: "50%",
+          margin: "auto",
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -145,13 +190,13 @@ export default function SimpleAccordion() {
             sx={{
               color: "#1D4E89",
             }}
-            style={{ fontFamily: 'Cambria' }}
+            style={{ fontFamily: "Cambria" }}
           >
             Other questions?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ fontFamily: 'Cambria' }}>
+          <Typography style={{ fontFamily: "Cambria" }}>
             Please don&apos;t hesitate to contact us at
             cs-sail@lists.cs.illinois.edu. We&apos;ll get back to you as soon as
             possible!

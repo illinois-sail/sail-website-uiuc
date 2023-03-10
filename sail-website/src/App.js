@@ -30,7 +30,7 @@ import Typography from '@mui/material/Typography';
 import Question from './components/Questions';
 
 import Box from "@mui/material/Box";
-import beachHut from './surf_hut.png'
+import beachHut from './images/surf_hut.png'
 
 
 function App() {

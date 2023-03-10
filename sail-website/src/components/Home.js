@@ -5,15 +5,16 @@ import Question from "./Questions";
 
 import { Paper } from "@mui/material";
 import Box from "@mui/material/Box";
-import beachHut from "../about_hut.png";
+import beachHut from "../images/about_hut.png";
 import "./Home.css";
+
 
 function Home() {
   return (
     <div>
       <div className="homepage">
         {/* <h1 class="sail-logo">SAIL</h1> */}
-        <div style={{ paddingTop: "25em" }} className="info">
+        <div style={{ paddingTop: "2em" }} className="info">
           {/* <p style={{paddingLeft}}>
             Welcome to Illinois Computer Science Sail!
             We are an entirely student-run organization that hosts an annual event where
@@ -26,9 +27,9 @@ function Home() {
               marginLeft: "15em",
               marginRight: "15em",
               marginTop: "2em",
-              marginBottom: "10em",
+              marginBottom: "5em",
               padding: "2em",
-              backgroundColor: "transparent",
+              backgroundColor: "white",
               // },
               // desktop: {
               // marginLeft: "15em",
@@ -59,14 +60,14 @@ function Home() {
             <Typography
               variant="h3"
               style={{ fontFamily: "Monteserrat", fontWeight: "bold", color: "#063970" }}
-              algin="center"
+              align="center"
             >
               Welcome to Sail 2023!
             </Typography>
             <Typography
               variant="body1"
               style={{ fontFamily: "Monteserrat" }}
-              algin="center"
+              align="center"
             >
               Welcome to Illinois Computer Science Sail! We are an entirely
               student-run organization that hosts an annual event where high
@@ -90,26 +91,26 @@ function Home() {
       <p>Google Form Link?</p> */}
       </div>
       {/* <div className="section-about"> */}
-      <Typography variant="h3" style={{ fontFamily: "Cambria" }} align="center">
+      {/* <Typography variant="h3" style={{ fontFamily: "Cambria", opacity: "100%"}} align="center">
         About Sail
-      </Typography>
-      <Box
+      </Typography> */}
+      {/* <Box
         sx={{
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
           ml: 5,
           alignItems: "center",
         }}
-      >
+      > */}
         <Question />
-        <img
+        {/* <img
           sx={{
             p: 3,
           }}
           src={beachHut}
           alt="beach hut"
-        />
-      </Box>
+        /> */}
+      {/* </Box> */}
 
       {/* </div> */}
     </div>
