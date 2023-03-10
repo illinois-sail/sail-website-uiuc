@@ -35,7 +35,7 @@ export default function SimpleAccordion() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography
-              style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+              style={{ fontFamily: "Cascadia Code", color: "#fff", fontSize: 15 }}
             >
               This year, Sail will be a two-day event. On Saturday, students
               will have the chance to attend classes taught by current students
@@ -67,7 +67,7 @@ export default function SimpleAccordion() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography
-              style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+              style={{ fontFamily: "Cascadia Code", color: "#fff", fontSize: 15 }}
             >
               Students can register and login by clicking the register button on
               the top right corner of the website. Please fill out the
@@ -98,7 +98,7 @@ export default function SimpleAccordion() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography
-              style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+              style={{ fontFamily: "Cascadia Code", color: "#fff", fontSize: 15 }}
             >
               This year, Sail will have activities for high school students, as
               well as their parents! We will have separate tracks for admitted
@@ -129,7 +129,7 @@ export default function SimpleAccordion() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography
-              style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+              style={{ fontFamily: "Cascadia Code", color: "#fff", fontSize: 15 }}
             >
               On April 8th, there will be a in-person day. On April 9th, we will
               have a virtual IDEAthon and
@@ -159,7 +159,7 @@ export default function SimpleAccordion() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography
-              style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+              style={{ fontFamily: "Cascadia Code", color: "#fff", fontSize: 15 }}
             >
               YES! And no worries, food will be provided!
             </Typography>
@@ -188,7 +188,7 @@ export default function SimpleAccordion() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography
-              style={{ fontFamily: "Avenir", color: "#fff", fontSize: 20 }}
+              style={{ fontFamily: "Cascadia Code", color: "#fff", fontSize: 15 }}
             >
               Please don&apos;t hesitate to contact us at
               cs-sail@lists.cs.illinois.edu. We&apos;ll get back to you as soon

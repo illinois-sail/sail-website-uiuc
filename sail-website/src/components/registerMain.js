@@ -38,10 +38,10 @@ function RegisterMain() {
           </Typography>
           <Stack direction="row" spacing={2}>
             <Button sx={{fontfamily: 'avenir',backgroundColor:'#fff00'}} variant="contained" href="/student">
-            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Avenir'>Student Registration</Typography>
+            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Cascadia Code'>Student Registration</Typography>
             </Button>
             <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="/teacher">
-            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Avenir'>Teacher Registration</Typography>
+            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='Cascadia Code'>Teacher Registration</Typography>
             </Button>
           </Stack>
         </Box>
