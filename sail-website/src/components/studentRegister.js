@@ -132,7 +132,7 @@ const Register = () => {
           alert(
             "Registration Successful! Please check your email for registration confirmation."
           );
-          navigate("/home");
+          // navigate("/home");
           setFormData({
             email: "",
             password: "",
