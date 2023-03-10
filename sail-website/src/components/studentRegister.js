@@ -104,7 +104,7 @@ const Register = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#FAD4C0",
+        backgroundColor: "##FDE5C1",
         width: "100%",
         height: "100%",
         backgroundSize: "cover",
@@ -121,9 +121,9 @@ const Register = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
-          <Typography component="h1" variant="h5">
-            Register
+          <Avatar sx={{ m: 1, backgroundColor: '#64b6ac'}}></Avatar>
+          <Typography textAlgin='center' color='#64b6ac' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 50}}>
+            Studnet Registeration
           </Typography>
           <Box
             component="form"
@@ -402,14 +402,14 @@ const Register = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{fontfamily: 'avenir',backgroundColor:'#64b6ac',mt: 3, mb: 2}} 
             >
-              Register
+              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Avenir'>Register</Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body1">
-                  Already have an account? Log in!
+                <Typography sx={{ fontWeight: 'bold' }}color='#64b6ac' fontFamily='Avenir'>Already Have An Account? Log In</Typography>
                 </Link>
               </Grid>
             </Grid>

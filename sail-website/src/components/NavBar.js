@@ -13,9 +13,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
+import '../fonts.css'
 
 const drawerWidth = 240;
-const navItems = ['home', 'register', 'login'];
+const navItems = ['Home', 'Register', 'Login'];
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -25,16 +27,18 @@ function NavBar(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <Box sx={{ textAlign: 'center' }}>
+      <Typography color= '#64b6ac' variant="h6" sx={{ my: 2,fontFamily: 'sergiotrendy', }}>
         SAIL
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={{ textAlign: 'center',fontFamily: 'sergiotrendy', }}>
+              <Link color= '#64b6ac' href={`/${item}`} underline="none" onClick={handleDrawerToggle}sx={{fontFamily: 'sergiotrendy', }}>
               <ListItemText primary={item} />
+            </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -46,7 +50,7 @@ function NavBar(props) {
 
   return (
     <Box sx={{ display: 'block' }}>
-      <AppBar component="nav">
+      <AppBar component="nav"sx={{ backgroundColor: '#64b6ac' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -58,17 +62,17 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            SAIL
-          </Typography>
+      variant="h6"
+      component="div"
+      sx={{ flexGrow: 1, fontFamily: 'sergiotrendy',fontSize:30, }}
+    >
+      SAIL
+    </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }} href={item}>
-                {item}
-              </Button>
+              <Button key={item} sx={{ color: '#fff',fontFamily: 'sergiotrendy',fontSize:20 }} href={`/${item}`}>
+              {item}
+            </Button>
             ))}
           </Box>
         </Toolbar>
@@ -84,7 +88,7 @@ function NavBar(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor: '#FDE5C1' },
           }}
         >
           {drawer}

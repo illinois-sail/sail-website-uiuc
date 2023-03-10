@@ -10,10 +10,11 @@ import beachHut from "../about_hut.png";
 import Card from "@mui/material/Card";
 import "./Home.css";
 import { display, fontStyle, padding } from "@mui/system";
-import SergioTrendy from "./SergioTrendy.ttf";
+import SergioTrendy from "../SergioTrendy.ttf";
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import Hidden from "@mui/material/Hidden";
+import '../fonts.css'
 
 const theme = createTheme({
   typography: {
@@ -32,7 +33,7 @@ const theme = createTheme({
     MuiCssBaseline: {
       '@global': {
         '@font-face': [{
-          fontFamily: 'custom',
+          fontFamily: 'sergio',
           src: `url(${SergioTrendy})`,
         }],
       },
@@ -57,11 +58,11 @@ const schedule = [
 
 function Home() {
   return (
-    <div>
+    // <div>
       <div className="homepage">
         {/* <h1 class="sail-logo">SAIL</h1> */}
         <ThemeProvider theme={theme}>
-        <Typography variant="h1" style={{fontFamily:"custom", fontStyle:""}} color= "#64b6ac">
+        <Typography variant="h1" style={{fontFamily:"sergiotrendy", fontStyle:"",paddingTop: "0.3em"}} color= "#64b6ac">
           SAIL 2023
         </Typography>
         </ThemeProvider>
@@ -69,16 +70,6 @@ function Home() {
         
           <Paper
 
-<<<<<<< HEAD
-            }}>
-              <Typography variant='h4' algin='center'>Welcome to SAIL</Typography>
-              <Typography variant='h5' algin='center'>
-              Welcome to Illinois Computer Science Sail!
-              We are an entirely student-run organization that hosts an annual event where
-              high schoolers have the chance to experience what it is like to be a computer science student
-              at the University of Illinois at Urbana-Champaign.
-              </Typography>
-=======
             sx={{
               width : "60%",
               // height : "60%",
@@ -89,12 +80,14 @@ function Home() {
               marginLeft: "20%",
               marginRight: "20%",
               backgroundColor: "transparent",
-              
+              // boxShadow: '0 10px 10px rgba(0, 0, 0, 0.15)'
+              border: '10px solid #64b6ac',
+              borderRadius: '20%',
             }}
           >
             <Typography
               variant="h3"
-              style={{ fontFamily: "Cambria" }}
+              style={{ fontFamily: "Avenir", paddingBottom:'0.2em' }}
               algin="center"
               color={"#47827B"}
             >
@@ -102,7 +95,7 @@ function Home() {
             </Typography>
             <Typography
               variant="h5"
-              style={{ fontFamily: "Cambria"}}
+              style={{ fontFamily: "Avenir",paddingBottom:'0.2em'}}
               algin="center"
               color={"#47827B"}
             >
@@ -112,44 +105,52 @@ function Home() {
               computer science student at the University of Illinois at
               Urbana-Champaign. Without further ado, let's get started!
             </Typography>
->>>>>>> 754b15ff1d6417871b07fa1b7d46b9a371659cc9
           </Paper>
 
            {/* Schedules */}
       <Grid container spacing={4} sx={{ mt: 4 }}>
         <Grid item xs={12} sm={6}>
         <Card sx={{ borderRadius: '10px', p: 2, backgroundColor: "#c0fbfd", marginLeft: "20px", marginRight: "20px", height:"90%" }}>
-            <Typography variant="h3" style={{ fontFamily: "Montserrat Classic", color:"#1d4e89" }} sx={{ mb: 2 }}>Saturday Schedule</Typography>
-            {schedule.map((item) => (
-              <Box key={item.time} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', py: 1, alignItems: 'center'}}>
-                
-              <Typography 
-              variant="h6"
-              style={{ fontFamily: "Cambria", color: "#1d4e89" }}
-              sx={{ textAlign: 'left' }}>
-              {item.time}</Typography>
-              <Typography 
-              variant="h6"
-              style={{ fontFamily: "Cambria", color: "#1d4e89"  }}
-              sx={{ textAlign: 'right' }}>
-              {item.event}</Typography>
-             
-                
-              </Box>
-            ))}
-          </Card>
+  <Typography variant="h3" style={{ fontFamily: "sergiotrendy", color:"#1d4e89" }} sx={{ mb: 2 }}>Saturday Schedule</Typography>
+  {schedule.map((item) => (
+    <Box key={item.time} sx={{ 
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      py: 1,
+      alignItems: 'center',
+      borderBottom: '1px solid #1d4e89'
+    }}>
+      <Typography 
+        variant="h6"
+        style={{ fontFamily: "Avenir", color: "#1d4e89" }}
+        sx={{ textAlign: 'left' }}
+      >
+        {item.time}
+      </Typography>
+      <Typography 
+        variant="h6"
+        style={{ fontFamily: "Avenir", color: "#1d4e89"  }}
+        sx={{ textAlign: 'right' }}
+      >
+        {item.event}
+      </Typography>
+    </Box>
+  ))}
+</Card>
+
         </Grid>
         <Grid item xs={12} sm={6}>
         <Card sx={{ borderRadius: '10px', p: 2, backgroundColor: "#c0fbfd",  marginLeft: "20px", marginRight: "20px", height:"90%" }}>
-            <Typography variant="h3" style={{ fontFamily: "Montserrat Classic", color:"#1d4e89" }} sx={{ mb: 2 }}>Sunday Schedule</Typography>
+            <Typography variant="h3" style={{ fontFamily: "sergiotrendy", color:"#1d4e89" }} sx={{ mb: 2 }}>Sunday Schedule</Typography>
               {/* <Box sx={{ alignItems: 'center', display:"flex", flexDirection:"column"}}> */}
                 <Typography 
               variant="h4"
-              style={{ fontFamily: "Cambria", color: "#1d4e89" }}
+              style={{ fontFamily: "Avenir", color: "#1d4e89" }}
               sx={{ textAlign: 'center center', paddingTop:"25%"}}>Virtual mini-hackathon day!</Typography>
               <Typography 
               variant="h5"
-              style={{ fontFamily: "Cambria", color: "#1d4e89" }}
+              style={{ fontFamily: "Avenir", color: "#1d4e89" }}
               sx={{ textAlign: 'center center' }}>Keep your calendars open for 12-3pm.
               Details will be posted soon....</Typography>
               {/* </Box> */}
@@ -164,12 +165,12 @@ function Home() {
             <Box key={item.time} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', py: 1 }}>
               <Typography 
               variant="h6"
-              style={{ fontFamily: "Cambria" }}
+              style={{ fontFamily: "Avenir" }}
               algin="left">
               {item.time}</Typography>
               <Typography 
               variant="h6"
-              style={{ fontFamily: "Cambria" }}
+              style={{ fontFamily: "Avenir" }}
               algin="right">
               {item.event}</Typography>
             </Box>
@@ -189,27 +190,12 @@ function Home() {
         
       <Typography variant='h3'  algin='center'>Contact SAIL</Typography>
       <p>Google Form Link?</p> */}
-      <Typography variant='h3' algin='center' sx={{
+      {/* <Typography variant='h3' algin='center' sx={{
                   pb: 1,
-                }}>About SAIL</Typography>
-      </div>
+                }}>About SAIL</Typography> */}
+      {/* </div> */}
       {/* <div className="section-about"> */}
-<<<<<<< HEAD
-      {/* <Typography variant='h3' algin='center'>About SAIL</Typography> */}
-      <Box
-                sx={{
-                  display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-                  mx: 5,
-                  alignItems: 'center',
-                }}
-            >
-                <Question />
-                <img sx={{
-                  pr:3,
-                }}src={beachHut} alt='beach hut' />
-            </Box>
-=======
-      <Typography variant="h3" style={{ fontFamily: "Cambria", color:"#47827B" }} align="center">
+      <Typography variant="h2" style={{ fontFamily: "sergiotrendy", color:"#64b6ac", paddingTop: '0.3em',  }} align="center">
         About Sail
       </Typography>
       <Hidden smDown>
@@ -219,6 +205,7 @@ function Home() {
           gridTemplateColumns: "repeat(2, 1fr)",
           ml: 5,
           alignItems: "center",
+          // marginTop: '-2em'
         }}
       >
         <Question />
@@ -247,7 +234,6 @@ function Home() {
           alt="beach hut"
         /> */}
         <Question /></Box>
->>>>>>> 754b15ff1d6417871b07fa1b7d46b9a371659cc9
       
         
       </Hidden>

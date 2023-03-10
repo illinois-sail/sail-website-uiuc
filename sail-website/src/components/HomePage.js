@@ -91,6 +91,7 @@ function HomePage() {
             
             >
             <Home />
+            
             </Container>
             <Footer />
             </div>

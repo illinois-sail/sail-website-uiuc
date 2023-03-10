@@ -50,10 +50,10 @@ export default function Register() {
             alignItems: 'center',
           }}
         >
-          <SchoolIcon fontSize= 'large' sx={{ m: 1, }}>
+          <SchoolIcon color='blue' fontSize= 'large' sx={{ m: 1,  Color: '#64b6ac'}}>
           </SchoolIcon>
-          <Typography component="h1" variant="h5">
-            Teacher Registration
+          <Typography color='#64b6ac' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 50}}>
+            Teacher Registeration
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -202,18 +202,18 @@ export default function Register() {
 
               </Grid>
               
-            <Button
+              <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{fontfamily: 'avenir',backgroundColor:'#64b6ac',mt: 3, mb: 2}} 
             >
-              Register
+              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Avenir'>Register</Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body1">
-                  Already have an account? Log in!
+                <Typography sx={{ fontWeight: 'bold' }}color='#64b6ac' fontFamily='Avenir'>Already Have An Account? Log In</Typography>
                 </Link>
               </Grid>
             </Grid>
