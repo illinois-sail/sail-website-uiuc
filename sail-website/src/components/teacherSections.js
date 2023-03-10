@@ -22,6 +22,7 @@ export default function ControlledRadioButtonsGroup() {
         name="controlled-radio-buttons-group"
         value={value}
         onChange={handleChange}
+        style={{backgroundColor: "white"}}
       >
         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
         <FormControlLabel value="no" control={<Radio />} label="No" />

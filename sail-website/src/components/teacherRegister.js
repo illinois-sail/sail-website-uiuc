@@ -65,6 +65,7 @@ export default function Register() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -75,6 +76,7 @@ export default function Register() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  style={{backgroundColor: "white"}}
                   autoFocus
                 />
               </Grid>
@@ -86,6 +88,7 @@ export default function Register() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               
@@ -98,6 +101,7 @@ export default function Register() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -109,6 +113,7 @@ export default function Register() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -120,6 +125,7 @@ export default function Register() {
                 value={gender}
                 label="Age"
                 onChange={handleChange}
+                style={{backgroundColor: "white"}}
             >
             <MenuItem value={'freshman'}>Freshman</MenuItem>
             <MenuItem value={'sophmore'}>Sophmore</MenuItem>
@@ -135,6 +141,7 @@ export default function Register() {
                   label="Co-Teacher Email (If you would like to teach a class with a Partner)"
                   name="email"
                   autoComplete="email"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -145,6 +152,7 @@ export default function Register() {
                   id="co-firstName"
                   label="Co-Teacher First Name"
                   autoFocus
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -154,6 +162,7 @@ export default function Register() {
                   label=" Co-Teacher Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -165,6 +174,7 @@ export default function Register() {
                 value={gender}
                 label="Age"
                 onChange={handleChange}
+                style={{backgroundColor: "white"}}
             >
             <MenuItem value={'freshman'}>Freshman</MenuItem>
             <MenuItem value={'sophmore'}>Sophmore</MenuItem>
@@ -180,6 +190,7 @@ export default function Register() {
                   id="courseName"
                   label="Course Name, enter comma between multiple courses"
                   name="coureName"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -189,6 +200,7 @@ export default function Register() {
                   id="aboutCourse"
                   label="Tell us a little bit more about the course you are excited to teach at Sail!"
                   name="aboutCourse"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>

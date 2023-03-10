@@ -1,22 +1,16 @@
-import AppRouter from "./AppRouter";
-import NavBar from "./NavBar";
 import Typography from "@mui/material/Typography";
 import Question from "./Questions";
-
-import { Icon, Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import beachHut from "../about_hut.png";
 import Card from "@mui/material/Card";
 import "./Home.css";
-import { display, fontStyle, padding } from "@mui/system";
 import SergioTrendy from "../SergioTrendy.ttf";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
 import Hidden from "@mui/material/Hidden";
 import "../fonts.css";
 import { ReactComponent as Plane } from "./paper-plane-small.svg";
-import { ReactComponent as CloudOutline } from "./cloud-outline.svg";
 
 const theme = createTheme({
   typography: {
@@ -57,11 +51,10 @@ const schedule = [
   { time: "5:20 PM", event: "Closing Ceremony" },
 ];
 
-function Home() {
+const Home = () => {
   return (
     // <div>
     <div className="homepage">
-      {/* <h1 class="sail-logo">SAIL</h1> */}
       <ThemeProvider theme={theme}>
         <div style={{ paddingTop: "2.5%" }}>
           <Paper
@@ -137,7 +130,6 @@ function Home() {
           </Typography>
         </Paper>
 
-        {/* Schedules */}
         <Grid container spacing={4} sx={{ mt: 4 }}>
           <Grid item xs={12} sm={6}>
             <Card
@@ -171,14 +163,14 @@ function Home() {
                 >
                   <Typography
                     variant="h6"
-                    style={{ fontFamily: "Avenir", color: "#1d4e89" }}
+                    style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
                     sx={{ textAlign: "left" }}
                   >
                     {item.time}
                   </Typography>
                   <Typography
                     variant="h6"
-                    style={{ fontFamily: "Avenir", color: "#1d4e89" }}
+                    style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
                     sx={{ textAlign: "right" }}
                   >
                     {item.event}
@@ -205,64 +197,25 @@ function Home() {
               >
                 Sunday Schedule
               </Typography>
-              {/* <Box sx={{ alignItems: 'center', display:"flex", flexDirection:"column"}}> */}
               <Typography
                 variant="h4"
-                style={{ fontFamily: "Avenir", color: "#1d4e89" }}
+                style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
                 sx={{ textAlign: "center center", paddingTop: "25%" }}
               >
                 Virtual mini-hackathon day!
               </Typography>
               <Typography
                 variant="h5"
-                style={{ fontFamily: "Avenir", color: "#1d4e89" }}
+                style={{ fontFamily: "Cascadia Code", color: "#1d4e89" }}
                 sx={{ textAlign: "center center" }}
               >
                 Keep your calendars open for 12-3pm. Details will be posted
                 soon....
               </Typography>
-              {/* </Box> */}
             </Card>
           </Grid>
         </Grid>
-
-        {/* <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh', mt: 4, backgroundColor: "#1d4e89" }}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '50%' }}>
-          <Typography variant="h4" sx={{ mb: 2 }}>Saturday Schedule</Typography>
-          {schedule.map((item) => (
-            <Box key={item.time} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', py: 1 }}>
-              <Typography 
-              variant="h6"
-              style={{ fontFamily: "Avenir" }}
-              algin="left">
-              {item.time}</Typography>
-              <Typography 
-              variant="h6"
-              style={{ fontFamily: "Avenir" }}
-              algin="right">
-              {item.event}</Typography>
-            </Box>
-          ))}
-        </Box>
-      </Box> */}
       </div>
-      {/* <a href="">
-          <button className = "button"> Interest From </button>
-        </a>
-        <a href="">
-          <button className = "button"> Teacher Registration </button>
-        </a>
-        <a href="">
-          <button className = "button"> Student Registration </button>
-        </a>
-        
-      <Typography variant='h3'  algin='center'>Contact SAIL</Typography>
-      <p>Google Form Link?</p> */}
-      {/* <Typography variant='h3' algin='center' sx={{
-                  pb: 1,
-                }}>About SAIL</Typography> */}
-      {/* </div> */}
-      {/* <div className="section-about"> */}
       <Typography
         variant="h2"
         style={{
@@ -296,20 +249,11 @@ function Home() {
             marginLeft: "20%",
           }}
         >
-          {/* <img
-          sx={{
-            p: 3,
-          }}
-          src={beachHut}
-          alt="beach hut"
-        /> */}
           <Question />
         </Box>
       </Hidden>
-
-      {/* </div> */}
     </div>
   );
-}
+};
 
 export default Home;

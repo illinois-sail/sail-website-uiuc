@@ -12,7 +12,9 @@ import desktop from "./Desktop.png";
 import { makeStyles } from "@material-ui/core/styles";
 import mn from "./Mobile_new.png";
 import mns from "./mobile_new_star.png";
+import back from "./final_background.png";
 import Footer from "./Footer";
+import Question from "./Questions";
 
 // const styles = ({
 //     paperContainer: {
@@ -37,13 +39,12 @@ import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "0px",
-    height: "100%",
-    width: "100%",
-    backgroundSize: "cover", // Scale the background image to cover the entire container
-    backgroundPosition: "center", // Center the background image within the container
+    //height: "100%",
+    //width: "100%",
+    //backgroundSize: "cover", // Scale the background image to cover the entire container
+    //backgroundPosition: "center", // Center the background image within the container
     // no repeat
-    background: "no-repeat",
+    // background: "no-repeat",
     //   backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Mobile.png')`, // Set the background image for mobile devices by default
     //   [theme.breakpoints.up('tablet')]: {
     //     backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Tablet.png')`, // Set the background image for tablets and larger screens
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     //   [theme.breakpoints.up('desktop')]: {
     //     backgroundImage: `url('https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Desktop.png')`, // Set the background image for desktop screens
     //   },
-    backgroundImage: `url(${mns})`, // Set the background image for mobile devices by default
+    // backgroundImage: `url(${back})`, // Set the background image for mobile devices by default
     //   [theme.breakpoints.up('sm')]: {
     //     backgroundImage: `url(${tablet})`, // Set the background image for tablets and larger screens
     //   },
@@ -68,10 +69,8 @@ const HomePage = () => {
   return (
     // <ThemeProvider theme={theme}>
     <div>
-      <Container
+      {/* <Container
         className={classes.root}
-        paddingtop="0px"
-        paddingBottom="0px"
         fluid={true}
         disableGutters={true}
         maxWidth="xl"
@@ -92,8 +91,9 @@ const HomePage = () => {
         // }}
       >
         <Home />
-      </Container>
-      <Footer />
+      </Container> */}
+      <Home />
+      
     </div>
   );
 };

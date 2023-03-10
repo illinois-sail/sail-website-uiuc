@@ -16,7 +16,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
+import "../App.css";
 const Register = () => {
   // add these fields below to the form
   // ['gender', 'dietary_restrictions', 'shirt_size', 
@@ -128,7 +128,7 @@ const Register = () => {
           <Box
             component="form"
             onSubmit={onSubmitForm}
-            sx={{ mt: 3 }}
+            sx={{ mt: 3}}
           >
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -141,6 +141,7 @@ const Register = () => {
                   label="First Name"
                   value={firstName}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                   autoFocus
                 />
               </Grid>
@@ -154,6 +155,7 @@ const Register = () => {
                   value={lastName}
                   onChange={onChangeForm}
                   autoComplete="family-name"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -166,6 +168,7 @@ const Register = () => {
                   autoComplete="email"
                   value={email}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -179,6 +182,7 @@ const Register = () => {
                   value={password}
                   onChange={onChangeForm}
                   autoComplete="new-password"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -192,6 +196,7 @@ const Register = () => {
                   value={confirmpassword}
                   onChange={onChangeForm}
                   autoComplete="new-password"
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -204,6 +209,7 @@ const Register = () => {
                     value={gender}
                     label="Gender"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"male"}>Male</MenuItem>
                     <MenuItem value={"female"}>Female</MenuItem>
@@ -222,6 +228,7 @@ const Register = () => {
                   autoComplete="state"
                   value={state}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -235,6 +242,7 @@ const Register = () => {
                   autoComplete="city"
                   value={city}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -248,6 +256,7 @@ const Register = () => {
                   autoComplete="zip code"
                   value={zip}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -261,6 +270,7 @@ const Register = () => {
                   autoComplete="high_school"
                   value={high_school}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -273,6 +283,7 @@ const Register = () => {
                     value={admitted_student}
                     label="Admitted to UIUC"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"Yes"}>Yes</MenuItem>
                     <MenuItem value={"No"}>No </MenuItem>
@@ -289,6 +300,7 @@ const Register = () => {
                     value={year_in_school}
                     label="Year in School"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"male"}>Freshman</MenuItem>
                     <MenuItem value={"female"}>Sophomore</MenuItem>
@@ -308,6 +320,7 @@ const Register = () => {
                   autoComplete="phone_number"
                   value={phone_number}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
                 </Grid>
               <Grid item xs={12}>
@@ -321,6 +334,7 @@ const Register = () => {
                   autoComplete="parent_name"
                   value={parent_name}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -333,6 +347,7 @@ const Register = () => {
                     value={parent_attending}
                     label="Parent Attending Sail Parent Session"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"Yes"}>Yes, my parent will be attending the Sail Parent Session</MenuItem>
                     <MenuItem value={"No"}>No</MenuItem>
@@ -350,6 +365,7 @@ const Register = () => {
                   autoComplete="parent_phone_number"
                   value={parent_phone_number}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -363,6 +379,7 @@ const Register = () => {
                   autoComplete="parent_email"
                   value={parent_email}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -376,6 +393,7 @@ const Register = () => {
                   autoComplete="dietary_restrictions"
                   value={dietary_restrictions}
                   onChange={onChangeForm}
+                  style={{backgroundColor: "white"}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -388,6 +406,7 @@ const Register = () => {
                     value={shirt_size}
                     label="Shirt Size"
                     onChange={onChangeForm}
+                    style={{backgroundColor: "white"}}
                   >
                     <MenuItem value={"xs"}>XS</MenuItem>
                     <MenuItem value={"s"}>S</MenuItem>
@@ -409,7 +428,7 @@ const Register = () => {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body1">
-                <Typography sx={{ fontWeight: 'bold' }}color='#64b6ac' fontFamily='Avenir'>Already Have An Account? Log In</Typography>
+                <Typography sx={{ fontWeight: 'bold' }}color='#028293' fontFamily='Avenir'>Already Have An Account? Log In</Typography>
                 </Link>
               </Grid>
             </Grid>

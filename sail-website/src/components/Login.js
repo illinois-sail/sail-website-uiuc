@@ -82,6 +82,7 @@ const Login = () => {
   // }
 
   return (
+    <div>
     <Box
       sx={{
         // backgroundImage: `url(${"https://raw.githubusercontent.com/illinois-sail/sail-website-uiuc/ac-homepage/sail-website/src/Modern%20Game%20Club%20Basketball%20Sport%20Logo(3)%202.png"})`,
@@ -89,6 +90,7 @@ const Login = () => {
         // width: "100%",
         // height: "100vh",
         // backgroundSize: "cover",
+        // backgroundImage: `url(${'./login_page2.png'})`,
       }}
     >
       <Container component="main" maxWidth="xs">
@@ -173,10 +175,10 @@ const Login = () => {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/register" variant="body1">
-                <Typography sx={{ fontWeight: 'bold' }}color='#64b6ac' fontFamily='Avenir'>Don't Have an Account? Sign Up</Typography>
+                <Typography sx={{ fontWeight: 'bold'}}color='#64b6ac' fontFamily='Avenir'>Don't Have an Account? Sign Up</Typography>
                 </Link>
               </Grid>
-              <Grid item sx={{ mx: 1, mb: 2 }}>
+              <Grid item sx={{ mx: 2, mb: 2 }}>
                 <Link href="/reset-password" variant="body1">
                 <Typography sx={{ fontWeight: 'bold' }}color='#64b6ac' fontFamily='Avenir'>Forgot Password</Typography>
                 </Link>
@@ -186,6 +188,7 @@ const Login = () => {
         </Box>
       </Container>
     </Box>
+  </div>
   );
 };
 
