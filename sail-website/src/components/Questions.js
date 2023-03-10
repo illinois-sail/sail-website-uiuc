@@ -191,7 +191,7 @@ export default function SimpleAccordion() {
               style={{ fontFamily: "Cascadia Code", color: "#fff", fontSize: 15 }}
             >
               Please don&apos;t hesitate to contact us at
-              cs-sail@lists.cs.illinois.edu. We&apos;ll get back to you as soon
+              sail.cs.illinois@gmail.com. We&apos;ll get back to you as soon
               as possible!
             </Typography>
           </AccordionDetails>
