@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.http import FileResponse, Http404
 
+
 # """ STUFF USED FOR SENDING ACTIVATION EMAIL """
 # from django.contrib.sites.shortcuts import get_current_site
 # from django.core.mail import EmailMessage
@@ -28,9 +29,6 @@ from .serializers import StudentSerializer
 class StudentView(generics.CreateAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-
-
-
 
 
 # # Credits to https://blog.hlab.tech/part-ii-how-to-sign-up-user-and-send-confirmation-email-in-django-2-1-and-python-3-6/

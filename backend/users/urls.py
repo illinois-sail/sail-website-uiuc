@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 from .views import StudentView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     # path('register/', views.register, name='users-register'),
@@ -11,5 +14,6 @@ urlpatterns = [
     # path('forms/', views.forms, name='users-forms'),
     # path('forms/medical-form', views.medical_form_pdf, name='users-forms-medical'),
     # path('interest-form/', views.register_follower, name='users-interest-form'), 
-    path('home', StudentView.as_view())
+    path('home', StudentView.as_view()),
+    
 ]
