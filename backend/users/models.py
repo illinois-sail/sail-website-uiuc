@@ -36,15 +36,15 @@ from .managers import SailUserManager
 class SailUser(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    first_name = models.CharField(max_length=128)
-    last_name = models.CharField(max_length=128)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     role = 'Student'
     USERNAME_FIELD = 'email'
 
     # REQUIRED FIELDS
     MALE = 'Male'
     FEMALE = 'Female'
-    NON_BIN = 'Non_Binary'
+    NON_BIN = 'Non-binary'
     GENDER_ID_CHOICES = (
         (MALE, 'Male'),
         (FEMALE, 'Female'),
@@ -71,7 +71,7 @@ class SailUser(AbstractUser):
                                   default=XS)
 
     home_city = models.CharField(max_length=50)
-    home_zip_code = models.CharField(max_length=10)
+    home_zip_code = models.CharField(max_length=15)
     high_school = models.CharField(max_length=50)
 
     FRESHMAN = 'Freshman'
@@ -88,13 +88,13 @@ class SailUser(AbstractUser):
                                       choices=YEAR_IN_SCHOOL_CHOICES,
                                       default=FRESHMAN)
     
-    phone_number = models.CharField(blank=True, max_length=12)
-    parent_name = models.CharField(max_length=100)
-    parent_phone_number = models.CharField(blank=True, max_length=12)
+    phone_number = models.CharField(blank=True, max_length=20)
+    parent_name = models.CharField(max_length=50)
+    parent_phone_number = models.CharField(blank=True, max_length=20)
     parent_email = models.EmailField(default='')
 
     # OPTIONAL FIELDS (specified with blank=True)
-    dietary_restrictions = models.CharField(max_length=50, blank=True)
+    dietary_restrictions = models.CharField(max_length=100, blank=True)
     home_state = models.CharField(max_length=2, blank=True)
     admitted_student = models.BooleanField(default=True)
 
@@ -139,7 +139,7 @@ class Student(models.Model):
     # REQUIRED FIELDS
     MALE = 'Male'
     FEMALE = 'Female'
-    NON_BIN = 'Non_Binary'
+    NON_BIN = 'Non-binary'
     GENDER_ID_CHOICES = (
         (MALE, 'Male'),
         (FEMALE, 'Female'),
@@ -186,7 +186,7 @@ class Student(models.Model):
     phone_number = models.PositiveIntegerField()
     parent_name = models.CharField(max_length=100)
     parent_phone_number = models.PositiveIntegerField()
-    parent_email = models.EmailField()
+    parent_email = models.EmailField(max_length=20)
 
     # OPTIONAL FIELDS (specified with blank=True)
     dietary_restrictions = models.CharField(max_length=50, blank=True)

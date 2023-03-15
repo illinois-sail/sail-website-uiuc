@@ -67,7 +67,7 @@ APPEND_SLASH=False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,12 +135,12 @@ USE_TZ = True
 
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 # STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'sail-website/build/static')
+#     os.path.join(BASE_DIR, 'frontend/build/static')
 # ]
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build', 'static'),
+    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
 ]
 # Place static in the same location as webpack build files
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')

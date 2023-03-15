@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
             name='Student',
             fields=[
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
-                ('gender_identification', models.CharField(choices=[('Male', 'Male'), ('Female', 'Female'), ('Non_Binary', 'Non-binary')], default='Male', max_length=10)),
+                ('gender_identification', models.CharField(choices=[('Male', 'Male'), ('Female', 'Female'), ('Non-Binary', 'Non-binary')], default='Male', max_length=10)),
                 ('shirt_size', models.CharField(choices=[('XS', 'Unisex XS'), ('S', 'Unisex S'), ('M', 'Unisex M'), ('L', 'Unisex L'), ('XL', 'Unisex XL')], default='XS', max_length=5)),
                 ('home_city', models.CharField(max_length=50)),
                 ('home_zip_code', models.PositiveIntegerField()),

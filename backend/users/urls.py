@@ -14,6 +14,6 @@ urlpatterns = [
     # path('forms/', views.forms, name='users-forms'),
     # path('forms/medical-form', views.medical_form_pdf, name='users-forms-medical'),
     # path('interest-form/', views.register_follower, name='users-interest-form'), 
-    path('home', StudentView.as_view()),
+    # path('home', StudentView.as_view()),
     
 ]
