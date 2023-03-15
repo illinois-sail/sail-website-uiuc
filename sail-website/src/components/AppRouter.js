@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from "./Login";
 import Home from "./HomePage";
 import Register from "./registerMain";
@@ -19,24 +19,24 @@ const AppRouter = () => {
   return (
     //PROBLEM WITH PROVIDER
     // <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/student" element={<Student />} />
-          <Route path="/teacher" element={<Teacher />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route
-            path="/password/reset/confirm/:uid/:token"
-            element={<ResetPasswordConfirm />}
-          />
-          <Route path="/activate/:uid/:token" element={<Activate />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/student" element={<Student />} />
+        <Route path="/teacher" element={<Teacher />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route
+          path="/password/reset/confirm/:uid/:token"
+          element={<ResetPasswordConfirm />}
+        />
+        <Route path="/activate/:uid/:token" element={<Activate />} />
+      </Routes>
+    </BrowserRouter>
     // </Provider>
   );
-}
+};
 export default AppRouter;

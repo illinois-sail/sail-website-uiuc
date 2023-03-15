@@ -168,9 +168,9 @@ const Login = () => {
     //             type="submit"
     //             fullWidth
     //             variant="contained"
-    //             sx={{fontfamily: 'Cascadia Code',backgroundColor:'#64b6ac',mt: 3, mb: 2}}
+    //             sx={{fontfamily: 'cascadiacode',backgroundColor:'#64b6ac',mt: 3, mb: 2}}
     //           >
-    //             <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Cascadia Code'>Login</Typography>
+    //             <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='cascadiacode'>Login</Typography>
     //           </Button>
     //           <Grid container justifyContent="flex-end">
     //             <Grid item>
@@ -203,7 +203,13 @@ const Login = () => {
             color="#64b6ac"
             component="h1"
             variant="h5"
-            sx={{ fontFamily: "sergiotrendy", paddingBottom: 2, fontSize: 45, marginTop: "20%", textAlign: "center" }}
+            sx={{
+              fontFamily: "sergiotrendy",
+              paddingBottom: 2,
+              fontSize: 45,
+              marginTop: "20%",
+              textAlign: "center",
+            }}
           >
             Login Page Coming Soon!
           </Typography>

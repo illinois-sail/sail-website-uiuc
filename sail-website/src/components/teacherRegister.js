@@ -26,10 +26,6 @@ export default function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
     
   };
   const [gender, setGender] = React.useState('');
@@ -220,7 +216,7 @@ export default function Register() {
               variant="contained"
               sx={{fontfamily: 'avenir',backgroundColor:'#64b6ac',mt: 3, mb: 2}} 
             >
-              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Cascadia Code'>Register</Typography>
+              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='cascadiacode'>Register</Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

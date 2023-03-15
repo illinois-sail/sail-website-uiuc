@@ -10,7 +10,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import Paper from "@mui/material/Paper";
 const Footer = () => {
   return (
-    <Box bgcolor="#333" color="#fff" py={4} style={{ marginBottom: "5em" }}>
+    <Box color="transparent" py={4} style={{ marginBottom: "5em" }}>
       <Typography
         variant="h3"
         style={{

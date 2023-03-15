@@ -114,8 +114,7 @@ const Register = () => {
         admitted_student: admitted_student,
         parent_attending: parent_attending,
       };
-      console.log(userData);
-      fetch("http://127.0.0.1:8000/auth/users/", {
+      fetch("/auth/users/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +131,7 @@ const Register = () => {
           alert(
             "Registration Successful! Please check your email for registration confirmation."
           );
-          // navigate("/home");
+
           setFormData({
             email: "",
             password: "",
@@ -183,15 +182,17 @@ const Register = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, backgroundColor: '#64b6ac'}}></Avatar>
-          <Typography textAlign='center' color='#64b6ac' component="h1" variant="h5" sx={{fontFamily:'sergiotrendy', paddingBottom: 2 , fontSize: 50}}>
+          <Avatar sx={{ m: 1, backgroundColor: "#64b6ac" }}></Avatar>
+          <Typography
+            textAlign="center"
+            color="#64b6ac"
+            component="h1"
+            variant="h5"
+            sx={{ fontFamily: "sergiotrendy", paddingBottom: 2, fontSize: 50 }}
+          >
             Student Registration
           </Typography>
-          <Box
-            component="form"
-            onSubmit={onSubmitForm}
-            sx={{ mt: 3}}
-          >
+          <Box component="form" onSubmit={onSubmitForm} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -203,9 +204,9 @@ const Register = () => {
                   label="First Name"
                   value={firstName}
                   onChange={onChangeForm}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                   autoFocus
-                  inputProps={{ maxLength: 128 }}
+                  inputProps={{ maxLength: 50 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -218,8 +219,8 @@ const Register = () => {
                   value={lastName}
                   onChange={onChangeForm}
                   autoComplete="family-name"
-                  inputProps={{ maxLength: 128 }}
-                  style={{backgroundColor: "white"}}
+                  inputProps={{ maxLength: 50 }}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -232,7 +233,7 @@ const Register = () => {
                   autoComplete="email"
                   value={email}
                   onChange={onChangeForm}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               {/* <Grid item xs={12}>
@@ -273,7 +274,7 @@ const Register = () => {
                     value={gender}
                     label="Gender"
                     onChange={onChangeForm}
-                    style={{backgroundColor: "white"}}
+                    style={{ backgroundColor: "white" }}
                   >
                     <MenuItem value={"Male"}>Male</MenuItem>
                     <MenuItem value={"Female"}>Female</MenuItem>
@@ -293,7 +294,7 @@ const Register = () => {
                   value={state}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 2 }}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -308,7 +309,7 @@ const Register = () => {
                   value={city}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 50 }}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -323,7 +324,7 @@ const Register = () => {
                   value={zip}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 15 }}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -338,7 +339,7 @@ const Register = () => {
                   value={high_school}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 50 }}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -353,7 +354,8 @@ const Register = () => {
                     value={admitted_student}
                     label="Admitted to UIUC"
                     onChange={onChangeForm}
-                    style={{backgroundColor: "white"}}
+                    style={{ backgroundColor: "white" }}
+                    required
                   >
                     <MenuItem value={true}>Yes</MenuItem>
                     <MenuItem value={false}>No</MenuItem>
@@ -372,7 +374,8 @@ const Register = () => {
                     value={year_in_school}
                     label="Year in School"
                     onChange={onChangeForm}
-                    style={{backgroundColor: "white"}}
+                    style={{ backgroundColor: "white" }}
+                    required
                   >
                     <MenuItem value={"Freshman"}>Freshman</MenuItem>
                     <MenuItem value={"Sophomore"}>Sophomore</MenuItem>
@@ -393,7 +396,7 @@ const Register = () => {
                   value={phone_number}
                   onChange={onChangeForm}
                   inputProps={{ maxLength: 20 }}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -407,8 +410,8 @@ const Register = () => {
                   autoComplete="parent_name"
                   value={parent_name}
                   onChange={onChangeForm}
-                  inputProps={{ maxLength: 100 }}
-                  style={{backgroundColor: "white"}}
+                  inputProps={{ maxLength: 50 }}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -423,7 +426,8 @@ const Register = () => {
                     value={parent_attending}
                     label="Parent Attending Sail Parent Session"
                     onChange={onChangeForm}
-                    style={{backgroundColor: "white"}}
+                    style={{ backgroundColor: "white" }}
+                    required
                   >
                     <MenuItem value={true}>
                       Yes, my parent will be attending the Sail Parent Session
@@ -443,7 +447,8 @@ const Register = () => {
                   autoComplete="parent_phone_number"
                   value={parent_phone_number}
                   onChange={onChangeForm}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
+                  inputProps={{ maxLength: 20 }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -457,7 +462,7 @@ const Register = () => {
                   autoComplete="parent_email"
                   value={parent_email}
                   onChange={onChangeForm}
-                  style={{backgroundColor: "white"}}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -471,8 +476,8 @@ const Register = () => {
                   autoComplete="dietary_restrictions"
                   value={dietary_restrictions}
                   onChange={onChangeForm}
-                  inputProps={{ maxLength: 250 }}
-                  style={{backgroundColor: "white"}}
+                  inputProps={{ maxLength: 100 }}
+                  style={{ backgroundColor: "white" }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -481,13 +486,14 @@ const Register = () => {
                     Shirt Size
                   </InputLabel>
                   <Select
+                    required
                     labelId="demo-simple-select-label"
                     name="shirt_size"
                     id="demo-simple-select"
                     value={shirt_size}
                     label="Shirt Size"
                     onChange={onChangeForm}
-                    style={{backgroundColor: "white"}}
+                    style={{ backgroundColor: "white" }}
                   >
                     <MenuItem value={"XS"}>XS</MenuItem>
                     <MenuItem value={"S"}>S</MenuItem>
@@ -502,14 +508,31 @@ const Register = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{fontfamily: 'avenir',backgroundColor:'#64b6ac',mt: 3, mb: 2}} 
+              sx={{
+                fontfamily: "avenir",
+                backgroundColor: "#64b6ac",
+                mt: 3,
+                mb: 2,
+              }}
             >
-              <Typography sx={{ fontWeight: 'bold' }}color='#fff' fontFamily='Cascadia Code'>Register</Typography>
+              <Typography
+                sx={{ fontWeight: "bold" }}
+                color="#fff"
+                fontFamily="cascadiacode"
+              >
+                Register
+              </Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body1">
-                <Typography sx={{ fontWeight: 'bold' }}color='#028293' fontFamily='Avenir'>Already Have An Account? Log In</Typography>
+                  <Typography
+                    sx={{ fontWeight: "bold" }}
+                    color="#028293"
+                    fontFamily="Avenir"
+                  >
+                    Already Have An Account? Log In
+                  </Typography>
                 </Link>
               </Grid>
             </Grid>
