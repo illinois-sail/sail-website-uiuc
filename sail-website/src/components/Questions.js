@@ -148,7 +148,7 @@ export default function SimpleAccordion() {
               }}
             >
               On April 8th, there will be a in-person day. On April 9th, we will
-              have a virtual IDEAthon and
+              have a virtual IDEAthon
             </Typography>
           </AccordionDetails>
         </Accordion>

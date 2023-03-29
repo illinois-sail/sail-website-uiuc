@@ -172,7 +172,7 @@ const Register = () => {
         backgroundRepeat: "repeat",
       }}
     >
-      <Container component="main">
+      <Container component="main" maxWidth="md">
         {/* <CssBaseline /> */}
         <Box
           sx={{
@@ -194,7 +194,17 @@ const Register = () => {
           </Typography>
           <Box component="form" onSubmit={onSubmitForm} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+            <Grid item xs={12} >
+              <Typography
+                // textAlign="center"
+                color="#64b6ac"
+                // component="h5"
+                variant="h5"
+                sx={{ fontFamily: "cascadiacode"}}
+          >Personal Information
+          </Typography>
+              </Grid>
+              <Grid item xs={12} sm ={6}>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -209,7 +219,7 @@ const Register = () => {
                   inputProps={{ maxLength: 50 }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm = {6}>
                 <TextField
                   required
                   fullWidth
@@ -223,6 +233,7 @@ const Register = () => {
                   style={{ backgroundColor: "white" }}
                 />
               </Grid>
+              
               <Grid item xs={12}>
                 <TextField
                   required
@@ -235,6 +246,49 @@ const Register = () => {
                   onChange={onChangeForm}
                   style={{ backgroundColor: "white" }}
                 />
+              </Grid>
+              <Grid item xs={12} sm = {6}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    name="gender"
+                    id="demo-simple-select"
+                    value={gender}
+                    label="Gender"
+                    onChange={onChangeForm}
+                    style={{ backgroundColor: "white" }}
+                  >
+                    <MenuItem value={"Male"}>Male</MenuItem>
+                    <MenuItem value={"Female"}>Female</MenuItem>
+                    <MenuItem value={"Non-binary"}>Non-Binary</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  name="phone_number"
+                  label="Phone Number"
+                  type="phone_number"
+                  id="phone_number"
+                  autoComplete="phone_number"
+                  value={phone_number}
+                  onChange={onChangeForm}
+                  inputProps={{ maxLength: 20 }}
+                  style={{ backgroundColor: "white" }}
+                />
+              </Grid>
+              <Grid item xs={12} >
+              <Typography
+                // textAlign="center"
+                color="#64b6ac"
+                // component="h5"
+                variant="h5"
+                sx={{ fontFamily: "cascadiacode"}}
+          >High School Information
+          </Typography>
               </Grid>
               {/* <Grid item xs={12}>
                 <TextField
@@ -264,70 +318,7 @@ const Register = () => {
                   style={{backgroundColor: "white"}}
                 />
               </Grid> */}
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    name="gender"
-                    id="demo-simple-select"
-                    value={gender}
-                    label="Gender"
-                    onChange={onChangeForm}
-                    style={{ backgroundColor: "white" }}
-                  >
-                    <MenuItem value={"Male"}>Male</MenuItem>
-                    <MenuItem value={"Female"}>Female</MenuItem>
-                    <MenuItem value={"Non-binary"}>Non-Binary</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="state"
-                  label="Home State (2 Letter Abbreviation)"
-                  type="state"
-                  id="state"
-                  autoComplete="state"
-                  value={state}
-                  onChange={onChangeForm}
-                  inputProps={{ maxLength: 2 }}
-                  style={{ backgroundColor: "white" }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="city"
-                  label="Home City"
-                  type="city"
-                  id="city"
-                  autoComplete="city"
-                  value={city}
-                  onChange={onChangeForm}
-                  inputProps={{ maxLength: 50 }}
-                  style={{ backgroundColor: "white" }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="zip"
-                  label="Home Zip Code"
-                  type="zip"
-                  id="zip"
-                  autoComplete="zip code"
-                  value={zip}
-                  onChange={onChangeForm}
-                  inputProps={{ maxLength: 15 }}
-                  style={{ backgroundColor: "white" }}
-                />
-              </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -342,27 +333,7 @@ const Register = () => {
                   style={{ backgroundColor: "white" }}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Admitted to UIUC
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    name="admitted_student"
-                    id="demo-simple-select"
-                    value={admitted_student}
-                    label="Admitted to UIUC"
-                    onChange={onChangeForm}
-                    style={{ backgroundColor: "white" }}
-                    required
-                  >
-                    <MenuItem value={true}>Yes</MenuItem>
-                    <MenuItem value={false}>No</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     Year in School
@@ -384,22 +355,85 @@ const Register = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm = {4}>
                 <TextField
                   required
                   fullWidth
-                  name="phone_number"
-                  label="Phone Number"
-                  type="phone_number"
-                  id="phone_number"
-                  autoComplete="phone_number"
-                  value={phone_number}
+                  name="city"
+                  label="Home City"
+                  type="city"
+                  id="city"
+                  autoComplete="city"
+                  value={city}
                   onChange={onChangeForm}
-                  inputProps={{ maxLength: 20 }}
+                  inputProps={{ maxLength: 50 }}
                   style={{ backgroundColor: "white" }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm = {4}>
+                <TextField
+                  required
+                  fullWidth
+                  name="state"
+                  label="Home State (2 Letter Abbreviation)"
+                  type="state"
+                  id="state"
+                  autoComplete="state"
+                  value={state}
+                  onChange={onChangeForm}
+                  inputProps={{ maxLength: 2 }}
+                  style={{ backgroundColor: "white" }}
+                />
+              </Grid>
+              
+              <Grid item xs={12} sm = {4}>
+                <TextField
+                  required
+                  fullWidth
+                  name="zip"
+                  label="Home Zip Code"
+                  type="zip"
+                  id="zip"
+                  autoComplete="zip code"
+                  value={zip}
+                  onChange={onChangeForm}
+                  inputProps={{ maxLength: 15 }}
+                  style={{ backgroundColor: "white" }}
+                />
+              </Grid>
+              
+              <Grid item xs={12} sm={6}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Admitted to UIUC
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    name="admitted_student"
+                    id="demo-simple-select"
+                    value={admitted_student}
+                    label="Admitted to UIUC"
+                    onChange={onChangeForm}
+                    style={{ backgroundColor: "white" }}
+                    required
+                  >
+                    <MenuItem value={true}>Yes</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              
+              <Grid item xs={12} >
+              <Typography
+                // textAlign="center"
+                color="#64b6ac"
+                // component="h5"
+                variant="h5"
+                sx={{ fontFamily: "cascadiacode"}}
+          >Parent Information
+          </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -414,29 +448,7 @@ const Register = () => {
                   style={{ backgroundColor: "white" }}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Parent Attending Sail Parent Session
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    name="parent_attending"
-                    id="demo-simple-select"
-                    value={parent_attending}
-                    label="Parent Attending Sail Parent Session"
-                    onChange={onChangeForm}
-                    style={{ backgroundColor: "white" }}
-                    required
-                  >
-                    <MenuItem value={true}>
-                      Yes, my parent will be attending the Sail Parent Session
-                    </MenuItem>
-                    <MenuItem value={false}>No</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -465,7 +477,40 @@ const Register = () => {
                   style={{ backgroundColor: "white" }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Parent Attending Sail Parent Session
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    name="parent_attending"
+                    id="demo-simple-select"
+                    value={parent_attending}
+                    label="Parent Attending Sail Parent Session"
+                    onChange={onChangeForm}
+                    style={{ backgroundColor: "white" }}
+                    required
+                  >
+                    <MenuItem value={true}>
+                      Yes, my parent will be attending the Sail Parent Session
+                    </MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              
+              <Grid item xs={12} >
+              <Typography
+                // textAlign="center"
+                color="#64b6ac"
+                // component="h5"
+                variant="h5"
+                sx={{ fontFamily: "cascadiacode"}}
+          >Other Information
+          </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -480,7 +525,7 @@ const Register = () => {
                   style={{ backgroundColor: "white" }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     Shirt Size
