@@ -4,6 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Link from '@mui/material/Link';
 import "../fonts.css";
 import Footer from "./Footer";
 
@@ -114,7 +115,11 @@ export default function SimpleAccordion() {
             >
               This year, Sail will have activities for high school students, as
               well as their parents! We will have separate tracks for admitted
-              students and parents.
+              students and&nbsp;  
+              
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9UcCW6uN0QeCqqtQGzuipCsYnkKrg7M7q3Gb33wceqgda6g/viewform" color="inherit">
+               parents
+                </Link>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -148,7 +153,7 @@ export default function SimpleAccordion() {
               }}
             >
               On April 8th, there will be a in-person day. On April 9th, we will
-              have a virtual IDEAthon
+              have a virtual mini-hackathon
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -181,7 +186,8 @@ export default function SimpleAccordion() {
                 fontSize: 15,
               }}
             >
-              YES! And no worries, food will be provided!
+              YES! And no worries, food and transporation will be provided! There will be buses to the following places: Chicago, Schaumburg, Naperville, Oak Brook.
+
             </Typography>
           </AccordionDetails>
         </Accordion>

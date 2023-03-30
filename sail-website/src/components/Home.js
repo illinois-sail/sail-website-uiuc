@@ -260,17 +260,17 @@ const Home = () => {
               <Typography
                 variant="h4"
                 style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                sx={{ textAlign: "center center", paddingTop: "25%" }}
+                sx={{ textAlign: "center center", paddingTop: "10%" }}
               >
-                Virtual mini-hackathon day!
+                Generative Art Hackathon
               </Typography>
               <Typography
                 variant="h5"
                 style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
                 sx={{ textAlign: "center center" }}
               >
-                Keep your calendars open for 12-3pm. Details will be posted
-                soon....
+                
+Join us virtually from 12-3pm CST on Sunday, April 9th for SAIL's generative art hackathon! All levels of experience welcome! Flex your Desmos skills, learn a new programming language with turtle graphics, or come up with something completely unexpected
               </Typography>
             </Card>
           </Grid>
