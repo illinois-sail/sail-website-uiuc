@@ -51,7 +51,7 @@ const schedule = [
   { time: "11:00 AM", event: "Class #2" },
   { time: "12:00 PM", event: "Lunch" },
   { time: "1:00 PM", event: "Class #3" },
-  { time: "2:00 PM", event: "Class #4" },
+  { time: "2:00 PM", event: "RSO Fair" },
   { time: "3:30 PM", event: "Student Q & A Panel" },
   { time: "4:30 PM", event: "Faculty Talk" },
   { time: "5:20 PM", event: "Closing Ceremony" },
