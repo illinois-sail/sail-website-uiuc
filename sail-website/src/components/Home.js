@@ -197,8 +197,8 @@ const Home = () => {
                 borderRadius: "10px",
                 p: 2,
                 backgroundColor: "#c0fbfd",
-                marginLeft: "20px",
-                marginRight: "20px",
+                marginLeft: "30px",
+                marginRight: "30px",
                 height: "90%",
               }}
             >
@@ -245,8 +245,8 @@ const Home = () => {
                 borderRadius: "10px",
                 p: 2,
                 backgroundColor: "#c0fbfd",
-                marginLeft: "20px",
-                marginRight: "20px",
+                marginLeft: "30px",
+                marginRight: "30px",
                 height: "90%",
               }}
             >

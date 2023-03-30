@@ -58,6 +58,7 @@ const Footer = () => {
                 <InstagramIcon style={{ color: "white" }} />
               </Link>
             </Button>
+            
           </Stack>
         </Grid>
       </Grid>

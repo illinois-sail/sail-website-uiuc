@@ -569,7 +569,7 @@ const Register = () => {
               </Typography>
             </Button>
             <Grid container justifyContent="flex-end">
-              <Grid item>
+              {/* <Grid item>
                 <Link href="/login" variant="body1">
                   <Typography
                     sx={{ fontWeight: "bold" }}
@@ -579,7 +579,7 @@ const Register = () => {
                     Already Have An Account? Log In
                   </Typography>
                 </Link>
-              </Grid>
+              </Grid> */}
             </Grid>
           </Box>
         </Box>

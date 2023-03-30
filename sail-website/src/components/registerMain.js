@@ -55,9 +55,9 @@ function RegisterMain() {
                 Student Registration
               </Typography>
             </Button>
-            {/* <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="/teacher">
-            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='cascadiacode'>Teacher Registration</Typography>
-            </Button> */}
+            <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="https://docs.google.com/forms/d/e/1FAIpQLSd9UcCW6uN0QeCqqtQGzuipCsYnkKrg7M7q3Gb33wceqgda6g/viewform" target="_blank">
+            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='cascadiacode'>Parent Registration</Typography>
+            </Button>
           </Stack>
         </Box>
       </Box>

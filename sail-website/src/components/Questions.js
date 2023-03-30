@@ -45,7 +45,7 @@ export default function SimpleAccordion() {
               This year, Sail will be a two-day event. On Saturday, students
               will have the chance to attend classes taught by current students
               at UIUC and learn about different computer science topics, as well
-              as life at UIUC. On Sunday, there will be a virtual IDEA-thon.
+              as life at UIUC. On Sunday, there will be a virtual mini-hackathon.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -119,6 +119,43 @@ export default function SimpleAccordion() {
               
               <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9UcCW6uN0QeCqqtQGzuipCsYnkKrg7M7q3Gb33wceqgda6g/viewform" color="inherit">
                parents
+                </Link>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          disableGutters
+          sx={{
+            backgroundColor: "#64b6ac",
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography
+              variant="h5"
+              sx={{
+                color: "#fff",
+              }}
+              style={{ fontFamily: "sergiotrendy" }}
+            >
+              Where can parents sign up?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography
+              style={{
+                fontFamily: "cascadiacode",
+                color: "#fff",
+                fontSize: 15,
+              }}
+            >
+             Parents can sign up using the following&nbsp; 
+              
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd9UcCW6uN0QeCqqtQGzuipCsYnkKrg7M7q3Gb33wceqgda6g/viewform" color="inherit">
+               link
                 </Link>
             </Typography>
           </AccordionDetails>
