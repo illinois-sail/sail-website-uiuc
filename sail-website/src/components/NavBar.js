@@ -17,7 +17,7 @@ import Link from "@mui/material/Link";
 import "../fonts.css";
 
 const drawerWidth = 240;
-const navItems = ["home", "register", "login"];
+const navItems = ["home", "register", "classes"];
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
