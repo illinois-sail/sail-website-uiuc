@@ -1,0 +1,38 @@
+.card-style {
+  background-color: #fafafa !important;
+  border: 2px solid rgba(62, 72, 111, 0.1) !important;
+  border-radius: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  transition: all 0.4s ease !important;
+  height: 180px !important;
+  filter: grayscale(35%) !important;
+  min-width: 250px;
+  padding: 15px !important;
+}
+
+.card-style:hover {
+  border: 2px solid white !important;
+  filter: grayscale(0%) drop-shadow(0 4px 12px rgb(104 112 118 / 0.08))
+    drop-shadow(0 20px 8px rgb(104 112 118 / 0.04));
+  transform: translateY(-3px) !important;
+  background-color: white !important;
+}
+
+.title {
+  font-family: "cascadiacode" !important;
+  font-weight: bold !important;
+  color: #40756f;
+  text-align: center;
+}
+.teacher {
+  font-family: "cascadiacode" !important;
+  color: #40756f;
+  text-align: center;
+  font-size: small !important;
+}
+.desc {
+  font-family: "cascadiacode" !important;
+  color: "black";
+}
