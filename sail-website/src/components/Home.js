@@ -51,6 +51,7 @@ const schedule = [
   { time: "11:00 AM", event: "Class #2" },
   { time: "12:00 PM", event: "Lunch" },
   { time: "1:00 PM", event: "Class #3" },
+  { time: "2:00 PM", event: "RSO Fair" },
   { time: "3:30 PM", event: "Student Q & A Panel" },
   { time: "4:30 PM", event: "Faculty Talk" },
   { time: "5:20 PM", event: "Closing Ceremony" },
@@ -196,8 +197,8 @@ const Home = () => {
                 borderRadius: "10px",
                 p: 2,
                 backgroundColor: "#c0fbfd",
-                marginLeft: "20px",
-                marginRight: "20px",
+                marginLeft: "30px",
+                marginRight: "30px",
                 height: "90%",
               }}
             >
@@ -244,8 +245,8 @@ const Home = () => {
                 borderRadius: "10px",
                 p: 2,
                 backgroundColor: "#c0fbfd",
-                marginLeft: "20px",
-                marginRight: "20px",
+                marginLeft: "30px",
+                marginRight: "30px",
                 height: "90%",
               }}
             >
@@ -259,17 +260,17 @@ const Home = () => {
               <Typography
                 variant="h4"
                 style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                sx={{ textAlign: "center center", paddingTop: "25%" }}
+                sx={{ textAlign: "center center", paddingTop: "10%" }}
               >
-                Virtual mini-hackathon day!
+                Generative Art Hackathon
               </Typography>
               <Typography
                 variant="h5"
                 style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
                 sx={{ textAlign: "center center" }}
               >
-                Keep your calendars open for 12-3pm. Details will be posted
-                soon....
+                
+Join us virtually from 12-3pm CST on Sunday, April 9th for SAIL's generative art hackathon! All levels of experience welcome! Flex your Desmos skills, learn a new programming language with turtle graphics, or come up with something completely unexpected
               </Typography>
             </Card>
           </Grid>

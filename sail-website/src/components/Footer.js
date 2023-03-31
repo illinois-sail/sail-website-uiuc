@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <Box color="transparent" py={4} style={{ marginBottom: "5em" }}>
       <Typography
-        variant="h3"
+        variant="h2"
         style={{
           fontFamily: "sergiotrendy",
           color: "#64b6ac",
@@ -58,6 +58,7 @@ const Footer = () => {
                 <InstagramIcon style={{ color: "white" }} />
               </Link>
             </Button>
+            
           </Stack>
         </Grid>
       </Grid>

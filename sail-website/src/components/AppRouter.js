@@ -13,6 +13,7 @@ import Student from "./studentRegister";
 import Teacher from "./teacherRegister";
 import Success from "./successPage";
 import HomePage from "./HomePage";
+// import Courses from './Courses'
 // import HomePageNew from "./HomePageNew";
 
 const AppRouter = () => {
