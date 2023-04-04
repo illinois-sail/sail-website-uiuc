@@ -17,13 +17,13 @@ const ClassCard = (props) => {
             {props.title}
           </Typography>
           <Typography
-            variant="h6"
+            variant="h7"
             className="teacher" 
           >
             {props.teacher}
           </Typography>
           <Typography
-            variant="body4"
+            variant="body2"
             className="desc"
           >
             {props.description}

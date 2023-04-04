@@ -39,19 +39,20 @@ const titles = [
   "History of Computing @ Illinois",
   "Blockchain Big Brain",
   "Future Prospects of CS. Industry vs. Research",
-  "Formula 1 Stat Analysis",
+  "Python Pit Stop: Visualizing Formula 1 Stats",
+  "Secrets of Success Studying CS in College",
 ];
-const teachers = [
-  "Teacher1",
-  "Teacher2",
-  "Teacher3",
-  "Teacher4",
-  "Teacher5",
-  "Teacher6",
-  "Teacher7",
-  "Teacher8",
-  "Teacher9",
-];
+// const teachers = [
+//   "Teacher1",
+//   "Teacher2",
+//   "Teacher3",
+//   "Teacher4",
+//   "Teacher5",
+//   "Teacher6",
+//   "Teacher7",
+//   "Teacher8",
+//   "Teacher9",
+// ];
 const descriptions = [
   "Have you ever been curious about the movie trope where IT guys ENHANCE images? Learn the basics of programmatic image editing, and even touch up your own photos without using Photoshop! Laptops required. AP Computer Science A OR basic Python required.",
   "Life as a freshman at UIUC is an experience unlike any other. Learn about everything you need to know about being a student at UIUC from classes to research, internships, dorm, food, and student life, and college life hacks!",
@@ -75,7 +76,7 @@ const descriptions = [
   "A gentle introduction to computational techniques used in astronomy research. Students must have a laptop.",
   "Learn how computers really work by building a circuit that adds numbers! Learn the basics of circuits and get hands-on experience with breadboards, wires, and electricity. This course is your first step in understanding the inner workings of computers.",
   "Explore research opportunities in CS at UIUC and gain the skills/resources to conduct research, identify potential topics, find mentors and funding. Participating in research is a great way to develop valuable skills and gain experience for future career!",
-  "No description",
+  "To create an efficient and reasonable schedule, define goals, estimate time, prioritize tasks, create a schedule, stick to it, and make adjustments as needed. By following these steps, you can effectively manage your time and achieve your goals.",
   "Learn to organize your notes and schedule with Notion, a absolute necessity in college! You'll learn how to use markup languages like Markdown and LaTeX, design database, and sync Notion pages with external programs and AI tools.",
   "Introduction to the Rust programming language! This course will teach you everything you need to know to code and build projects in Rust! Understand concepts such as parallelism and pipelining with the number one rated programming language!",
   "Using Python, the course content includes implementing an application that helps a user solve the famous game of Wordle. During the course, students will be introduced to the basics of data science and scoring algorithms.",
@@ -83,9 +84,10 @@ const descriptions = [
   "Learn the basics of supervised machine learning through a hands-on experience of running and modifying your own neural network! This course is open to all, and no prior knowledge of machine learning or coding is required.",
   "Learn how to create your very own personal website using React! We will also delve into how to host the site using Firebase.",
   "This course will give a perspective on computing at the University of Illinois Urbana-Champaign.",
-  "no description",
+  "In this course you will learn the fundementals of solidity and blockchain from a development perspective. Moreover, you will receive insight in regards to the technology as a whole and the benefits of utilizing decentralized systems that are possible through blockchain development.",
   "Learn how to build a strong application for research or internships, and explore the pros and cons of pursuing a career in graduate studies or industry. We also have an important PSA for passing CS courses here which you'll (probably) want to hear!",
   "This is an introduction to data science using the example of Formula 1. Join us to learn more about statistical analysis and data science!",
+  "I found the transition from high school to college tough! I needed new skills to be successful and I had no way to know what I didn't know! I’ll share some hopefully helpful and surprising tips from my own experience and mentoring undergraduates in CS.",
 ];
 
 const ClassTemplate = () => {
@@ -107,13 +109,13 @@ const ClassTemplate = () => {
               item
               xs={12}
               sm={6}
-              md={6}
+              md={4}
               style={{ justifyContent: "center" }}
             >
               <MyClassCard // this is a component
                 title={title}
                 description={descriptions[index]}
-                teacher={teachers[index]}
+                // teacher={teachers[index]}
               />
             </Grid>
           );

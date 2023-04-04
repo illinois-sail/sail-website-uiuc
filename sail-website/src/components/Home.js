@@ -13,6 +13,7 @@ import "../fonts.css";
 import { ReactComponent as Plane } from "./paper-plane-small.svg";
 import { useMediaQuery } from "@material-ui/core";
 import Paperplane from "./paperplane";
+import VideoPlayer from './VideoPlayer';
 // function MyComponent() {
 //   const isMobile = useMediaQuery('(max-width:600px)'); // adjust the max-width to your desired breakpoint
 // };
@@ -150,7 +151,7 @@ const Home = () => {
             // align: "center",
             alignItems: "center",
             marginTop: "0%",
-            marginBottom: "10%",
+            marginBottom: "5%",
             marginLeft: "15%",
             marginRight: "15%",
             backgroundColor: "#64b6ac",
@@ -189,7 +190,26 @@ const Home = () => {
             Urbana-Champaign. Without further ado, let's get started!
           </Typography>
         </Paper>
-
+        <Paper
+          sx={{
+            width: "44%",
+            // height : "60%",
+            // align: "center",
+            alignItems: "center",
+            marginTop: "0%",
+            marginBottom: "5%",
+            marginLeft: "28%",
+            marginRight: "28%",
+            backgroundColor: "#64b6ac",
+            boxShadow: "0 10px 10px rgba(0, 0, 0, 0.35)",
+            border: "10px solid #64b6ac",
+            borderRadius: "10%",
+            padding: "1em 1em"
+          }}
+        >
+        <VideoPlayer />
+        </Paper>
+        
         <Grid container spacing={4} sx={{ mt: 4 }}>
           <Grid item xs={12} sm={6}>
             <Card
