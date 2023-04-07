@@ -58,6 +58,9 @@ function RegisterMain() {
             <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="https://docs.google.com/forms/d/e/1FAIpQLSd9UcCW6uN0QeCqqtQGzuipCsYnkKrg7M7q3Gb33wceqgda6g/viewform" target="_blank">
             <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='cascadiacode'>Parent Registration</Typography>
             </Button>
+            <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="https://docs.google.com/forms/d/e/1FAIpQLSdpaxpnOGMxaaNAhNVNDaIEnamXgNnIxpl_jM-MTWoXazR8mw/viewform" target="_blank">
+            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='cascadiacode'>Virtual Hackathon Registration</Typography>
+            </Button>
           </Stack>
         </Box>
       </Box>
