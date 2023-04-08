@@ -42,10 +42,25 @@ function RegisterMain() {
             Register for Sail 2023!
           </Typography>
           <Stack direction="row" spacing={2}>
-            <Button
+            {/* <Button
               sx={{ fontfamily: "avenir", backgroundColor: "#fff00" }}
               variant="contained"
               href="/student"
+            >
+              //https://forms.gle/41EPCYjy3D7Nrdgm7
+              <Typography
+                sx={{ fontWeight: "bold" }}
+                color="#ffffff"
+                fontFamily="cascadiacode"
+              >
+                Student Registration
+              </Typography>
+            </Button> */}
+            <Button
+              sx={{ backgroundColor: "#fff00" }}
+              variant="contained"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf45O-Y3DCQNqUz8KTKfKhQBQxU_JZSKidN0h7hs6CeaIUjgA/viewform"
+              target="_blank"
             >
               <Typography
                 sx={{ fontWeight: "bold" }}
@@ -55,8 +70,33 @@ function RegisterMain() {
                 Student Registration
               </Typography>
             </Button>
-            <Button sx={{backgroundColor:'#fff00'}} variant="contained" href="https://docs.google.com/forms/d/e/1FAIpQLSd9UcCW6uN0QeCqqtQGzuipCsYnkKrg7M7q3Gb33wceqgda6g/viewform" target="_blank">
-            <Typography sx={{ fontWeight: 'bold' }}color='#ffffff' fontFamily='cascadiacode'>Parent Registration</Typography>
+            <Button
+              sx={{ backgroundColor: "#fff00" }}
+              variant="contained"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSd9UcCW6uN0QeCqqtQGzuipCsYnkKrg7M7q3Gb33wceqgda6g/viewform"
+              target="_blank"
+            >
+              <Typography
+                sx={{ fontWeight: "bold" }}
+                color="#ffffff"
+                fontFamily="cascadiacode"
+              >
+                Parent Registration
+              </Typography>
+            </Button>
+            <Button
+              sx={{ backgroundColor: "#fff00" }}
+              variant="contained"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdpaxpnOGMxaaNAhNVNDaIEnamXgNnIxpl_jM-MTWoXazR8mw/viewform"
+              target="_blank"
+            >
+              <Typography
+                sx={{ fontWeight: "bold" }}
+                color="#ffffff"
+                fontFamily="cascadiacode"
+              >
+                Virtual Hackathon Registration
+              </Typography>
             </Button>
           </Stack>
         </Box>
