@@ -290,7 +290,7 @@ const Home = () => {
                 sx={{ textAlign: "center center" }}
               >
                 
-Join us virtually from 12-3pm CST on Sunday, April 9th for SAIL's generative art hackathon! All levels of experience welcome! Flex your Desmos skills, learn a new programming language with turtle graphics, or come up with something completely unexpected
+Join us virtually from 12-3pm CST on Sunday, April 9th for SAIL's generative art hackathon! All levels of experience welcome! Flex your Desmos skills, learn a new programming language with turtle graphics, or come up with something completely unexpected. Register now!
               </Typography>
             </Card>
           </Grid>
