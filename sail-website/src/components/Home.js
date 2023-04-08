@@ -46,15 +46,15 @@ const theme = createTheme({
 });
 
 const schedule = [
-  { time: "9:00 AM", event: "Checkin and Breakfast" },
-  { time: "9:45 AM", event: "Opening Ceremony" },
+  { time: "8:00 AM", event: "Checkin and Breakfast" },
+  { time: "9:00 AM", event: "Opening Ceremony + Talk by Professor Lewis" },
   { time: "10:00 AM", event: "Class #1" },
   { time: "11:00 AM", event: "Class #2" },
   { time: "12:00 PM", event: "Lunch" },
   { time: "1:00 PM", event: "Class #3" },
-  { time: "2:00 PM", event: "RSO Fair" },
-  { time: "3:30 PM", event: "Student Q & A Panel" },
-  { time: "4:30 PM", event: "Faculty Talk" },
+  { time: "2:00 PM", event: "Tech Fair" },
+  { time: "3:30 PM", event: "Student Q&A Panel" },
+  { time: "4:30 PM", event: "Talk by Professor Wade" },
   { time: "5:20 PM", event: "Closing Ceremony" },
 ];
 
@@ -219,7 +219,7 @@ const Home = () => {
                 backgroundColor: "#c0fbfd",
                 marginLeft: "30px",
                 marginRight: "30px",
-                height: "90%",
+                height: "95%",
               }}
             >
               <Typography
@@ -267,7 +267,7 @@ const Home = () => {
                 backgroundColor: "#c0fbfd",
                 marginLeft: "30px",
                 marginRight: "30px",
-                height: "90%",
+                height: "95%",
               }}
             >
               <Typography
