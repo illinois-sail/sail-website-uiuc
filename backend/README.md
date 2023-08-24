@@ -1,6 +1,7 @@
 # sail-website-uiuc
 # Instructions to set up backend 
-Windows 11
+On Windows 11
+
 0) Navigate to backend/
 1) make sure you have pipenv (https://realpython.com/pipenv-guide/)
 2) Run 'pipenv shell' and then `pipenv install -r requirements.txt`
