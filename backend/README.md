@@ -34,7 +34,7 @@ On Mac (ARM Based)
 10) Navigate to /backend and run `python manage.py makemigrations` and `python manage.py migrate`
 11) Create superuser with `python manage.py createsuperuser`
     This is used to log in to http://127.0.0.1:8000/admin/
-12) Run python manage.py runserver
+12) Run `python manage.py runserver`
 
 13) Here are the examples of routes you can test below. More can be found on https://djoser.readthedocs.io/en/latest/base_endpoints.html 
    based on the routes specified in the Djoser configuration in settings.py
