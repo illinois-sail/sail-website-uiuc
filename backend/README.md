@@ -4,7 +4,7 @@ On Windows 11
 
 0) Navigate to backend/
 1) make sure you have pipenv (https://realpython.com/pipenv-guide/)
-2) Run 'pipenv shell' and then `pipenv install -r requirements.txt`
+2) Run `pipenv shell` and then `pipenv install -r requirements.txt`
 3) Put .env file in sail-website-uiuc/backend/sail2023
     .env files contains sensitive information
 4) In sail-website-uiuc/backend run `python manage.py makemigrations` and `python manage.py migrate`
