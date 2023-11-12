@@ -10,3 +10,15 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("../src/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Magz";
+  src: url("../src/fonts/Magz.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

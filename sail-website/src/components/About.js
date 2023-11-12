@@ -6,11 +6,12 @@ import Grid from "@mui/material/Grid";
 import "./Home.css";
 import Hidden from "@mui/material/Hidden";
 import "../fonts.css";
+import background from "../assets/final_background.png";
 
 
 const About = () => {
     return (
-        <div style={{ backgroundColor: "#FDE5C1", height: "100vh", paddingTop: "3vh" }} >
+        <div style={{  }} >
             <Typography
                 variant="h2"
                 style={{

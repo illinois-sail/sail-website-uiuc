@@ -1,9 +1,21 @@
-.sail-logo {
-  margin-top: 60px;
-  margin-bottom: 2rem;
-  font-size: 5rem;
-  /* position: relative; */
+/* zoom into backdrop as you scroll */
+
+.container {
+  padding-top: -10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+  height: 100vh;
 }
-.homepage {
-  text-align: center;
+
+.home_image {
+  width: 50vw;
+}
+
+.home_text {
+  font-family: "Magz";
+  color: white;
+  font-size: 3vw;
 }
