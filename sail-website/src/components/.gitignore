@@ -1,4 +1,4 @@
 __pycache__
-../backend/sail2023/.env
+.env
 db.sqlite3
 frontend/node_modules
