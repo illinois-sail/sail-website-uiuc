@@ -1,0 +1,15 @@
+.Sail24_Logo {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
