@@ -14,9 +14,7 @@ import { ReactComponent as Plane } from "./paper-plane-small.svg";
 import { useMediaQuery } from "@material-ui/core";
 import Paperplane from "./paperplane";
 import VideoPlayer from './VideoPlayer';
-// function MyComponent() {
-//   const isMobile = useMediaQuery('(max-width:600px)'); // adjust the max-width to your desired breakpoint
-// };
+
 
 const theme = createTheme({
   typography: {
@@ -45,18 +43,31 @@ const theme = createTheme({
   },
 });
 
-const schedule = [
-  { time: "8:00 AM", event: "Checkin and Breakfast" },
-  { time: "9:00 AM", event: "Opening Ceremony + Talk by Professor Lewis" },
-  { time: "10:00 AM", event: "Class #1" },
-  { time: "11:00 AM", event: "Class #2" },
+// @TODO: change the schedule according to the event schedule
+const schedule_day_1 = [
+  { time: "8:00 AM", event: "Check-in and Breakfast" },
+  { time: "9:00 AM", event: "Opening Ceremony" },
+  { time: "9:30 AM", event: "Class #1" },
+  { time: "10:30 AM", event: "Class #2" },
+  { time: "11:30 PM", event: "RSO fair" },
   { time: "12:00 PM", event: "Lunch" },
   { time: "1:00 PM", event: "Class #3" },
-  { time: "2:00 PM", event: "Tech Fair" },
-  { time: "3:30 PM", event: "Student Q&A Panel" },
-  { time: "4:30 PM", event: "Talk by Professor Wade" },
-  { time: "5:20 PM", event: "Closing Ceremony" },
+  { time: "2:00 PM", event: "Engineering Campus Tour" },
+  { time: "3:00 PM", event: "Prospective Student Q&A Panel" },
+  { time: "3:00 PM", event: "Admitted Student Q&A Panel"}, 
+  { time: "4:00 PM", event: "Professor Wade Talk"}, 
+  { time: "5:00 PM", event: "Closing Ceremony"}
 ];
+
+const schedule_day_2 = [
+  { time: "12:00 PM", event: "Opening Ceremony"},
+  { time: "12:30 PM", event: "Hackathon Starts"},
+  { time: "2:30 PM", event: "Submissions due"},
+  { time: "2:30 PM", event: "Q & A or Colleen talk"},
+  { time: "3:00 PM", event: "Present Top 3 Submissions"},
+  { time: "3:30 PM", event: "5 mins to vote for best submission"},
+  { time: "3:35 PM", event: "Present winners and prizes"}
+]
 
 const Home = () => {
   const isMobile = useMediaQuery("(max-width:600px)"); // adjust the max-width to your desired breakpoint
@@ -81,7 +92,6 @@ const Home = () => {
             >
               {/* <Paperplane /> */}
               {isMobile ? null : (
-                // <Plane style={{ scale: { xs: "0.6", sm: "0.8" } }} />
                 <Paperplane />
               )}
               {isMobile ? (
@@ -101,7 +111,7 @@ const Home = () => {
                     }}
                     color="#64b6ac"
                   >
-                    SAIL 2023
+                    SAIL 2024
                   </Typography>
                   <Typography
                     variant="h6"
@@ -117,7 +127,7 @@ const Home = () => {
                     }}
                     color="#64b6ac"
                   >
-                    April 8th-9th
+                    April 13th-14th
                   </Typography>
                 </>
               )}
@@ -138,7 +148,7 @@ const Home = () => {
               }}
               color="#64b6ac"
             >
-              SAIL 2023
+              SAIL 2024
             </Typography>
           ) : null}
         </div>
@@ -190,7 +200,7 @@ const Home = () => {
             Urbana-Champaign. Without further ado, let's get started!
           </Typography>
         </Paper>
-        <Paper
+        {/* <Paper
           sx={{
             width: "44%",
             // height : "60%",
@@ -208,7 +218,7 @@ const Home = () => {
           }}
         >
         <VideoPlayer />
-        </Paper>
+        </Paper> */}
         
         <Grid container spacing={4} sx={{ mt: 4 }}>
           <Grid item xs={12} sm={6}>
@@ -229,7 +239,7 @@ const Home = () => {
               >
                 Saturday Schedule
               </Typography>
-              {schedule.map((item) => (
+              {schedule_day_1.map((item) => (
                 <Box
                   key={item.time}
                   sx={{
@@ -277,61 +287,38 @@ const Home = () => {
               >
                 Sunday Schedule
               </Typography>
-              <Typography
-                variant="h4"
-                style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                sx={{ textAlign: "center center", paddingTop: "10%" }}
-              >
-                Generative Art Hackathon
-              </Typography>
-              <Typography
-                variant="h5"
-                style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                sx={{ textAlign: "center center" }}
-              >
-                
-Join us virtually from 12-3pm CST on Sunday, April 9th for SAIL's generative art hackathon! All levels of experience welcome! Flex your Desmos skills, learn a new programming language with turtle graphics, or come up with something completely unexpected. Register now!
-              </Typography>
+              {schedule_day_2.map((item) => (
+                <Box
+                  key={item.time}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    py: 1,
+                    alignItems: "center",
+                    borderBottom: "1px solid #1d4e89",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
+                    sx={{ textAlign: "left" }}
+                  >
+                    {item.time}
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
+                    sx={{ textAlign: "right" }}
+                  >
+                    {item.event}
+                  </Typography>
+                </Box>
+              ))}
             </Card>
           </Grid>
         </Grid>
       </div>
-      <Typography
-        variant="h2"
-        style={{
-          fontFamily: "sergiotrendy",
-          color: "#64b6ac",
-          marginTop: "0.3em",
-        }}
-        align="center"
-      >
-        About Sail
-      </Typography>
-      <Hidden smDown>
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-          style={{ marginTop: "0.5em" }}
-        >
-          <Grid item xs={3} style={{ width: "50%" }}>
-            <Question />
-          </Grid>
-        </Grid>
-      </Hidden>
-      <Hidden smUp>
-        <Box
-          sx={{
-            width: "60%",
-            alignItems: "center",
-            marginLeft: "20%",
-          }}
-        >
-          <Question />
-        </Box>
-      </Hidden>
     </div>
   );
 };

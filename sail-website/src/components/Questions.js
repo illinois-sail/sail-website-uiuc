@@ -189,7 +189,7 @@ export default function SimpleAccordion() {
                 fontSize: 15,
               }}
             >
-              On April 8th, there will be a in-person day. On April 9th, we will
+              On April 13th, there will be a in-person day. On April 14th, we will
               have a virtual mini-hackathon
             </Typography>
           </AccordionDetails>
@@ -257,8 +257,8 @@ export default function SimpleAccordion() {
                 fontSize: 15,
               }}
             >
-              Please don&apos;t hesitate to contact us at
-              sail.cs.illinois@gmail.com. We&apos;ll get back to you as soon as
+              Please do not hesitate to contact us at
+              sail.cs.illinois@gmail.com. We will get back to you as soon as
               possible!
             </Typography>
           </AccordionDetails>
