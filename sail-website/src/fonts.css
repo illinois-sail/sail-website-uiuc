@@ -22,3 +22,16 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "ArchitypeVanDoesburg";
+  src: url("../src/fonts/VanDoesburgArchiType.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hyperwave";
+  src: url("../src/fonts/Hyperwave.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

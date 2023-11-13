@@ -16,6 +16,7 @@ import Paperplane from "./paperplane";
 import VideoPlayer from './VideoPlayer';
 import background from "../assets/final_background.png";
 import homepage_image from "../assets/sail_home_image.png";
+import Footer from "./Footer";
 
 
 // const schedule_day_1 = [
@@ -47,9 +48,32 @@ const Home = () => {
   return (
     <div className="homepage">
         <div class="container">
-          <img class="home_image" src={homepage_image}  />
+          {/* <img class="home_image" src={homepage_image}  /> */}
+          {/* <h1 class="title_text">SAIL 2024</h1> */}
+          <Typography
+            class="title_text"
+            variant="h1"
+            style={{
+              fontFamily: "Hyperwave",
+              color: "white",
+              marginTop: "0",
+              paddingTop: "0"
+            }}
+            align="center"
+          >
+            SAIL 2024
+          </Typography>
           <p class="home_text">April 13-14, 2024</p>
         </div>
+        <div class="video_div">
+          <p class="video_header">YOUR JOURNEY STARTS HERE</p>
+          <br/>
+          <p class="video_subheader">place holder text dicuss with marketing</p>
+          <div class="video_embded_div">
+            <VideoPlayer />
+          </div>
+        </div>
+        {/* <Footer /> */}
     </div>
   );
 };
