@@ -50,7 +50,7 @@ function NavBar(props) {
                 underline="none"
                 onClick={handleDrawerToggle}
                 sx={{ fontFamily: "sergiotrendy" }}
-                style={{ paddingRight: "10px" }}
+                style={{ padding: "10px" }}
               >
                 <ListItemText primary={item} sty3le={{ fontSize: "100px"}} />
               </Link>
@@ -98,7 +98,8 @@ function NavBar(props) {
                   color: "#fff",
                   fontFamily: "JetBrainsMono",
                   fontSize: 20,
-                  paddingRight: index === navItems.length - 1 ? "4vw" : "2vw", // Adjust the padding value as needed
+                  paddingRight: "2vw", // Adjust the padding value as needed
+                  paddingLeft: "2vw"
                 }}
                 href={`/${item}`}
               >
