@@ -17,6 +17,7 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import "../fonts.css";
 import { useMediaQuery } from "@material-ui/core";
+import CyberButton from "./CyberButton";
 
 const drawerWidth = 240;
 const navItems = ["register", "classes", "about"];
@@ -90,21 +91,9 @@ function NavBar(props) {
               <img src={logo} style={{width: "150px"}} alt="top_left_logo"/>
             </Button>
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box sx={{ display: 'flex', gap: 2, flexDirection: 'row', alignItems: 'center' }}>
             {navItems.map((item, index) => (
-              <Button
-                key={item}
-                sx={{
-                  color: "#fff",
-                  fontFamily: "JetBrainsMono",
-                  fontSize: 20,
-                  paddingRight: "2vw", // Adjust the padding value as needed
-                  paddingLeft: "2vw"
-                }}
-                href={`/${item}`}
-              >
-                {item}
-              </Button>
+              <CyberButton key={index} text={item} tag={index} href={`/${item}`} />
             ))}
           </Box>
         </Toolbar>

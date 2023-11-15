@@ -1,22 +1,8 @@
 import Typography from "@mui/material/Typography";
-import Question from "./Questions";
-import { Paper } from "@mui/material";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
 import "./Home.css";
-import SergioTrendy from "../SergioTrendy.ttf";
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider } from "@mui/material/styles";
-import Hidden from "@mui/material/Hidden";
 import "../fonts.css";
-import { ReactComponent as Plane } from "./paper-plane-small.svg";
-import { useMediaQuery } from "@material-ui/core";
-import Paperplane from "./paperplane";
 import VideoPlayer from './VideoPlayer';
-import background from "../assets/final_background.png";
-import homepage_image from "../assets/sail_home_image.png";
-import Footer from "./Footer";
+import HomePageTitle from "./HomePageTitle";
 
 
 // const schedule_day_1 = [
@@ -50,24 +36,24 @@ const Home = () => {
         <div class="container">
           {/* <img class="home_image" src={homepage_image}  /> */}
           {/* <h1 class="title_text">SAIL 2024</h1> */}
+          <HomePageTitle />
+          <p class="home_text">April 13-14, 2024</p>
+        </div>
+        <div class="video_div">
+          {/* <p class="video_header">YOUR JOURNEY STARTS HERE</p> */}
           <Typography
-            class="title_text"
+            class="video_header"
             variant="h1"
             style={{
-              fontFamily: "Hyperwave",
+              fontFamily: "Magz",
               color: "white",
               marginTop: "0",
               paddingTop: "0"
             }}
             align="center"
           >
-            SAIL 2024
+            YOUR JOURNEY STARTS HERE
           </Typography>
-          <p class="home_text">April 13-14, 2024</p>
-        </div>
-        <div class="video_div">
-          <p class="video_header">YOUR JOURNEY STARTS HERE</p>
-          <br/>
           <p class="video_subheader">place holder text dicuss with marketing</p>
           <div class="video_embded_div">
             <VideoPlayer />
