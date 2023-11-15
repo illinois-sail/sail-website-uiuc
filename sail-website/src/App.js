@@ -1,42 +1,47 @@
-// import "./App.css";
-// import AppRouter from "./components/AppRouter";
-// import NavBar from "./components/NavBar";
-// //import React from '/react';
-// //import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-// import HomePage from "./components/HomePage";
-// import Home from "./components/Home";
-// import Typography from "@mui/material/Typography";
-// import Question from "./components/Questions";
-// import Box from "@mui/material/Box";
-// import beachHut from "./surf_hut.png";
-import React from "react";
-// import { BrowserRouter as Route, Router, Routes } from "react-router-dom";
-// import Login from "./components/Login";
-// import Register from "./components/Register";
-// import ResetPassword from "./components/ResetPassword";
-// import ResetPasswordConfirm from "./components/ResetPasswordConfirm";
-// import Activate from "./components/Activate"
-// import {Provider} from 'react-redux';
-// import store from './components/store';
-// import Layout from './components/Layout';  
-
-// in main branch
+import React, { useEffect } from "react";
 import './App.css';
 import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
-import HomePage from './components/HomePage';
-import Home from './components/Home';
-import Typography from '@mui/material/Typography';
-import Question from './components/Questions';
-
-import Box from "@mui/material/Box";
-
+import background from "./assets/final_background.png";
 
 const App = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const newBackgroundSize = 100 + scrollPosition * 0.1; // Adjust the multiplier as needed
+      document.getElementById("background-container").style.backgroundSize = `${newBackgroundSize}% ${newBackgroundSize}%`;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div>
-      <AppRouter />
-      <NavBar />
+    <div style={{ position: "relative" }}>
+      <div
+        id="background-container"
+        className="background-container"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+        }}
+      />
+      <div style={{ zIndex: 1 }}>
+        <NavBar />
+        <AppRouter />
+      </div>
     </div>
   );
 }

@@ -16,6 +16,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import "../fonts.css";
+import { useMediaQuery } from "@material-ui/core";
+import CyberButton from "./CyberButton";
 
 const drawerWidth = 240;
 const navItems = ["register", "classes", "about"];
@@ -49,8 +51,9 @@ function NavBar(props) {
                 underline="none"
                 onClick={handleDrawerToggle}
                 sx={{ fontFamily: "sergiotrendy" }}
+                style={{ padding: "10px" }}
               >
-                <ListItemText primary={item} />
+                <ListItemText primary={item} sty3le={{ fontSize: "100px"}} />
               </Link>
             </ListItemButton>
           </ListItem>
@@ -61,9 +64,10 @@ function NavBar(props) {
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
+  const isMobile = useMediaQuery('(max-width:650px)');
   return (
-    <Box sx={{ display: "block" }}>
-      <AppBar component="nav" sx={{ backgroundColor: "#112949" }}>
+    <Box sx={{ display: "block", boxShadow: "0" }} >
+      <AppBar component="nav" sx={{ backgroundColor: "transparent" }} style={{paddingLeft: "98px", paddingTop: "50px", boxShadow: "none"}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -77,27 +81,19 @@ function NavBar(props) {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, fontFamily: "sergiotrendy", fontSize: 30 }}
-            
+            sx={{ flexGrow: 1, fontFamily: "sergiotrendy" }}
           >
-            <Button
+            <Button 
               href = "/"
-              sx={{ color: "#fff", fontFamily: "sergiotrendy", fontSize: 30 }}
+              backgroundImg = {logo}
             >
               {/* add in the logo here as an image */}
-              <img src={logo} width={70} height={70} alt="top_left_logo"/>
+              <img src={logo} style={{width: "150px"}} alt="top_left_logo"/>
             </Button>
           </Typography>
-          {/* <img src={Plane} alt="Paper Plane" styles={{width: '10px', height:'10px'}} /> */}
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button
-                key={item}
-                sx={{ color: "#fff", fontFamily: "sergiotrendy", fontSize: 20 }}
-                href={`/${item}`}
-              >
-                {item}
-              </Button>
+          <Box sx={{ display: 'flex', gap: 2, flexDirection: 'row', alignItems: 'center' }}>
+            {navItems.map((item, index) => (
+              <CyberButton key={index} text={item} tag={index} href={`/${item}`} />
             ))}
           </Box>
         </Toolbar>

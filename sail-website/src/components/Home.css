@@ -1,9 +1,53 @@
-.sail-logo {
-  margin-top: 60px;
-  margin-bottom: 2rem;
-  font-size: 5rem;
-  /* position: relative; */
+/* zoom into backdrop as you scroll */
+@import "cyberpunk.css";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
 }
-.homepage {
+
+.title_text {
+  font-family: "Hyperwave";
+  font-size: 20vw;
+  color: white;
+  margin: 0;
+}
+
+.home_image {
+  width: 50vw;
+}
+
+.home_text {
+  font-family: "Magz";
+  color: white;
+  font-size: 3vw;
+}
+
+.video_div {
+  height: 100vh;
+  padding: 20vw;
   text-align: center;
+}
+
+.video_embed_div {
+  width: 30vw;
+  height: auto;
+}
+
+.video_header {
+  font-family: "Magz";
+  color: white;
+  font-size: 3vw;
+  /* set font to capitals */
+  /* text-transform: uppercase; */
+}
+
+.video_subheader {
+  font-family: "Magz";
+  color: white;
+  font-size: 2vw;
 }

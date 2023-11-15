@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import MyClassCard from "./ClassCard";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import background from "../assets/final_background.png";
 
 const titles = [
   "TBD"
@@ -16,7 +17,7 @@ const descriptions = [
 
 const ClassTemplate = () => {
   return (
-    <>
+    <div style={{  }}>
       <Grid
         container
         spacing={4}
@@ -45,7 +46,7 @@ const ClassTemplate = () => {
           );
         })}
       </Grid>
-    </>
+    </div>
   );
 };
 

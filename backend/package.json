@@ -1,6 +1,6 @@
 {
   "name": "sail-website",
-  "homepage": ".",
+  "homepage": "https://sail.cs.illinois.edu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

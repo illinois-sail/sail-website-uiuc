@@ -1,3 +1,5 @@
+// what is this doing and do we need it?
+
 import React from 'react';
 
 const Activate = () => (
