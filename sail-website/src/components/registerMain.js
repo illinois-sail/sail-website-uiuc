@@ -102,33 +102,6 @@ function RegisterMain() {
         </Box>
       </Box>
     </div>
-    //Template
-    // <div>
-    //   <Container component="main" maxWidth="s">
-    //     <Box
-    //       sx={{
-    //         display: "flex",
-    //         flexDirection: "column",
-    //         alignItems: "center",
-    //       }}
-    //     >
-    //       <Typography
-    //         color="#64b6ac"
-    //         component="h1"
-    //         variant="h5"
-    //         sx={{
-    //           fontFamily: "sergiotrendy",
-    //           paddingBottom: 2,
-    //           fontSize: 45,
-    //           marginTop: "20%",
-    //           textAlign: "center",
-    //         }}
-    //       >
-    //         Registration Opening Soon!
-    //       </Typography>
-    //     </Box>
-    //   </Container>
-    // </div>
   );
 }
 

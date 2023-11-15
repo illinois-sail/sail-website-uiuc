@@ -13,6 +13,7 @@ import Student from "./studentRegister";
 import Teacher from "./teacherRegister";
 import Success from "./successPage";
 import HomePage from "./HomePage";
+import About from "./About";
 import ClassTemplate from "./ClassTemplate";
 // import Courses from './Courses'
 // import HomePageNew from "./HomePageNew";
@@ -24,10 +25,10 @@ const AppRouter = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
           {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/classes" element={<ClassTemplate />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
           <Route path="/student" element={<Student />} />
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/success" element={<Success />} />
