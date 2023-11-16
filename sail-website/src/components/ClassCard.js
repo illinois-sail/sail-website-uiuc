@@ -1,36 +1,34 @@
-import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import "./ClassCard.css";
-const ClassCard = (props) => {
+import React from 'react';
+import './ClassCard.css'; 
+import { Typography } from '@mui/material';
+import registerButtonImage from '../assets/registerButtonImage.png';
+
+const ClassCard = ({ className, room, time, description, onRegisterClick }) => {
   return (
-    <Card className="card-style">
-      <CardActionArea>
-        <CardContent>
-          <Typography
-            variant="h6"
-            className="title" 
-          >
-            {props.title}
-          </Typography>
-          <Typography
-            variant="h7"
-            className="teacher" 
-          >
-            {props.teacher}
-          </Typography>
-          <Typography
-            variant="body2"
-            className="desc"
-          >
-            {props.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <div className="classCard">
+      <div className="classCardHeaderDiv">
+        {/* <h1 className="className">{className}</h1> */}
+        {/* make the above line into Typography */}
+        <Typography
+          variant="h6"
+          component="className"
+          fontSize={40}
+          sx={{ flexGrow: 1, fontFamily: "JetBrainsMono" }}
+        >
+          {className}
+        </Typography> 
+      </div>
+      <h2>ROOM: {room}</h2>
+      <h2>TIME: {time}</h2>
+      <h2>DESCRIPTION: {description}</h2>
+      {/* make an image which is a button and the image is ../assets/registerButtonImage.png */}
+      <a href="#/" className="registerButton" onClick={onRegisterClick}>
+        <div className="buttonOverlay">
+          <p className="buttonText">REGISTER</p>
+          <img className="buttonImage" src={registerButtonImage} alt="Register" />
+        </div>
+      </a>
+    </div>
   );
 };
 
