@@ -4,9 +4,6 @@
   background-position: center;
   position: relative;
   padding: 20px;
-  /* text-align: center; */
-  
-  
   color: white;
   width: 340px;
   height: 420px;
@@ -16,14 +13,6 @@
   text-align: center;
   width: 100%;
   margin-bottom: 30px;
-}
-
-.className {
-  margin-top: 0;
-}
-
-.registerButton {
-  margin-top: 20px;
 }
 
 h2 {
@@ -36,10 +25,10 @@ h2 {
 .registerButton {
   background-repeat: no-repeat;
   width: 340px;
-  align-items: center;
-  justify-content: center;
   display: flex;
   align-items: center;
+  height: 60px;
+  margin-bottom: 40px;
 }
 
 .buttonImage {
@@ -59,7 +48,21 @@ h2 {
   width: 100%; /* Make the image fill the container */
 }
 
-/* shade in the image when hovering over it */
+.registerButtonDiv {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  width: 380px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shade in the image when hovering over it */
 .buttonOverlay img:hover {
   opacity: 0.5;
 }

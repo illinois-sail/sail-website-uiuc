@@ -7,8 +7,9 @@ const CyberButton = ({ text, tag, href }) => {
     <div style={{padding: "10px"}}>
         <a href={href} className="cyber-button-small bg-purple fg-white m-2 vt-bot" style={{textDecoration: "none"}}>
             {text}
-            <span className="glitchtext">&dollar;_glitch;</span>
-            <span className="tag">{tag}</span>
+            {/* little easter egg hehe */}
+            <span className="glitchtext">SANJAY</span> 
+            <span className="tag">50-37-3</span>
         </a>
     </div>
     

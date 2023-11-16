@@ -12,7 +12,7 @@ const titles = [
 ];
 
 const rooms = [
-  "Room 1021", "ROom 1022", "Room 1023", "Room 1024", "Room 1025", "Room 1026", "Room 1027", "Room 1028", "Room 1029", "Room 1030", "Room 1031", "Room 1032", "Room 1033", "Room 1034", "Room 1035", "Room 1036", "Room 1037", "Room 1038", "Room 1039", "Room 1040", "Room 1041", "Room 1042", "Room 1043", "Room 1044", "Room 1045", "Room 1046", "Room 1047", "Room 1048", "Room 1049", "Room 1050", "Room 1051", "Room 1052", "Room 1053", "Room 1054", "Room 1055", "Room 1056", "Room 1057", "Room 1058", "Room 1059", "Room 1060", "Room 1061", "Room 1062", "Room 1063", "Room 1064", "Room 1065", "Room 1066", "Room 1067", "Room 1068", "Room 1069", "Room 1070"
+  "Room 1021", "Room 1022", "Room 1023", "Room 1024", "Room 1025", "Room 1026", "Room 1027", "Room 1028", "Room 1029", "Room 1030", "Room 1031", "Room 1032", "Room 1033", "Room 1034", "Room 1035", "Room 1036", "Room 1037", "Room 1038", "Room 1039", "Room 1040", "Room 1041", "Room 1042", "Room 1043", "Room 1044", "Room 1045", "Room 1046", "Room 1047", "Room 1048", "Room 1049", "Room 1050", "Room 1051", "Room 1052", "Room 1053", "Room 1054", "Room 1055", "Room 1056", "Room 1057", "Room 1058", "Room 1059", "Room 1060", "Room 1061", "Room 1062", "Room 1063", "Room 1064", "Room 1065", "Room 1066", "Room 1067", "Room 1068", "Room 1069", "Room 1070"
 ];
 
 const times = [
@@ -28,7 +28,7 @@ descriptions.fill("TBD");
 
 const ClassTemplate = () => {
   return (
-    <div className="WholeGrid" style={{ paddingTop: "5vh" }}div style={{  }}>
+    <div className="WholeGrid" style={{ paddingTop: "5vh", paddingBottom: "5vh" }}>
       <Grid
         container
         spacing={4}

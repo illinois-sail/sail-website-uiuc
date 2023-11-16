@@ -20,7 +20,7 @@ import { useMediaQuery } from "@material-ui/core";
 import CyberButton from "./CyberButton";
 
 const drawerWidth = 240;
-const navItems = ["register", "classes", "about"];
+const navItems = ["register", "classes", "hackathon", "about"];
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);

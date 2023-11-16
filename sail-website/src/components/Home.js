@@ -59,7 +59,6 @@ const Home = () => {
             <VideoPlayer />
           </div>
         </div>
-        {/* <Footer /> */}
     </div>
   );
 };
