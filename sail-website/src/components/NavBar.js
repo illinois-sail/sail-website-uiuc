@@ -18,6 +18,7 @@ import Link from "@mui/material/Link";
 import "../fonts.css";
 import { useMediaQuery } from "@material-ui/core";
 import CyberButton from "./CyberButton";
+import sail_logo_transparent from "../assets/sail_logo_transparent.png";
 
 const drawerWidth = 240;
 const navItems = ["register", "classes", "hackathon", "about"];
@@ -29,45 +30,9 @@ function NavBar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const drawer = (
-    <Box sx={{ textAlign: "center" }}>
-      <Typography
-        color="#64b6ac"
-        variant="h6"
-        sx={{ my: 2, fontFamily: "sergiotrendy" }}
-      >
-        SAIL
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton
-              sx={{ textAlign: "center", fontFamily: "sergiotrendy" }}
-            >
-              <Link
-                color="#64b6ac"
-                href={`/${item}`}
-                underline="none"
-                onClick={handleDrawerToggle}
-                sx={{ fontFamily: "sergiotrendy" }}
-                style={{ padding: "10px" }}
-              >
-                <ListItemText primary={item} sty3le={{ fontSize: "100px"}} />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-
-  const isMobile = useMediaQuery('(max-width:650px)');
   return (
     <Box sx={{ display: "block", boxShadow: "0" }} >
-      <AppBar component="nav" sx={{ backgroundColor: "transparent" }} style={{paddingLeft: "98px", paddingTop: "50px", boxShadow: "none"}}>
+      <AppBar component="nav" sx={{ backgroundColor: "transparent" }} style={{paddingLeft: "20px", paddingTop: "50px", boxShadow: "none"}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -88,7 +53,7 @@ function NavBar(props) {
               backgroundImg = {logo}
             >
               {/* add in the logo here as an image */}
-              <img src={logo} style={{width: "150px"}} alt="top_left_logo"/>
+              <img src={sail_logo_transparent} style={{width: "120px"}} alt="top_left_logo"/>
             </Button>
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexDirection: 'row', alignItems: 'center' }}>
@@ -98,28 +63,6 @@ function NavBar(props) {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-              backgroundColor: "#FDE5C1",
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box component="main" sx={{ p: 3 }}></Box>
     </Box>
   );
 }

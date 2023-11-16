@@ -11,43 +11,19 @@ import background from "../assets/final_background.png";
 
 const About = () => {
     return (
-        <div style={{  }} >
+        <div style={{ paddingTop: "8vh" }}>
             <Typography
                 variant="h2"
                 style={{
-                fontFamily: "sergiotrendy",
-                color: "#64b6ac",
+                fontFamily: "JetBrainsMono",
+                color: "white",
                 marginTop: "0.3em",
                 }}
                 align="center"
             >
-                About Sail
+                ABOUT SAIL
             </Typography>
-            <Hidden smDown>
-                <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                style={{ marginTop: "0.5em" }}
-                >
-                <Grid item xs={3} style={{ width: "50%" }}>
-                    <Question />
-                </Grid>
-                </Grid>
-            </Hidden>
-            <Hidden smUp>
-                <Box
-                sx={{
-                    width: "60%",
-                    alignItems: "center",
-                    marginLeft: "20%",
-                }}
-                >
-                <Question />
-                </Box>
-            </Hidden>
+            
         </div>
     );
 };

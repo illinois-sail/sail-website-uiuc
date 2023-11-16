@@ -28,7 +28,7 @@ descriptions.fill("TBD");
 
 const ClassTemplate = () => {
   return (
-    <div className="WholeGrid" style={{ paddingTop: "5vh", paddingBottom: "5vh" }}>
+    <div className="WholeGrid" style={{ paddingTop: "15vh", paddingBottom: "10vh" }}>
       <Grid
         container
         spacing={4}
