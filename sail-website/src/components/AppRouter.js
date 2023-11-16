@@ -15,8 +15,7 @@ import Success from "./successPage";
 import HomePage from "./HomePage";
 import About from "./About";
 import ClassTemplate from "./ClassTemplate";
-// import Courses from './Courses'
-// import HomePageNew from "./HomePageNew";
+import Hackathon from "./Hackathon";
 
 const AppRouter = () => {
   return (
@@ -32,6 +31,7 @@ const AppRouter = () => {
           <Route path="/student" element={<Student />} />
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/hackathon" element={<Hackathon />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route
             path="/password/reset/confirm/:uid/:token"

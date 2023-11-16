@@ -1,38 +1,76 @@
-.card-style {
-  background-color: #fafafa !important;
-  border: 2px solid rgba(62, 72, 111, 0.1) !important;
-  border-radius: 15px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow: hidden !important;
-  transition: all 0.4s ease !important;
-  height: 240px !important;
-  filter: grayscale(35%) !important;
-  min-width: 250px;
-  padding: 15px !important;
+.classCard {
+  background-image: url("../assets/CardBackground.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 20px;
+  /* text-align: center; */
+  
+  
+  color: white;
+  width: 340px;
+  height: 420px;
 }
 
-.card-style:hover {
-  border: 2px solid white !important;
-  filter: grayscale(0%) drop-shadow(0 4px 12px rgb(104 112 118 / 0.08))
-    drop-shadow(0 20px 8px rgb(104 112 118 / 0.04));
-  transform: translateY(-3px) !important;
-  background-color: white !important;
+.classCardHeaderDiv {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
-.title {
-  font-family: "cascadiacode" !important;
-  font-weight: bold !important;
-  color: #40756f;
-  text-align: center;
+.className {
+  margin-top: 0;
 }
-.teacher {
-  font-family: "cascadiacode" !important;
-  color: #40756f;
-  text-align: center;
-  font-size: small !important;
+
+.registerButton {
+  margin-top: 20px;
 }
-.desc {
-  font-family: "cascadiacode" !important;
-  color: "black";
+
+h2 {
+  margin: 0;
+  padding-bottom: 15px;
+  font-family: "JetBrainsMono";
+  font-weight: 100;
+}
+
+.registerButton {
+  background-repeat: no-repeat;
+  width: 340px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.buttonImage {
+  width: 300px;
+  height: 130px;
+}
+
+.buttonOverlay {
+  position: relative;
+  font-size: large;
+  font-family: "JetBrainsMono";
+  font-weight: 100;
+}
+
+.buttonOverlay img {
+  display: block;
+  width: 100%; /* Make the image fill the container */
+}
+
+/* shade in the image when hovering over it */
+.buttonOverlay img:hover {
+  opacity: 0.5;
+}
+
+.buttonOverlay p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: white; /* Change text color as needed */
+  font-size: 18px; /* Adjust font size as needed */
+  font-weight: bold;
 }

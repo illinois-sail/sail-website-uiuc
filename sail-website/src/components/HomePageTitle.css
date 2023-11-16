@@ -1,0 +1,44 @@
+/* HomePageTitle.css */
+@import "cyberpunk.css";
+
+.title_text {
+  /* Your existing styles for the title_text class */
+  color: yellow;
+  text-shadow: 0 0 3px cyan, 0 0 6px cyan, 0 0 9px cyan;
+  background: -webkit-linear-gradient(45deg, yellow, cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+  
+.splash-animation {
+  animation: splash 1s ease-in-out;
+}
+
+.zoom-out-animation {
+  animation: zoom-out 2s ease-in-out;
+  transform-origin: center;
+}
+
+
+@keyframes splash {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+  

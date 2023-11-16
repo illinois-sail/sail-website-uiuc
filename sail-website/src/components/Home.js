@@ -1,326 +1,69 @@
 import Typography from "@mui/material/Typography";
-import Question from "./Questions";
-import { Paper } from "@mui/material";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
 import "./Home.css";
-import SergioTrendy from "../SergioTrendy.ttf";
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider } from "@mui/material/styles";
-import Hidden from "@mui/material/Hidden";
 import "../fonts.css";
-import { ReactComponent as Plane } from "./paper-plane-small.svg";
-import { useMediaQuery } from "@material-ui/core";
-import Paperplane from "./paperplane";
 import VideoPlayer from './VideoPlayer';
+import HomePageTitle from "./HomePageTitle";
 
 
-const theme = createTheme({
-  typography: {
-    fontFamily: "MyFont, Arial, sans-serif",
-  },
-  components: {
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          fontFamily: "MyFont, Arial, sans-serif",
-        },
-      },
-    },
-  },
-  overrides: {
-    MuiCssBaseline: {
-      "@global": {
-        "@font-face": [
-          {
-            fontFamily: "sergio",
-            src: `url(${SergioTrendy})`,
-          },
-        ],
-      },
-    },
-  },
-});
+// const schedule_day_1 = [
+//   { time: "8:00 AM", event: "Check-in and Breakfast" },
+//   { time: "9:00 AM", event: "Opening Ceremony" },
+//   { time: "9:30 AM", event: "Class #1" },
+//   { time: "10:30 AM", event: "Class #2" },
+//   { time: "11:30 PM", event: "RSO fair" },
+//   { time: "12:00 PM", event: "Lunch" },
+//   { time: "1:00 PM", event: "Class #3" },
+//   { time: "2:00 PM", event: "Engineering Campus Tour" },
+//   { time: "3:00 PM", event: "Prospective Student Q&A Panel" },
+//   { time: "3:00 PM", event: "Admitted Student Q&A Panel"}, 
+//   { time: "4:00 PM", event: "Professor Wade Talk"}, 
+//   { time: "5:00 PM", event: "Closing Ceremony"}
+// ];
 
-// @TODO: change the schedule according to the event schedule
-const schedule_day_1 = [
-  { time: "8:00 AM", event: "Check-in and Breakfast" },
-  { time: "9:00 AM", event: "Opening Ceremony" },
-  { time: "9:30 AM", event: "Class #1" },
-  { time: "10:30 AM", event: "Class #2" },
-  { time: "11:30 PM", event: "RSO fair" },
-  { time: "12:00 PM", event: "Lunch" },
-  { time: "1:00 PM", event: "Class #3" },
-  { time: "2:00 PM", event: "Engineering Campus Tour" },
-  { time: "3:00 PM", event: "Prospective Student Q&A Panel" },
-  { time: "3:00 PM", event: "Admitted Student Q&A Panel"}, 
-  { time: "4:00 PM", event: "Professor Wade Talk"}, 
-  { time: "5:00 PM", event: "Closing Ceremony"}
-];
-
-const schedule_day_2 = [
-  { time: "12:00 PM", event: "Opening Ceremony"},
-  { time: "12:30 PM", event: "Hackathon Starts"},
-  { time: "2:30 PM", event: "Submissions due"},
-  { time: "2:30 PM", event: "Q & A or Colleen talk"},
-  { time: "3:00 PM", event: "Present Top 3 Submissions"},
-  { time: "3:30 PM", event: "5 mins to vote for best submission"},
-  { time: "3:35 PM", event: "Present winners and prizes"}
-]
+// const schedule_day_2 = [
+//   { time: "12:00 PM", event: "Opening Ceremony"},
+//   { time: "12:30 PM", event: "Hackathon Starts"},
+//   { time: "2:30 PM", event: "Submissions due"},
+//   { time: "2:30 PM", event: "Q & A or Colleen talk"},
+//   { time: "3:00 PM", event: "Present Top 3 Submissions"},
+//   { time: "3:30 PM", event: "5 mins to vote for best submission"},
+//   { time: "3:35 PM", event: "Present winners and prizes"}
+// ]
 
 const Home = () => {
-  const isMobile = useMediaQuery("(max-width:600px)"); // adjust the max-width to your desired breakpoint
   return (
-    // <div>
     <div className="homepage">
-      <ThemeProvider theme={theme}>
-        <div style={{ paddingTop: "2.5%" }}>
-          {isMobile ? null : (
-            <Paper
-              sx={{
-                width: "25%",
-                alignItems: "center",
-                marginBottom: "2.5%",
-                marginLeft: "37.5%",
-                marginRight: "37.5%",
-                backgroundColor: "transparent",
-                boxShadow: "0 10px 10px rgba(0, 0, 0, 0.25)",
-                border: "10px solid #64b6ac",
-                borderRadius: "20%",
-              }}
-            >
-              {/* <Paperplane /> */}
-              {isMobile ? null : (
-                <Paperplane />
-              )}
-              {isMobile ? (
-                true
-              ) : (
-                <>
-                  <Typography
-                    variant="h3"
-                    style={{
-                      fontFamily: "sergiotrendy",
-                      fontStyle: "",
-                      paddingBottom: "0.05em",
-                      paddingTop: "0.1em",
-                      "@media (max-width: 600px)": {
-                        fontSize: "0.2rem", // font size for screens smaller than 600px
-                      },
-                    }}
-                    color="#64b6ac"
-                  >
-                    SAIL 2024
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    style={{
-                      fontFamily: "cascadiacode",
-                      fontWeight: "bold",
-                      fontStyle: "",
-                      paddingBottom: "0.1em",
-                      paddingTop: "0.05em",
-                      "@media (max-width: 600px)": {
-                        fontSize: "0.2rem", // font size for screens smaller than 600px
-                      },
-                    }}
-                    color="#64b6ac"
-                  >
-                    April 13th-14th
-                  </Typography>
-                </>
-              )}
-            </Paper>
-          )}
-          {/* <SAIL>SAIL 2023</SAIL> */}
-          {isMobile ? (
-            <Typography
-              variant="h3"
-              style={{
-                fontFamily: "sergiotrendy",
-                fontStyle: "",
-                paddingBottom: "0.1em",
-                paddingTop: "0.1em",
-                "@media (max-width: 600px)": {
-                  fontSize: "0.2rem", // font size for screens smaller than 600px
-                },
-              }}
-              color="#64b6ac"
-            >
-              SAIL 2024
-            </Typography>
-          ) : null}
+        <div class="container">
+          {/* <img class="home_image" src={homepage_image}  /> */}
+          {/* <h1 class="title_text">SAIL 2024</h1> */}
+          <HomePageTitle />
+          <p class="home_text">April 13-14, 2024</p>
         </div>
-      </ThemeProvider>
-      <div style={{}} className="info">
-        <Paper
-          sx={{
-            width: "70%",
-            // height : "60%",
-            // align: "center",
-            alignItems: "center",
-            marginTop: "0%",
-            marginBottom: "5%",
-            marginLeft: "15%",
-            marginRight: "15%",
-            backgroundColor: "#64b6ac",
-            boxShadow: "0 10px 10px rgba(0, 0, 0, 0.35)",
-            border: "10px solid #64b6ac",
-            borderRadius: "20%",
-            // padding: "0.5em 0em"
-          }}
-        >
+        <div class="video_div">
+          {/* <p class="video_header">YOUR JOURNEY STARTS HERE</p> */}
           <Typography
-            variant="h3"
+            class="video_header"
+            variant="h1"
             style={{
-              fontFamily: "sergiotrendy",
-              paddingBottom: "0.2em",
+              fontFamily: "Magz",
               color: "white",
+              marginTop: "0",
+              paddingTop: "0"
             }}
-            algin="center"
-            color={"#47827B"}
+            align="center"
           >
-            Welcome Fellow Sailors!
+            YOUR JOURNEY STARTS HERE
           </Typography>
-          <Typography
-            variant="h6"
-            style={{
-              fontFamily: "cascadiacode",
-              paddingBottom: "0.2em",
-              scale: "0.95",
-            }}
-            algin="center"
-            color={"#376661"}
-          >
-            This is Illinois Computer Science Sail! We are an entirely
-            student-run organization that hosts an annual event where high
-            schoolers have the chance to experience what it is like to be a
-            computer science student at the University of Illinois at
-            Urbana-Champaign. Without further ado, let's get started!
-          </Typography>
-        </Paper>
-        {/* <Paper
-          sx={{
-            width: "44%",
-            // height : "60%",
-            // align: "center",
-            alignItems: "center",
-            marginTop: "0%",
-            marginBottom: "5%",
-            marginLeft: "28%",
-            marginRight: "28%",
-            backgroundColor: "#64b6ac",
-            boxShadow: "0 10px 10px rgba(0, 0, 0, 0.35)",
-            border: "10px solid #64b6ac",
-            borderRadius: "10%",
-            padding: "1em 1em"
-          }}
-        >
-        <VideoPlayer />
-        </Paper> */}
-        
-        <Grid container spacing={4} sx={{ mt: 4 }}>
-          <Grid item xs={12} sm={6}>
-            <Card
-              sx={{
-                borderRadius: "10px",
-                p: 2,
-                backgroundColor: "#c0fbfd",
-                marginLeft: "30px",
-                marginRight: "30px",
-                height: "95%",
-              }}
-            >
-              <Typography
-                variant="h3"
-                style={{ fontFamily: "sergiotrendy", color: "#1d4e89" }}
-                sx={{ mb: 2 }}
-              >
-                Saturday Schedule
-              </Typography>
-              {schedule_day_1.map((item) => (
-                <Box
-                  key={item.time}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    py: 1,
-                    alignItems: "center",
-                    borderBottom: "1px solid #1d4e89",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                    sx={{ textAlign: "left" }}
-                  >
-                    {item.time}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                    sx={{ textAlign: "right" }}
-                  >
-                    {item.event}
-                  </Typography>
-                </Box>
-              ))}
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Card
-              sx={{
-                borderRadius: "10px",
-                p: 2,
-                backgroundColor: "#c0fbfd",
-                marginLeft: "30px",
-                marginRight: "30px",
-                height: "95%",
-              }}
-            >
-              <Typography
-                variant="h3"
-                style={{ fontFamily: "sergiotrendy", color: "#1d4e89" }}
-                sx={{ mb: 2 }}
-              >
-                Sunday Schedule
-              </Typography>
-              {schedule_day_2.map((item) => (
-                <Box
-                  key={item.time}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    py: 1,
-                    alignItems: "center",
-                    borderBottom: "1px solid #1d4e89",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                    sx={{ textAlign: "left" }}
-                  >
-                    {item.time}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    style={{ fontFamily: "cascadiacode", color: "#1d4e89" }}
-                    sx={{ textAlign: "right" }}
-                  >
-                    {item.event}
-                  </Typography>
-                </Box>
-              ))}
-            </Card>
-          </Grid>
-        </Grid>
-      </div>
+          <p class="video_subheader">place holder text dicuss with marketing</p>
+          <div class="video_embded_div">
+            <VideoPlayer />
+          </div>
+        </div>
+        {/* <Footer /> */}
     </div>
   );
 };
 
 export default Home;
+
+
