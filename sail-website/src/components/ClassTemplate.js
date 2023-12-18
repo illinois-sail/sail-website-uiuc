@@ -29,7 +29,7 @@ descriptions.fill("TBD");
 const ClassTemplate = () => {
   return (
     <div className="WholeGrid" style={{ paddingTop: "15vh", paddingBottom: "10vh" }}>
-      <Grid
+      {/* <Grid
         container
         spacing={4}
         style={{
@@ -57,7 +57,12 @@ const ClassTemplate = () => {
             </Grid>
           );
         })}
-      </Grid>
+      </Grid> */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} >
+        <h1 style={{ color: "white", fontFamily: "Hyperwave", fontSize: "100px", textAlign: "center" }}> 
+          CLASSES TO BE ANNOUNCED IN MARCH 
+        </h1>
+      </div>
     </div>
   );
 };
