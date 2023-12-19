@@ -4,17 +4,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  align-content: center;
-  height: 100vh;
-}
-
-.title_text {
-  font-family: "Hyperwave";
-  font-size: 20vw;
-  color: white;
-  margin: 0;
+  height: 125vh;
+  margin-top: 5%;
 }
 
 .home_image {
@@ -24,7 +17,7 @@
 .home_text {
   font-family: "Magz";
   color: white;
-  font-size: 3vw;
+  font-size: 40px;
 }
 
 .video_div {
@@ -41,7 +34,7 @@
 .video_header {
   font-family: "Magz";
   color: white;
-  font-size: 3vw;
+  font-size: 20px;
   /* set font to capitals */
   /* text-transform: uppercase; */
 }
