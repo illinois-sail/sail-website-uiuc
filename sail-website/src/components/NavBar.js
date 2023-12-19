@@ -1,7 +1,7 @@
 import * as React from "react";
 import logo from "../assets/sail_logo_transparent.png";
 import PropTypes from "prop-types";
-import AppBar from "@mui/material/AppBar";
+// import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -21,7 +21,7 @@ function NavBar(props) {
             sx={{ flexGrow: 1, fontFamily: "sergiotrendy" }}
           >
             <a href="/">
-              <img src={logo} style={{ width: "80px", height: "80px"}} alt="top_left_logo"/>
+              <img src={logo} style={{ width: "60px", height: "60px"}} alt="top_left_logo"/>
             </a>
 
           </Typography>
