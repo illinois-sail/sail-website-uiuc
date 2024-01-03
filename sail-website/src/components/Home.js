@@ -3,7 +3,7 @@ import "./Home.css";
 import "../fonts.css";
 import VideoPlayer from './VideoPlayer';
 import React, { useEffect, useState } from 'react';
-import homepage_image from '../assets/sail-logo.png' 
+import homepage_image from '../assets/logosvg.svg'
 
 const Home = () => {
   return (
