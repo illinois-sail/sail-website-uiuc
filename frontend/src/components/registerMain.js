@@ -1,7 +1,6 @@
 import * as React from "react";
 // import Box from "@mui/material/Box";
 // import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 // import Stack from "@mui/material/Stack";
 import "../fonts.css";
 import card_background from "../assets/RegistrationButtonBackground.png";
@@ -20,7 +19,7 @@ function format_text(text) {
 
 function RegistrationButton(props) {
   return (
-    <div style={{ position: "relative", width: "80%", height: "10vh", margin: "10px", display: "flex", justifyContent: "center", alignItems: "center", margin: "20px" }}>
+    <div style={{ position: "relative", width: "80%", height: "10vh", display: "flex", justifyContent: "center", alignItems: "center", margin: "20px" }}>
       <div style={{ position: "absolute", textAlign: "center", width: "100%", height: "100%" }}>
         <img
           src={card_background}
@@ -45,7 +44,6 @@ function RegistrationButton(props) {
             backgroundColor: 'transparent', // Set background color to transparent
             color: "white",
             fontFamily: "JetBrainsMono",
-            fontSize: "20px",
             position: "absolute",
             top: "50%", // Center the button vertically
             left: "50%", // Center the button horizontally
@@ -77,7 +75,6 @@ function RegistrationButton(props) {
 }
 
 function RegisterMain() {
-  const buttonSpacing = "10px"; // Adjust the spacing as needed
 
   return (
     <div 
