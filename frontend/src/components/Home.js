@@ -5,7 +5,7 @@ import VideoPlayer from './VideoPlayer';
 import React, { useEffect, useState } from 'react';
 import homepage_image from '../assets/logosvg.svg'
 
-const Home = () => {
+function Home() {
   return (
     <div className="homepage">
         <div class="container">
@@ -15,7 +15,6 @@ const Home = () => {
           <p class="home_text">April 13-14, 2024</p>
         </div>
         <div class="video_div">
-          {/* <p class="video_header">YOUR JOURNEY STARTS HERE</p> */}
           <Typography
             class="video_header"
             variant="h1"
