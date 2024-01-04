@@ -4,10 +4,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  height: 125vh;
-  margin-top: 5%;
+  height: 70vh;
+  margin-top: 3%;
 }
 
 .home_image {
@@ -21,7 +21,7 @@
 }
 
 .video_div {
-  height: 100vh;
+  height: 70vh;
   padding: 20vw;
   text-align: center;
 }

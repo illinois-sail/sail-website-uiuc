@@ -1,10 +1,9 @@
 import React from 'react';
 import video from './promo.mp4'
-import './VideoPlayer.css';
 
 function VideoPlayer() {
   return (
-    <video src = {video} controls className = "video-player"/>
+    <video style={{ width: "80%", height: "80%", objectFit: "cover" }} src = {video} controls/>
   );
 }
 export default VideoPlayer;
