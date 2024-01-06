@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "./registerMain";
+import Login from "./Login";
 import { Provider } from "react-redux";
 import HomePage from "./HomePage";
 import ClassTemplate from "./ClassTemplate";
@@ -14,9 +14,8 @@ const AppRouter = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/classes" element={<ClassTemplate />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/hackathon" element={<Hackathon />} />
         </Routes>
       </BrowserRouter>
