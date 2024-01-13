@@ -1,4 +1,20 @@
 import React, { useState } from 'react';
+import './Login.css';
+import './cyberpunk.css';
+
+// make the form width 30vw when the screen is large and 40vw when the screen is small
+const formWidth = window.innerWidth > 600 ? "50%" : "100%";
+const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
+
+const CyberButton = () => {
+    return (
+        <button class="cyber-button bg-purple fg-white" style={{ width: "35%" }}>
+            Login
+            <span class="glitchtext">CS SAIL</span>
+            <span class="tag">SAIL</span>
+        </button>
+    )
+}
 
 function Login() {
     // const [firstName, setFirstName] = useState(''); // [state, setState]
@@ -25,24 +41,33 @@ function Login() {
         console.log('Password:', password);
     };
 
+    
+
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Email:
-                    <input type="email" value={email} onChange={handleEmailChange} />
-                </label>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "5vh"
+        }}>
+            <h1 style={{ color: "white", fontFamily: "JetBrainsMono", fontSize: fontSize }}>Sign-In</h1>
+            <form onSubmit={handleSubmit} className="form" style={{ width: formWidth }}>
+                <div class="input-group">
+                    <input class="input" required type="text" id="username" onChange={handleEmailChange} value={email}/>
+                    <label class="label" for="username">Username</label>
+                </div>
                 <br />
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={handlePasswordChange} />
-                </label>
+                <div class="input-group">
+                    <input class="input" required type="password" id="password" onChange={handlePasswordChange} value={password}/>
+                    <label class="label" for="password">Password</label>
+                </div>
                 <br />
-                <button type="submit">Submit</button>
+                <CyberButton />
             </form>
         </div>
     );
 }
 
 export default Login;
+
