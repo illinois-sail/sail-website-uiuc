@@ -3,6 +3,7 @@
   "homepage": "https://sailwebcs.web.illinois.edu/",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -20,6 +21,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.2",
     "react-scripts": "^5.0.1",
+    "react-spring": "^9.7.3",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",

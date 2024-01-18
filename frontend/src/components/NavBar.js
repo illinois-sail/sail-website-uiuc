@@ -1,47 +1,131 @@
 import * as React from "react";
-import logo from "../assets/sail_logo_transparent.png";
-import PropTypes from "prop-types";
-// import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
+import { useState } from 'react';
+import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import logo from "../assets/sail_logo_transparent.png";
+import Box from "@mui/material/Box";
 import "../fonts.css";
-import CyberButton from "./CyberButton";
+import { useMediaQuery } from '@mui/material';
+import DrawerBackground from "../assets/drawer_background.jpeg";
 
-const navItems = ["register", "classes", "hackathon", "about"];
+const navItems = ["classes", "hackathon", "login"];
+
+const AnimatedButton = styled(Button)(({ theme }) => ({
+  backgroundColor: 'transparent',
+  color: "white",
+  fontFamily: "JetBrainsMono",
+  border: 'none',
+  outline: 'none',
+  fontSize: "200%",
+  transition: theme.transitions.create(['transform', 'color'], {
+    duration: theme.transitions.duration.shortest,
+  }),
+  '&:hover': {
+    transform: 'scale(1.05)',
+    color: theme.palette.secondary.main,
+  },
+}));
+
+// ... (previous code)
+
+const HomeLogoButton = () => {
+  const isSmallScreen = useMediaQuery('(max-width: 600px)');
+  const viewSize = isSmallScreen ? '10vw' : '60px';
+
+  return (
+    <a href="/">
+      <img src={logo} alt="SAIL 2024 Logo" style={{ width: viewSize, maxHeight: viewSize }} />
+    </a>
+  );
+};
+
+// ... (remaining code)
+
 
 function NavBar(props) {
-  return (
-    <Box sx={{ display: "block", boxShadow: "0" }} >
-      {/* <AppBar component="nav" sx={{ backgroundColor: "transparent" }} style={{paddingLeft: "20px", paddingTop: "50px", boxShadow: "none"}}> */}
-        <Toolbar sx = {{ marginTop: "50px" }}>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, fontFamily: "sergiotrendy" }}
-          >
-            <a href="/">
-              <img src={logo} style={{ width: "60px", height: "60px"}} alt="top_left_logo"/>
-            </a>
+  const [isHovered, setIsHovered] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, flexDirection: 'row', alignItems: 'center' }}>
+  const toggleDrawer = (open) => () => {
+    setIsDrawerOpen(open);
+  };
+
+  return (
+    <AppBar position="static" sx={{ boxShadow: "0", backgroundColor: "transparent", marginTop: "1.5%" }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: { xs: 'flex-end', md: 'space-between' }, alignItems: 'center' }}>
+        <IconButton
+          edge="start"
+          color="inherit"
+          onClick={toggleDrawer(true)}
+          sx={{ display: { xs: 'block', md: 'none' } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: { xs: 'flex-end', md: 'flex-start' },
+              flexBasis: { xs: '100%', md: 'auto' },
+            }}
+          >
+            <HomeLogoButton />
+          </Box>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, justifyContent: 'flex-end', width: '100%' }}>
             {navItems.map((item, index) => (
-              <CyberButton key={index} text={item} tag={index} href={`/${item}`} />
+              <AnimatedButton
+                key={index}
+                onClick={(e) => { window.location.href = `/${item}` }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <span>
+                  {item}
+                </span>
+              </AnimatedButton>
             ))}
           </Box>
-        </Toolbar>
-      {/* </AppBar> */}
-    </Box>
+        </Box>
+        <Drawer
+          anchor="left"
+          open={isDrawerOpen}
+          onClose={toggleDrawer(false)}
+          sx={{
+            '& .MuiDrawer-paper': {
+              width: '200px',
+              backgroundColor: 'rgba(0, 0, 0, 1)',
+              backgroundImage: `url(${DrawerBackground})`,
+              backgroundPosition: 'right',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover'
+            }
+          }}
+        >
+          <List>
+            {navItems.map((item, index) => (
+              <ListItem
+                key={index}
+                button
+                onClick={() => { window.location.href = `/${item}` }}
+                sx={{ fontFamily: 'JetBrainsMono' }} // Add this line to set the font
+              >
+                <ListItemText primary={item} primaryTypographyProps={{ style: { color: 'white' } }} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      </Toolbar>
+    </AppBar>
   );
 }
-
-NavBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default NavBar;
