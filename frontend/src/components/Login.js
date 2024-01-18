@@ -1,47 +1,44 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router
 import './Login.css';
 import './cyberpunk.css';
 
-// make the form width 30vw when the screen is large and 40vw when the screen is small
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
-const CyberButton = () => {
-    return (
-        <button class="cyber-button bg-purple fg-white" style={{ width: "35%" }}>
-            Login
-            <span class="glitchtext">CS SAIL</span>
-            <span class="tag">SAIL</span>
-        </button>
-    )
-}
+
 
 function Login() {
-    // const [firstName, setFirstName] = useState(''); // [state, setState]
-    // const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [shirtSize, setShirtSize] = useState('');
-    // const [parentName, setParentName] = useState('');
-    // const [parentEmail, setParentEmail] = useState('');
 
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
-    // const handleFirstNameChange = (e) => setFirstName(e.target.value);
-    // const handleLastNameChange = (e) => setLastName(e.target.value);
-    // const handleShirtSizeChange = (e) => setShirtSize(e.target.value);
-    // const handleParentNameChange = (e) => setParentName(e.target.value);
-    // const handleParentEmailChange = (e) => setParentEmail(e.target.value);
 
+    const CyberButton = () => {
+        return (
+            <button className="cyber-button bg-purple fg-white" style={{ width: "35%" }} type="submit">
+                Login
+                <span className="glitchtext">CS SAIL</span>
+                <span className="tag">SAIL</span>
+            </button>
+        )
+    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Perform login or sign-up logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
-    };
+    const handleLogin = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await response.json();
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
-    
 
     return (
         <div style={{
@@ -52,22 +49,25 @@ function Login() {
             marginTop: "5vh"
         }}>
             <h1 style={{ color: "white", fontFamily: "JetBrainsMono", fontSize: fontSize }}>Sign-In</h1>
-            <form onSubmit={handleSubmit} className="form" style={{ width: formWidth }}>
-                <div class="input-group">
-                    <input class="input" required type="text" id="username" onChange={handleEmailChange} value={email}/>
-                    <label class="label" for="username">Username</label>
+            <form onSubmit={handleLogin} className="form" style={{ width: formWidth }}>
+                <div className="input-group">
+                    <input className="input" required type="text" id="username" onChange={handleEmailChange} value={email} />
+                    <label className="label" htmlFor="username">Username</label>
                 </div>
                 <br />
-                <div class="input-group">
-                    <input class="input" required type="password" id="password" onChange={handlePasswordChange} value={password}/>
-                    <label class="label" for="password">Password</label>
+                <div className="input-group">
+                    <input className="input" required type="password" id="password" onChange={handlePasswordChange} value={password} />
+                    <label className="label" htmlFor="password">Password</label>
                 </div>
                 <br />
                 <CyberButton />
+                {/* Add Link to Signup page */}
+                <Link to="/signup" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
+                    Don't have an account? Sign up here!
+                </Link>
             </form>
         </div>
     );
 }
 
 export default Login;
-
