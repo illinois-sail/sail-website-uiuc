@@ -1,4 +1,3 @@
-@ -0,0 +1,115 @@
 import React, { useState } from 'react';
 import './Login.css';
 import './cyberpunk.css';
@@ -46,11 +45,6 @@ function SignUp() {
         console.log('Shirt Size:', shirtSize);
         console.log('Parent Name:', parentName);
         console.log('Parent Email:', parentEmail);
-<<<<<<< HEAD
-
-        // query API with info
-=======
->>>>>>> 185fa4751005ca888c22641e1d94e60bf3df6600
     };
 
     return (
