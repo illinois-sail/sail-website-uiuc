@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-import mysql.connector
 import os
 from dotenv import load_dotenv
 import sqlite3
