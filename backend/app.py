@@ -41,9 +41,17 @@ rows = cursor.fetchall()
 print(rows)
 
 
-@app.route('/', defaults={'path': ''})
-def index(path):
-    return send_from_directory(app.static_folder, 'index.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/classes')
+def classes():
+    return render_template('index.html')
+
+@app.route('/login', methods=['GET'])
+def login_page():
+    return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 def login():
