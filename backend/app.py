@@ -1,22 +1,31 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory
-from flask_sqlalchemy import SQLAlchemy
+from flask_mysqldb import MySQL
 import mysql.connector
-import os
-from dotenv import load_dotenv
+# from flask_sqlalchemy import SQLAlchemy
+# import mysql.connector
+# import os
+# from dotenv import load_dotenv
 import sqlite3
 import hashlib
 from hash_password import hash_password
 
-load_dotenv()
+#load_dotenv()
 
 app = Flask(__name__, static_url_path='/', static_folder='../frontend/build', template_folder='../frontend/build')
+# MySQL configurations
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'sailweb'
+app.config['MYSQL_PASSWORD'] = 'suxca4-fizXuv-siwseh'
+app.config['MYSQL_DB'] = 'mytesting_student_accounts'
 
 index = 1
-
+mysql = MySQL(app)
 # define a connection and cursor
-connection = sqlite3.connect('student_accounts.db')
-cursor = connection.cursor()
-
+# connection = sqlite3.connect('student_accounts.db')
+# cursor = connection.cursor()
+cursor = mysql.connection.cursor()
+cursor.execute('SELECT * student_accounts')
+data = cursor.fetchall()
 # Create stores table
 command = """CREATE TABLE IF NOT EXISTS student_accounts (
     id INTEGER PRIMARY KEY,
