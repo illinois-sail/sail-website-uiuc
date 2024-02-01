@@ -40,7 +40,6 @@ cursor.execute("SELECT * FROM student_accounts")
 rows = cursor.fetchall()
 print(rows)
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
