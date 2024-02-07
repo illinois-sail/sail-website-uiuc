@@ -32,3 +32,6 @@ dependencies:
   - xz=5.4.5=h6c40b1e_0
   - zlib=1.2.13=h4dc903c_0
 prefix: /Users/sunchips/anaconda3/envs/sailenv
+
+// q: how to create a new environment with the environment.yml file?
+// a: conda env create -f environment.yml

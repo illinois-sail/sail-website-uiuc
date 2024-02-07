@@ -16,7 +16,7 @@ import "../fonts.css";
 import { useMediaQuery } from '@mui/material';
 import DrawerBackground from "../assets/drawer_background.jpeg";
 
-const navItems = ["classes", "hackathon", "login"];
+const navItems = ["classes", "login"];
 
 const AnimatedButton = styled(Button)(({ theme }) => ({
   backgroundColor: 'transparent',
