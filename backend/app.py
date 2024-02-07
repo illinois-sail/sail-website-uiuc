@@ -1,40 +1,21 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory
-# from flask_sqlalchemy import SQLAlchemy
-# import os
-# from dotenv import load_dotenv
-# from flask_mysqldb import MySQL
-# import mysql.connector
-import pymysql
-pymysql.install_as_MySQLdb()  # Install MySQL driver
-import MySQLdb
-from sqlalchemy import create_engine
-
-
+from flask_sqlalchemy import SQLAlchemy
+import os
+from dotenv import load_dotenv
 import sqlite3
 import hashlib
 from hash_password import hash_password
 
-#load_dotenv()
+load_dotenv()
 
 app = Flask(__name__, static_url_path='/', static_folder='../frontend/build', template_folder='../frontend/build')
-# MySQL configurations
-# app.config['MYSQL_HOST'] = 'localhost'
-# app.config['MYSQL_USER'] = 'sailweb'
-# app.config['MYSQL_PASSWORD'] = 'suxca4-fizXuv-siwseh'
-# app.config['MYSQL_DB'] = 'mytesting_student_accounts'
 
 index = 1
-# mysql = MySQL(app)
-# define a connection and cursor
-# connection = sqlite3.connect('student_accounts.db')
-# cursor = connection.cursor()
 
-engine = create_engine(f'mysql+mysqldb://sailweb:suxca4-fizXuv-siwseh@localhost:3306/mytesting_student_accounts')
-connection = engine.connect()
+# define a connection and cursor
+connection = sqlite3.connect('student_accounts.db')
 cursor = connection.cursor()
-#cursor = mysql.connection.cursor()
-cursor.execute('SELECT * student_accounts')
-data = cursor.fetchall()
+
 # Create stores table
 command = """CREATE TABLE IF NOT EXISTS student_accounts (
     id INTEGER PRIMARY KEY,
@@ -59,10 +40,37 @@ cursor.execute("SELECT * FROM student_accounts")
 rows = cursor.fetchall()
 print(rows)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-@app.route('/', defaults={'path': ''})
-def index(path):
-    return send_from_directory(app.static_folder, 'index.html')
+@app.route('/classes')
+def classes():
+    return render_template('index.html')
+
+@app.route('/login', methods=['GET'])
+def login_page():
+    return render_template('index.html')
+
+@app.route('change_password', methods=['POST'])
+def change_password():
+    response = request.json
+    email = response['email']
+    old_password = response['old_password']
+    new_password = response['new_password']
+    hashed_old_password = hash_password(old_password)
+    hashed_new_password = hash_password(new_password)
+
+    cursor.execute("SELECT * FROM student_accounts")
+    rows = cursor.fetchall()
+    print(rows)
+
+    for row in rows:
+        if row[1] == email and row[2] == hashed_old_password:
+            cursor.execute(f"UPDATE student_accounts SET password_hash = {hashed_new_password} WHERE email = {email}")
+            return "Password changed successfully", 200
+        
+    return "Invalid New Password", 400
 
 @app.route('/login', methods=['POST'])
 def login():
