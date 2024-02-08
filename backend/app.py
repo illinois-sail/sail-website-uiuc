@@ -2,8 +2,6 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for, s
 from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
-import sqlite3
-import hashlib
 from hash_password import hash_password
 
 load_dotenv()
