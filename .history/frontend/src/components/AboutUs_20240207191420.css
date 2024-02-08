@@ -1,0 +1,44 @@
+@import "cyberpunk.css";
+
+.aboutuspage {
+    color: #0ff; /* Bright cyan for text, typical of cyberpunk aesthetics */
+    background-color: #111; /* Dark background for contrast */
+    font-family: 'Orbitron', sans-serif; /* A font that fits cyberpunk themes, ensure it's linked in your HTML or CSS */
+}
+
+/* Divider sections */
+.aboutusdivider {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 3px solid #0ff; /* Neon-like accent */
+    position: relative;
+}
+
+/* Text styling */
+.aboutus_text {
+    color: #0ff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* Glowing text effect */
+}
+
+
+/* Avatar styles for team images */
+.MuiAvatar-root {
+    border: 2px solid #0ff;
+    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff; /* Glow effect */
+}
+
+/* Grid adjustments for responsiveness and alignment */
+.MuiGrid-container {
+    justify-content: center;
+}
+
+/* Enhancing the glow and shadow effects */
+.MuiPaper-elevation1, .MuiPaper-elevationZ {
+    box-shadow: none; /* Remove default shadow to replace with a glow effect if needed */
+}
+
+/* Additional hover effects for interactive elements */
+.MuiButton-root:hover, .MuiAvatar-root:hover {
+    opacity: 0.8; /* Slight dim on hover for interactive feedback */
+}
