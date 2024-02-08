@@ -1,9 +1,8 @@
+
 from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
-import sqlite3
-import hashlib
 from hash_password import hash_password
 
 load_dotenv()
@@ -115,7 +114,6 @@ def get_students():
         student_list.append({
             "email": student.email,
             "first_name": student.first_name,
-            "password_hash": student.password_hash,
             "last_name": student.last_name,
             "shirt_size": student.shirt_size,
             "parent_name": student.parent_name,
