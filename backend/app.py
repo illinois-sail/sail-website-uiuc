@@ -1,71 +1,40 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory
+from flask_sqlalchemy import SQLAlchemy
 import os
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import sqlite3
 import hashlib
 from hash_password import hash_password
 
-
-
-#load_dotenv()
+load_dotenv()
 
 app = Flask(__name__, static_url_path='/', static_folder='../frontend/build', template_folder='../frontend/build')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
+db = SQLAlchemy(app)
 
-if __name__ == '__main__':
-    app.run(debug=True)
-    # Call your routes here to test them
-    app.test_client().post('/signup', json={'first_name': 'John', 'last_name': 'Doe', 'email': 'johndoe@gmail.com', 'password': 'password', 'shirt_size': 'M', 'parent_name': 'Jane Doe', 'parent_email': 'janedoe@gmail.com'})
-    print(app.test_client().get('/get-students').data)
-    app.test_client().post('/login', json={'email': 'johndoe@gmail.com', 'password': 'password'})
-    print(app.test_client().get('/get-students').data)
-    app.test_client().post('/change_password', json={'email': 'johndoe@gmail.com', 'old_password': 'password', 'new_password': 'test'})
-    print(app.test_client().get('/get-students').data)
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(120), nullable=False)
+    first_name = db.Column(db.String(120), nullable=False)
+    last_name = db.Column(db.String(120), nullable=False)
+    shirt_size = db.Column(db.String(120), nullable=False)
+    parent_name = db.Column(db.String(120), nullable=False)
+    parent_email = db.Column(db.String(120), nullable=False)
+    classes = db.Column(db.String(100), nullable=True)
+
+    def __repr__(self):
+        return f"{self.first_name} {self.last_name} <{self.mail}>"
     
-index = 1
+with app.app_context():
+    db.create_all()
 
-# define a connection and cursor
-connection = sqlite3.connect('student_accounts.db')
-cursor = connection.cursor()
-
-# Create stores table
-command = """CREATE TABLE IF NOT EXISTS student_accounts (
-    id INTEGER PRIMARY KEY,
-    email TEXT NOT NULL,
-    password_hash TEXT NOT NULL,
-    first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL,
-    shirt_size TEXT NOT NULL,
-    parent_name TEXT NOT NULL,
-    parent_email TEXT NOT NULL
-);"""
-
-cursor.execute(command)
-
-test_student1 = (1, "testemail@gmail.com", "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Test", "Student", "M", "Test Parent", "testparentemail@gmail.com")
-test_student2 = (2, "testemail2@gmail.com", "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", "Test2", "Student2", "M", "Test Parent2", "testparentemail2@gmail.com")
-
-cursor.execute(f"INSERT INTO student_accounts VALUES {test_student1}")
-cursor.execute(f"INSERT INTO student_accounts VALUES {test_student2}")
-
-cursor.execute("SELECT * FROM student_accounts")
-rows = cursor.fetchall()
-print("------------------------Before------------------------")
-print(rows)
-
-#Change password for test_student1
-print("------------------------After------------------------")
-cursor.execute(f"UPDATE student_accounts SET password_hash = '{hash_password('newpassword')}' WHERE email = 'testemail@gmail.com' AND password_hash = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'")
-cursor.execute("SELECT * FROM student_accounts")
-rows = cursor.fetchall()
-print(rows)
-
-
-
-@app.route('/')
+# GET ROUTES
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
-@app.route('/classes')
+@app.route('/classes', methods=['GET'])
 def classes():
     return render_template('index.html')
 
@@ -73,72 +42,113 @@ def classes():
 def login_page():
     return render_template('index.html')
 
+@app.route('/signup', methods=['GET'])
+def signup_page():
+    return render_template('index.html')
+
 @app.route('/change_password', methods=['POST'])
 def change_password():
+    # gather the information from the request
     response = request.json
     email = response['email']
-    old_password = response['old_password']
-    new_password = response['new_password']
-    hashed_old_password = hash_password(old_password)
-    hashed_new_password = hash_password(new_password)
+    old_password = response['oldPassword']
+    new_password = response['newPassword']
+    
+    # find the student
+    student = Student.query.filter_by(email=email).first()
+    
+    # check if the old password is correct
+    if student.password_hash == hash_password(old_password):
+        # change the password
+        student.password_hash = hash_password(new_password)
+        db.session.commit()
+        return "The password has been changed"
+    else:
+        return "The old password is incorrect"
 
-    cursor.execute("SELECT * FROM student_accounts")
-    rows = cursor.fetchall()
-    print(rows)
-
-    for row in rows:
-        #Check if email and password match before changing
-        if row[1] == email and row[2] == hashed_old_password:
-            cursor.execute(f"UPDATE student_accounts SET password_hash = '{hashed_new_password}' WHERE email = '{email}'")
-            return "Password changed successfully", 200
-        
-    return "Invalid Email or Password", 400
-
+# @TODO: Develop the login route
 @app.route('/login', methods=['POST'])
 def login():
+    # gather the information from the request
     response = request.json
     email = response['email']
     password = response['password']
-    hashed_password = hash_password(password)
-        
-    # TODO: Validate username and password with the database
-    cursor.execute("SELECT * FROM student_accounts")
-    rows = cursor.fetchall()
-    print(rows)
     
-    for row in rows:
-        if row[1] == email and row[2] == hashed_password:
-            return { 'email': email, 'password': password }, 200
+    # find the student
+    student = Student.query.filter_by(email=email).first()
     
-    return "Invalid username or password", 400
+    # check if the password is correct
+    if student.password_hash == hash_password(password):
+        return "The password is correct"
+    else:
+        return "The password is incorrect"
 
 @app.route('/signup', methods=['POST'])
 def signup():
+    # gather the information from the request
     response = request.json
-    first_name = response['first_name']
-    last_name = response['last_name']
-    email = response['email']
-    password = response['password']
-    shirt_size = response['shirt_size']
-    parent_name = response['parent_name']
-    parent_email = response['parent_email']
-    print('Received:', first_name, last_name, email, password, shirt_size, parent_name, parent_email)
+    student_data = {
+        "email": response['email'],
+        "password_hash": hash_password(response['password']),
+        "first_name": response['firstName'],
+        "last_name": response['lastName'],
+        "shirt_size": response['shirtSize'],
+        "parent_name": response['parentName'],
+        "parent_email": response['parentEmail'],
+        "classes": "0" * 100
+    }
     
-    cursor.execute("SELECT * FROM student_accounts")
-    rows = cursor.fetchall()
-    print("------------------------Test------------------------")
-    print(rows)
-    # TODO: Add the user to the database
-    student = (index, email, hash_password(password), first_name, last_name, shirt_size, parent_name, parent_email)
-    cursor.execute(f"INSERT INTO student_accounts VALUES {student}")
-    index += 1
+    new_student = Student(**student_data)
+    
+    db.session.add(new_student)
+    db.session.commit()
     
     return redirect(url_for('index'))
 
+# @TODO: Develop the get students route
 @app.route('/get-students', methods=['GET'])
 def get_students():
-    cursor.execute("SELECT * FROM student_accounts")
-    rows = cursor.fetchall()
-    print(rows)
-    return jsonify(rows)
+    # print all the information from the database
+    students = Student.query.all()
+    student_list = []
+    for student in students:
+        student_list.append({
+            "email": student.email,
+            "first_name": student.first_name,
+            "password_hash": student.password_hash,
+            "last_name": student.last_name,
+            "shirt_size": student.shirt_size,
+            "parent_name": student.parent_name,
+            "parent_email": student.parent_email,
+            "classes": student.classes
+        })
+    print(student_list)
+    return jsonify(student_list)
+
+@app.route('/reset_database', methods=['GET'])
+def reset_database():
+    # ask for double confirmation and a password
+    confirmation = input("Are you sure you want to reset the database? (yes/no): ")
+    if confirmation == "yes":
+        password = input("Please enter the password: ")
+        if password == os.getenv('RESET_DATABASE_PASSWORD'):
+            # reset the database
+            db.drop_all()
+            db.create_all()
+            return "The database has been reset"
+        else:
+            return "The password is incorrect"
+    else:
+        return "The database has not been reset"
     
+    
+@app.route("/remove_user/<email>", methods=['GET'])
+def remove_user(email):
+    # remove the user from the database
+    student = Student.query.filter_by(email=email).first()
+    db.session.delete(student)
+    db.session.commit()
+    return f"The user with the email {email} has been removed"
+    
+if __name__ == '__main__':
+    app.run(debug=True)

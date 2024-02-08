@@ -5,6 +5,8 @@ import './cyberpunk.css';
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
+const SERVER_URL = "http://127.0.0.1:5000";
+
 const CyberButton = ({ buttonText }) => {
     return (
         <button className="cyber-button bg-red fg-white" style={{ width: "35%" }}>
@@ -35,16 +37,47 @@ function SignUp() {
     const handleParentEmailChange = (e) => setParentEmail(e.target.value);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        // Perform signup logic here
-        console.log('First Name:', firstName);
-        console.log('Last Name:', lastName);
-        console.log('Email:', email);
-        console.log('Password:', password);
-        console.log('Confirm Password:', confirmPassword);
-        console.log('Shirt Size:', shirtSize);
-        console.log('Parent Name:', parentName);
-        console.log('Parent Email:', parentEmail);
+        e.preventDefault(); // Prevent default form submission behavior
+
+        // Build the form data object
+        const formData = {
+            firstName,
+            lastName,
+            email,
+            password,
+            shirtSize,
+            parentName,
+            parentEmail
+        };
+
+        // Send the POST request with the form data
+        fetch(`${SERVER_URL}/signup`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log('Success:', data);
+        // Handle successful response here, e.g., redirect or display a message
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        // Handle error here, e.g., display an error message
+        });
+
+        // Clear the form and direct the user to the homepage
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+        setShirtSize('');
+        setParentName('');
+        setParentEmail('');
+        window.location.href = "/";
     };
 
     return (
@@ -99,7 +132,12 @@ function SignUp() {
                     </div>
                 </div>
                 <br />
-                <CyberButton buttonText="Sign Up" />
+                {/* <CyberButton buttonText="Sign Up" type="submit" /> */}
+                <button className="cyber-button bg-red fg-white" style={{ width: "35%" }} type="submit">
+                    Sign Up
+                    <span className="glitchtext">CS SAIL</span>
+                    <span className="tag">SAIL</span>
+                </button>
             </form>
         </div>
     );
