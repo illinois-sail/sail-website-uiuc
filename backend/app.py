@@ -76,7 +76,7 @@ def login():
     
     # find the student
     student = Student.query.filter_by(email=email).first()
-    
+    print('student:', student)
     # check if the password is correct
     if student.password_hash == hash_password(password):
         return "The password is correct"
