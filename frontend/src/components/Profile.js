@@ -1,18 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useAuth } from "./AuthContext";
 
-const ProfilePage = () => {
-
+function Profile() {
     const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
     console.log("authUser: ", authUser);
 
     return (
-        <div>
+        <div style={{ color: "white" }} >
             <h1>Profile</h1>
-            <h2>{isLoggedIn ? authUser.email : "Not logged in"}</h2>
-            <h2>{isLoggedIn ? authUser.first_name + " " + authUser.last_name : "Not logged in"}</h2>
+            <h2>{authUser ? authUser.first_name + " " + authUser.last_name : "No user logged in"}</h2>
+            <h2>{authUser ? authUser.email : "No user logged in"}</h2>
         </div>
     );
 };
 
-export default ProfilePage;
+export default Profile;
