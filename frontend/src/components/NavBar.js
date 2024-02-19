@@ -52,10 +52,20 @@ function NavBar() {
 
   const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  
+
   const toggleDrawer = (open) => () => {
     setIsDrawerOpen(open);
   };
+
+  // create a listener to update the value of isLoggedIn and authUser from local storage
+  useEffect(() => {
+    const storedUser = localStorage.getItem('authUser');
+    const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
+    if (storedUser && storedIsLoggedIn) {
+      setIsLoggedIn(true);
+      setAuthUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <AppBar position="static" sx={{ boxShadow: "0", backgroundColor: "transparent", marginTop: "1.5%" }}>

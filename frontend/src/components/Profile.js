@@ -9,7 +9,8 @@ const ProfilePage = () => {
     return (
         <div>
             <h1>Profile</h1>
-            <h2>{isLoggedIn ? authUser.username : "Not logged in"}</h2>
+            <h2>{isLoggedIn ? authUser.email : "Not logged in"}</h2>
+            <h2>{isLoggedIn ? authUser.first_name + " " + authUser.last_name : "Not logged in"}</h2>
         </div>
     );
 };
