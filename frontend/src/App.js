@@ -3,8 +3,10 @@ import './App.css';
 import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
 import background from "./assets/final_background.png";
+import AuthContext, { AuthProvider, useAuth } from "./components/AuthContext";
 
 const App = () => {
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -21,28 +23,30 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative" }}>
-      <div
-        id="background-container"
-        className="background-container"
-        style={{
-          backgroundImage: `url(${background})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: -1,
-        }}
-      />
-      <div style={{ zIndex: 1 }}>
-        <NavBar />
-        <AppRouter />
+      <AuthProvider>
+        <div style={{ position: "relative" }}>
+        <div
+          id="background-container"
+          className="background-container"
+          style={{
+            backgroundImage: `url(${background})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: -1,
+          }}
+        />
+        <div style={{ zIndex: 1 }}>
+          <NavBar />
+          <AppRouter />
+        </div>
       </div>
-    </div>
+    </AuthProvider>
   );
 }
 

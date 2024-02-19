@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
 from hash_password import hash_password
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+
 
 load_dotenv()
 
@@ -22,7 +24,7 @@ class Student(db.Model):
     classes = db.Column(db.String(100), nullable=True)
 
     def __repr__(self):
-        return f"{self.first_name} {self.last_name} <{self.mail}>"
+        return f"{self.first_name} {self.last_name} <{self.email}>"
     
 with app.app_context():
     db.create_all()
@@ -44,13 +46,61 @@ def login_page():
 def signup_page():
     return render_template('index.html')
 
+@app.route('/aboutus', methods=['GET'])
+def aboutus():
+    return render_template('index.html')
+
+@app.route('/profile', methods=['GET'])
+def profile():
+    return render_template('index.html')
+
+@app.route('/logout', methods=['GET'])
+def logout():
+    return render_template('index.html')
+
 
 
 # @TODO: Develop the login route
 @app.route('/login', methods=['POST'])
 def login():
-    pass
+    print("Received a login request!")
+    response = request.json
+    
+    email = response['email']
+    password = response['password']
+    hashed_password = hash_password(password)
+    
+    print(response)
+    print(f"Email: {email}, Password: {password}")
+    
+    # query the database for the the student with the email and return the first result
+    student = Student.query.filter_by(email=email).first()
+    
+    print(f"Student Found: {student}")
+    
+    if not student:
+        print("The student does not exist")
+        return jsonify({}), 400
+    
+    elif (student.password_hash == hashed_password):
+        # return a dictionary with the user's information in a key called "user"
+        print("The password is correct")
+        return jsonify({
+            "email": student.email,
+            "first_name": student.first_name,
+            "last_name": student.last_name,
+            "shirt_size": student.shirt_size,
+            "parent_name": student.parent_name,
+            "parent_email": student.parent_email,
+            "classes": student.classes
+        }), 200
+    
+    else:
+        print("Incorrect password")
+        return jsonify({}), 400
 
+
+# test account at Email: testaccount@gmail.com, Password: password
 @app.route('/signup', methods=['POST'])
 def signup():
     # gather the information from the request
@@ -116,6 +166,24 @@ def remove_user(email):
     db.session.delete(student)
     db.session.commit()
     return f"The user with the email {email} has been removed"
+
+@app.route('/api/user/profile', methods=['GET'])
+@login_required
+def get_user_profile():
+    user = current_user
+    
+    profile_date = {
+        "email": user.email,
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "shirt_size": user.shirt_size,
+        "parent_name": user.parent_name,
+        "parent_email": user.parent_email,
+        "classes": user.classes
+    }
+    
+    return jsonify(profile_date)
+
     
 if __name__ == '__main__':
     app.run(debug=True)

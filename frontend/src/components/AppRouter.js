@@ -6,17 +6,24 @@ import HomePage from "./HomePage";
 import ClassTemplate from "./ClassTemplate";
 import store from "./store";
 import SignUp from "./SignUp";
+import Profile from "./Profile";
+import AboutUs from "./AboutUs";
+import Logout from "./Logout";
+
 
 const AppRouter = () => {
+
   return (
-    //PROBLEM WITH PROVIDER
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/classes" element={<ClassTemplate />} />
           <Route path="/login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path='/aboutus' element={<AboutUs />} />
+          <Route path='/logout' element={<Logout />} />
         </Routes>
       </BrowserRouter>
     </Provider>
