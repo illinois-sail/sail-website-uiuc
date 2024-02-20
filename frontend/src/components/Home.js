@@ -3,10 +3,12 @@ import "./Home.css";
 import "../fonts.css";
 import VideoPlayer from './VideoPlayer';
 // import React, { useEffect, useState } from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import homepage_image from '../assets/logosvg.svg'
+import { useAuth } from './AuthContext';
 
 function Home() {
+
   return (
     <div className="homepage">
         <div class="container">

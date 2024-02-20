@@ -1,44 +1,62 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom'; 
 import './Login.css';
 import './cyberpunk.css';
+import AuthContext, { useAuth } from './AuthContext';
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
-
-
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
 
-    const CyberButton = () => {
-        return (
-            <button className="cyber-button bg-purple fg-white" style={{ width: "35%" }} type="submit">
-                Login
-                <span className="glitchtext">CS SAIL</span>
-                <span className="tag">SAIL</span>
-            </button>
-        )
-    }
+    const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
 
-    const handleLogin = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
-            const data = await response.json();
-            console.log(data);
-        } catch (err) {
-            console.log(err);
+    useEffect(() => {
+        const storedUser = localStorage.getItem('authUser');
+        if (storedUser) {
+            setIsLoggedIn(true);
+            setAuthUser(JSON.parse(storedUser));
         }
-    }
+    }, []);
 
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const formData = { "email": email, "password": password };
+        fetch('http://127.0.0.1:5000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success! Data:', data);
+                console.log("data.status: ", data.status);
+                // if the response is 200, then set the authUser and isLoggedIn to true
+                // if data is not null or undefined
+                if (data !== null && data !== undefined) {
+                    setAuthUser(data);
+                    setIsLoggedIn(true);
+
+                    // use local storage to store the user's information
+                    localStorage.setItem('authUser', JSON.stringify(data));
+                    localStorage.setItem('isLoggedIn', true);
+                    // redirect to home page
+                    // window.location.href = "/";
+                }
+                
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        console.log("isLoggedIn: ", isLoggedIn);
+        console.log("authUser: ", authUser);
+    };
 
     return (
         <div style={{
@@ -60,8 +78,11 @@ function Login() {
                     <label className="label" htmlFor="password">Password</label>
                 </div>
                 <br />
-                <CyberButton />
-                {/* Add Link to Signup page */}
+                <button className="cyber-button bg-purple fg-white" style={{ width: "35%" }} type="submit">
+                    Login
+                    <span className="glitchtext">CS SAIL</span>
+                    <span className="tag">SAIL</span>
+                </button>
                 <Link to="/signup" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
                     Don't have an account? Sign up here!
                 </Link>
