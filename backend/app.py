@@ -58,7 +58,25 @@ def profile():
 def logout():
     return render_template('index.html')
 
+@app.route('/change_password', methods=['POST'])
+def change_password():
+    # gather the information from the request
+    response = request.json
+    email = response['email']
+    old_password = response['oldPassword']
+    new_password = response['newPassword']
 
+    # find the student
+    student = Student.query.filter_by(email=email).first()
+
+    # check if the old password is correct
+    if student.password_hash == hash_password(old_password):
+        # change the password
+        student.password_hash = hash_password(new_password)
+        db.session.commit()
+        return "The password has been changed"
+    else:
+        return "The old password is incorrect"
 
 # @TODO: Develop the login route
 @app.route('/login', methods=['POST'])
