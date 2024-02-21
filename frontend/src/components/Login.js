@@ -47,7 +47,7 @@ function Login() {
                     localStorage.setItem('authUser', JSON.stringify(data));
                     localStorage.setItem('isLoggedIn', true);
                     // redirect to home page
-                    // window.location.href = "/";
+                    window.location.href = "/profile";
                 }
                 
             })

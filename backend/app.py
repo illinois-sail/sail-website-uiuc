@@ -162,10 +162,32 @@ def reset_database():
 @app.route("/remove_user/<email>", methods=['GET'])
 def remove_user(email):
     # remove the user from the database
+    print("here")
+    email += "@illinois.edu"
     student = Student.query.filter_by(email=email).first()
+    print(f"student: {student}")
     db.session.delete(student)
     db.session.commit()
     return f"The user with the email {email} has been removed"
+
+@app.route('/add_speen_user', methods=['GET'])
+def add_speen_user():
+    # add a user to the database
+    student_data = {
+        "email": "ssadler5@illinois.edu",
+        "password_hash": hash_password("test"),
+        "first_name": "Spencer",
+        "last_name": "Sadler",
+        "shirt_size": "M",
+        "parent_name": "Clayton Sadler",
+        "parent_email": "claysadman@gmail.com",
+        "classes": "0" * 100
+    }
+    
+    db.session.add(Student(**student_data))
+    db.session.commit()
+    print("The user has been added")
+    return "The user has been added", 200
 
 @app.route('/api/user/profile', methods=['GET'])
 @login_required
