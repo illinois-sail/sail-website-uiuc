@@ -4,13 +4,28 @@ import os
 from dotenv import load_dotenv
 from hash_password import hash_password
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-
-
+#imports for reset password
+from flask_mail import Mail
+from datetime import datetime, timedelta
+import secrets
+from flask_mail import Message
+#from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 load_dotenv()
 
 app = Flask(__name__, static_url_path='/', static_folder='../frontend/build', template_folder='../frontend/build')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
 db = SQLAlchemy(app)
+with app.app_context():
+    db.create_all()
+
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'cssailnoreply@gmail.com'
+app.config['MAIL_PASSWORD'] = '$CS$5S@a!L$'
+
+mail = Mail(app)
 
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -22,6 +37,8 @@ class Student(db.Model):
     parent_name = db.Column(db.String(120), nullable=False)
     parent_email = db.Column(db.String(120), nullable=False)
     classes = db.Column(db.String(100), nullable=True)
+    reset_token = db.Column(db.String(100), unique=True, nullable=True)
+    reset_token_expiration = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name} <{self.email}>"
@@ -58,25 +75,60 @@ def profile():
 def logout():
     return render_template('index.html')
 
-@app.route('/change_password', methods=['POST'])
-def change_password():
-    # gather the information from the request
+@app.route('/reset_password', methods=['GET'])
+def reset_password_page():
+    return render_template('index.html')
+
+# @app.route('/reset_password/<token>', methods=['GET'])
+# def reset_token_page(token):
+#     return render_template('index.html')
+
+@app.route('/reset_password', methods=['POST'])
+def reset_password():
     response = request.json
     email = response['email']
-    old_password = response['oldPassword']
-    new_password = response['newPassword']
 
-    # find the student
     student = Student.query.filter_by(email=email).first()
 
-    # check if the old password is correct
-    if student.password_hash == hash_password(old_password):
-        # change the password
-        student.password_hash = hash_password(new_password)
+    if student:
+        # Generate a unique reset token
+        token = secrets.token_urlsafe(32)
+        student.reset_token = token
+        student.reset_token_expiration = datetime.utcnow() + timedelta(hours=1)
         db.session.commit()
-        return "The password has been changed"
+
+        # Send an email with the reset token
+        send_password_reset_email(student)
+
+        return "Password reset instructions have been sent to your email."
     else:
-        return "The old password is incorrect"
+        return "No user found with that email address."
+
+def send_password_reset_email(student):
+    token = student.reset_token
+    msg = Message('Password Reset Request',
+                  sender='cssailnoreply@gmail.com',
+                  recipients=[student.email])
+    msg.body = f'''To reset your password, visit the following link: {url_for('reset_token', token=token, _external=True)} If you did not make this request, simply ignore this email and no changes will be made.'''
+    mail.send(msg)
+
+@app.route("/reset_password/<token>", methods=['GET', 'POST'])
+def reset_token(token):
+    student = Student.query.filter_by(reset_token=token).first()
+
+    if student and student.reset_token_expiration > datetime.utcnow():
+        if request.method == 'POST':
+            # Logic to handle password reset form submission
+            new_password = request.form.get('new_password')
+            student.password_hash = hash_password(new_password)
+            student.reset_token = None
+            student.reset_token_expiration = None
+            db.session.commit()
+            return "Password has been successfully reset."
+
+        return render_template('reset_token.html', title='Reset Password')
+    else:
+        return "Invalid or expired token. Please try again."
 
 # @TODO: Develop the login route
 @app.route('/login', methods=['POST'])
@@ -116,6 +168,7 @@ def login():
     else:
         print("Incorrect password")
         return jsonify({}), 400
+
 
 
 # test account at Email: testaccount@gmail.com, Password: password
@@ -205,3 +258,18 @@ def get_user_profile():
     
 if __name__ == '__main__':
     app.run(debug=True)
+
+'''
+Created user with the following information:
+Email: szwejkowski.adrian@gmail.com
+Password: test1234
+First Name: adrian
+Last Name: szwejk
+Shirt Size: M
+Parent Name: Dad
+Parent Email: Dad@gmail.com
+
+CURL command:
+curl -X POST -H "Content-Type: application/json" -d '{"email": "szwejkowski.adrian@gmail.com", "oldPassword": "test1234", "newPassword": "newpassword1234"}' http://localhost:5000/reset_password
+
+'''
