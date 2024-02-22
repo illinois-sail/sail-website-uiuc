@@ -20,7 +20,7 @@ const CyberButton = (props) => {
     );
 };
 
-// authUser.classes is a bitsequence of the classes the user is taking so if the bit at idnex i is 1, then the user is taking the class at index i
+// find the classes that the user is in given their bitsequence and the official list of classes
 function getClasses(bitsequence, classes) {
     let result = [];
     for (let i = 0; i < classes.length; i++) {
@@ -31,10 +31,11 @@ function getClasses(bitsequence, classes) {
     return result;
 }
 
-function Profile() {
-    const { authUser, setAuthUser } = useAuth();
-    console.log("authUser: ", authUser);
 
+
+function Profile() {
+    const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
+    
     const [isEditingEmail, setIsEditingEmail] = useState(false);
     const [isEditingShirtSize, setIsEditingShirtSize] = useState(false);
     const [isEditingParentName, setIsEditingParentName] = useState(false);
@@ -150,13 +151,22 @@ function Profile() {
         setIsEditingParentEmail(false);
     };
 
-    const userClasses = authUser ? getClasses(authUser.classes, classes) : classes;
+    const userClasses = authUser ? getClasses(authUser.classes, classes) : [];
     const firstName = authUser ? authUser.first_name : "Sanjay";
     const lastName = authUser ? authUser.last_name : "Manoj";
     const email = authUser ? authUser.email : "notloggedin@sail.edu";
     const shirtSize = authUser ? authUser.shirt_size : "M";
     const parentName = authUser ? authUser.parent_name : "Spencer Sadler";
     const parentEmail = authUser ? authUser.parent_email : "ssadler5@illinois.edu";
+
+    const loggedState = localStorage.getItem('isLoggedIn');
+
+    if (loggedState === "false" || loggedState === null || loggedState === undefined || loggedState == false) {
+        console.log("isLoggedIn: ", isLoggedIn);
+        console.log("User not logged in. Redirecting to login page...");
+        console.log("authUser: ", authUser)
+        window.location.href = "/login";
+    }
 
     return (
         <div style={{ 

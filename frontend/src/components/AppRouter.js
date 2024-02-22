@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import { Provider } from "react-redux";
-import HomePage from "./HomePage";
+import Home from "./Home";
 import ClassTemplate from "./ClassTemplate";
 import store from "./store";
 import SignUp from "./SignUp";
@@ -17,7 +17,7 @@ const AppRouter = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/classes" element={<ClassTemplate />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

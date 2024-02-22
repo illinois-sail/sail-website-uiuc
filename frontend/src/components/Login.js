@@ -25,6 +25,8 @@ function Login() {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        console.log("isLoggedIn: ", isLoggedIn);
+        console.log("authUser: ", authUser);
         const formData = { "email": email, "password": password };
         fetch('http://127.0.0.1:5000/login', {
             method: 'POST',
@@ -33,29 +35,47 @@ function Login() {
             },
             body: JSON.stringify(formData)
         })
-            .then(response => response.json())
+            .then(response => {
+                console.log('Response:', response);
+                return response.json();
+            })
             .then(data => {
                 console.log('Success! Data:', data);
-                console.log("data.status: ", data.status);
                 // if the response is 200, then set the authUser and isLoggedIn to true
                 // if data is not null or undefined
-                if (data !== null && data !== undefined) {
-                    setAuthUser(data);
-                    setIsLoggedIn(true);
+                if (data === null || data === undefined) throw new Error("Invalid login credentials");
+                else if (data.email) {
+                    console.log("SUCCESS: data.email: ", data.email);
 
-                    // use local storage to store the user's information
                     localStorage.setItem('authUser', JSON.stringify(data));
                     localStorage.setItem('isLoggedIn', true);
-                    // redirect to home page
+
+                    console.log("localStorage.getItem('authUser'): ", localStorage.getItem('authUser'));
+                    console.log("localStorage.getItem('isLoggedIn'): ", localStorage.getItem('isLoggedIn'));
+
+                    // unstringify the data and set the authUser
+                    const authUser = JSON.parse(localStorage.getItem('authUser'));
+                    setAuthUser(authUser); // set the authUser to the data from the server
+                    const isLoggedIn = localStorage.getItem('isLoggedIn');
+                    setIsLoggedIn((isLoggedIn === "true") ? true : false) // isLoggedIn is a string, so we need to convert it to a boolean
+
+                    // make a message to the user that they have successfully logged in
+                    alert("You have successfully logged in!");
+
+                    console.log("isLoggedIn: ", isLoggedIn);
+                    console.log("authUser: ", authUser);
+
                     window.location.href = "/profile";
+                } else {
+                    setAuthUser(null);
+                    setIsLoggedIn(false);
+                    throw new Error("Invalid login credentials");
                 }
                 
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-        console.log("isLoggedIn: ", isLoggedIn);
-        console.log("authUser: ", authUser);
     };
 
     return (
