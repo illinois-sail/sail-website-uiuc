@@ -25,8 +25,8 @@ function Home_new() {
                         <Typography variant="h4" component="h3" className="faq_text">About SAIL</Typography>
                         <Typography paragraph className="faq_text">SAIL is an exciting event where high schoolers are invited to the University of Illinois at Urbana-Champaign to explore and learn through classes designed to inspire and inform. This unique opportunity allows students to get a taste of university life and explore their interests in a collegiate setting.</Typography>
                         
-                        <Typography variant="h4" component="h3" className="faq_text">Who is SAIL?</Typography>
-                        <Typography paragraph className="faq_text">SAIL is organized by a dedicated team of university students and the Siebel Center for Computer Science</Typography>
+                        <Typography variant="h4" component="h3" className="faq_text">Who is organizing SAIL?</Typography>
+                        <Typography paragraph className="faq_text">SAIL is organized by a dedicated team of university students and is sponsored the Siebel Center for Computer Science. Learn about about who's on the team in the "About Us" page!</Typography>
                         
                         <Typography variant="h4" component="h3" className="faq_text">What is SAIL?</Typography>
                         <Typography paragraph className="faq_text">SAIL offers a range of classes across various disciplines of Computer Science, giving attendees a glimpse into the vast array of subjects they can explore in higher education. </Typography>
