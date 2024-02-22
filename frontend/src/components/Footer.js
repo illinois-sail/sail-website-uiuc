@@ -34,10 +34,9 @@ const Footer = () => {
           <Stack direction="row" spacing={2}>
             <Button
               sx={{ backgroundColor: "purple", "&:hover": {
-                backgroundColor: "green",
+                backgroundColor: "#7df0db",
               }, color: "#333" }}
               variant="contained"
-              href="/student"
             >
               <Link
                 href="mailto: sail.cs.illinois@gmail.com"
@@ -49,10 +48,9 @@ const Footer = () => {
             </Button>
             <Button
               sx={{ backgroundColor: "purple", "&:hover": {
-                backgroundColor: "green",
+                backgroundColor: "#7df0db",
               }, color: "#333" }}
               variant="contained"
-              href="/teacher"
             >
               <Link
                 href="https://www.instagram.com/illinois_cs_sail/"
@@ -60,6 +58,20 @@ const Footer = () => {
                 underline="none"
               >
                 <InstagramIcon style={{ color: "white" }} />
+              </Link>
+            </Button>
+            <Button
+              sx={{ backgroundColor: "purple", "&:hover": {
+                backgroundColor: "#7df0db",
+              }, color: "#333" }}
+              variant="contained"
+            >
+              <Link
+                href="https://www.tiktok.com/@illinoissail?_t=8k5CkALwpVS&_r=1"
+                variant="body1"
+                underline="none"
+              >
+                <i class="fa-brands fa-tiktok"></i>
               </Link>
             </Button>
             
