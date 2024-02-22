@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import './Login.css';
 import './cyberpunk.css';
-import AuthContext, { useAuth } from './AuthContext';
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
@@ -10,22 +9,14 @@ const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
-
-    const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
-
-    useEffect(() => {
-        const storedUser = localStorage.getItem('authUser');
-        if (storedUser) {
-            setIsLoggedIn(true);
-            setAuthUser(JSON.parse(storedUser));
-        }
-    }, []);
 
     const handleLogin = (e) => {
         e.preventDefault();
         const formData = { "email": email, "password": password };
+
         fetch('http://127.0.0.1:5000/login', {
             method: 'POST',
             headers: {
@@ -36,26 +27,14 @@ function Login() {
             .then(response => response.json())
             .then(data => {
                 console.log('Success! Data:', data);
-                console.log("data.status: ", data.status);
-                // if the response is 200, then set the authUser and isLoggedIn to true
-                // if data is not null or undefined
-                if (data !== null && data !== undefined) {
-                    setAuthUser(data);
-                    setIsLoggedIn(true);
 
-                    // use local storage to store the user's information
-                    localStorage.setItem('authUser', JSON.stringify(data));
-                    localStorage.setItem('isLoggedIn', true);
-                    // redirect to home page
-                    // window.location.href = "/";
+                if (data !== null && data !== undefined) {
+                    // handle successful login
                 }
-                
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-        console.log("isLoggedIn: ", isLoggedIn);
-        console.log("authUser: ", authUser);
     };
 
     return (
@@ -85,6 +64,9 @@ function Login() {
                 </button>
                 <Link to="/signup" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
                     Don't have an account? Sign up here!
+                </Link>
+                <Link to="/reset_password" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
+                    Forgot your password? Reset it here!
                 </Link>
             </form>
         </div>
