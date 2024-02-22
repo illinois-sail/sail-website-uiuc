@@ -162,10 +162,32 @@ def reset_database():
 @app.route("/remove_user/<email>", methods=['GET'])
 def remove_user(email):
     # remove the user from the database
+    print("here")
+    email += "@illinois.edu"
     student = Student.query.filter_by(email=email).first()
+    print(f"student: {student}")
     db.session.delete(student)
     db.session.commit()
     return f"The user with the email {email} has been removed"
+
+@app.route('/add_speen_user', methods=['GET'])
+def add_speen_user():
+    # add a user to the database
+    student_data = {
+        "email": "ssadler5@illinois.edu",
+        "password_hash": hash_password("test"),
+        "first_name": "Spencer",
+        "last_name": "Sadler",
+        "shirt_size": "M",
+        "parent_name": "Clayton Sadler",
+        "parent_email": "claysadman@gmail.com",
+        "classes": "0" * 100
+    }
+    
+    db.session.add(Student(**student_data))
+    db.session.commit()
+    print("The user has been added")
+    return "The user has been added", 200
 
 @app.route('/api/user/profile', methods=['GET'])
 @login_required
@@ -183,6 +205,43 @@ def get_user_profile():
     }
     
     return jsonify(profile_date)
+
+@app.route('/change_user_info', methods=['POST'])
+def change_user_info():
+    response = request.json
+    print(response)
+    
+    # gather the information from the request
+    oldEmail = response['oldEmail']
+    newEmail = response['newEmail']
+    parent_email = response['parentEmail']
+    parent_name = response['parentName']
+    shirt_size = response['shirtSize']
+    
+    # find the user in the database
+    user = Student.query.filter_by(email=oldEmail).first()
+    
+    # update the user's information if the user exists
+    if (user):
+        user.email = newEmail
+        user.parent_email = parent_email
+        user.parent_name = parent_name
+        user.shirt_size = shirt_size
+        db.session.commit()
+        
+        user_data = {
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "shirt_size": user.shirt_size,
+            "parent_name": user.parent_name,
+            "parent_email": user.parent_email,
+            "classes": user.classes
+        }
+        
+        return jsonify(user_data), 200
+    else:
+        return "User not found", 400
 
     
 if __name__ == '__main__':

@@ -17,6 +17,15 @@ import { useMediaQuery } from '@mui/material';
 import DrawerBackground from "../assets/drawer_background.jpeg";
 import AuthContext, { useAuth } from "./AuthContext";
 
+function format(str) {
+  if (str === "about us") {
+    return "aboutus";
+  }
+  return str;
+}
+
+// const navItems = ["classes", "about us", "login"];
+// const navItemsWhenLoggedIn = ["classes", "profile", "about us", "logout"];
 const navItems = ["classes", "login"];
 const navItemsWhenLoggedIn = ["classes", "profile", "logout"];
 
@@ -105,7 +114,7 @@ function NavBar() {
               navItems.map((item, index) => (
                 <AnimatedButton
                   key={index}
-                  onClick={(e) => { window.location.href = `/${item}` }}
+                  onClick={(e) => { window.location.href = `/${format(item)}` }}
                 >
                   <span>
                     {item}

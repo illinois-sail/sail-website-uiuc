@@ -4,7 +4,7 @@ import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
 import background from "./assets/final_background.png";
 import AuthContext, { AuthProvider, useAuth } from "./components/AuthContext";
-
+import Footer from './components/Footer'; // Import the Footer component
 const App = () => {
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const App = () => {
 
   return (
       <AuthProvider>
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative", minHeight: "100vh" }}>
         <div
           id="background-container"
           className="background-container"
@@ -39,14 +39,18 @@ const App = () => {
             width: "100%",
             height: "100%",
             zIndex: -1,
+            transition: "background-color 0.3s ease", // Add transition property for smooth color change
           }}
         />
-        <div style={{ zIndex: 1 }}>
-          <NavBar />
-          <AppRouter />
+          <div style={{ zIndex: 1 }}>
+            <NavBar />
+            <AppRouter />
+          </div>
+          {/* <div style={{position: "absolute", bottom: 0, width: "100%"}}> */}
+            {/* <Footer style={{  }} /> */}
+          {/* </div> */}
         </div>
-      </div>
-    </AuthProvider>
+      </AuthProvider>
   );
 }
 

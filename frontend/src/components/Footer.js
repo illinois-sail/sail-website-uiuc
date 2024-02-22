@@ -8,14 +8,15 @@ import { Button, Grid } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
 import Paper from "@mui/material/Paper";
+import FontAwesomeIcon from "../assets/tiktok.png";
 const Footer = () => {
   return (
-    <Box color="transparent" py={4} style={{ marginBottom: "5em" }}>
+    <Box color="transparent" py={4} style={{  }}>
       <Typography
         variant="h2"
         style={{
-          fontFamily: "sergiotrendy",
-          color: "#64b6ac",
+          fontFamily: "Magz",
+          color: "white",
           marginTop: "0.3em",
         }}
         align="center"
@@ -33,9 +34,10 @@ const Footer = () => {
         <Grid item xs={3}>
           <Stack direction="row" spacing={2}>
             <Button
-              sx={{ backgroundColor: "#64b6ac", color: "#333" }}
+              sx={{ backgroundColor: "purple", "&:hover": {
+                backgroundColor: "#7df0db",
+              }, color: "#333" }}
               variant="contained"
-              href="/student"
             >
               <Link
                 href="mailto: sail.cs.illinois@gmail.com"
@@ -46,9 +48,10 @@ const Footer = () => {
               </Link>
             </Button>
             <Button
-              sx={{ backgroundColor: "#64b6ac", color: "#333" }}
+              sx={{ backgroundColor: "purple", "&:hover": {
+                backgroundColor: "#7df0db",
+              }, color: "#333" }}
               variant="contained"
-              href="/teacher"
             >
               <Link
                 href="https://www.instagram.com/illinois_cs_sail/"
@@ -56,6 +59,20 @@ const Footer = () => {
                 underline="none"
               >
                 <InstagramIcon style={{ color: "white" }} />
+              </Link>
+            </Button>
+            <Button
+              sx={{ backgroundColor: "purple", "&:hover": {
+                backgroundColor: "#7df0db",
+              }, color: "#333" }}
+              variant="contained"
+            >
+              <Link
+                href="https://www.tiktok.com/@illinoissail?_t=8k5CkALwpVS&_r=1"
+                variant="body1"
+                underline="none"
+              >
+                <img src={FontAwesomeIcon} alt="TikTok" style={{ width: "2em", height: "2em" }} />
               </Link>
             </Button>
             
