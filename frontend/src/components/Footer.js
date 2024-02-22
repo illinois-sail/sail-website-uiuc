@@ -8,6 +8,7 @@ import { Button, Grid } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
 import Paper from "@mui/material/Paper";
+import FontAwesomeIcon from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   return (
     <Box color="transparent" py={4} style={{ marginBottom: "5em" }}>
