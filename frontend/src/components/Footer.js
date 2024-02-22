@@ -67,11 +67,11 @@ const Footer = () => {
               variant="contained"
             >
               <Link
-                href="https://www.tiktok.com/@illinoissail?_t=8k5CkALwpVS&_r=1"
+                href="https://www.instagram.com/illinois_cs_sail/"
                 variant="body1"
                 underline="none"
               >
-                <i class="fa-brands fa-tiktok"></i>
+                <FontAwesomeIcon icon="fa-brands fa-tiktok" />
               </Link>
             </Button>
             
