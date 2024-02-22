@@ -14,8 +14,8 @@ const Footer = () => {
       <Typography
         variant="h2"
         style={{
-          fontFamily: "sergiotrendy",
-          color: "#64b6ac",
+          fontFamily: "Magz",
+          color: "white",
           marginTop: "0.3em",
         }}
         align="center"
@@ -33,7 +33,9 @@ const Footer = () => {
         <Grid item xs={3}>
           <Stack direction="row" spacing={2}>
             <Button
-              sx={{ backgroundColor: "#64b6ac", color: "#333" }}
+              sx={{ backgroundColor: "purple", "&:hover": {
+                backgroundColor: "green",
+              }, color: "#333" }}
               variant="contained"
               href="/student"
             >
@@ -46,7 +48,9 @@ const Footer = () => {
               </Link>
             </Button>
             <Button
-              sx={{ backgroundColor: "#64b6ac", color: "#333" }}
+              sx={{ backgroundColor: "purple", "&:hover": {
+                backgroundColor: "green",
+              }, color: "#333" }}
               variant="contained"
               href="/teacher"
             >
