@@ -206,6 +206,43 @@ def get_user_profile():
     
     return jsonify(profile_date)
 
+@app.route('/change_user_info', methods=['POST'])
+def change_user_info():
+    response = request.json
+    print(response)
+    
+    # gather the information from the request
+    oldEmail = response['oldEmail']
+    newEmail = response['newEmail']
+    parent_email = response['parentEmail']
+    parent_name = response['parentName']
+    shirt_size = response['shirtSize']
+    
+    # find the user in the database
+    user = Student.query.filter_by(email=oldEmail).first()
+    
+    # update the user's information if the user exists
+    if (user):
+        user.email = newEmail
+        user.parent_email = parent_email
+        user.parent_name = parent_name
+        user.shirt_size = shirt_size
+        db.session.commit()
+        
+        user_data = {
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "shirt_size": user.shirt_size,
+            "parent_name": user.parent_name,
+            "parent_email": user.parent_email,
+            "classes": user.classes
+        }
+        
+        return jsonify(user_data), 200
+    else:
+        return "User not found", 400
+
     
 if __name__ == '__main__':
     app.run(debug=True)
