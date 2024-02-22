@@ -15,15 +15,14 @@ load_dotenv()
 app = Flask(__name__, static_url_path='/', static_folder='../frontend/build', template_folder='../frontend/build')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
 db = SQLAlchemy(app)
-with app.app_context():
-    db.create_all()
-
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'cssailnoreply@gmail.com'
-app.config['MAIL_PASSWORD'] = '$CS$5S@a!L$'
+app.config['MAIL_PASSWORD'] = 'arjo dlse slfd payb' #$CS$5S@a!L$
+app.config['MAIL_PORT'] = 587  # Use 465 for SSL
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_TLS'] = True
+
 
 mail = Mail(app)
 
@@ -126,7 +125,7 @@ def reset_token(token):
             db.session.commit()
             return "Password has been successfully reset."
 
-        return render_template('reset_token.html', title='Reset Password')
+        return render_template('index.html')
     else:
         return "Invalid or expired token. Please try again."
 

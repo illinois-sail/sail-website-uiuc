@@ -27,7 +27,7 @@ const AppRouter = () => {
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/reset_password' element={<ResetPassword />} />
-          <Route path='/reset_password/:token' element={<ResetPasswordToken />} />
+          <Route path='/reset_password/<token>' element={<ResetPasswordToken />} />
         </Routes>
       </BrowserRouter>
     </Provider>
