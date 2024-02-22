@@ -5,6 +5,7 @@ import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
+import Carousel from './Carousel';
 
 function Home_new() {
 
@@ -12,7 +13,7 @@ function Home_new() {
         <div>
             <div className="gallery">
                 <Typography variant="h2" component="h1" gutterBottom className="faq_text">Gallery</Typography>
-                
+                <Carousel /> 
             </div>
             <div className="schedule">
                 <Typography variant="h2" component="h1" gutterBottom className="faq_text">Schedule</Typography>
