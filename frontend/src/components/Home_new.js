@@ -39,6 +39,9 @@ function Home_new() {
 
                         <Typography variant="h4" component="h3" className="faq_text">How can I sign up for classes?</Typography>
                         <Typography paragraph className="faq_text">Click on "register" on the top right corner of the website. Input your personal information as well as the information of your guardian. Once you register, you can click on "Classes" and register for one class at each time slot. You can view the list of classes and their locations by going to your profile page.</Typography>
+                    
+                        <Typography variant="h4" component="h3" className="faq_text">How can I contact SAIL?</Typography>
+                        <Typography paragraph className="faq_text">You can reach out to us at our email, or connect on social media by clicking on the instagram and tiktok links in the footer!</Typography>
                     </div>
                 </Container>
             </div>
