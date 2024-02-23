@@ -212,6 +212,8 @@ def change_user_info():
     print(response)
     
     # gather the information from the request
+    firstName = response['firstName'].capitalize()
+    lastName = response['lastName'].capitalize()
     oldEmail = response['oldEmail']
     newEmail = response['newEmail']
     parent_email = response['parentEmail']
@@ -223,6 +225,8 @@ def change_user_info():
     
     # update the user's information if the user exists
     if (user):
+        user.first_name = firstName
+        user.last_name = lastName
         user.email = newEmail
         user.parent_email = parent_email
         user.parent_name = parent_name
@@ -242,6 +246,16 @@ def change_user_info():
         return jsonify(user_data), 200
     else:
         return "User not found", 400
+    
+@app.route('/check_email', methods=['POST'])
+def check_email():
+    response = request.json
+    email = response['email']
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        return "The email is already in use", 400
+    else:
+        return "The email is not in use", 200
 
     
 if __name__ == '__main__':
