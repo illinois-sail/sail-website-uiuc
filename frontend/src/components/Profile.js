@@ -258,17 +258,15 @@ function Profile() {
                 <h1
                     className="cyber-glitch-2"
                     style={{
-                        fontSize: "10vw",
+                        fontSize: "10vw", // Increase the font size for more space
                         fontFamily: "Hyperwave",
                         color: "rgba(255, 255, 0, 0.5)",
                         textShadow: "0 0 5px blue",
                         marginBottom: "2vh",
                         transform: "skewX(-20deg)",
                         background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
-                        padding: "10px",
+                        padding: "30px", // Increase the padding for more space
                         display: "inline-block",
-                        border: "4px solid teal",
-                        boxShadow: "0 0 10px 5px rgba(255, 0, 0, 0.5)",
                     }}
                     onDoubleClick={() => handleDoubleClick("firstName")}
                 >
@@ -288,17 +286,15 @@ function Profile() {
                 <h1
                     className="cyber-glitch-2"
                     style={{
-                        fontSize: "10vw",
+                        fontSize: "10vw", // Increase the font size for more space
                         fontFamily: "Hyperwave",
                         color: "rgba(255, 255, 0, 0.5)",
                         textShadow: "0 0 5px blue",
                         marginBottom: "2vh",
                         transform: "skewX(-20deg)",
                         background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
-                        padding: "10px",
+                        padding: "30px", // Increase the padding for more space
                         display: "inline-block",
-                        border: "4px solid teal",
-                        boxShadow: "0 0 10px 5px rgba(255, 0, 0, 0.5)",
                     }}
                     onDoubleClick={() => handleDoubleClick("lastName")}
                 >
