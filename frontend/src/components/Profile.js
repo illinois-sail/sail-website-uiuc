@@ -171,6 +171,16 @@ function Profile() {
         // }
 
 
+        // if the editedEmail is different from the originalEmail, then alert the user they are changing their email and ask for confirmation
+        if (editedEmail !== originalEmail) {
+            if (window.confirm("Are you sure you want to change your email?")) {
+                // then continue with the save
+            } else {
+                // if the user cancels, then return
+                return;
+            }
+        }
+
         // Send a POST request with the new information to "localhost:5000/change_user_info"
         // You can use a library like axios to make the POST request
         // Example using axios:
@@ -254,7 +264,15 @@ function Profile() {
             color: "white",
             padding: "0vw"
          }}>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ 
+                display: "flex", 
+                justifyContent: "center",
+                border: "2px solid purple",
+                borderRadius: "10px",
+                boxShadow: "0 0 5px blue, 0 0 10px purple",
+                marginBottom: "2vh",
+                marginTop: "8vh",
+            }}>
                 <h1
                     className="cyber-glitch-2"
                     style={{
@@ -262,10 +280,12 @@ function Profile() {
                         fontFamily: "Hyperwave",
                         color: "rgba(255, 255, 0, 0.5)",
                         textShadow: "0 0 5px blue",
-                        marginBottom: "2vh",
+                        marginBottom: "1.5vh",
+                        marginTop: "2vh",
+                        marginLeft: "2vw",
                         transform: "skewX(-20deg)",
                         background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
-                        padding: "30px", // Increase the padding for more space
+                        padding: "0 10px 0 30px", // Adjusted padding
                         display: "inline-block",
                     }}
                     onDoubleClick={() => handleDoubleClick("firstName")}
@@ -290,10 +310,13 @@ function Profile() {
                         fontFamily: "Hyperwave",
                         color: "rgba(255, 255, 0, 0.5)",
                         textShadow: "0 0 5px blue",
-                        marginBottom: "2vh",
+                        marginBottom: "1.5vh",
+                        marginTop: "2vh",
+                        marginRight: "2vw",
+                        marginLeft: "2vw",
                         transform: "skewX(-20deg)",
                         background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
-                        padding: "30px", // Increase the padding for more space
+                        padding: "0 30px 0 10px", // Adjusted padding
                         display: "inline-block",
                     }}
                     onDoubleClick={() => handleDoubleClick("lastName")}
@@ -312,8 +335,8 @@ function Profile() {
                     )}
                 </h1>
             </div>
-            <div style={{ display: "flex", justifyContent: "center", fontFamily: "JetBrainsMono", width: "100%" }}>
-                <div style={{ marginRight: "4vw" }}>
+            <div className="infoAndClasses"  style={{ display: "flex", justifyContent: "flex-start", fontFamily: "JetBrainsMono", width: "50%" }}>
+                <div className="info" position="relative" style={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "left", width: "60%" }}>
                     <h2 onDoubleClick={() => handleDoubleClick("email")}>{isEditingEmail ? <div className="cyber-input ac-purple fg-green"><input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} placeholder={email}/></div> : email}</h2>
                     <p onDoubleClick={() => handleDoubleClick("shirtSize")}>
                         Shirt Size: {isEditingShirtSize ? (
