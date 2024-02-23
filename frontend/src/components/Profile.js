@@ -33,19 +33,25 @@ function getClasses(bitsequence, classes) {
 
 
 
-function Profile() {
-    const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
-    
+function Profile() {  
+    const authUser = JSON.parse(localStorage.getItem('authUser'));
+
+    const [isEditingFirstName, setIsEditingFirstName] = useState(false);
+    const [isEditingLastName, setIsEditingLastName] = useState(false);
     const [isEditingEmail, setIsEditingEmail] = useState(false);
     const [isEditingShirtSize, setIsEditingShirtSize] = useState(false);
     const [isEditingParentName, setIsEditingParentName] = useState(false);
     const [isEditingParentEmail, setIsEditingParentEmail] = useState(false);
     
+    const [editedFirstName, setEditedFirstName] = useState("");
+    const [editedLastName, setEditedLastName] = useState("");
     const [editedEmail, setEditedEmail] = useState("");
     const [editedShirtSize, setEditedShirtSize] = useState("");
     const [editedParentName, setEditedParentName] = useState("");
     const [editedParentEmail, setEditedParentEmail] = useState("");
     
+    const [originalFirstName, setOriginalFirstName] = useState(authUser ? authUser.first_name : "");
+    const [originalLastName, setOriginalLastName] = useState(authUser ? authUser.last_name : "");
     const [originalEmail, setOriginalEmail] = useState(authUser ? authUser.email : "");
     const [originalShirtSize, setOriginalShirtSize] = useState(authUser ? authUser.shirt_size : "");
     const [originalParentName, setOriginalParentName] = useState(authUser ? authUser.parent_name : "");
@@ -62,6 +68,14 @@ function Profile() {
 
     const handleDoubleClick = (field) => {
         switch (field) {
+            case "all":
+                setIsEditingFirstName(true);
+                setIsEditingLastName(true);
+                setIsEditingEmail(true);
+                setIsEditingShirtSize(true);
+                setIsEditingParentName(true);
+                setIsEditingParentEmail(true);
+                break;
             case "email":
                 setIsEditingEmail(true);
                 setEditedEmail(originalEmail);
@@ -77,6 +91,14 @@ function Profile() {
             case "parentEmail":
                 setIsEditingParentEmail(true);
                 setEditedParentEmail(originalParentEmail);
+                break;
+            case "firstName":
+                setIsEditingFirstName(true);
+                setEditedFirstName(originalFirstName);
+                break;
+            case "lastName":
+                setIsEditingLastName(true);
+                setEditedLastName(originalLastName);
                 break;
             default:
                 break;
@@ -97,18 +119,74 @@ function Profile() {
         if (editedParentEmail === "") {
             setEditedParentEmail(originalParentEmail);
         }
+        if (editedFirstName === "") {
+            setEditedFirstName(originalFirstName);
+        }
+        if (editedLastName === "") {
+            setEditedLastName(originalLastName);
+        }
 
         // ADD VALIDATION HERE (TODO)
 
-        // make sure email is unique
-        // make sure shirt size is valid
-        // make sure parent email is valid
+        // // Capitalize the first letter of the first and last name
+        // setEditedFirstName(editedFirstName.charAt(0).toUpperCase() + editedFirstName.slice(1).toLowerCase());
+        // setEditedLastName(editedLastName.charAt(0).toUpperCase() + editedLastName.slice(1).toLowerCase());
 
+        // // make sure email is unique and contains an @ symbol
+        // if ("@".indexOf(editedEmail) === -1) {
+        //     alert("Invalid email address");
+        //     return;
+        // } else if (editedEmail !== originalEmail) {
+        //     // make a POST request to the server to check if the email is unique
+        //     axios.post("http://127.0.0.1:5000/check_email", {
+        //         email: editedEmail
+        //     })
+        //     .then(response => {
+        //         if (response.status == 400) {
+        //             alert("Email already exists");
+        //             return;
+        //         } else if (response.status == 200) {
+        //             alert("Email changed successfully")
+        //             return;
+        //         } else {
+        //             alert("Unknown error");
+        //             return;
+        //         }
+        //     })
+        //     .catch(error => {
+        //         // Handle the error if needed
+        //     });
+        // }
+        // // make sure shirt size is valid
+        // if (editedShirtSize !== "XS" || editedShirtSize !== "S" || editedShirtSize !== "M" || editedShirtSize !== "L" || editedShirtSize !== "XL") {
+        //     alert("Invalid shirt size");
+        //     return;
+        // }
+
+
+        // // make sure parent email is valid
+        // if ("@".indexOf(editedParentEmail) === -1) {
+        //     alert("Invalid parent email address");
+        //     return;
+        // }
+
+
+        // if the editedEmail is different from the originalEmail, then alert the user they are changing their email and ask for confirmation
+        if (editedEmail !== originalEmail) {
+            if (window.confirm("Are you sure you want to change your email?")) {
+                // then continue with the save
+            } else {
+                // if the user cancels, then return
+                return;
+            }
+        }
 
         // Send a POST request with the new information to "localhost:5000/change_user_info"
         // You can use a library like axios to make the POST request
         // Example using axios:
         axios.post("http://127.0.0.1:5000/change_user_info", {
+            firstName: editedFirstName ? editedFirstName : originalFirstName,
+            lastName: editedLastName ? editedLastName : originalLastName,
             oldEmail: originalEmail,
             newEmail: editedEmail ? editedEmail : originalEmail,
             shirtSize: editedShirtSize ? editedShirtSize : originalShirtSize,
@@ -118,7 +196,9 @@ function Profile() {
         .then(response => {
             // take the response and set the authUser to the new information
             console.log("response: ", response);
-            setAuthUser(response.data);
+            localStorage.setItem('authUser', JSON.stringify(response.data));
+            setOriginalFirstName(response.data.first_name);
+            setOriginalLastName(response.data.last_name);
             setOriginalEmail(response.data.email);
             setOriginalShirtSize(response.data.shirt_size);
             setOriginalParentName(response.data.parent_name);
@@ -128,11 +208,15 @@ function Profile() {
             // Handle the error if needed
         });
 
+        setIsEditingFirstName(false);
+        setIsEditingLastName(false);
         setIsEditingEmail(false);
         setIsEditingShirtSize(false);
         setIsEditingParentName(false);
         setIsEditingParentEmail(false);
 
+        setOriginalFirstName(editedFirstName);
+        setOriginalLastName(editedLastName);
         setOriginalEmail(editedEmail);
         setOriginalShirtSize(editedShirtSize);
         setOriginalParentName(editedParentName);
@@ -140,11 +224,15 @@ function Profile() {
     };
 
     const handleCancel = () => {
+        setEditedFirstName(originalFirstName);
+        setEditedLastName(originalLastName);
         setEditedEmail(originalEmail);
         setEditedShirtSize(originalShirtSize);
         setEditedParentName(originalParentName);
         setEditedParentEmail(originalParentEmail);
         
+        setIsEditingFirstName(false);
+        setIsEditingLastName(false);
         setIsEditingEmail(false);
         setIsEditingShirtSize(false);
         setIsEditingParentName(false);
@@ -161,12 +249,11 @@ function Profile() {
 
     const loggedState = localStorage.getItem('isLoggedIn');
 
-    if (loggedState === "false" || loggedState === null || loggedState === undefined || loggedState == false) {
-        console.log("isLoggedIn: ", isLoggedIn);
-        console.log("User not logged in. Redirecting to login page...");
-        console.log("authUser: ", authUser)
-        window.location.href = "/login";
-    }
+    // if (loggedState === "false" || loggedState === null || loggedState === undefined || loggedState == false) {
+    //     console.log("User not logged in. Redirecting to login page...");
+    //     console.log("authUser: ", authUser)
+    //     window.location.href = "/login";
+    // }
 
     return (
         <div style={{ 
@@ -177,24 +264,79 @@ function Profile() {
             color: "white",
             padding: "0vw"
          }}>
-            <h1 className="cyber-glitch-2" style={{
-                fontSize: "10vw",
-                fontFamily: "Hyperwave",
-                color: "rgba(255, 255, 0, 0.5)",
-                textShadow: "0 0 5px blue",
+            <div style={{ 
+                display: "flex", 
+                justifyContent: "center",
+                border: "2px solid purple",
+                borderRadius: "10px",
+                boxShadow: "0 0 5px blue, 0 0 10px purple",
                 marginBottom: "2vh",
-                transform: "skewX(-20deg)",
-                background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
-                padding: "10px",
-                display: "inline-block",
-                border: "4px solid teal",
-                boxShadow: "0 0 10px 5px rgba(255, 0, 0, 0.5)",
-                
+                marginTop: "8vh",
             }}>
-                {firstName} {lastName}
-            </h1>
-            <div style={{ display: "flex", justifyContent: "center", fontFamily: "JetBrainsMono", width: "100%" }}>
-                <div style={{ marginRight: "4vw" }}>
+                <h1
+                    className="cyber-glitch-2"
+                    style={{
+                        fontSize: "10vw", // Increase the font size for more space
+                        fontFamily: "Hyperwave",
+                        color: "rgba(255, 255, 0, 0.5)",
+                        textShadow: "0 0 5px blue",
+                        marginBottom: "1.5vh",
+                        marginTop: "2vh",
+                        marginLeft: "2vw",
+                        transform: "skewX(-20deg)",
+                        background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
+                        padding: "0 10px 0 30px", // Adjusted padding
+                        display: "inline-block",
+                    }}
+                    onDoubleClick={() => handleDoubleClick("firstName")}
+                >
+                    {isEditingFirstName ? (
+                        <div className="cyber-input ac-purple fg-green">
+                            <input
+                                type="text"
+                                value={editedFirstName}
+                                onChange={(e) => setEditedFirstName(e.target.value)}
+                                placeholder={firstName}
+                            />
+                        </div>
+                    ) : (
+                        firstName
+                    )}
+                </h1>
+                <h1
+                    className="cyber-glitch-2"
+                    style={{
+                        fontSize: "10vw", // Increase the font size for more space
+                        fontFamily: "Hyperwave",
+                        color: "rgba(255, 255, 0, 0.5)",
+                        textShadow: "0 0 5px blue",
+                        marginBottom: "1.5vh",
+                        marginTop: "2vh",
+                        marginRight: "2vw",
+                        marginLeft: "2vw",
+                        transform: "skewX(-20deg)",
+                        background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
+                        padding: "0 30px 0 10px", // Adjusted padding
+                        display: "inline-block",
+                    }}
+                    onDoubleClick={() => handleDoubleClick("lastName")}
+                >
+                    {isEditingLastName ? (
+                        <div className="cyber-input ac-purple fg-green">
+                            <input
+                                type="text"
+                                value={editedLastName}
+                                onChange={(e) => setEditedLastName(e.target.value)}
+                                placeholder={lastName}
+                            />
+                        </div>
+                    ) : (
+                        lastName
+                    )}
+                </h1>
+            </div>
+            <div className="infoAndClasses"  style={{ display: "flex", justifyContent: "flex-start", fontFamily: "JetBrainsMono", width: "50%" }}>
+                <div className="info" position="relative" style={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "left", width: "60%" }}>
                     <h2 onDoubleClick={() => handleDoubleClick("email")}>{isEditingEmail ? <div className="cyber-input ac-purple fg-green"><input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} placeholder={email}/></div> : email}</h2>
                     <p onDoubleClick={() => handleDoubleClick("shirtSize")}>
                         Shirt Size: {isEditingShirtSize ? (
@@ -256,13 +398,14 @@ function Profile() {
                     </ul>
                 </div>
             </div>
-            {(isEditingEmail || isEditingShirtSize || isEditingParentName || isEditingParentEmail) ? (
-                <div>
-                    <CyberButton text="Save" onClick={handleSave} />
+            {(isEditingEmail || isEditingShirtSize || isEditingParentName || isEditingParentEmail || isEditingFirstName || isEditingLastName) ? (
+                <div style={{ marginTop: "10px" }}>
+                    <CyberButton text="Save" onClick={handleSave} background="bg-green" />
+                    <span style={{ marginRight: "10px" }}></span>
                     <CyberButton text="Cancel" onClick={handleCancel} />
                 </div>
             ) : (
-                <CyberButton text="Edit" onClick={() => handleDoubleClick("email")} />
+                <CyberButton text="Edit" onClick={() => handleDoubleClick("all")} />
             )}
         </div>
     );
