@@ -2,21 +2,28 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import { Provider } from "react-redux";
-import HomePage from "./HomePage";
+import Home from "./Home";
 import ClassTemplate from "./ClassTemplate";
 import store from "./store";
 import SignUp from "./SignUp";
+import Profile from "./Profile";
+import AboutUs from "./AboutUs";
+import Logout from "./Logout";
+
 
 const AppRouter = () => {
+
   return (
-    //PROBLEM WITH PROVIDER
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/classes" element={<ClassTemplate />} />
           <Route path="/login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path='/aboutus' element={<AboutUs />} />
+          <Route path='/logout' element={<Logout />} />
         </Routes>
       </BrowserRouter>
     </Provider>

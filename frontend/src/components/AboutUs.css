@@ -9,30 +9,91 @@
     position: relative;
 }
 
-/* Text styling */
 .aboutus_text {
     color: #0ff;
     text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* Glowing text effect */
 }
 
+.MuiAvatar-root.MuiAvatar-circular.memberAvatar.css-1wlk0hk-MuiAvatar-root {
+    width: 150px;
+    height: 150px;
+}
 
-/* Avatar styles for team images */
+
 .MuiAvatar-root {
     border: 2px solid #0ff;
     box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff; /* Glow effect */
+    width: 100px;
+    height: 100px;
 }
 
-/* Grid adjustments for responsiveness and alignment */
 .MuiGrid-container {
     justify-content: center;
 }
 
-/* Enhancing the glow and shadow effects */
+
 .MuiPaper-elevation1, .MuiPaper-elevationZ {
-    box-shadow: none; /* Remove default shadow to replace with a glow effect if needed */
+    box-shadow: none;
 }
 
-/* Additional hover effects for interactive elements */
 .MuiButton-root:hover, .MuiAvatar-root:hover {
-    opacity: 0.8; /* Slight dim on hover for interactive feedback */
+    opacity: 0.8;
+}
+
+.teamContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.v {
+    font-family: "Magz";
+    color: rgb(255, 255, 8);
+    font-size: 90px;
+}
+
+.teamTitle {
+    text-align: center;
+}
+
+
+
+.roleTitle {
+    font-family: "Magz";
+    color: rgb(148, 243, 244);
+    font-size: 60px;
+}
+
+.roleSection {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.membersContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.memberCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+.memberAvatar {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.memberName {
+    font-family: "Magz";
+    font-size: 16px;
+    color: #f746f4;
+    margin-top: 5px;
 }

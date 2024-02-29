@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -15,8 +15,20 @@ import Box from "@mui/material/Box";
 import "../fonts.css";
 import { useMediaQuery } from '@mui/material';
 import DrawerBackground from "../assets/drawer_background.jpeg";
+import AuthContext, { useAuth } from "./AuthContext";
 
+function format(str) {
+  if (str === "about us") {
+    return "aboutus";
+  }
+  return str;
+}
+
+// const navItems = ["classes", "about us", "login"];
+// const navItemsWhenLoggedIn = ["classes", "profile", "about us", "logout"];
 const navItems = ["classes", "login"];
+const navItemsWhenLoggedIn = ["classes", "profile", "logout"];
+
 
 const AnimatedButton = styled(Button)(({ theme }) => ({
   backgroundColor: 'transparent',
@@ -34,8 +46,6 @@ const AnimatedButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-// ... (previous code)
-
 const HomeLogoButton = () => {
   const isSmallScreen = useMediaQuery('(max-width: 600px)');
   const viewSize = isSmallScreen ? '10vw' : '60px';
@@ -47,16 +57,24 @@ const HomeLogoButton = () => {
   );
 };
 
-// ... (remaining code)
+function NavBar() {
 
-
-function NavBar(props) {
-  const [isHovered, setIsHovered] = useState(false);
+  const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = (open) => () => {
     setIsDrawerOpen(open);
   };
+
+  // create a listener to update the value of isLoggedIn and authUser from local storage
+  useEffect(() => {
+    const storedUser = localStorage.getItem('authUser');
+    const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
+    if (storedUser && storedIsLoggedIn) {
+      setIsLoggedIn(true);
+      setAuthUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <AppBar position="static" sx={{ boxShadow: "0", backgroundColor: "transparent", marginTop: "1.5%" }}>
@@ -81,18 +99,29 @@ function NavBar(props) {
             <HomeLogoButton />
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, justifyContent: 'flex-end', width: '100%' }}>
-            {navItems.map((item, index) => (
-              <AnimatedButton
-                key={index}
-                onClick={(e) => { window.location.href = `/${item}` }}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <span>
-                  {item}
-                </span>
-              </AnimatedButton>
-            ))}
+            {isLoggedIn ? (
+              navItemsWhenLoggedIn.map((item, index) => (
+                <AnimatedButton
+                  key={index}
+                  onClick={(e) => { window.location.href = `/${item}` }}
+                >
+                  <span>
+                    {item}
+                  </span>
+                </AnimatedButton>
+              ))
+            ) : (
+              navItems.map((item, index) => (
+                <AnimatedButton
+                  key={index}
+                  onClick={(e) => { window.location.href = `/${format(item)}` }}
+                >
+                  <span>
+                    {item}
+                  </span>
+                </AnimatedButton>
+              ))
+            )}
           </Box>
         </Box>
         <Drawer

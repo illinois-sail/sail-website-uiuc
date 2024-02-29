@@ -6,54 +6,81 @@ import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 
+import HelenImage from "./images/HelenRyding.jpeg"
+import SpencerSadlerImage from "./images/SpencerSadler.jpeg";
+import AdrianSzwejkowskiImage from "./images/AdrianSzwejkowski.jpg";
+import GabeDelgadoImage from "./images/GabeDelgado.JPG";
+import SanjayManojImage from "./images/Sanjay.jpg";
+import SreenidhiVijayaraghavanImage from "./images/SreenidhiVijayaraghavan.png";
+import VinayakBagdiImage from "./images/VinayakBagdi.jpg";
+import VedImage from "./images/Ved.jpg";
+import AngelaQianImage from "./images/AngelaQian.jpeg";
+import TomKaringadaImage from "./images/TomKaringada.jpg";
+import AyushiMaskeyImage from "./images/AyushiMaskey.jpeg";
+import FirmianaWangImage from "./images/FirmianaWang.jpg";
+import HetviPatelImage from "./images/HetviPatel.jpg";
+import EvanLinImage from "./images/EvanLin.JPG";
+import AllyGerenImage from "./images/AllyGeren.jpeg";
+import PeterLinImage from "./images/PeterLin.jpg";
+import EllaHappelImage from "./images/EllaHappel.JPG";
+import SpencerAcquahImage from "./images/SpencerAcquah.jpg";
+
+
+
 function AboutUs() {
+
     const teamMembers = [
-        { name: 'Spencer', role: 'Co-Director', image: '/images/spencer.jpg' },
-        { name: 'Helen', role: 'Co-Director', image: '/images/spencer.jpg' },
-        { name: 'Peter', role: 'Marketing', image: '/images/peter.jpg' },
-        { name: 'Sanjay', role: 'Web Team', image: '/images/sanjay.jpg' },
-        { name: 'Gabe', role: 'Web Team', image: '/images/gabe.jpg' },
-        { name: 'Hetvi', role: 'Logistics', image: '/images/hetvi.jpg' },
-        { name: 'Evan', role: 'Logistics', image: '/images/evan.jpg' },
+        { name: 'Helen Ryding', role: 'Directors', image: HelenImage },
+        { name: 'Spencer Sadler', role: 'Directors', image: SpencerSadlerImage },
+        { name: 'Sanjay Manoj', role: 'Web Team', image: SanjayManojImage },
+        { name: 'Sreenidhi Vijayaraghavan', role: 'Web Team', image: SreenidhiVijayaraghavanImage },
+        { name: 'Ved Kommalapati', role: 'Web Team', image: VedImage },
+        { name: 'Adrian Szwejkowski', role: 'Web Team', image: AdrianSzwejkowskiImage },
+        { name: 'Gabe Delgado', role: 'Web Team', image: GabeDelgadoImage },
+        { name: 'Vinayak Bagdi', role: 'Web Team', image: VinayakBagdiImage },
+        { name: 'Angela Qian', role: 'Design', image: AngelaQianImage },
+        { name: 'Tom Karingada', role: 'Design', image: TomKaringadaImage },
+        { name: 'Ayushi Maskey', role: 'Design', image: AyushiMaskeyImage },
+        { name: 'Firmiana Wang', role: 'Design', image: FirmianaWangImage },
+        { name: 'Hetvi Patel', role: 'Logistics', image: HetviPatelImage },
+        { name: 'Evan Lin', role: 'Logistics', image: EvanLinImage },
+        { name: 'Ally Geren', role: 'Logistics', image: AllyGerenImage },
+        { name: 'Peter Lin', role: 'Marketing', image: PeterLinImage },
+        { name: 'Ella Happel', role: 'Marketing', image: EllaHappelImage },
+        { name: 'Spencer Acquah', role: 'Marketing', image: SpencerAcquahImage },
     ];
 
+    const categorizeByRole = (members) => {
+        return members.reduce((acc, member) => {
+            const { role } = member;
+            if (!acc[role]) {
+                acc[role] = [];
+            }
+            acc[role].push(member);
+            return acc;
+        }, {});
+    };
+
+    const categorizedMembers = categorizeByRole(teamMembers);
 
     return (
-        <div className="aboutuspage">
-            <Container maxWidth="lg">
-                <Typography variant="h2" component="h1" gutterBottom className="aboutus_text">About Us</Typography>
-                
-                <div className="aboutusdivider">
-                    <Typography variant="h4" component="h3" className="aboutus_text">About SAIL</Typography>
-                    <Typography paragraph className="aboutus_text">SAIL is an exciting event where high schoolers are invited to the University of Illinois at Urbana-Champaign to explore and learn through classes designed to inspire and inform. This unique opportunity allows students to get a taste of university life and explore their interests in a collegiate setting.</Typography>
-                    
-                    <Typography variant="h4" component="h3" className="aboutus_text">Who is SAIL?</Typography>
-                    <Typography paragraph className="aboutus_text">SAIL is organized by a dedicated team of university students and the Siebel Center for Computer Science</Typography>
-                    
-                    <Typography variant="h4" component="h3" className="aboutus_text">What is SAIL?</Typography>
-                    <Typography paragraph className="aboutus_text">SAIL offers a range of classes across various disciplines of Computer Science, giving attendees a glimpse into the vast array of subjects they can explore in higher education. </Typography>
-                    
-                    <Typography variant="h4" component="h3" className="aboutus_text">When and where is SAIL held?</Typography>
-                    <Typography paragraph className="aboutus_text">SAIL is held annually at the University of Illinois at Urbana-Champaign from the 13th to 14th of April.</Typography>
-                </div>
-
-                <div className="aboutusdivider">
-                    <Typography variant="h2" component="h1" gutterBottom className="aboutus_text">Meet the Team</Typography>
-                    <Grid container spacing={4}>
-                        {teamMembers.map((member, index) => (
-                            <Grid item xs={12} sm={6} md={4} key={index}>
-                                <Avatar alt={member.name} src={member.image} sx={{ width: 150, height: 150, margin: 'auto' }} />
-                                <Typography variant="h6" component="h4" className="aboutus_text" align="center">{member.name}</Typography>
-                                <Typography paragraph className="aboutus_text" align="center">{member.role}</Typography>
-                            </Grid>
+        <div className="teamContainer">
+            <Typography variant="h2" component="h1" gutterBottom className="faq_text teamTitle">Meet the Team</Typography>
+            {Object.keys(categorizedMembers).map((role) => (
+                <div key={role} className="roleSection">
+                    <h2 className="roleTitle">{role}</h2>
+                    <div className="membersContainer">
+                        {categorizedMembers[role].map((member) => (
+                            <div key={member.name} className="memberCard">
+                                <Avatar src={member.image} alt={member.name} className="memberAvatar"/>
+                                <p className="memberName">{member.name}</p>
+                            </div>
                         ))}
-                    </Grid>
+                    </div>
                 </div>
-            </Container>
+            ))}
         </div>
     );
-};
+}
 
-export default Home;
-
-
+export default AboutUs;
