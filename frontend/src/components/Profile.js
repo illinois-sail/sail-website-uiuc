@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import "./cyberpunk.css"; // Import the cyberpunk.css stylesheet
 import axios from "axios";
 
 const classes = [{className: "How to succeed at UIUC", time: "11:00", room: "Siebel 1404"}, {className: "Intro to Graph Theory", time: "12:00", room: "Siebel 1404"}, {className: "Recursion and Induction", time: "1:00", room: "Siebel 1404"}]
+const isSmallScreen = window.innerWidth < 1200;
+const flexDirectionBasedOnScreenSize = isSmallScreen ? "column" : "row";
 
 const CyberButton = (props) => {
     const background = props.background || "bg-red";
@@ -57,14 +59,14 @@ function Profile() {
     const [originalParentName, setOriginalParentName] = useState(authUser ? authUser.parent_name : "");
     const [originalParentEmail, setOriginalParentEmail] = useState(authUser ? authUser.parent_email : "");
 
-    useEffect(() => {
-        if (authUser) {
-            setOriginalEmail(authUser.email);
-            setOriginalShirtSize(authUser.shirt_size);
-            setOriginalParentName(authUser.parent_name);
-            setOriginalParentEmail(authUser.parent_email);
-        }
-    }, [authUser]);
+    // useEffect(() => {
+    //     if (authUser) {
+    //         setOriginalEmail(authUser.email);
+    //         setOriginalShirtSize(authUser.shirt_size);
+    //         setOriginalParentName(authUser.parent_name);
+    //         setOriginalParentEmail(authUser.parent_email);
+    //     }
+    // }, [authUser]);
 
     const handleDoubleClick = (field) => {
         switch (field) {
@@ -125,6 +127,8 @@ function Profile() {
         if (editedLastName === "") {
             setEditedLastName(originalLastName);
         }
+        console.log("editedEmail: ", editedEmail);
+        console.log("originalEmail: ", originalEmail);
 
         // ADD VALIDATION HERE (TODO)
 
@@ -172,7 +176,7 @@ function Profile() {
 
 
         // if the editedEmail is different from the originalEmail, then alert the user they are changing their email and ask for confirmation
-        if (editedEmail !== originalEmail) {
+        if (editedEmail !== originalEmail && editedEmail !== "") {
             if (window.confirm("Are you sure you want to change your email?")) {
                 // then continue with the save
             } else {
@@ -208,19 +212,19 @@ function Profile() {
             // Handle the error if needed
         });
 
-        setIsEditingFirstName(false);
-        setIsEditingLastName(false);
-        setIsEditingEmail(false);
-        setIsEditingShirtSize(false);
-        setIsEditingParentName(false);
-        setIsEditingParentEmail(false);
-
         setOriginalFirstName(editedFirstName);
         setOriginalLastName(editedLastName);
         setOriginalEmail(editedEmail);
         setOriginalShirtSize(editedShirtSize);
         setOriginalParentName(editedParentName);
         setOriginalParentEmail(editedParentEmail);
+        
+        setIsEditingFirstName(false);
+        setIsEditingLastName(false);
+        setIsEditingEmail(false);
+        setIsEditingShirtSize(false);
+        setIsEditingParentName(false);
+        setIsEditingParentEmail(false);
     };
 
     const handleCancel = () => {
@@ -291,7 +295,7 @@ function Profile() {
                     onDoubleClick={() => handleDoubleClick("firstName")}
                 >
                     {isEditingFirstName ? (
-                        <div className="cyber-input ac-purple fg-green">
+                        <div className="cyber-input ac-purple fg-green" style={{ fontSize: "4vw" }}>
                             <input
                                 type="text"
                                 value={editedFirstName}
@@ -322,7 +326,7 @@ function Profile() {
                     onDoubleClick={() => handleDoubleClick("lastName")}
                 >
                     {isEditingLastName ? (
-                        <div className="cyber-input ac-purple fg-green">
+                        <div className="cyber-input ac-purple fg-green" style={{ fontSize: "4vw" }}>
                             <input
                                 type="text"
                                 value={editedLastName}
@@ -335,12 +339,30 @@ function Profile() {
                     )}
                 </h1>
             </div>
-            <div className="infoAndClasses"  style={{ display: "flex", justifyContent: "flex-start", fontFamily: "JetBrainsMono", width: "50%" }}>
+            <div style={{
+                display: "flex", 
+                justifyContent: "center",
+                border: "2px solid purple",
+                borderRadius: "10px",
+                boxShadow: "0 0 5px blue, 0 0 10px purple",
+                width: "40%",
+                padding: "0.5%",
+                textAlign: "center",
+
+            }}>
+                <h3>
+                    <a href="https://forms.gle/7GWKmLNhaopcyNNS6" style={{ color: "white",  fontFamily: "JetBrainsMono" }}>
+                        Fill out the SAIL 2024 Waiver Form
+                    </a>
+                </h3>
+            </div>
+
+            <div className="infoAndClasses" style={{ display: "flex", fontFamily: "JetBrainsMono", width: "50%", flexDirection: { flexDirectionBasedOnScreenSize } }}>
                 <div className="info" position="relative" style={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "left", width: "60%" }}>
-                    <h2 onDoubleClick={() => handleDoubleClick("email")}>{isEditingEmail ? <div className="cyber-input ac-purple fg-green"><input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} placeholder={email}/></div> : email}</h2>
+                    <h2 onDoubleClick={() => handleDoubleClick("email")}>{isEditingEmail ? <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}><input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} placeholder={email}/></div> : email}</h2>
                     <p onDoubleClick={() => handleDoubleClick("shirtSize")}>
                         Shirt Size: {isEditingShirtSize ? (
-                            <div className="cyber-input ac-purple fg-green">
+                            <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}>
                                 <input
                                     type="text"
                                     value={editedShirtSize}
@@ -355,7 +377,7 @@ function Profile() {
                     </p>
                     <p onDoubleClick={() => handleDoubleClick("parentName")}>
                         Parent Name: {isEditingParentName ? (
-                            <div className="cyber-input ac-purple fg-green">
+                            <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}>
                                 <input
                                     type="text"
                                     value={editedParentName}
@@ -370,7 +392,7 @@ function Profile() {
                     </p>
                     <p onDoubleClick={() => handleDoubleClick("parentEmail")}>
                         Parent Email: {isEditingParentEmail ? (
-                            <div className="cyber-input ac-purple fg-green">
+                            <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}>
                                 <input
                                     type="text"
                                     value={editedParentEmail}

@@ -140,16 +140,29 @@ function NavBar() {
           }}
         >
           <List>
-            {navItems.map((item, index) => (
-              <ListItem
-                key={index}
-                button
-                onClick={() => { window.location.href = `/${item}` }}
-                sx={{ fontFamily: 'JetBrainsMono' }} // Add this line to set the font
-              >
-                <ListItemText primary={item} primaryTypographyProps={{ style: { color: 'white' } }} />
-              </ListItem>
-            ))}
+            {isLoggedIn ? (
+              navItemsWhenLoggedIn.map((item, index) => (
+                <ListItem
+                  key={index}
+                  button
+                  onClick={() => { window.location.href = `/${item}` }}
+                  sx={{ fontFamily: 'JetBrainsMono' }} // Add this line to set the font
+                >
+                  <ListItemText primary={item} primaryTypographyProps={{ style: { color: 'white' } }} />
+                </ListItem>
+              ))
+            ) : (
+              navItems.map((item, index) => (
+                <ListItem
+                  key={index}
+                  button
+                  onClick={() => { window.location.href = `/${format(item)}` }}
+                  sx={{ fontFamily: 'JetBrainsMono' }} // Add this line to set the font
+                >
+                  <ListItemText primary={item} primaryTypographyProps={{ style: { color: 'white' } }} />
+                </ListItem>
+              ))
+            )}
           </List>
         </Drawer>
       </Toolbar>

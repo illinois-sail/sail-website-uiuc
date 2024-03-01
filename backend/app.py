@@ -225,8 +225,8 @@ def change_user_info():
     
     # update the user's information if the user exists
     if (user):
-        user.first_name = firstName
-        user.last_name = lastName
+        user.first_name = firstName.capitalize()
+        user.last_name = lastName.capitalize()
         user.email = newEmail
         user.parent_email = parent_email
         user.parent_name = parent_name
