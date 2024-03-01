@@ -24,10 +24,10 @@ function format(str) {
   return str;
 }
 
-// const navItems = ["classes", "about us", "login"];
-// const navItemsWhenLoggedIn = ["classes", "profile", "about us", "logout"];
-const navItems = ["classes", "login"];
-const navItemsWhenLoggedIn = ["classes", "profile", "logout"];
+const navItems = ["classes", "about us", "login"];
+const navItemsWhenLoggedIn = ["classes", "profile", "about us", "logout"];
+// const navItems = ["classes", "login"];
+// const navItemsWhenLoggedIn = ["classes", "profile", "logout"];
 
 
 const AnimatedButton = styled(Button)(({ theme }) => ({

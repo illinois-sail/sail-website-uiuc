@@ -32,12 +32,12 @@ function AboutUs() {
     const teamMembers = [
         { name: 'Helen Ryding', role: 'Directors', image: HelenImage },
         { name: 'Spencer Sadler', role: 'Directors', image: SpencerSadlerImage },
-        { name: 'Sanjay Manoj', role: 'Web Team', image: SanjayManojImage },
-        { name: 'Sreenidhi Vijayaraghavan', role: 'Web Team', image: SreenidhiVijayaraghavanImage },
-        { name: 'Ved Kommalapati', role: 'Web Team', image: VedImage },
         { name: 'Adrian Szwejkowski', role: 'Web Team', image: AdrianSzwejkowskiImage },
         { name: 'Gabe Delgado', role: 'Web Team', image: GabeDelgadoImage },
+        { name: 'Sanjay Manoj', role: 'Web Team', image: SanjayManojImage },
+        { name: 'Sreenidhi Vijayaraghavan', role: 'Web Team', image: SreenidhiVijayaraghavanImage },
         { name: 'Vinayak Bagdi', role: 'Web Team', image: VinayakBagdiImage },
+        { name: 'Ved', role: 'Web Team', image: VedImage },
         { name: 'Angela Qian', role: 'Design', image: AngelaQianImage },
         { name: 'Tom Karingada', role: 'Design', image: TomKaringadaImage },
         { name: 'Ayushi Maskey', role: 'Design', image: AyushiMaskeyImage },
@@ -65,15 +65,15 @@ function AboutUs() {
 
     return (
         <div className="teamContainer">
-            <Typography variant="h2" component="h1" gutterBottom className="faq_text teamTitle">Meet the Team</Typography>
+            <Typography variant="h2" component="h1" gutterBottom className="faq_text teamTitle" color="white" >Meet the Team</Typography>
             {Object.keys(categorizedMembers).map((role) => (
-                <div key={role} className="roleSection">
-                    <h2 className="roleTitle">{role}</h2>
-                    <div className="membersContainer">
+                <div key={role} className="roleSection" color="white">
+                    <h2 className="roleTitle" style={{ color: "white" }}>{role}</h2>
+                    <div className="membersContainer" display="flex" flexDirection="row">
                         {categorizedMembers[role].map((member) => (
-                            <div key={member.name} className="memberCard">
-                                <Avatar src={member.image} alt={member.name} className="memberAvatar"/>
-                                <p className="memberName">{member.name}</p>
+                            <div key={member.name} className="memberCard" style={{margin: "20px"}}>
+                                <Avatar src={member.image} alt={member.name} className="memberAvatar" sx={{ width: 150, height: 150 }} />
+                                <p className="memberName" style={{ color: "white" }}>{member.name}</p>
                             </div>
                         ))}
                     </div>
