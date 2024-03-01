@@ -103,7 +103,7 @@ function NavBar() {
               navItemsWhenLoggedIn.map((item, index) => (
                 <AnimatedButton
                   key={index}
-                  onClick={(e) => { window.location.href = `/${item}` }}
+                  onClick={(e) => { window.location.href = `/${format(item)}` }}
                 >
                   <span>
                     {item}
