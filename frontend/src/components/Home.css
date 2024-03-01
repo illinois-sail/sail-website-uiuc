@@ -81,8 +81,14 @@ table {
 table, th, td {
   border: 1px solid white;
 }
-th, td {
+th {
   font-family: "Magz";
+  padding: 8px;
+  text-align: left;
+  color: white;
+}
+td {
+  font-family: "JetBrainsMono";
   padding: 8px;
   text-align: left;
   color: white;

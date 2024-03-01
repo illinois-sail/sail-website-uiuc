@@ -32,8 +32,8 @@ function Home() {
           </div>
           <p class="home_text">April 13-14, 2024</p>
         </div>
-        <div class="container">
-          <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
+        <div class="container" style={{marginTop: "60px"}}>
+          <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center", marginBottom: "-5%", marginTop: "5%" }}>
             <p class="home_title">Schedule</p>
           </div>
           <p class="home_subtitle">Day 1</p>
@@ -48,7 +48,7 @@ function Home() {
             </tr>
             <tr>
               <td>9:30</td>
-              <td>Opening Ceremony<br/><span class="note">Room 1404</span></td>
+              <td>Opening Ceremony<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
             </tr>
             <tr>
               <td>10:00</td>
@@ -60,7 +60,7 @@ function Home() {
             </tr>
             <tr>
               <td rowspan="2">12:00</td>
-              <td>Lunch (Group X) → cleared out first<br/><span class="note">Room 1404</span></td>
+              <td>Lunch (Group X) → cleared out first<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
             </tr>
             <tr>
               <td>Tour (Group Y) → volunteers with number signs</td>
@@ -82,7 +82,7 @@ function Home() {
             </tr>
             <tr>
               <td>4:00</td>
-              <td>Professor Wade Talk<br/><span class="note">Room 1404</span></td>
+              <td>Professor Wade Talk<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
             </tr>
           </table>
         </div>
