@@ -24,10 +24,10 @@ function format(str) {
   return str;
 }
 
-// const navItems = ["classes", "about us", "login"];
-// const navItemsWhenLoggedIn = ["classes", "profile", "about us", "logout"];
-const navItems = ["classes", "login"];
-const navItemsWhenLoggedIn = ["classes", "profile", "logout"];
+const navItems = ["classes", "about us", "login"];
+const navItemsWhenLoggedIn = ["classes", "profile", "about us", "logout"];
+// const navItems = ["classes", "login"];
+// const navItemsWhenLoggedIn = ["classes", "profile", "logout"];
 
 
 const AnimatedButton = styled(Button)(({ theme }) => ({
@@ -103,7 +103,7 @@ function NavBar() {
               navItemsWhenLoggedIn.map((item, index) => (
                 <AnimatedButton
                   key={index}
-                  onClick={(e) => { window.location.href = `/${item}` }}
+                  onClick={(e) => { window.location.href = `/${format(item)}` }}
                 >
                   <span>
                     {item}

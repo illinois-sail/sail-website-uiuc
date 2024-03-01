@@ -253,11 +253,11 @@ function Profile() {
 
     const loggedState = localStorage.getItem('isLoggedIn');
 
-    // if (loggedState === "false" || loggedState === null || loggedState === undefined || loggedState == false) {
-    //     console.log("User not logged in. Redirecting to login page...");
-    //     console.log("authUser: ", authUser)
-    //     window.location.href = "/login";
-    // }
+    if (loggedState === "false" || loggedState === null || loggedState === undefined || loggedState == false) {
+        console.log("User not logged in. Redirecting to login page...");
+        console.log("authUser: ", authUser)
+        window.location.href = "/login";
+    }
 
     return (
         <div style={{ 
