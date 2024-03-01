@@ -90,7 +90,7 @@ function Login() {
             <form onSubmit={handleLogin} className="form" style={{ width: formWidth }}>
                 <div className="input-group">
                     <input className="input" required type="text" id="username" onChange={handleEmailChange} value={email} />
-                    <label className="label" htmlFor="username">Username</label>
+                    <label className="label" htmlFor="username">Email</label>
                 </div>
                 <br />
                 <div className="input-group">
