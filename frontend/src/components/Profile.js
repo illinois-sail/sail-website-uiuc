@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
-import "./cyberpunk.css"; // Import the cyberpunk.css stylesheet
+import "./cyberpunk.css"; 
 import axios from "axios";
 
 const classes = [{className: "How to succeed at UIUC", time: "11:00", room: "Siebel 1404"}, {className: "Intro to Graph Theory", time: "12:00", room: "Siebel 1404"}, {className: "Recursion and Induction", time: "1:00", room: "Siebel 1404"}]
@@ -8,8 +8,11 @@ const isSmallScreen = window.innerWidth < 1200;
 const flexDirectionBasedOnScreenSize = isSmallScreen ? "column" : "row";
 
 
-const SERVER_URL = "http://sail.cs.illinois.edu"
-// const SERVER_URL = "http://192.168.1.9:5000"
+const PROD_SERVER = "http://sail.cs.illinois.edu";
+const TEST_SERVER = "http://10.194.25.232:5000" // replace with your local IP address
+
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 const CyberButton = (props) => {
     const background = props.background || "bg-red";

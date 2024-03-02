@@ -138,43 +138,48 @@ def signup():
     }), 200
 
 # @TODO: Develop the get students route
-@app.route('/get-students', methods=['GET'])
+@app.route('/get_students', methods=['POST'])
 def get_students():
-    # print all the information from the database
-    students = Student.query.all()
-    student_list = []
-    for student in students:
-        student_list.append({
-            "email": student.email,
-            "first_name": student.first_name,
-            "last_name": student.last_name,
-            "shirt_size": student.shirt_size,
-            "parent_name": student.parent_name,
-            "parent_email": student.parent_email,
-            "classes": student.classes
-        })
-    print(student_list)
-    return jsonify(student_list)
+    response = request.json
+    token = response['token']
+    
+    print(f"Token: {token}")
+    
+    if token == os.getenv('ADMIN_TOKEN'):
+        students = Student.query.all()
+        student_list = []
+        for student in students:
+            student_list.append({
+                "email": student.email,
+                "first_name": student.first_name,
+                "last_name": student.last_name,
+                "shirt_size": student.shirt_size,
+                "parent_name": student.parent_name,
+                "parent_email": student.parent_email,
+                "classes": student.classes
+            })
+        return jsonify(student_list), 200
+    return "invalid API token", 401
 
-@app.route('/reset_database', methods=['GET'])
+@app.route('/reset_database', methods=['POST'])
 def reset_database():
-    # ask for double confirmation and a password
-    confirmation = input("Are you sure you want to reset the database? (yes/no): ")
-    if confirmation == "yes":
-        password = input("Please enter the password: ")
-        if password == os.getenv('RESET_DATABASE_PASSWORD'):
-            # reset the database
-            db.drop_all()
-            db.create_all()
-            return "The database has been reset"
-        else:
-            return "The password is incorrect"
-    else:
-        return "The database has not been reset"
+    response = request.json
+    reset_database_token = response['token']
+    if reset_database_token != os.getenv('RESET_DATABASE_PASSWORD'):
+        return "invalid RESET_DATABASE_PASSWORD", 401
+    db.drop_all()
+    db.create_all()
+    return "The database has been reset", 200
     
     
-@app.route("/remove_user/<email>", methods=['GET'])
+@app.route("/remove_user/<email>", methods=['POST'])
 def remove_user(email):
+    response = request.json
+    remove_user_token = response['token']
+    
+    if remove_user_token != os.getenv('REMOVE_USER_PASSWORD'):
+        return "invalid REMOVE_USER_PASSWORD", 401
+    
     # remove the user from the database
     student = Student.query.filter_by(email=email).first()
     print(f"student: {student}")
@@ -184,6 +189,10 @@ def remove_user(email):
 
 @app.route('/add_speen_user', methods=['GET'])
 def add_speen_user():
+    # if the user is already in the database, return an error
+    if Student.query.filter_by(email="ssadler5@illinois.edu").first():
+        return "The user is already in the database", 400
+    
     # add a user to the database
     student_data = {
         "email": "ssadler5@illinois.edu",
@@ -203,6 +212,9 @@ def add_speen_user():
 
 @app.route('/add_test_user', methods=['GET'])
 def add_test_user():
+    if Student.query.filter_by(email="test").first():
+        return "The user is already in the database", 400
+    
     # add a user to the database
     student_data = {
         "email": "test",
@@ -289,6 +301,18 @@ def check_email():
         return "The email is already in use", 400
     else:
         return "The email is not in use", 200
+    
+@app.route('/get_emails', methods=['POST'])
+def get_emails():
+    response = request.json
+    token = response['token']
+    
+    if token != os.getenv('ADMIN_TOKEN'):
+        return "invalid ADMIN TOKEN", 401
+    
+    students = Student.query.all()
+    emails = [student.email for student in students]
+    return jsonify(emails), 200
 
     
 if __name__ == '__main__':

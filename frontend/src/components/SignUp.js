@@ -6,8 +6,11 @@ import axios from 'axios';
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
-const SERVER_URL = "http://sail.cs.illinois.edu";
-// const SERVER_URL = "http://192.168.1.9:5000"
+const PROD_SERVER = "http://sail.cs.illinois.edu";
+const TEST_SERVER = "http://10.194.25.232:5000" // replace with your local IP address
+
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 const CyberButton = ({ buttonText }) => {
     return (
@@ -69,6 +72,7 @@ function SignUp() {
                 // if the response code is 200 then return an alert to the user that the account has been created
                 else if (response.status === 200) {
                     alert("Account created!");
+                    window.location.href = "/login";
                 }
             })
             .catch(error => {
@@ -88,7 +92,6 @@ function SignUp() {
         setShirtSize('');
         setParentName('');
         setParentEmail('');
-        // window.location.href = "/";
     };
 
     return (
