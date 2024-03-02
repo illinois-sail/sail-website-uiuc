@@ -6,13 +6,8 @@ import axios from 'axios';
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
-function contains(str, substr) {
-    return str.indexOf(substr) !== -1;
-}
-
-const SERVER_URL = contains(window.location.hostname, "localhost") || contains(window.location.hostname, "127.0.0.1") ? "http://127.0.0.1:5000" : "https://sail.cs.illinois.edu";
-
-axios.defaults.withCredentials = true;
+const SERVER_URL = "http://sail.cs.illinois.edu";
+// const SERVER_URL = "http://192.168.1.9:5000"
 
 const CyberButton = ({ buttonText }) => {
     return (
@@ -59,18 +54,28 @@ function SignUp() {
 
         // Send the POST request with the form data
         axios.post(`${SERVER_URL}/signup`, formData, {
-            withCredentials: true,
+            // withCredentials: true,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Origin': 'true',
             }
         })
             .then(response => {
-                console.log('Success:', response.data);
-                // Handle successful response here, e.g., redirect or display a message
+                console.log('Response:', response);
+                // if the response code is 400 then return an error message as an alert to the user that the email is already in use
+                if (response.status === 401) {
+                    alert("Email is already in use");
+                }
+                // if the response code is 200 then return an alert to the user that the account has been created
+                else if (response.status === 200) {
+                    alert("Account created!");
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
+                if (error.response.status === 401) {
+                    alert("Email is already in use");
+                }
                 // Handle error here, e.g., display an error message
             });
 
@@ -83,7 +88,7 @@ function SignUp() {
         setShirtSize('');
         setParentName('');
         setParentEmail('');
-        window.location.href = "/";
+        // window.location.href = "/";
     };
 
     return (

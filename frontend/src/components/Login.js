@@ -5,11 +5,8 @@ import './cyberpunk.css';
 import AuthContext, { useAuth } from './AuthContext';
 import axios from 'axios';
 
-function contains(str, substr) {
-    return str.indexOf(substr) !== -1;
-}
-
-const SERVER_URL = contains(window.location.hostname, "localhost") || contains(window.location.hostname, "127.0.0.1") ? "http://127.0.0.1:5000" : "https://sail.cs.illinois.edu";
+const SERVER_URL = "http://sail.cs.illinois.edu";
+// const SERVER_URL = "http://192.168.1.9:5000"
 
 axios.defaults.withCredentials = true;
 
@@ -39,10 +36,10 @@ function Login() {
         const formData = { "email": email, "password": password };
         
         axios.post(`${SERVER_URL}/login`, formData, {
-            withCredentials: true,
+            // withCredentials: true,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Origin': 'true',
             },
         })
             .then(response => {
@@ -79,6 +76,7 @@ function Login() {
                 } else {
                     setAuthUser(null);
                     setIsLoggedIn(false);
+                    alert("Invalid login credentials");
                     throw new Error("Invalid login credentials");
                 }
             })
