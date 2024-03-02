@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import './Login.css';
 import './cyberpunk.css';
+import axios from 'axios';
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
-const SERVER_URL = "http://127.0.0.1:5000";
+function contains(str, substr) {
+    return str.indexOf(substr) !== -1;
+}
+
+const SERVER_URL = contains(window.location.hostname, "localhost") || contains(window.location.hostname, "127.0.0.1") ? "http://127.0.0.1:5000" : "https://sail.cs.illinois.edu";
+
+axios.defaults.withCredentials = true;
 
 const CyberButton = ({ buttonText }) => {
     return (
@@ -51,22 +58,21 @@ function SignUp() {
         };
 
         // Send the POST request with the form data
-        fetch(`${SERVER_URL}/signup`, {
-            method: 'POST',
+        axios.post(`${SERVER_URL}/signup`, formData, {
+            withCredentials: true,
             headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }
         })
-        .then(response => response.json())
-        .then(data => {
-        console.log('Success:', data);
-        // Handle successful response here, e.g., redirect or display a message
-        })
-        .catch((error) => {
-        console.error('Error:', error);
-        // Handle error here, e.g., display an error message
-        });
+            .then(response => {
+                console.log('Success:', response.data);
+                // Handle successful response here, e.g., redirect or display a message
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle error here, e.g., display an error message
+            });
 
         // Clear the form and direct the user to the homepage
         setFirstName('');

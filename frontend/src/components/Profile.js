@@ -6,6 +6,13 @@ import axios from "axios";
 const classes = [{className: "How to succeed at UIUC", time: "11:00", room: "Siebel 1404"}, {className: "Intro to Graph Theory", time: "12:00", room: "Siebel 1404"}, {className: "Recursion and Induction", time: "1:00", room: "Siebel 1404"}]
 const isSmallScreen = window.innerWidth < 1200;
 const flexDirectionBasedOnScreenSize = isSmallScreen ? "column" : "row";
+function contains(str, substr) {
+    return str.indexOf(substr) !== -1;
+}
+
+const SERVER_URL = contains(window.location.hostname, "localhost") || contains(window.location.hostname, "127.0.0.1") ? "http://127.0.0.1:5000" : "https://sail.cs.illinois.edu";
+
+axios.defaults.withCredentials = true;
 
 const CyberButton = (props) => {
     const background = props.background || "bg-red";
@@ -188,7 +195,8 @@ function Profile() {
         // Send a POST request with the new information to "localhost:5000/change_user_info"
         // You can use a library like axios to make the POST request
         // Example using axios:
-        axios.post("http://127.0.0.1:5000/change_user_info", {
+        
+        axios.post(`${SERVER_URL}/change_user_info`, {
             firstName: editedFirstName ? editedFirstName : originalFirstName,
             lastName: editedLastName ? editedLastName : originalLastName,
             oldEmail: originalEmail,
@@ -196,6 +204,13 @@ function Profile() {
             shirtSize: editedShirtSize ? editedShirtSize : originalShirtSize,
             parentName: editedParentName ? editedParentName : originalParentName,
             parentEmail: editedParentEmail ? editedParentEmail : originalParentEmail
+        }, {
+            withCredentials: true, 
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            },
+            mode: 'cors'
         })
         .then(response => {
             // take the response and set the authUser to the new information

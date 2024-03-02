@@ -4,12 +4,14 @@ import os
 from dotenv import load_dotenv
 from hash_password import hash_password
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_cors import CORS
 
 
 load_dotenv()
 
-app = Flask(__name__, static_url_path='/', static_folder='../frontend/build', template_folder='../frontend/build')
+app = Flask(__name__, static_url_path='/', static_folder='./build', template_folder='./build')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
+CORS(app, supports_credentials=True)
 db = SQLAlchemy(app)
 
 class Student(db.Model):

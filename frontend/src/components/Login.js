@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import './cyberpunk.css';
 import AuthContext, { useAuth } from './AuthContext';
+import axios from 'axios';
+
+function contains(str, substr) {
+    return str.indexOf(substr) !== -1;
+}
+
+const SERVER_URL = contains(window.location.hostname, "localhost") || contains(window.location.hostname, "127.0.0.1") ? "http://127.0.0.1:5000" : "https://sail.cs.illinois.edu";
+
+axios.defaults.withCredentials = true;
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
@@ -28,16 +37,17 @@ function Login() {
         console.log("isLoggedIn: ", isLoggedIn);
         console.log("authUser: ", authUser);
         const formData = { "email": email, "password": password };
-        fetch('http://127.0.0.1:5000/login', {
-            method: 'POST',
+        
+        axios.post(`${SERVER_URL}/login`, formData, {
+            withCredentials: true,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
             },
-            body: JSON.stringify(formData)
         })
             .then(response => {
                 console.log('Response:', response);
-                return response.json();
+                return response.data;
             })
             .then(data => {
                 console.log('Success! Data:', data);
@@ -71,7 +81,6 @@ function Login() {
                     setIsLoggedIn(false);
                     throw new Error("Invalid login credentials");
                 }
-                
             })
             .catch(error => {
                 console.error('Error:', error);
