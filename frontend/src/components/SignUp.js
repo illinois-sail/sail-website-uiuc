@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './Login.css';
 import './cyberpunk.css';
+import axios from 'axios';
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
-const SERVER_URL = "http://127.0.0.1:5000";
+const SERVER_URL = "http://sail.cs.illinois.edu";
+// const SERVER_URL = "http://192.168.1.9:5000"
 
 const CyberButton = ({ buttonText }) => {
     return (
@@ -51,22 +53,31 @@ function SignUp() {
         };
 
         // Send the POST request with the form data
-        fetch(`${SERVER_URL}/signup`, {
-            method: 'POST',
+        axios.post(`${SERVER_URL}/signup`, formData, {
+            // withCredentials: true,
             headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': 'true',
+            }
         })
-        .then(response => response.json())
-        .then(data => {
-        console.log('Success:', data);
-        // Handle successful response here, e.g., redirect or display a message
-        })
-        .catch((error) => {
-        console.error('Error:', error);
-        // Handle error here, e.g., display an error message
-        });
+            .then(response => {
+                console.log('Response:', response);
+                // if the response code is 400 then return an error message as an alert to the user that the email is already in use
+                if (response.status === 401) {
+                    alert("Email is already in use");
+                }
+                // if the response code is 200 then return an alert to the user that the account has been created
+                else if (response.status === 200) {
+                    alert("Account created!");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                if (error.response.status === 401) {
+                    alert("Email is already in use");
+                }
+                // Handle error here, e.g., display an error message
+            });
 
         // Clear the form and direct the user to the homepage
         setFirstName('');
@@ -77,7 +88,7 @@ function SignUp() {
         setShirtSize('');
         setParentName('');
         setParentEmail('');
-        window.location.href = "/";
+        // window.location.href = "/";
     };
 
     return (

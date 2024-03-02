@@ -1,12 +1,16 @@
-click @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_f27dk3zwrb/croot/click_1698129816363/work
-Flask @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_0ciz1g6mz5/croot/flask_1702980028646/work
-Flask-Login @ file:///Users/ec2-user/ci_py311/flask-login_1678391198827/work
-Flask-SQLAlchemy @ file:///Users/ec2-user/ci_py311/flask-sqlalchemy_1678391223160/work
-greenlet @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_10cuim1il_/croot/greenlet_1702059962773/work
-itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
-Jinja2 @ file:///Users/ec2-user/ci_py311/jinja2_1678317138271/work
-MarkupSafe @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_3a_cffw83x/croot/markupsafe_1704205995714/work
-python-dotenv @ file:///Users/ec2-user/ci_py311/python-dotenv_1678319919985/work
-SQLAlchemy @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_2dm7nmav_d/croot/sqlalchemy_1695720908200/work
-typing_extensions @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_35a9251r5y/croot/typing_extensions_1690297487409/work
-Werkzeug @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_fegt3z60s3/croot/werkzeug_1679489762631/work
+click==8.1.7
+Flask==2.2.5
+Flask-Cors==4.0.0
+Flask-Login==0.6.2
+Flask-SQLAlchemy==3.0.2
+greenlet==3.0.1
+itsdangerous==2.0.1
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+pip==23.3.1
+python-dotenv==0.21.0
+setuptools==68.2.2
+SQLAlchemy==2.0.21
+typing_extensions==4.7.1
+Werkzeug==2.2.3
+wheel==0.41.2

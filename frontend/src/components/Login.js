@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import './cyberpunk.css';
 import AuthContext, { useAuth } from './AuthContext';
+import axios from 'axios';
+
+const SERVER_URL = "http://sail.cs.illinois.edu";
+// const SERVER_URL = "http://192.168.1.9:5000"
+
+axios.defaults.withCredentials = true;
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
@@ -28,16 +34,17 @@ function Login() {
         console.log("isLoggedIn: ", isLoggedIn);
         console.log("authUser: ", authUser);
         const formData = { "email": email, "password": password };
-        fetch('http://127.0.0.1:5000/login', {
-            method: 'POST',
+        
+        axios.post(`${SERVER_URL}/login`, formData, {
+            // withCredentials: true,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': 'true',
             },
-            body: JSON.stringify(formData)
         })
             .then(response => {
                 console.log('Response:', response);
-                return response.json();
+                return response.data;
             })
             .then(data => {
                 console.log('Success! Data:', data);
@@ -69,9 +76,9 @@ function Login() {
                 } else {
                     setAuthUser(null);
                     setIsLoggedIn(false);
+                    alert("Invalid login credentials");
                     throw new Error("Invalid login credentials");
                 }
-                
             })
             .catch(error => {
                 console.error('Error:', error);
