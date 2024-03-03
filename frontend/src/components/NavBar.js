@@ -145,7 +145,7 @@ function NavBar() {
                 <ListItem
                   key={index}
                   button
-                  onClick={() => { window.location.href = `/${item}` }}
+                  onClick={() => { window.location.href = `/${format(item)}` }}
                   sx={{ fontFamily: 'JetBrainsMono' }} // Add this line to set the font
                 >
                   <ListItemText primary={item} primaryTypographyProps={{ style: { color: 'white' } }} />
