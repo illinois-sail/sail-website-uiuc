@@ -14,7 +14,6 @@ const imagesContext = require.context('./gallery_photos', false, /\.(png|jpg)$/)
 const carouselImages = imagesContext.keys().map(imagesContext);
 
 
-
 function Home() {
 
   return (

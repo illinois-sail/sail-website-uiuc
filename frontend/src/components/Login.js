@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import './cyberpunk.css';
 import AuthContext, { useAuth } from './AuthContext';
+import axios from 'axios';
+
+const PROD_SERVER = "https://sail.cs.illinois.edu";
+const TEST_SERVER = "http://10.194.25.232:5000" // replace with your local IP address
+
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
+
+axios.defaults.withCredentials = true;
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
@@ -28,16 +37,17 @@ function Login() {
         console.log("isLoggedIn: ", isLoggedIn);
         console.log("authUser: ", authUser);
         const formData = { "email": email, "password": password };
-        fetch('http://127.0.0.1:5000/login', {
-            method: 'POST',
+        
+        axios.post(`${SERVER_URL}/login`, formData, {
+            // withCredentials: true,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': 'true',
             },
-            body: JSON.stringify(formData)
         })
             .then(response => {
                 console.log('Response:', response);
-                return response.json();
+                return response.data;
             })
             .then(data => {
                 console.log('Success! Data:', data);
@@ -69,9 +79,9 @@ function Login() {
                 } else {
                     setAuthUser(null);
                     setIsLoggedIn(false);
+                    alert("Invalid login credentials");
                     throw new Error("Invalid login credentials");
                 }
-                
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -90,7 +100,7 @@ function Login() {
             <form onSubmit={handleLogin} className="form" style={{ width: formWidth }}>
                 <div className="input-group">
                     <input className="input" required type="text" id="username" onChange={handleEmailChange} value={email} />
-                    <label className="label" htmlFor="username">Username</label>
+                    <label className="label" htmlFor="username">Email</label>
                 </div>
                 <br />
                 <div className="input-group">
