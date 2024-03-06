@@ -14,8 +14,8 @@ const Carousel = ({ images }) => {
     };
 
     const imageStyles = {
-        width: '900px', 
-        height: '600px', 
+        width: '85vw', 
+        height: '60vh', 
         objectFit: 'cover'
     };
 

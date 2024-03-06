@@ -10,15 +10,8 @@ import FAQ from './faq';
 import Carousel from './Carousel';
 
 
-import photo1 from ".//gallery_photos/photo1.png";
-import photo2 from ".//gallery_photos/photo2.png";
-import photo3 from ".//gallery_photos/photo3.png";
-import photo4 from ".//gallery_photos/photo4.png";
-import photo5 from ".//gallery_photos/photo5.jpg";
-import AboutUs from "./AboutUs";
-
-const carouselImages = [photo1, photo2, photo3, photo4, photo5];
-
+const imagesContext = require.context('./gallery_photos', false, /\.(png|jpg)$/);
+const carouselImages = imagesContext.keys().map(imagesContext);
 
 
 
