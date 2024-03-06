@@ -8,7 +8,7 @@ const isSmallScreen = window.innerWidth < 1200;
 const flexDirectionBasedOnScreenSize = isSmallScreen ? "column" : "row";
 
 
-const PROD_SERVER = "http://sail.cs.illinois.edu";
+const PROD_SERVER = "https://sail.cs.illinois.edu";
 const TEST_SERVER = "http://10.194.25.232:5000" // replace with your local IP address
 
 // assign the server URL based on the url of the window
