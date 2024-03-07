@@ -99,9 +99,9 @@ def reset_password():
         # Send an email with the reset token
         send_password_reset_email(student)
 
-        return "Password reset instructions have been sent to your email."
+        return "Password reset instructions have been sent to your email.", 200
     else:
-        return "No user found with that email address."
+        return "No user found with that email address.", 400
 
 def send_password_reset_email(student):
     token = student.reset_token
@@ -113,12 +113,15 @@ def send_password_reset_email(student):
 
 @app.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
+    print("Received a reset request!")
     student = Student.query.filter_by(reset_token=token).first()
-
+    print("Student",student, student.reset_token_expiration)
     if student and student.reset_token_expiration > datetime.utcnow():
         if request.method == 'POST':
+            print("POST")
             # Logic to handle password reset form submission
-            new_password = request.form.get('new_password')
+            new_password = request.json['new_password']
+            print('New Password:', new_password)
             student.password_hash = hash_password(new_password)
             student.reset_token = None
             student.reset_token_expiration = None

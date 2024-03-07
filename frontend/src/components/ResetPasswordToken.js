@@ -23,7 +23,7 @@ function ResetPasswordToken() {
             return;
         }
 
-        const formData = { "newPassword": newPassword };
+        const formData = { "new_password": newPassword };
         fetch(`http://127.0.0.1:5000/reset_password/${token}`, { // Include the token in the URL
             method: 'POST',
             headers: {

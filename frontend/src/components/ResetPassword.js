@@ -28,13 +28,15 @@ function ResetPassword() {
                 console.log('Success! Data:', data);
 
                 if (data.status === 'success') {
+
                     alert('Password reset instructions have been sent to your email.');
                     // Redirect or handle success as needed
                 } else {
-                    alert('Error: ' + data.message);
+                    alert('Error: NOT SUCCESS' + data.message);
                 }
             })
             .catch(error => {
+                // alert('Error: HERE' + error);
                 console.error('Error:', error);
             });
     };
