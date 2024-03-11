@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useAuth } from "./AuthContext";
+import React, { useState } from "react";
 import "./cyberpunk.css"; 
 import axios from "axios";
 
@@ -38,6 +37,28 @@ function getClasses(bitsequence, classes) {
         }
     }
     return result;
+}
+
+const InformationLink = (props) => {
+    return (
+        <div style={{
+            display: "flex", 
+            justifyContent: "center",
+            border: "2px solid purple",
+            borderRadius: "10px",
+            boxShadow: "0 0 5px blue, 0 0 10px purple",
+            width: "40%",
+            padding: "0.5%",
+            textAlign: "center",
+
+        }}>
+            <h3>
+                <a href={props.href} style={{ color: "white",  fontFamily: "JetBrainsMono" }}>
+                    {props.text}
+                </a>
+            </h3>
+        </div>
+    );
 }
 
 
@@ -259,16 +280,16 @@ function Profile() {
     };
 
     const userClasses = authUser ? getClasses(authUser.classes, classes) : [];
-    const firstName = authUser ? authUser.first_name : "Sanjay";
-    const lastName = authUser ? authUser.last_name : "Manoj";
+    const firstName = authUser ? authUser.first_name : "Not Signed In";
+    const lastName = authUser ? authUser.last_name : "";
     const email = authUser ? authUser.email : "notloggedin@sail.edu";
-    const shirtSize = authUser ? authUser.shirt_size : "M";
-    const parentName = authUser ? authUser.parent_name : "Spencer Sadler";
-    const parentEmail = authUser ? authUser.parent_email : "ssadler5@illinois.edu";
+    const shirtSize = authUser ? authUser.shirt_size : "X";
+    const parentName = authUser ? authUser.parent_name : "Not Signed In";
+    const parentEmail = authUser ? authUser.parent_email : "notloggedin@sail.edu";
 
     const loggedState = localStorage.getItem('isLoggedIn');
 
-    if (loggedState === "false" || loggedState === null || loggedState === undefined || loggedState == false) {
+    if ((loggedState === "false" || loggedState === null || loggedState === undefined || loggedState === false) && SERVER_URL === PROD_SERVER) {
         console.log("User not logged in. Redirecting to login page...");
         console.log("authUser: ", authUser)
         window.location.href = "/login";
@@ -354,24 +375,10 @@ function Profile() {
                     )}
                 </h1>
             </div>
-            <div style={{
-                display: "flex", 
-                justifyContent: "center",
-                border: "2px solid purple",
-                borderRadius: "10px",
-                boxShadow: "0 0 5px blue, 0 0 10px purple",
-                width: "40%",
-                padding: "0.5%",
-                textAlign: "center",
-
-            }}>
-                <h3>
-                    <a href="https://forms.gle/7GWKmLNhaopcyNNS6" style={{ color: "white",  fontFamily: "JetBrainsMono" }}>
-                        Fill out the SAIL 2024 Waiver Form
-                    </a>
-                </h3>
-            </div>
-
+            <InformationLink href="https://docs.google.com/forms/d/e/1FAIpQLSeZcLMvZxhJA8XDKJW2LW41nE94aLh89RkqBKnKOX_3t0AUBw/viewform" text="Fill out the SAIL 2024 Waiver Form" />
+            <br/>
+            <InformationLink href="/registration" text="Register for SAIL" />
+            <br/>
             <div className="infoAndClasses" style={{ display: "flex", fontFamily: "JetBrainsMono", width: "50%", flexDirection: { flexDirectionBasedOnScreenSize } }}>
                 <div className="info" position="relative" style={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "left", width: "60%" }}>
                     <h2 onDoubleClick={() => handleDoubleClick("email")}>{isEditingEmail ? <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}><input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} placeholder={email}/></div> : email}</h2>

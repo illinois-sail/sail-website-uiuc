@@ -84,6 +84,7 @@ function Login() {
                 }
             })
             .catch(error => {
+                alert("Invalid login credentials");
                 console.error('Error:', error);
             });
     };

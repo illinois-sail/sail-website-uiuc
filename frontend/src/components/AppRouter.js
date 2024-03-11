@@ -9,6 +9,7 @@ import SignUp from "./SignUp";
 import Profile from "./Profile";
 import AboutUs from "./AboutUs";
 import Logout from "./Logout";
+import Registration from "./Registration";
 
 
 const AppRouter = () => {
@@ -24,6 +25,7 @@ const AppRouter = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/registration' element={<Registration />} />
         </Routes>
       </BrowserRouter>
     </Provider>
