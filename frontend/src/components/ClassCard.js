@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ClassCard.css'; 
 
 const CyberButton = (props) => {
@@ -20,11 +20,13 @@ const CyberButton = (props) => {
 const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated }) => {
   const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
   const [isRegistered, setIsRegistered] = useState(false);
-  
-  if (authUser) {
-    const classes = authUser.classes;
-    setIsRegistered(classes[index] === 1);
-  }
+
+  useEffect(() => {
+    if (authUser) {
+      const classes = authUser.classes;
+      setIsRegistered(classes[index] === 1);
+    }
+  }, [authUser]);
 
   return (
     <div class="cyber-tile-big fg-dark bg-cyan" style={{ padding: "10px"}}>

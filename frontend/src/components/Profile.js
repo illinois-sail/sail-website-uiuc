@@ -3,9 +3,6 @@ import "./cyberpunk.css";
 import axios from "axios";
 
 const classes = [{className: "How to succeed at UIUC", time: "11:00", room: "Siebel 1404"}, {className: "Intro to Graph Theory", time: "12:00", room: "Siebel 1404"}, {className: "Recursion and Induction", time: "1:00", room: "Siebel 1404"}]
-const isSmallScreen = window.innerWidth < 1200;
-const flexDirectionBasedOnScreenSize = isSmallScreen ? "column" : "row";
-
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
 const TEST_SERVER = "http://172.16.0.51:5000";
@@ -75,7 +72,7 @@ axios.get(`${SERVER_URL}/get_classes/${authUser.email}`)
 
 
 function Profile() {  
-    const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
+    const authUser = JSON.parse(localStorage.getItem('authUser'));
 
     const [isEditingFirstName, setIsEditingFirstName] = useState(false);
     const [isEditingLastName, setIsEditingLastName] = useState(false);

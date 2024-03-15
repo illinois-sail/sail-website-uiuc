@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ClassCard from "./ClassCard";
-import Grid from "@mui/material/Grid";
-import background from "../assets/final_background.png";
 import axios from "axios";
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
@@ -43,103 +41,94 @@ const virtualAfternoonClasses = [
 const ClassTemplateTimeSection = ({ classesList, title }) => {
   // make a GET request to the server to get the user's registration status for the class with the given index
   const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
-  console.log("authUser: ", authUser);
   // if authuser.classes[i] === 1 for i in indices of classesList, then the user is registered for a class in the section
-  const [isRegisteredForSection, setIsRegisteredForSection] = useState(() => {
+  const [isRegisteredForSection, setIsRegisteredForSection] = useState(false);
+
+  useEffect(() => {
     if (authUser) {
       const classes = authUser.classes;
-      for (let i = 0; i < classesList.length; i++) {
+      for (var i = 0; i < classesList.length; i++) {
         if (classes[classesList[i].index] === 1) {
-          return true;
+          setIsRegisteredForSection(true);
         }
       }
     }
-    return false;
-  });
+  }, [authUser, classesList]);
 
 
   function onRegisterClick(index, classesList) {
     console.log("email: ", authUser.email);
     console.log("classIndex: ", index);
 
+    // if the index is not in the user's classes, then block the user from registering for the class
+    if (authUser.classes[index] === 0 && isRegisteredForSection === true) {
+      alert("You are already registered for a class in this section. You cannot register for another class in this section.");
+      return;
+    } else if (authUser.classes[index] === 1 && isRegisteredForSection === true) {
+      alert("You are already registered for this class.");
+      return;
+    } else if (authUser.classes[index] === 1 && isRegisteredForSection === false) {
+      alert("impossible scenario!!!!")
+      return;
+    }
+
     // make a POST request to the server to register the user for the class with the given index
     axios.post(`${SERVER_URL}/registerForCourse`, { email: authUser.email, classIndex: index })
       .then((response) => {
-        console.log('Response:', response);
+        console.log('Response from /registerForCourse:', response);
         setIsRegisteredForSection(true);
 
-        // for the index with classIndex switch the button to "Unregister" and the rest should be nullified
-        const registeredClassIndex = response.data.classIndex;
-        const otherClassesInGroup = classesList.filter((classData) => classData.index !== registeredClassIndex);
+        const classIndexRegisteredFor = response.data.classIndex;
+        console.log("classIndexRegisteredFor: ", classIndexRegisteredFor);
 
-        // set the state of the class with the given index to 1
-        setAuthUser({ ...authUser, classes: { ...authUser.classes, [registeredClassIndex]: 1 } });
-
-        // set the state of the other classes in the group to 0
-        otherClassesInGroup.forEach((classData) => {
-          setAuthUser({ ...authUser, classes: { ...authUser.classes, [classData.index]: 0 } });
-        });
-
-        // update the authUser in localStorage
+        const newClasses = response.data.classes;
+        setAuthUser({ ...authUser, classes: newClasses });
         localStorage.setItem('authUser', JSON.stringify(authUser));
-
-        // update the authUser in the state
-        setAuthUser(authUser);
 
         // make a message to the user that they have successfully registered for the class
         alert("You have successfully registered for the class!");
-        
-        // re-render the component
-        window.location.reload();
-        
-        console.log("authUser: ", authUser);
       })
       .catch((error) => { 
         console.error(error);
       });
+      console.log("authUser: ", authUser);
   };
 
   function onUnregisterClick(index, classes) {
     console.log("email: ", authUser.email);
     console.log("classIndex: ", index);
 
+    if (authUser.classes[index] === 0 && isRegisteredForSection === true) {
+      alert("You are already registered for a class in this section. You cannot unregister for a different class in this section.");
+      return;
+    } else if (authUser.classes[index] === 0 && isRegisteredForSection === false) {
+      alert("You are not registered for this class.");
+      return;
+    } else if (authUser.classes[index] === 1 && isRegisteredForSection === false) {
+      alert("impossible scenario!!!!")
+      return;
+    }
+
     // make a POST request to the server to unregister the user for the class with the given index
     axios.post(`${SERVER_URL}/unregisterForCourse`, { email: authUser.email, classIndex: index })
       .then((response) => {
-        console.log('Response:', response);
+        console.log('Response from /unregisterForCourse:', response);
         setIsRegisteredForSection(false);
 
-        // for the index with classIndex switch the button to "Unregister" and the rest should be nullified
-        const registeredClassIndex = response.data.classIndex;
-        const otherClassesInGroup = classes.filter((classData) => classData.index !== registeredClassIndex);
+        const classIndexUnregisteredFor = response.data.classIndex;
+        console.log("classIndexUnregisteredFor: ", classIndexUnregisteredFor);
 
-        // set the state of the class with the given index to 0
-        setAuthUser({ ...authUser, classes: { ...authUser.classes, [registeredClassIndex]: 0 } });
-
-        // set the state of the other classes in the group to 0
-        otherClassesInGroup.forEach((classData) => {
-          setAuthUser({ ...authUser, classes: { ...authUser.classes, [classData.index]: 0 } });
-        });
-
-        // update the authUser in localStorage
+        const newClasses = response.data.classes;
+        setAuthUser({ ...authUser, classes: newClasses });
         localStorage.setItem('authUser', JSON.stringify(authUser));
-
-        // update the authUser in the state
-        setAuthUser(authUser);
 
         // make a message to the user that they have successfully unregistered for the class
         alert("You have successfully unregistered for the class!");
-
-        
-        // re-render the component
-        window.location.reload();
-        
-        console.log("authUser: ", authUser);
-      }
-      )
+      })
       .catch((error) => { 
         console.error(error);
       });
+      console.log("authUser: ", authUser);
   }
 
 
@@ -149,23 +138,16 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {classesList && classesList.length > 0 ? (
           classesList.map((classData, index) => (
-            <div key={index} style={{ width: "100%", maxWidth: "25%", padding: "0 10px" }}>
-              <ClassCard
-                className={classData.className}
-                room={classData.room}
-                time={classData.time}
-                description={classData.description}
-                onRegisterClick={() => {
-                  if (isRegisteredForSection) {
-                    onUnregisterClick(classData.index, classesList);
-                  } else {
-                    onRegisterClick(classData.index, classesList);
-                  }
-                }}
-                index={classData.index}
-                activated={true}
-              />
-            </div>
+            <ClassCard 
+              key={index}
+              className={classData.className}
+              room={classData.room}
+              time={classData.time}
+              description={classData.description}
+              onRegisterClick={isRegisteredForSection ? onUnregisterClick : onRegisterClick}
+              index={classData.index}
+              activated={isRegisteredForSection ? false : true}
+            />
           ))
         ) : (
           <div>No classes available</div>

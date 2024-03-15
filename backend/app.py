@@ -317,34 +317,40 @@ def is_registered_for_course():
 @app.route('/registerForCourse', methods=['POST'])
 def register_for_course():
     response = request.json
-    print(response)
+    
     email = response['email']
     classIndex = response['classIndex']
+    print(email, classIndex)
     
     user = Student.query.filter_by(email=email).first()
     if user:
         user.classes = user.classes[:classIndex] + '1' + user.classes[classIndex+1:]
+        if (len(user.classes) != 100):
+            print("The user's classes are not 100 characters long")
         db.session.commit()
         user_classes = Student.query.filter_by(email=email).first().classes
         print(f"User classes: {user_classes}")
-        return {"classIndex" : classIndex}, 200
+        return {"classIndex" : classIndex, "classes" : user_classes}, 200
     else:
         return {"error" : "User not found"}, 400
     
 @app.route('/unregisterForCourse', methods=['POST'])
 def unregister_for_course():
+    print("Unregistering for course ---")
     response = request.json
-    print(response)
     email = response['email']
     classIndex = response['classIndex']
+    print(email, classIndex)
     
     user = Student.query.filter_by(email=email).first()
     if user:
-        user.classes = user.classes[:classIndex] + '0' + user.classes[classIndex+1:]
+        user.classes = user.classes[:classIndex] + '0' + user.classes[classIndex + 1:]
+        if (len(user.classes) != 100):
+            print("The user's classes are not 100 characters long")
         db.session.commit()
         user_classes = Student.query.filter_by(email=email).first().classes
         print(f"User classes: {user_classes}")
-        return {"classes" : user_classes}, 200
+        return {"classIndex" : classIndex, "classes" : user_classes}, 200
     else:
         return {"error" : "User not found"}, 400
 
@@ -377,6 +383,13 @@ def get_emails():
     students = Student.query.all()
     emails = [student.email for student in students]
     return jsonify(emails), 200
+
+@app.route('/reset_test_account_classes', methods=['PUT'])
+def reset_test_account_classes():
+    user = Student.query.filter_by(email="testaccount@gmail.com").first()
+    user.classes = "0" * 100
+    db.session.commit()
+    return "The test account's classes have been reset", 200
 
     
 if __name__ == '__main__':
