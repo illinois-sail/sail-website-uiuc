@@ -330,7 +330,16 @@ def register_for_course():
         db.session.commit()
         user_classes = Student.query.filter_by(email=email).first().classes
         print(f"User classes: {user_classes}")
-        return {"classIndex" : classIndex, "classes" : user_classes}, 200
+        authUser = {
+            "classes": user_classes,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "shirt_size": user.shirt_size,
+            "parent_name": user.parent_name,
+            "parent_email": user.parent_email
+        }
+        return {"classIndex" : classIndex, "authUser" : authUser}, 200
     else:
         return {"error" : "User not found"}, 400
     
@@ -350,7 +359,17 @@ def unregister_for_course():
         db.session.commit()
         user_classes = Student.query.filter_by(email=email).first().classes
         print(f"User classes: {user_classes}")
-        return {"classIndex" : classIndex, "classes" : user_classes}, 200
+        authUser = {
+            "classes": user_classes,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "shirt_size": user.shirt_size,
+            "parent_name": user.parent_name,
+            "parent_email": user.parent_email
+        }
+        
+        return {"classIndex" : classIndex, "authUser" : authUser}, 200
     else:
         return {"error" : "User not found"}, 400
 

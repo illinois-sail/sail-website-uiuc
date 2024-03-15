@@ -39,35 +39,28 @@ const virtualAfternoonClasses = [
 
 
 const ClassTemplateTimeSection = ({ classesList, title }) => {
-  // make a GET request to the server to get the user's registration status for the class with the given index
   const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
-  // if authuser.classes[i] === 1 for i in indices of classesList, then the user is registered for a class in the section
   const [isRegisteredForSection, setIsRegisteredForSection] = useState(false);
 
   useEffect(() => {
     if (authUser) {
-      const classes = authUser.classes;
-      for (var i = 0; i < classesList.length; i++) {
-        if (classes[classesList[i].index] === 1) {
-          setIsRegisteredForSection(true);
-        }
-      }
+      localStorage.setItem('authUser', JSON.stringify(authUser));
+      console.log("changed authUser: ", authUser);
+      console.log("authUser classes: " + authUser.classes)
     }
-  }, [authUser, classesList]);
+  }, [authUser]);
 
-
-  function onRegisterClick(index, classesList) {
-    console.log("email: ", authUser.email);
+  function onRegisterClick(index) {
     console.log("classIndex: ", index);
 
     // if the index is not in the user's classes, then block the user from registering for the class
-    if (authUser.classes[index] === 0 && isRegisteredForSection === true) {
-      alert("You are already registered for a class in this section. You cannot register for another class in this section.");
+    if (authUser.classes[index] === 0 && isRegisteredForSection) {
+      alert("You cannot register for multiple classes in the same time section. Please unregister from the other class first.");
       return;
-    } else if (authUser.classes[index] === 1 && isRegisteredForSection === true) {
+    } else if (authUser.classes[index] === 1 && isRegisteredForSection) {
       alert("You are already registered for this class.");
       return;
-    } else if (authUser.classes[index] === 1 && isRegisteredForSection === false) {
+    } else if (authUser.classes[index] === 1 && !isRegisteredForSection) {
       alert("impossible scenario!!!!")
       return;
     }
@@ -78,12 +71,7 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
         console.log('Response from /registerForCourse:', response);
         setIsRegisteredForSection(true);
 
-        const classIndexRegisteredFor = response.data.classIndex;
-        console.log("classIndexRegisteredFor: ", classIndexRegisteredFor);
-
-        const newClasses = response.data.classes;
-        setAuthUser({ ...authUser, classes: newClasses });
-        localStorage.setItem('authUser', JSON.stringify(authUser));
+        setAuthUser(response.data.authUser);
 
         // make a message to the user that they have successfully registered for the class
         alert("You have successfully registered for the class!");
@@ -91,20 +79,18 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
       .catch((error) => { 
         console.error(error);
       });
-      console.log("authUser: ", authUser);
-  };
+    };
 
-  function onUnregisterClick(index, classes) {
-    console.log("email: ", authUser.email);
+  function onUnregisterClick(index) {
     console.log("classIndex: ", index);
 
-    if (authUser.classes[index] === 0 && isRegisteredForSection === true) {
+    if (authUser.classes[index] === 0 && isRegisteredForSection) {
       alert("You are already registered for a class in this section. You cannot unregister for a different class in this section.");
       return;
-    } else if (authUser.classes[index] === 0 && isRegisteredForSection === false) {
+    } else if (authUser.classes[index] === 0 && !isRegisteredForSection) {
       alert("You are not registered for this class.");
       return;
-    } else if (authUser.classes[index] === 1 && isRegisteredForSection === false) {
+    } else if (authUser.classes[index] === 1 && !isRegisteredForSection) {
       alert("impossible scenario!!!!")
       return;
     }
@@ -115,12 +101,7 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
         console.log('Response from /unregisterForCourse:', response);
         setIsRegisteredForSection(false);
 
-        const classIndexUnregisteredFor = response.data.classIndex;
-        console.log("classIndexUnregisteredFor: ", classIndexUnregisteredFor);
-
-        const newClasses = response.data.classes;
-        setAuthUser({ ...authUser, classes: newClasses });
-        localStorage.setItem('authUser', JSON.stringify(authUser));
+        setAuthUser(response.data.authUser);
 
         // make a message to the user that they have successfully unregistered for the class
         alert("You have successfully unregistered for the class!");
@@ -128,9 +109,7 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
       .catch((error) => { 
         console.error(error);
       });
-      console.log("authUser: ", authUser);
   }
-
 
   return (
     <div className="class-template-time-section" style={{ color: "white", marginBottom: "20px" }}>
@@ -144,9 +123,16 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
               room={classData.room}
               time={classData.time}
               description={classData.description}
-              onRegisterClick={isRegisteredForSection ? onUnregisterClick : onRegisterClick}
+              onRegisterClick={ () => {
+                if (isRegisteredForSection) {
+                  onUnregisterClick(classData.index);
+                } else {
+                  onRegisterClick(classData.index);
+                }
+              }}
               index={classData.index}
-              activated={isRegisteredForSection ? false : true}
+              activated={(!isRegisteredForSection) || (authUser.classes[classData.index] === "1")}
+              registered={authUser.classes[classData.index] === "1"}
             />
           ))
         ) : (

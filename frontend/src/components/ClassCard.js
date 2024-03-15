@@ -7,7 +7,7 @@ const CyberButton = (props) => {
   const className = `cyber-button ${background} ${foreground}`;
   const text = props.text || "Button Text";
   return (
-      <button className={className} onClick={() => props.onRegisterClick(props.index)}>
+      <button className={className} onClick={() => props.onRegisterClick(props.index)} disabled={props.disabled} style={{ opacity: props.disabled ? 0.5 : 1 }}>
           {text}
           <span className="glitchtext">SAIL</span>
           <span className="tag">{ props.index }</span>
@@ -17,9 +17,9 @@ const CyberButton = (props) => {
 
 
 
-const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated }) => {
+const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated, registered }) => {
   const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(registered);
 
   useEffect(() => {
     if (authUser) {
@@ -27,6 +27,10 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
       setIsRegistered(classes[index] === 1);
     }
   }, [authUser]);
+
+  useEffect(() => {
+    setAuthUser(JSON.parse(localStorage.getItem('authUser')));
+  }, [isRegistered]);
 
   return (
     <div class="cyber-tile-big fg-dark bg-cyan" style={{ padding: "10px"}}>
@@ -40,7 +44,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
           foreground={isRegistered ? "fg-white" : "fg-white"} 
           index={index} 
           onRegisterClick={() => { setIsRegistered(!isRegistered); onRegisterClick(index); }}
-          disabled={!activated && authUser.classes[index] !== 1} />
+          disabled={!activated} />
       </div>
     </div>
   );
