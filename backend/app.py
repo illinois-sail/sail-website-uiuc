@@ -5,9 +5,12 @@ from dotenv import load_dotenv
 from hash_password import hash_password
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_cors import CORS
+import pandas as pd
+import numpy as np
 
 # GET emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
+# curl -X POST -H "Content-Type: application/json" -d '{"token":"ilovekennychensomuchandheistheloveofmylifekenny4eva38240239847083924"}' http://172.16.0.51:5000/get_students
 
 load_dotenv()
 
@@ -294,6 +297,57 @@ def change_user_info():
     else:
         return "User not found", 400
     
+@app.route('/isRegisteredForCourse', methods=['POST'])
+def is_registered_for_course():
+    response = request.json
+    print(response)
+    
+    email = response['email']
+    classIndex = response['classIndex']
+    
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        if user.classes[classIndex] == '1':
+            return {"isRegistered": True}, 200
+        else:
+            return {"isRegistered": False}, 200
+    else:
+        return "User not found", 400
+    
+@app.route('/registerForCourse', methods=['POST'])
+def register_for_course():
+    response = request.json
+    print(response)
+    email = response['email']
+    classIndex = response['classIndex']
+    
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        user.classes = user.classes[:classIndex] + '1' + user.classes[classIndex+1:]
+        db.session.commit()
+        user_classes = Student.query.filter_by(email=email).first().classes
+        print(f"User classes: {user_classes}")
+        return {"classIndex" : classIndex}, 200
+    else:
+        return {"error" : "User not found"}, 400
+    
+@app.route('/unregisterForCourse', methods=['POST'])
+def unregister_for_course():
+    response = request.json
+    print(response)
+    email = response['email']
+    classIndex = response['classIndex']
+    
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        user.classes = user.classes[:classIndex] + '0' + user.classes[classIndex+1:]
+        db.session.commit()
+        user_classes = Student.query.filter_by(email=email).first().classes
+        print(f"User classes: {user_classes}")
+        return {"classes" : user_classes}, 200
+    else:
+        return {"error" : "User not found"}, 400
+
 @app.route('/check_email', methods=['POST'])
 def check_email():
     response = request.json
@@ -303,6 +357,14 @@ def check_email():
         return "The email is already in use", 400
     else:
         return "The email is not in use", 200
+
+@app.route('/get_classes/<email>', methods=['GET'])
+def get_classes(email):
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        return user.classes, 200
+    else:
+        return "User not found", 400
     
 @app.route('/get_emails', methods=['POST'])
 def get_emails():

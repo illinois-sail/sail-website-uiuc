@@ -1,68 +1,200 @@
-import React from "react";
-// import Box from "@mui/material/Box";
-// import Typography from "@mui/material/Typography";
-// import Container from "@mui/material/Container";
-// import ClassCard from "./ClassCard";
-// import Grid from "@mui/material/Grid";
-// import TextField from "@mui/material/TextField";
-// import background from "../assets/final_background.png";
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import ClassCard from "./ClassCard";
+import Grid from "@mui/material/Grid";
+import background from "../assets/final_background.png";
+import axios from "axios";
 
-// const titles = [
-//   "Example Class 1", "Example Class 2", "Example Class 3", "Example Class 4", "Example Class 5", "Example Class 6", "Example Class 7", "Example Class 8", "Example Class 9", "Example Class 10", "Example Class 11", "Example Class 12", "Example Class 13", "Example Class 14", "Example Class 15", "Example Class 16", "Example Class 17", "Example Class 18", "Example Class 19", "Example Class 20", "Example Class 21", "Example Class 22", "Example Class 23", "Example Class 24", "Example Class 25", "Example Class 26", "Example Class 27", "Example Class 28", "Example Class 29", "Example Class 30", "Example Class 31", "Example Class 32", "Example Class 33", "Example Class 34", "Example Class 35", "Example Class 36", "Example Class 37", "Example Class 38", "Example Class 39", "Example Class 40", "Example Class 41", "Example Class 42", "Example Class 43", "Example Class 44", "Example Class 45", "Example Class 46", "Example Class 47", "Example Class 48", "Example Class 49", "Example Class 50"
-// ];
+const PROD_SERVER = "https://sail.cs.illinois.edu";
+const TEST_SERVER = "http://172.16.0.51:5000" // replace with your local IP address
 
-// const rooms = [
-//   "Room 1021", "Room 1022", "Room 1023", "Room 1024", "Room 1025", "Room 1026", "Room 1027", "Room 1028", "Room 1029", "Room 1030", "Room 1031", "Room 1032", "Room 1033", "Room 1034", "Room 1035", "Room 1036", "Room 1037", "Room 1038", "Room 1039", "Room 1040", "Room 1041", "Room 1042", "Room 1043", "Room 1044", "Room 1045", "Room 1046", "Room 1047", "Room 1048", "Room 1049", "Room 1050", "Room 1051", "Room 1052", "Room 1053", "Room 1054", "Room 1055", "Room 1056", "Room 1057", "Room 1058", "Room 1059", "Room 1060", "Room 1061", "Room 1062", "Room 1063", "Room 1064", "Room 1065", "Room 1066", "Room 1067", "Room 1068", "Room 1069", "Room 1070"
-// ];
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
-// const times = [
-//   "12:01", "12:02", "12:03", "12:04", "12:05", "12:06", "12:07", "12:08", "12:09", "12:10", "12:11", "12:12", "12:13", "12:14", "12:15", "12:16", "12:17", "12:18", "12:19", "12:20", "12:21", "12:22", "12:23", "12:24", "12:25", "12:26", "12:27", "12:28", "12:29", "12:30", "12:31", "12:32", "12:33", "12:34", "12:35", "12:36", "12:37", "12:38", "12:39", "12:40", "12:41", "12:42", "12:43", "12:44", "12:45", "12:46", "12:47", "12:48", "12:49", "12:50"
-// ];
+const inPersonMorningClassesFirst = [
+  { className: "Math", room: "101", time: "9:00 AM - 10:30 AM", description: "Introduction to Algebra", index: 1 },
+  { className: "English", room: "202", time: "10:45 AM - 12:15 PM", description: "Literature Analysis", index: 2 },
+  { className: "Science", room: "303", time: "1:00 PM - 2:30 PM", description: "Chemistry Basics", index: 3 }
+];
 
-// const descriptions = [
+const inPersonMorningClassesSecond = [
+  { className: "History", room: "404", time: "2:45 PM - 4:15 PM", description: "World History", index: 4 },
+  { className: "Art", room: "505", time: "4:30 PM - 6:00 PM", description: "Painting Techniques", index: 5 }
+];
 
-// ]; // make an array of descriptions that is TBD 50 times
-const descriptions = ["TBD"];
-descriptions.length = 50;
-descriptions.fill("TBD");
+const inPersonAfternoonClasses = [
+  { className: "Music", room: "606", time: "6:15 PM - 7:45 PM", description: "Introduction to Piano", index: 6 },
+  { className: "Physical Education", room: "707", time: "8:00 PM - 9:30 PM", description: "Fitness and Wellness", index: 7 }
+];
+
+const virtualMorningClasses = [
+  { className: "Computer Science", room: "808", time: "9:00 AM - 10:30 AM", description: "Introduction to Programming", index: 8 },
+  { className: "Spanish", room: "909", time: "10:45 AM - 12:15 PM", description: "Conversational Spanish", index: 9 }
+];
+
+const virtualAfternoonClasses = [
+  { className: "Biology", room: "1010", time: "1:00 PM - 2:30 PM", description: "Cell Biology", index: 10 },
+  { className: "Psychology", room: "1111", time: "2:45 PM - 4:15 PM", description: "Introduction to Psychology", index: 11 }
+];
+
+
+const ClassTemplateTimeSection = ({ classesList, title }) => {
+  // make a GET request to the server to get the user's registration status for the class with the given index
+  const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
+  console.log("authUser: ", authUser);
+  // if authuser.classes[i] === 1 for i in indices of classesList, then the user is registered for a class in the section
+  const [isRegisteredForSection, setIsRegisteredForSection] = useState(() => {
+    if (authUser) {
+      const classes = authUser.classes;
+      for (let i = 0; i < classesList.length; i++) {
+        if (classes[classesList[i].index] === 1) {
+          return true;
+        }
+      }
+    }
+    return false;
+  });
+
+
+  function onRegisterClick(index, classesList) {
+    console.log("email: ", authUser.email);
+    console.log("classIndex: ", index);
+
+    // make a POST request to the server to register the user for the class with the given index
+    axios.post(`${SERVER_URL}/registerForCourse`, { email: authUser.email, classIndex: index })
+      .then((response) => {
+        console.log('Response:', response);
+        setIsRegisteredForSection(true);
+
+        // for the index with classIndex switch the button to "Unregister" and the rest should be nullified
+        const registeredClassIndex = response.data.classIndex;
+        const otherClassesInGroup = classesList.filter((classData) => classData.index !== registeredClassIndex);
+
+        // set the state of the class with the given index to 1
+        setAuthUser({ ...authUser, classes: { ...authUser.classes, [registeredClassIndex]: 1 } });
+
+        // set the state of the other classes in the group to 0
+        otherClassesInGroup.forEach((classData) => {
+          setAuthUser({ ...authUser, classes: { ...authUser.classes, [classData.index]: 0 } });
+        });
+
+        // update the authUser in localStorage
+        localStorage.setItem('authUser', JSON.stringify(authUser));
+
+        // update the authUser in the state
+        setAuthUser(authUser);
+
+        // make a message to the user that they have successfully registered for the class
+        alert("You have successfully registered for the class!");
+        
+        // re-render the component
+        window.location.reload();
+        
+        console.log("authUser: ", authUser);
+      })
+      .catch((error) => { 
+        console.error(error);
+      });
+  };
+
+  function onUnregisterClick(index, classes) {
+    console.log("email: ", authUser.email);
+    console.log("classIndex: ", index);
+
+    // make a POST request to the server to unregister the user for the class with the given index
+    axios.post(`${SERVER_URL}/unregisterForCourse`, { email: authUser.email, classIndex: index })
+      .then((response) => {
+        console.log('Response:', response);
+        setIsRegisteredForSection(false);
+
+        // for the index with classIndex switch the button to "Unregister" and the rest should be nullified
+        const registeredClassIndex = response.data.classIndex;
+        const otherClassesInGroup = classes.filter((classData) => classData.index !== registeredClassIndex);
+
+        // set the state of the class with the given index to 0
+        setAuthUser({ ...authUser, classes: { ...authUser.classes, [registeredClassIndex]: 0 } });
+
+        // set the state of the other classes in the group to 0
+        otherClassesInGroup.forEach((classData) => {
+          setAuthUser({ ...authUser, classes: { ...authUser.classes, [classData.index]: 0 } });
+        });
+
+        // update the authUser in localStorage
+        localStorage.setItem('authUser', JSON.stringify(authUser));
+
+        // update the authUser in the state
+        setAuthUser(authUser);
+
+        // make a message to the user that they have successfully unregistered for the class
+        alert("You have successfully unregistered for the class!");
+
+        
+        // re-render the component
+        window.location.reload();
+        
+        console.log("authUser: ", authUser);
+      }
+      )
+      .catch((error) => { 
+        console.error(error);
+      });
+  }
+
+
+  return (
+    <div className="class-template-time-section" style={{ color: "white", marginBottom: "20px" }}>
+      <h2>{title}</h2>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {classesList && classesList.length > 0 ? (
+          classesList.map((classData, index) => (
+            <div key={index} style={{ width: "100%", maxWidth: "25%", padding: "0 10px" }}>
+              <ClassCard
+                className={classData.className}
+                room={classData.room}
+                time={classData.time}
+                description={classData.description}
+                onRegisterClick={() => {
+                  if (isRegisteredForSection) {
+                    onUnregisterClick(classData.index, classesList);
+                  } else {
+                    onRegisterClick(classData.index, classesList);
+                  }
+                }}
+                index={classData.index}
+                activated={true}
+              />
+            </div>
+          ))
+        ) : (
+          <div>No classes available</div>
+        )}
+      </div>
+    </div>
+  );
+  
+}
 
 const ClassTemplate = () => {
   return (
-    <div className="WholeGrid" style={{ paddingTop: "15vh", paddingBottom: "10vh" }}>
-      {/* <Grid
-        container
-        spacing={4}
-        style={{
-          paddingLeft: "40px",
-          paddingRight: "40px",
-          marginTop: "20px",
-        }}
-      >
-        {titles.map((title, index) => {
-          // map() is a function that takes in an array and returns a new array
-          return (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              style={{ justifyContent: "center" }}
-            >
-              <ClassCard 
-                className={title}
-                room={rooms[index]}
-                time={times[index]}
-                description={descriptions[index]}
-              />
-            </Grid>
-          );
-        })}
-      </Grid> */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} >
-        <h1 style={{ color: "white", fontFamily: "Hyperwave", fontSize: "100px", textAlign: "center" }}> 
-          CLASSES TO BE ANNOUNCED IN MARCH 
-        </h1>
-      </div>
+    <div className="class-template" style={{  }}>
+      <Container>
+        <Box sx={{ my: 4 }}>
+          <Typography variant="h2" gutterBottom color={"white"} fontFamily="Oxanium" >
+            Class Schedule
+          </Typography>
+          <ClassTemplateTimeSection title="In-Person Morning Classes (10:00 AM - 11:00 AM)" classesList={inPersonMorningClassesFirst} />
+          <br /><br /><br /><br /><br /><br /><br />
+          <ClassTemplateTimeSection title="In-Person Afternoon Classes (11:00 AM - 12:00 PM)" classesList={inPersonMorningClassesSecond} />
+          <br /><br /><br /><br /><br /><br /><br />
+          <ClassTemplateTimeSection title="In-Person Evening Classes (2:00 PM - 3:00 PM)" classesList={inPersonAfternoonClasses} />
+          <br /><br /><br /><br /><br /><br /><br />
+          <ClassTemplateTimeSection title="Virtual Morning Classes (10:00 AM - 11:00 AM)" classesList={virtualMorningClasses} />
+          <br /><br /><br /><br /><br /><br /><br />
+          <ClassTemplateTimeSection title="Virtual Afternoon Classes (1:00 PM - 2:00 PM)" classesList={virtualAfternoonClasses} />
+        </Box>
+      </Container>
     </div>
   );
 };

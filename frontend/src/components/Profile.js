@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./cyberpunk.css"; 
 import axios from "axios";
 
@@ -8,7 +8,7 @@ const flexDirectionBasedOnScreenSize = isSmallScreen ? "column" : "row";
 
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.194.25.232:5000" // replace with your local IP address
+const TEST_SERVER = "http://172.16.0.51:5000";
 
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
@@ -31,7 +31,7 @@ const CyberButton = (props) => {
 // find the classes that the user is in given their bitsequence and the official list of classes
 function getClasses(bitsequence, classes) {
     let result = [];
-    for (let i = 0; i < classes.length; i++) {
+    for (let i = 0; i < Math.min(bitsequence.length, classes.length); i++) {
         if (bitsequence[i] === "1") {
             result.push(classes[i]);
         }
@@ -61,10 +61,21 @@ const InformationLink = (props) => {
     );
 }
 
+const authUser = JSON.parse(localStorage.getItem('authUser'));
+// reload the authUser from API
+axios.get(`${SERVER_URL}/get_classes/${authUser.email}`)
+.then(response => {
+    const newAuthUser = JSON.parse(localStorage.getItem('authUser'));
+    newAuthUser.classes = response.data;
+    localStorage.setItem('authUser', JSON.stringify(newAuthUser));
+})
+.catch(error => {
+    console.error('Error:', error);
+});
 
 
 function Profile() {  
-    const authUser = JSON.parse(localStorage.getItem('authUser'));
+    const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
 
     const [isEditingFirstName, setIsEditingFirstName] = useState(false);
     const [isEditingLastName, setIsEditingLastName] = useState(false);
@@ -87,14 +98,20 @@ function Profile() {
     const [originalParentName, setOriginalParentName] = useState(authUser ? authUser.parent_name : "");
     const [originalParentEmail, setOriginalParentEmail] = useState(authUser ? authUser.parent_email : "");
 
-    // useEffect(() => {
-    //     if (authUser) {
-    //         setOriginalEmail(authUser.email);
-    //         setOriginalShirtSize(authUser.shirt_size);
-    //         setOriginalParentName(authUser.parent_name);
-    //         setOriginalParentEmail(authUser.parent_email);
-    //     }
-    // }, [authUser]);
+    const [isSmallScreen, setIsSmallScreen] = useState(window.matchMedia('(max-width: 1200px)').matches)
+    const [flexDirection, setFlexDirection] = useState(isSmallScreen ? "column" : "row")
+    const [displayStyle, setDisplayStyle] = useState(isSmallScreen ? "grid" : "flex")
+
+    useEffect(() => {
+        const handleResize = () => {
+            const isSmallScreen = window.matchMedia('(max-width: 1200px)').matches
+            setIsSmallScreen(isSmallScreen)
+            setDisplayStyle(isSmallScreen ? "grid" : "flex")
+            setFlexDirection(isSmallScreen ? "column" : "row")
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, []);
 
     const handleDoubleClick = (field) => {
         switch (field) {
@@ -157,50 +174,6 @@ function Profile() {
         }
         console.log("editedEmail: ", editedEmail);
         console.log("originalEmail: ", originalEmail);
-
-        // ADD VALIDATION HERE (TODO)
-
-        // // Capitalize the first letter of the first and last name
-        // setEditedFirstName(editedFirstName.charAt(0).toUpperCase() + editedFirstName.slice(1).toLowerCase());
-        // setEditedLastName(editedLastName.charAt(0).toUpperCase() + editedLastName.slice(1).toLowerCase());
-
-        // // make sure email is unique and contains an @ symbol
-        // if ("@".indexOf(editedEmail) === -1) {
-        //     alert("Invalid email address");
-        //     return;
-        // } else if (editedEmail !== originalEmail) {
-        //     // make a POST request to the server to check if the email is unique
-        //     axios.post("http://127.0.0.1:5000/check_email", {
-        //         email: editedEmail
-        //     })
-        //     .then(response => {
-        //         if (response.status == 400) {
-        //             alert("Email already exists");
-        //             return;
-        //         } else if (response.status == 200) {
-        //             alert("Email changed successfully")
-        //             return;
-        //         } else {
-        //             alert("Unknown error");
-        //             return;
-        //         }
-        //     })
-        //     .catch(error => {
-        //         // Handle the error if needed
-        //     });
-        // }
-        // // make sure shirt size is valid
-        // if (editedShirtSize !== "XS" || editedShirtSize !== "S" || editedShirtSize !== "M" || editedShirtSize !== "L" || editedShirtSize !== "XL") {
-        //     alert("Invalid shirt size");
-        //     return;
-        // }
-
-
-        // // make sure parent email is valid
-        // if ("@".indexOf(editedParentEmail) === -1) {
-        //     alert("Invalid parent email address");
-        //     return;
-        // }
 
 
         // if the editedEmail is different from the originalEmail, then alert the user they are changing their email and ask for confirmation
@@ -279,7 +252,9 @@ function Profile() {
         setIsEditingParentEmail(false);
     };
 
+    console.log("authUser: ", authUser)
     const userClasses = authUser ? getClasses(authUser.classes, classes) : [];
+    console.log("userClasses: ", userClasses);
     const firstName = authUser ? authUser.first_name : "Not Signed In";
     const lastName = authUser ? authUser.last_name : "";
     const email = authUser ? authUser.email : "notloggedin@sail.edu";
@@ -379,7 +354,7 @@ function Profile() {
             <br/>
             <InformationLink href="/registration" text="Register for SAIL" />
             <br/>
-            <div className="infoAndClasses" style={{ display: "flex", fontFamily: "JetBrainsMono", width: "50%", flexDirection: { flexDirectionBasedOnScreenSize } }}>
+            <div className="infoAndClasses" style={{ display: displayStyle, fontFamily: "JetBrainsMono", width: "50%", flexDirection: flexDirection, gap: "1vw" }}>
                 <div className="info" position="relative" style={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "left", width: "60%" }}>
                     <h2 onDoubleClick={() => handleDoubleClick("email")}>{isEditingEmail ? <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}><input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} placeholder={email}/></div> : email}</h2>
                     <p onDoubleClick={() => handleDoubleClick("shirtSize")}>
