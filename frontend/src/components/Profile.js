@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./cyberpunk.css"; 
 import axios from "axios";
 
-const classes = [{className: "How to succeed at UIUC", time: "11:00", room: "Siebel 1404"}, {className: "Intro to Graph Theory", time: "12:00", room: "Siebel 1404"}, {className: "Recursion and Induction", time: "1:00", room: "Siebel 1404"}]
+const CLASSES = [{className: "How to succeed at UIUC", time: "11:00", room: "Siebel 1404"}, 
+                {className: "Intro to Graph Theory", time: "12:00", room: "Siebel 1404"}, 
+                {className: "Recursion and Induction", time: "1:00", room: "Siebel 1404"},
+                {className: "Intro to Cybersecurity", time: "2:00", room: "Siebel 1404"}]
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
 const TEST_SERVER = "http://172.16.0.51:5000";
@@ -58,21 +61,40 @@ const InformationLink = (props) => {
     );
 }
 
-const authUser = JSON.parse(localStorage.getItem('authUser'));
-// reload the authUser from API
-axios.get(`${SERVER_URL}/get_classes/${authUser.email}`)
-.then(response => {
-    const newAuthUser = JSON.parse(localStorage.getItem('authUser'));
-    newAuthUser.classes = response.data;
-    localStorage.setItem('authUser', JSON.stringify(newAuthUser));
-})
-.catch(error => {
-    console.error('Error:', error);
-});
-
+const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 
 function Profile() {  
-    const authUser = JSON.parse(localStorage.getItem('authUser'));
+    const [authUser, setAuthUser] = useState(initialAuthUser);
+    const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
+
+    useEffect(() => {
+        if (!dataFetched) {
+            axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
+                .then((response) => {
+                    console.log('Response from /get_classes:', response);
+                    const initialClasses = response.data.classes;
+                    setAuthUser((prevAuthUser) => {
+                        return {
+                            ...prevAuthUser,
+                            classes: initialClasses
+                        }
+                    });
+                    setDataFetched(true); // Mark data as fetched
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+    }, [dataFetched, authUser]);
+
+    useEffect(() => {
+        console.log("authUser changed!")
+        if (authUser) {
+            localStorage.setItem('authUser', JSON.stringify(authUser));
+            console.log("changed authUser: ", authUser);
+            console.log("authUser classes: " + authUser.classes)
+        }
+    }, [authUser]);
 
     const [isEditingFirstName, setIsEditingFirstName] = useState(false);
     const [isEditingLastName, setIsEditingLastName] = useState(false);
@@ -250,7 +272,7 @@ function Profile() {
     };
 
     console.log("authUser: ", authUser)
-    const userClasses = authUser ? getClasses(authUser.classes, classes) : [];
+    const userClasses = authUser ? getClasses(authUser.classes, CLASSES) : [];
     console.log("userClasses: ", userClasses);
     const firstName = authUser ? authUser.first_name : "Not Signed In";
     const lastName = authUser ? authUser.last_name : "";

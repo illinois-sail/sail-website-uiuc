@@ -12,6 +12,7 @@ const TEST_SERVER = "http://172.16.0.51:5000" // replace with your local IP addr
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 const inPersonMorningClassesFirst = [
+  { className: "Math", room: "000", time: "9:00 AM - 10:30 AM", description: "AP Calculus BC", index: 0 },
   { className: "Math", room: "101", time: "9:00 AM - 10:30 AM", description: "Introduction to Algebra", index: 1 },
   { className: "English", room: "202", time: "10:45 AM - 12:15 PM", description: "Literature Analysis", index: 2 },
   { className: "Science", room: "303", time: "1:00 PM - 2:30 PM", description: "Chemistry Basics", index: 3 }
@@ -37,12 +38,47 @@ const virtualAfternoonClasses = [
   { className: "Psychology", room: "1111", time: "2:45 PM - 4:15 PM", description: "Introduction to Psychology", index: 11 }
 ];
 
+const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
+var initialClasses = [];
+
+axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
+    .then((response) => {
+      console.log('Response from /get_classes:', response);
+      initialClasses = response.data.classes;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
 const ClassTemplateTimeSection = ({ classesList, title }) => {
-  const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
+  const [authUser, setAuthUser] = useState(initialAuthUser);
   const [isRegisteredForSection, setIsRegisteredForSection] = useState(false);
+  const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
 
   useEffect(() => {
+    if (!dataFetched) {
+      axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
+        .then((response) => {
+          console.log('Response from /get_classes:', response);
+          const initialClasses = response.data.classes;
+          setIsRegisteredForSection(() => {
+            for (var i = 0; i < initialClasses.length; i++) {
+              if (authUser.classes[initialClasses[i].index] === "1") {
+                return true;
+              }
+            }
+            return false;
+          });
+          setDataFetched(true); // Mark data as fetched
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [dataFetched, authUser]);
+
+  useEffect(() => {
+    console.log("authUser changed!")
     if (authUser) {
       localStorage.setItem('authUser', JSON.stringify(authUser));
       console.log("changed authUser: ", authUser);
@@ -51,19 +87,7 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
   }, [authUser]);
 
   function onRegisterClick(index) {
-    console.log("classIndex: ", index);
-
-    // if the index is not in the user's classes, then block the user from registering for the class
-    if (authUser.classes[index] === 0 && isRegisteredForSection) {
-      alert("You cannot register for multiple classes in the same time section. Please unregister from the other class first.");
-      return;
-    } else if (authUser.classes[index] === 1 && isRegisteredForSection) {
-      alert("You are already registered for this class.");
-      return;
-    } else if (authUser.classes[index] === 1 && !isRegisteredForSection) {
-      alert("impossible scenario!!!!")
-      return;
-    }
+    console.log("registering for class (index): ", index);
 
     // make a POST request to the server to register the user for the class with the given index
     axios.post(`${SERVER_URL}/registerForCourse`, { email: authUser.email, classIndex: index })
@@ -79,21 +103,10 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
       .catch((error) => { 
         console.error(error);
       });
-    };
+  };
 
   function onUnregisterClick(index) {
-    console.log("classIndex: ", index);
-
-    if (authUser.classes[index] === 0 && isRegisteredForSection) {
-      alert("You are already registered for a class in this section. You cannot unregister for a different class in this section.");
-      return;
-    } else if (authUser.classes[index] === 0 && !isRegisteredForSection) {
-      alert("You are not registered for this class.");
-      return;
-    } else if (authUser.classes[index] === 1 && !isRegisteredForSection) {
-      alert("impossible scenario!!!!")
-      return;
-    }
+    console.log("unregistering for class (index): ", index);
 
     // make a POST request to the server to unregister the user for the class with the given index
     axios.post(`${SERVER_URL}/unregisterForCourse`, { email: authUser.email, classIndex: index })
@@ -116,9 +129,9 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
       <h2>{title}</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {classesList && classesList.length > 0 ? (
-          classesList.map((classData, index) => (
+          classesList.map((classData) => (
             <ClassCard 
-              key={index}
+              key={classData.index}
               className={classData.className}
               room={classData.room}
               time={classData.time}
@@ -132,7 +145,6 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
               }}
               index={classData.index}
               activated={(!isRegisteredForSection) || (authUser.classes[classData.index] === "1")}
-              registered={authUser.classes[classData.index] === "1"}
             />
           ))
         ) : (

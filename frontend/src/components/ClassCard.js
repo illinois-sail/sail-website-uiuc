@@ -17,14 +17,14 @@ const CyberButton = (props) => {
 
 
 
-const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated, registered }) => {
+const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated }) => {
   const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
-  const [isRegistered, setIsRegistered] = useState(registered);
+  const [isRegistered, setIsRegistered] = useState(authUser.classes[index] === "1");
 
   useEffect(() => {
     if (authUser) {
       const classes = authUser.classes;
-      setIsRegistered(classes[index] === 1);
+      setIsRegistered(classes[index] === "1");
     }
   }, [authUser]);
 

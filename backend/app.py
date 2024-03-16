@@ -387,7 +387,7 @@ def check_email():
 def get_classes(email):
     user = Student.query.filter_by(email=email).first()
     if user:
-        return user.classes, 200
+        return {"classes" : user.classes}, 200
     else:
         return "User not found", 400
     
