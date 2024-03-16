@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './ClassCard.css'; 
+import axios from 'axios';
+
+const PROD_SERVER = "https://sail.cs.illinois.edu";
+const TEST_SERVER = "http://172.16.0.51:5000" // replace with your local IP address
+
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 const CyberButton = (props) => {
   const background = props.background || "bg-red";
@@ -16,15 +23,34 @@ const CyberButton = (props) => {
 };
 
 
+const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 
 const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated }) => {
-  const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
-  const [isRegistered, setIsRegistered] = useState(authUser.classes[index] === "1");
+  const [authUser, setAuthUser] = useState(initialAuthUser);
+  const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
+  const [isRegistered, setIsRegistered] = useState(false); // Track if user is registered for the class
 
   useEffect(() => {
+    if (!dataFetched) {
+      if (authUser) {
+        axios.get(`${SERVER_URL}/get_classes/${authUser.email}`)
+          .then((response) => {
+            console.log('Response from /get_classes:', response);
+            setAuthUser({ ...authUser, classes: response.data.classes });
+            setDataFetched(true);
+            setIsRegistered(response.data.classes[index] === "1");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+    }
+  }, [authUser, dataFetched]);
+
+  useEffect(() => {
+    console.log("authUser has changed!")
     if (authUser) {
-      const classes = authUser.classes;
-      setIsRegistered(classes[index] === "1");
+      localStorage.setItem('authUser', JSON.stringify(authUser));
     }
   }, [authUser]);
 
