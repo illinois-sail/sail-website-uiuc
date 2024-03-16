@@ -41,7 +41,8 @@ const virtualAfternoonClasses = [
 const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 var initialClasses = [];
 
-axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
+if (initialAuthUser) {
+  axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
     .then((response) => {
       console.log('Response from /get_classes:', response);
       initialClasses = response.data.classes;
@@ -49,10 +50,14 @@ axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
     .catch((error) => {
       console.error(error);
     });
+} else {
+  console.log("No initial authUser found in local storage");
+}
+
 
 const ClassTemplateTimeSection = ({ classesList, title }) => {
   const [authUser, setAuthUser] = useState(initialAuthUser);
-  const [isRegisteredForSection, setIsRegisteredForSection] = useState(false);
+  const [isRegisteredForSection, setIsRegisteredForSection] = useState(false); // Track if user is registered for the section
   const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
 
   useEffect(() => {
@@ -61,14 +66,14 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
         .then((response) => {
           console.log('Response from /get_classes:', response);
           const initialClasses = response.data.classes;
-          setIsRegisteredForSection(() => {
-            for (var i = 0; i < initialClasses.length; i++) {
-              if (authUser.classes[initialClasses[i].index] === "1") {
-                return true;
-              }
+          var isRegistered = false;
+          for (var i = 0; i < classesList.length; i++) {
+            if (initialClasses[classesList[i].index] === "1") {
+              isRegistered = true;
+              break;
             }
-            return false;
-          });
+          }
+          setIsRegisteredForSection(isRegistered);
           setDataFetched(true); // Mark data as fetched
         })
         .catch((error) => {
@@ -144,7 +149,7 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
                 }
               }}
               index={classData.index}
-              activated={(!isRegisteredForSection) || (authUser.classes[classData.index] === "1")}
+              activated={(isRegisteredForSection && authUser.classes[classData.index] === "1") || !isRegisteredForSection}
             />
           ))
         ) : (
