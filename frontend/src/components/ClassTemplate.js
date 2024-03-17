@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ClassCard from "./ClassCard";
 import axios from "axios";
+import allClasses, { inPersonMorningClassesFirst, inPersonMorningClassesSecond, inPersonAfternoonClasses, virtualMorningClasses, virtualAfternoonClasses } from "./Classes";
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
 const TEST_SERVER = "http://172.16.0.51:5000" // replace with your local IP address
@@ -11,34 +12,20 @@ const TEST_SERVER = "http://172.16.0.51:5000" // replace with your local IP addr
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
-const inPersonMorningClassesFirst = [
-  { className: "Math", room: "000", time: "9:00 AM - 10:30 AM", description: "AP Calculus BC", index: 0 },
-  { className: "Math", room: "101", time: "9:00 AM - 10:30 AM", description: "Introduction to Algebra", index: 1 },
-  { className: "English", room: "202", time: "10:45 AM - 12:15 PM", description: "Literature Analysis", index: 2 },
-  { className: "Science", room: "303", time: "1:00 PM - 2:30 PM", description: "Chemistry Basics", index: 3 }
-];
+const CLASSES = allClasses;
 
-const inPersonMorningClassesSecond = [
-  { className: "History", room: "404", time: "2:45 PM - 4:15 PM", description: "World History", index: 4 },
-  { className: "Art", room: "505", time: "4:30 PM - 6:00 PM", description: "Painting Techniques", index: 5 }
-];
+const IN_PERSON_MORNING_CLASSES_FIRST = inPersonMorningClassesFirst;
 
-const inPersonAfternoonClasses = [
-  { className: "Music", room: "606", time: "6:15 PM - 7:45 PM", description: "Introduction to Piano", index: 6 },
-  { className: "Physical Education", room: "707", time: "8:00 PM - 9:30 PM", description: "Fitness and Wellness", index: 7 }
-];
+const IN_PERSON_MORNING_CLASSES_SECOND = inPersonMorningClassesSecond;
 
-const virtualMorningClasses = [
-  { className: "Computer Science", room: "808", time: "9:00 AM - 10:30 AM", description: "Introduction to Programming", index: 8 },
-  { className: "Spanish", room: "909", time: "10:45 AM - 12:15 PM", description: "Conversational Spanish", index: 9 }
-];
+const IN_PERSON_AFTERNOON_CLASSES = inPersonAfternoonClasses;
 
-const virtualAfternoonClasses = [
-  { className: "Biology", room: "1010", time: "1:00 PM - 2:30 PM", description: "Cell Biology", index: 10 },
-  { className: "Psychology", room: "1111", time: "2:45 PM - 4:15 PM", description: "Introduction to Psychology", index: 11 }
-];
+const VIRTUAL_MORNING_CLASSES = virtualMorningClasses;
 
-const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
+const VIRTUAL_AFTERNOON_CLASSES = virtualAfternoonClasses;
+
+var initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
+console.log("initialAuthUser: ", initialAuthUser);
 var initialClasses = [];
 
 if (initialAuthUser) {
@@ -103,10 +90,13 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
         setAuthUser(response.data.authUser);
 
         // make a message to the user that they have successfully registered for the class
-        alert("You have successfully registered for the class!");
+        alert("You have successfully REGISTERED for the class!");
+        window.location.reload();
       })
       .catch((error) => { 
         console.error(error);
+        alert("There was an error registering for the class. Please try again later.")
+        window.location.reload();
       });
   };
 
@@ -122,62 +112,84 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
         setAuthUser(response.data.authUser);
 
         // make a message to the user that they have successfully unregistered for the class
-        alert("You have successfully unregistered for the class!");
+        alert("You have successfully UNREGISTERED for the class!");
+        window.location.reload();
       })
       .catch((error) => { 
         console.error(error);
+        alert("There was an error registering for the class. Please try again later.")
+        window.location.reload();
       });
   }
 
   return (
-    <div className="class-template-time-section" style={{ color: "white", marginBottom: "20px" }}>
-      <h2>{title}</h2>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {classesList && classesList.length > 0 ? (
-          classesList.map((classData) => (
-            <ClassCard 
-              key={classData.index}
-              className={classData.className}
-              room={classData.room}
-              time={classData.time}
-              description={classData.description}
-              onRegisterClick={ () => {
-                if (isRegisteredForSection) {
-                  onUnregisterClick(classData.index);
-                } else {
-                  onRegisterClick(classData.index);
-                }
-              }}
-              index={classData.index}
-              activated={(isRegisteredForSection && authUser.classes[classData.index] === "1") || !isRegisteredForSection}
-            />
-          ))
-        ) : (
-          <div>No classes available</div>
-        )}
+    <div className="class-template-time-section" style={{ color: "white", marginBottom: "20px", alignItems: "center" }}>
+      <div className="titleDiv" style={{ textAlign: "center", marginBottom: "2vh", fontSize: "1.6rem" }}>
+        <h2>{title}</h2>
       </div>
+      
+      <div style={{ display: "flex", flexFlow: "row wrap", justifyContent: "space-around", gap: "1.3rem" }}>
+          {classesList && classesList.length > 0 ? (
+            classesList.map((classData) => (
+                <ClassCard 
+                  className={classData.className}
+                  room={classData.room}
+                  time={classData.time}
+                  description={classData.description}
+                  onRegisterClick={ () => {
+                    if (isRegisteredForSection) {
+                      onUnregisterClick(classData.index);
+                    } else {
+                      onRegisterClick(classData.index);
+                    }
+                  }}
+                  index={classData.index}
+                  activated={(isRegisteredForSection && authUser.classes[classData.index] === "1") || !isRegisteredForSection}
+                />
+            ))
+          ) : (
+            <div>No classes available</div>
+          )}
+      </div>
+      
     </div>
   );
   
 }
 
 const ClassTemplate = () => {
-  return (
-    <div className="class-template" style={{  }}>
+  if (!initialAuthUser) {
+    return (
+      <div className="class-template" style={{  }}>
       <Container>
         <Box sx={{ my: 4 }}>
+        <Typography variant="h2" gutterBottom color={"white"} fontFamily="Oxanium" >
+          Class Schedule
+        </Typography>
+        <Typography variant="h5" gutterBottom color={"white"} fontFamily="Oxanium" >
+          Please log in to view your class schedule
+        </Typography>
+        </Box>
+      </Container>
+      </div>
+    );
+  }
+  return (
+    <div className="class-template" style={{ }}>
+      <Container maxWidth="false">
+        <Box sx={{ my: 5, mx: "8vw" }}>
           <Typography variant="h2" gutterBottom color={"white"} fontFamily="Oxanium" >
             Class Schedule
           </Typography>
-          <ClassTemplateTimeSection title="In-Person Morning Classes (10:00 AM - 11:00 AM)" classesList={inPersonMorningClassesFirst} />
+          <ClassTemplateTimeSection title="In-Person Morning Classes (10:00 AM - 10:50 AM)" classesList={IN_PERSON_MORNING_CLASSES_FIRST} />
           <br /><br /><br /><br /><br /><br /><br />
-          <ClassTemplateTimeSection title="In-Person Afternoon Classes (11:00 AM - 12:00 PM)" classesList={inPersonMorningClassesSecond} />
+          <ClassTemplateTimeSection title="In-Person Afternoon Classes (11:00 AM - 11:50 PM)" classesList={IN_PERSON_MORNING_CLASSES_SECOND} />
           <br /><br /><br /><br /><br /><br /><br />
-          <ClassTemplateTimeSection title="In-Person Evening Classes (2:00 PM - 3:00 PM)" classesList={inPersonAfternoonClasses} />
+          <ClassTemplateTimeSection title="In-Person Evening Classes (2:00 PM - 3:00 PM)" classesList={IN_PERSON_AFTERNOON_CLASSES} />
           <br /><br /><br /><br /><br /><br /><br />
-          <ClassTemplateTimeSection title="Virtual Morning Classes (10:00 AM - 11:00 AM)" classesList={virtualMorningClasses} />
-          <br /><br /><br /><br /><br /><br /><br />
-          <ClassTemplateTimeSection title="Virtual Afternoon Classes (1:00 PM - 2:00 PM)" classesList={virtualAfternoonClasses} />
+          <ClassTemplateTimeSection title="Virtual Morning Classes (10:00 AM - 11:00 AM)" classesList={VIRTUAL_MORNING_CLASSES} />
+          {/* <br /><br /><br /><br /><br /><br /><br /> */}
+          <ClassTemplateTimeSection title="Virtual Afternoon Classes (12:30 PM - 1:15 PM)" classesList={VIRTUAL_AFTERNOON_CLASSES} />
         </Box>
       </Container>
     </div>

@@ -22,13 +22,13 @@ const CyberButton = (props) => {
   );
 };
 
-
 const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 
 const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated }) => {
   const [authUser, setAuthUser] = useState(initialAuthUser);
   const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
   const [isRegistered, setIsRegistered] = useState(false); // Track if user is registered for the class
+  const [seatsRemaining, setSeatsRemaining] = useState(-1);
 
   useEffect(() => {
     if (!dataFetched) {
@@ -42,6 +42,19 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
           })
           .catch((error) => {
             console.error(error);
+          });
+      }
+
+      if (seatsRemaining === -1) {
+        console.log("fetching seats remaining");
+        axios.get(`${SERVER_URL}/get_seats_remaining`)
+          .then((response) => {
+            console.log('Response from /get_seats_remaining:', response.data);
+            setSeatsRemaining(response.data[index].remainingSeats);
+            console.log("seatsRemaining:", response.data[index].remainingSeats);
+          })
+          .catch((error) => {
+            console.error("error fetching seats remaining:", error);
           });
       }
     }
@@ -59,11 +72,12 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
   }, [isRegistered]);
 
   return (
-    <div class="cyber-tile-big fg-dark bg-cyan" style={{ padding: "10px"}}>
+    <div class="cyber-tile-big fg-dark bg-cyan" style={{ padding: "10px", display: "flex", flexDirection: "column", justifyContent: "space-around"}}>
       <h1 style={{ fontFamily: "Oxanium"}}>{className}</h1>
       <h2 style={{ fontFamily: "Oxanium"}}>{room} @ {time}</h2>
       <p style={{ fontFamily: "Oxanium"}}>{description}</p>
-      <div class="register-button" style={{ display: "flex", flexDirection: "center", alignContent: "center", justifyContent: "center" }} >
+      <p>Seats Remaining: {seatsRemaining}</p>
+      <div class="register-button" style={{ display: "flex", flexDirection: "center", alignContent: "center", justifyContent: "center", marginBottom: "0px" }} >
         <CyberButton 
           text={isRegistered ? "Unregister" : "Register"} 
           background={isRegistered ? "bg-red" : "bg-green"} 

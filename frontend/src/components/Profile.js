@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./cyberpunk.css"; 
 import axios from "axios";
+import allClasses from "./Classes";
 
-const CLASSES = [{className: "How to succeed at UIUC", time: "11:00", room: "Siebel 1404"}, 
-                {className: "Intro to Graph Theory", time: "12:00", room: "Siebel 1404"}, 
-                {className: "Recursion and Induction", time: "1:00", room: "Siebel 1404"},
-                {className: "Intro to Cybersecurity", time: "2:00", room: "Siebel 1404"}]
+const CLASSES = allClasses
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
 const TEST_SERVER = "http://172.16.0.51:5000";

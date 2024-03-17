@@ -12,6 +12,8 @@ import numpy as np
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"ilovekennychensomuchandheistheloveofmylifekenny4eva38240239847083924"}' http://172.16.0.51:5000/get_students
 
+remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
+
 load_dotenv()
 
 app = Flask(__name__, static_url_path='/', static_folder='./build', template_folder='./build')
@@ -63,6 +65,10 @@ def profile():
 
 @app.route('/logout', methods=['GET'])
 def logout():
+    return render_template('index.html')
+
+@app.route('/registration', methods=['GET'])
+def registration():
     return render_template('index.html')
 
 
@@ -339,6 +345,15 @@ def register_for_course():
             "parent_name": user.parent_name,
             "parent_email": user.parent_email
         }
+        
+        if remainingSeats["remainingSeats"].iloc[classIndex] <= 0:
+            return "The class is full", 401
+        
+        remainingSeats.loc[classIndex, "remainingSeats"] = remainingSeats["remainingSeats"].iloc[classIndex] - 1
+        remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
+        
+        print(f"Class Name: {remainingSeats['courseName'].iloc[classIndex]}, Remaining Seats: {remainingSeats['remainingSeats'].iloc[classIndex]}")
+        
         return {"classIndex" : classIndex, "authUser" : authUser}, 200
     else:
         return {"error" : "User not found"}, 400
@@ -369,6 +384,9 @@ def unregister_for_course():
             "parent_email": user.parent_email
         }
         
+        remainingSeats.loc[classIndex, "remainingSeats"] = remainingSeats["remainingSeats"].iloc[classIndex] + 1
+        remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
+        
         return {"classIndex" : classIndex, "authUser" : authUser}, 200
     else:
         return {"error" : "User not found"}, 400
@@ -390,6 +408,12 @@ def get_classes(email):
         return {"classes" : user.classes}, 200
     else:
         return "User not found", 400
+    
+@app.route('/get_seats_remaining', methods=['GET'])
+def get_seats_remaining():
+    remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
+    remainingSeats = remainingSeats.to_dict(orient='records')
+    return remainingSeats, 200
     
 @app.route('/get_emails', methods=['POST'])
 def get_emails():
