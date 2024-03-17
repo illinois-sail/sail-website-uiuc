@@ -65,6 +65,11 @@ function Profile() {
     const [authUser, setAuthUser] = useState(initialAuthUser);
     const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
 
+    if (!authUser) {
+        console.log("No initial authUser found in local storage");
+        window.location.href = "/login";
+    }
+
     useEffect(() => {
         if (!dataFetched) {
             axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
