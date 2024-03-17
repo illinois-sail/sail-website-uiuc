@@ -328,6 +328,10 @@ def register_for_course():
     classIndex = response['classIndex']
     print(email, classIndex)
     
+    # if already registered, return an error
+    if Student.query.filter_by(email=email).first().classes[classIndex] == '1':
+        return "The user is already registered for the class", 402
+    
     user = Student.query.filter_by(email=email).first()
     if user:
         user.classes = user.classes[:classIndex] + '1' + user.classes[classIndex+1:]
@@ -365,6 +369,10 @@ def unregister_for_course():
     email = response['email']
     classIndex = response['classIndex']
     print(email, classIndex)
+    
+    # if not registered, return an error
+    if Student.query.filter_by(email=email).first().classes[classIndex] == '0':
+        return "The user is not registered for the class", 402
     
     user = Student.query.filter_by(email=email).first()
     if user:

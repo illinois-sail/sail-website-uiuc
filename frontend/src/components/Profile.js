@@ -444,8 +444,8 @@ function Profile() {
                 <CyberButton text="Edit" onClick={() => handleDoubleClick("all")} />
             )}
             <br/> <br/> <br/> <br/><br/><br/><br/><br/>
-            <div className="bus-information" style={{ marginTop: "2vh" }}>
-                <h1 style={{ fontSize: "2vw" }}>Bus Information</h1>
+            <div className="bus-information" style={{ marginTop: "2vh", paddingLeft: "5vw", paddingRight: "5vw" }}>
+                <h1 style={{ fontSize: "3rem" }}>Bus Information</h1>
                 <p>If you need a bus, here are all the provided bus stops:</p>
                 <ul>
                     <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540)</li>
