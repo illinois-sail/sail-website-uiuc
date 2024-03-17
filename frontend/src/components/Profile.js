@@ -443,6 +443,17 @@ function Profile() {
             ) : (
                 <CyberButton text="Edit" onClick={() => handleDoubleClick("all")} />
             )}
+            <br/> <br/> <br/> <br/><br/><br/><br/><br/>
+            <div className="bus-information" style={{ marginTop: "2vh" }}>
+                <h1 style={{ fontSize: "2vw" }}>Bus Information</h1>
+                <p>If you need a bus, here are all the provided bus stops:</p>
+                <ul>
+                    <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540)</li>
+                    <li>Union Station, Chicago (225 S Canal St, Chicago, IL 60606)</li>
+                    <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173)</li>
+                    <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523)</li>
+                </ul>
+            </div>
         </div>
     );
 };
