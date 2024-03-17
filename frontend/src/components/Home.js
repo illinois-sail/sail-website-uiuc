@@ -19,9 +19,10 @@ function Home() {
   return (
     <div className="homepage">
         <div class="container">
-          <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-            <img style={{ width: "100%", height: "100%" }} src={homepage_image} alt="SAIL 2024 Logo" />
-          </div>
+        <div className="logo-container" style={{ width: "100%", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
+          <img style={{ width: "100%", height: "auto" }} src={homepage_image} alt="SAIL 2024 Logo" />
+        </div>
+
           <p class="home_text">April 13-14, 2024</p>
         </div>
         <div class="container" style={{marginTop: "60px"}}>
@@ -31,8 +32,8 @@ function Home() {
           <p class="home_subtitle">Day 1</p>
           <table class="schedule-table">
             <tr>
-              <th>Time</th>
-              <th>Activity</th>
+              <th class="table_head">Time</th>
+              <th class="table_head">Activity</th>
             </tr>
             <tr>
               <td>8:00am</td>
@@ -81,8 +82,8 @@ function Home() {
           <p class="home_subtitle">Day 2</p>
           <table class="schedule-table">
             <tr>
-              <th>Time</th>
-              <th>Activity</th>
+              <th class="table_head">Time</th>
+              <th class="table_head">Activity</th>
             </tr>
             <tr>
               <td>12:30pm</td>

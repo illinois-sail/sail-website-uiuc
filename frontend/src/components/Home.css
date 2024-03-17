@@ -2,12 +2,24 @@
 @import "cyberpunk.css";
 
 .container {
+  width: 100%; /* Full width */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  min-height: 100vh; /* Make it at least as tall as the viewport */
 }
+
+.logo-container {
+  max-width: 40vw; /* Corrected */
+  width: 100%; /* Ensures it fills its container */
+  display: flex;
+  justify-content: center; /* This keeps the logo centered */
+}
+
+
+
+
 
 .carousel_container {
   display: flex;
@@ -33,7 +45,7 @@
   font-family: "Magz";
   color: white;
   font-size: 90px;
-  padding-top: 100px;
+  padding-top: 10vh;
 }
 
 .home_subtitle {
@@ -43,10 +55,95 @@
   margin-top: 30px;
 }
 
+
 .home_text {
   font-family: "Magz";
   color: white;
   font-size: 40px;
+}
+
+
+/* Adjust the title size for tablets and small desktops */
+@media (max-width: 1024px) {
+  .logo-container {
+    max-width: 60vw;
+  }
+  .home_title {
+    font-size: 80px; /* Slightly smaller font size */
+  }
+  .home_subtitle {
+    font-size: 30px; /* Slightly smaller font size */
+  }
+  .home_text {
+    font-size: 40px; /* Slightly smaller font size */
+  }
+  .table_head {
+    font-size: 30px; /* Slightly smaller font size */
+  }
+}
+
+/* Adjust the title size for large phones */
+@media (max-width: 768px) {
+  .logo-container {
+    max-width: 70vw;
+  }
+  .home_title {
+    font-size: 40px; /* Even smaller font size */
+  }
+  .home_subtitle {
+    font-size: 25px; /* Slightly smaller font size */
+  }
+  .home_text {
+    font-size: 35px; /* Slightly smaller font size */
+  }
+  .table_head {
+    font-size: 25px; /* Slightly smaller font size */
+  }
+}
+
+/* Adjust the title size for small phones */
+@media (max-width: 480px) {
+  .logo-container {
+    max-width: 70vw;
+  }
+  .home_title {
+    font-size: 30px; /* Smallest font size for very small devices */
+  }
+  .home_subtitle {
+    font-size: 20px; /* Slightly smaller font size */
+  }
+  .home_text {
+    font-size: 30px; /* Slightly smaller font size */
+  }
+  .table_head {
+    font-size: 20px; /* Slightly smaller font size */
+  }
+  .logo-container { /* Ensure you add a class name to the div wrapping the img for targeting */
+    max-width: "90vw"; /* Allow the logo to take more width on small screens */
+    height: "100vh";
+  }
+}
+
+
+/* Adjust the title size for tablets and small desktops */
+@media (max-width: 1024px) {
+  .home_text {
+    font-size: 30px; /* Slightly smaller font size */
+  }
+}
+
+/* Adjust the title size for large phones */
+@media (max-width: 768px) {
+  .home_text {
+    font-size: 25px; /* Even smaller font size */
+  }
+}
+
+/* Adjust the title size for small phones */
+@media (max-width: 480px) {
+  .home_text {
+    font-size: 20px; /* Smallest font size for very small devices */
+  }
 }
 
 .video_div {
