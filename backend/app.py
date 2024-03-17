@@ -434,6 +434,21 @@ def reset_test_account_classes():
     db.session.commit()
     return "The test account's classes have been reset", 200
 
+@app.route('/recompute_remaining_seats', methods=['POST'])
+def recompute_remaining_seats():
+    response = request.json
+    token = response['token']
+    if token != os.getenv('ADMIN_TOKEN'):
+        return "invalid ADMIN TOKEN", 401
+    for i in range(100):
+        user_count = 0
+        for user in Student.query.all():
+            if user.classes[i] == '1':
+                user_count += 1
+        remainingSeats.loc[i, "remainingSeats"] = remainingSeats["capacity"].iloc[i] - user_count
+    remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
+    return "The remaining seats have been recomputed", 200
+    
     
 if __name__ == '__main__':
     app.run(debug=True)
