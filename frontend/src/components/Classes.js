@@ -41,13 +41,13 @@ const allClasses = [{className: 'Behind the Scenes of a Freshman at UIUC', time:
                     {className: 'Personal Website Devlopment', time: '2:00pm-3:00pm', room: '4102', capacity: 15, description: 'A workshop on creating your personal website! By combining interpersonal and technical skills,  this workshop will teach you personal branding and learning from your peers while building your own website.'}]
 
 allClasses.push(
-    { className: 'Resource Wizardry: Unlocking Academic Magic', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'How to make the most out of the resources offered in CS at UIUC! Tips and tricks for on-campus tutoring, office hours, and website-based learning.' },
-    { className: 'Data Structures - Stacks and queues', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Learn about stacks and queues, two fundamental data structures used in computer science.' },
-    { className: 'Vim: CLI editing like a pro', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Become an effective programmer by learning command line editing tools!' },
-    { className: 'RPG Game Development using Javascript with Codédex', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Build an RPG Game from top-to-bottom using Javascript Libraries!' },
-    { className: 'Intro to Graph Theory', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Unlock the power of graph theory through learning essential graph algorithms and their real-life applications to enhance your problem-solving skills.' },
-    { className: 'Inside the Mind of a Hacker', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Launch into cybersecurity with a beginner-friendly introduction to the adversarial mindset to learn how to think like a hacker.' },
-    { className: 'Programming Killer AI Bots', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Teach a program how to intelligently play board games such as chess, checkers, or scrabble through programming!' }
+    { className: 'Resource Wizardry: Unlocking Academic Magic', time: '10:00am-11:00am', room: 'zoom', capacity: 100, description: 'How to make the most out of the resources offered in CS at UIUC! Tips and tricks for on-campus tutoring, office hours, and website-based learning.' },
+    { className: 'Data Structures - Stacks and queues', time: '10:00am-11:00am', room: 'zoom', capacity: 100, description: 'Learn about stacks and queues, two fundamental data structures used in computer science.' },
+    { className: 'Vim: CLI editing like a pro', time: '10:00am-11:00am', room: 'zoom', capacity: 100, description: 'Become an effective programmer by learning command line editing tools!' },
+    { className: 'RPG Game Development using Javascript with Codédex', time: '10:00am-11:00am', room: 'zoom', capacity: 100, description: 'Build an RPG Game from top-to-bottom using Javascript Libraries!' },
+    { className: 'Intro to Graph Theory', time: '10:00am-11:00am', room: 'zoom', capacity: 100, description: 'Unlock the power of graph theory through learning essential graph algorithms and their real-life applications to enhance your problem-solving skills.' },
+    { className: 'Inside the Mind of a Hacker', time: '10:00am-11:00am', room: 'zoom', capacity: 100, description: 'Launch into cybersecurity with a beginner-friendly introduction to the adversarial mindset to learn how to think like a hacker.' },
+    { className: 'Programming Killer AI Bots', time: '10:00am-11:00am', room: 'zoom', capacity: 100, description: 'Teach a program how to intelligently play board games such as chess, checkers, or scrabble through programming!' }
 );
 
 allClasses.push(
@@ -56,7 +56,7 @@ allClasses.push(
     { className: 'Intro to Graph Theory (Real World Problems)', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Discover how graph theory can be applied to solve real-world problems.' },
     { className: 'Your Spotify Wrapped API', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Learn how to use the Spotify API to create your own personalized Spotify Wrapped experience.' },
     { className: 'Software to Silicon: How Your code Actually works?', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Dive into the inner workings of software and hardware to understand how your code is executed.' },
-    { className: 'Create Your Own Wordle with a Twist!', time: '1:30pm-2:15pm', room: 'zoom', capacity: 100, description: 'Put a unique spin on the popular word-guessing game Wordle by creating your own version.' }
+    { className: 'Create Your Own Wordle with a Twist!', time: '12:30pm-1:15pm', room: 'zoom', capacity: 100, description: 'Put a unique spin on the popular word-guessing game Wordle by creating your own version.' }
 );
 
 
@@ -64,8 +64,8 @@ allClasses.forEach((c, i) => c.index = i);
 
 const inPersonMorningClassesFirst = allClasses.slice(0, 13);
 const inPersonMorningClassesSecond = allClasses.slice(13, 27);
-const inPersonAfternoonClasses = allClasses.slice(27, 42);
-const virtualMorningClasses = allClasses.slice(42, 49);
+const inPersonAfternoonClasses = allClasses.slice(27, 41);
+const virtualMorningClasses = allClasses.slice(41, 49);
 const virtualAfternoonClasses = allClasses.slice(49, 54);
 
 export { inPersonMorningClassesFirst, inPersonMorningClassesSecond, inPersonAfternoonClasses, virtualMorningClasses, virtualAfternoonClasses};

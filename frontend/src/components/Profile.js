@@ -6,7 +6,7 @@ import allClasses from "./Classes";
 const CLASSES = allClasses
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://172.16.0.51:5000";
+const TEST_SERVER = "http://192.168.1.9:5000";
 
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
@@ -28,13 +28,13 @@ const CyberButton = (props) => {
 
 // find the classes that the user is in given their bitsequence and the official list of classes
 function getClasses(bitsequence, classes) {
-    let result = [];
+    let returny = [];
     for (let i = 0; i < Math.min(bitsequence.length, classes.length); i++) {
         if (bitsequence[i] === "1") {
-            result.push(classes[i]);
+            returny.push(classes[i]);
         }
     }
-    return result;
+    return returny;
 }
 
 const InformationLink = (props) => {

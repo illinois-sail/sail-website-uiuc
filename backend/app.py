@@ -448,12 +448,13 @@ def recompute_remaining_seats():
     token = response['token']
     if token != os.getenv('ADMIN_TOKEN'):
         return "invalid ADMIN TOKEN", 401
-    for i in range(100):
+    for i in range(len(remainingSeats)):
         user_count = 0
         for user in Student.query.all():
             if user.classes[i] == '1':
                 user_count += 1
-        remainingSeats.loc[i, "remainingSeats"] = remainingSeats["capacity"].iloc[i] - user_count
+        print(i, remainingSeats.loc[i, "capacity"] - user_count, type(remainingSeats.loc[i, "capacity"]- user_count))
+        remainingSeats.loc[i, "remainingSeats"] = (remainingSeats.loc[i, "capacity"]) - user_count
     remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
     return "The remaining seats have been recomputed", 200
     

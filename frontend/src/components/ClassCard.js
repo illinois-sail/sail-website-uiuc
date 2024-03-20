@@ -3,7 +3,7 @@ import './ClassCard.css';
 import axios from 'axios';
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://172.16.0.51:5000" // replace with your local IP address
+const TEST_SERVER = "http://192.168.1.9:5000" // replace with your local IP address
 
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
@@ -28,7 +28,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
   const [authUser, setAuthUser] = useState(initialAuthUser);
   const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
   const [isRegistered, setIsRegistered] = useState(false); // Track if user is registered for the class
-  const [seatsRemaining, setSeatsRemaining] = useState(-1);
+  const [seatsRemaining, setSeatsRemaining] = useState("loading");
 
   useEffect(() => {
     if (!dataFetched) {
@@ -45,7 +45,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
           });
       }
 
-      if (seatsRemaining === -1) {
+      if (seatsRemaining === "loading") {
         console.log("fetching seats remaining");
         axios.get(`${SERVER_URL}/get_seats_remaining`)
           .then((response) => {
@@ -74,7 +74,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
   return (
     <div class="cyber-tile-big fg-dark bg-cyan" style={{ padding: "10px", display: "flex", flexDirection: "column", justifyContent: "space-around"}}>
       <h1 style={{ fontFamily: "Oxanium"}}>{className}</h1>
-      <h2 style={{ fontFamily: "Oxanium"}}>{room} @ {time}</h2>
+      <h2 style={{ fontFamily: "Oxanium"}}>Siebel Room {room} @ {time}</h2>
       <p style={{ fontFamily: "Oxanium"}}>{description}</p>
       <p>Seats Remaining: {seatsRemaining}</p>
       <div class="register-button" style={{ display: "flex", flexDirection: "center", alignContent: "center", justifyContent: "center", marginBottom: "0px" }} >
