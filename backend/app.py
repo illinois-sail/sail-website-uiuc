@@ -6,7 +6,6 @@ from hash_password import hash_password
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_cors import CORS
 import pandas as pd
-import numpy as np
 
 # GET emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
@@ -433,7 +432,7 @@ def get_emails():
     
     students = Student.query.all()
     emails = [student.email for student in students]
-    return jsonify(emails), 200
+    return { "emails" : emails, "number of registrations" : len(emails) }, 200
 
 @app.route('/reset_test_account_classes', methods=['PUT'])
 def reset_test_account_classes():

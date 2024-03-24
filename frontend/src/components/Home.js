@@ -53,10 +53,10 @@ function Home() {
             </tr>
             <tr>
               <td rowspan="2">12:00pm</td>
-              <td>Lunch (Group X) → cleared out first<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
+              <td>Lunch (Group X)<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
             </tr>
             <tr>
-              <td>Tour (Group Y) → volunteers with number signs</td>
+              <td>Tour (Group Y)</td>
             </tr>
             <tr>
               <td>1:00pm</td>
@@ -86,12 +86,24 @@ function Home() {
               <th class="table_head">Activity</th>
             </tr>
             <tr>
+              <td>12:00pm</td>
+              <td>Opening Ceremony</td>
+            </tr>
+            <tr>
               <td>12:30pm</td>
               <td>Virtual Class #1</td>
             </tr>
             <tr>
               <td>1:30pm</td>
               <td>Virtual Class #2</td>
+            </tr>
+            <tr>
+              <td>2:30pm</td>
+              <td>Q&A Panel</td>
+            </tr>
+            <tr>
+              <td>3:30pm</td>
+              <td>Closing Ceremony</td>
             </tr>
           </table>
         </div>
