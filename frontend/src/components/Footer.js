@@ -8,7 +8,30 @@ import { Button, Grid } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
 import Paper from "@mui/material/Paper";
-import FontAwesomeIcon from "../assets/tiktok.png";
+import tiktokImage from "../assets/tiktok.svg";
+import emailImage from "../assets/email.svg";
+import instagramImage from "../assets/instagram.svg";
+
+const footerButton = (props) => {
+  const { href, src, text } = props;
+  return (
+    <Button
+      sx={{ backgroundColor: "purple", "&:hover": {
+        backgroundColor: "#7df0db",
+      }, color: "#333" }}
+      variant="contained"
+    >
+      <Link
+        href={href}
+        variant="body1"
+        underline="none"
+      >
+        <img src={src} alt={text} style={{ width: "1.5em", height: "1.5em" }} />
+      </Link>
+    </Button>
+  )
+}
+
 const Footer = () => {
   return (
     <Box color="transparent" py={4} style={{  }}>
@@ -33,49 +56,9 @@ const Footer = () => {
       >
         <Grid item xs={3}>
           <Stack direction="row" spacing={2}>
-            <Button
-              sx={{ backgroundColor: "purple", "&:hover": {
-                backgroundColor: "#7df0db",
-              }, color: "#333" }}
-              variant="contained"
-            >
-              <Link
-                href="mailto: sail.cs.illinois@gmail.com"
-                variant="body1"
-                underline="none"
-              >
-                <EmailIcon style={{ color: "white" }} />
-              </Link>
-            </Button>
-            <Button
-              sx={{ backgroundColor: "purple", "&:hover": {
-                backgroundColor: "#7df0db",
-              }, color: "#333" }}
-              variant="contained"
-            >
-              <Link
-                href="https://www.instagram.com/illinois_cs_sail/"
-                variant="body1"
-                underline="none"
-              >
-                <InstagramIcon style={{ color: "white" }} />
-              </Link>
-            </Button>
-            <Button
-              sx={{ backgroundColor: "purple", "&:hover": {
-                backgroundColor: "#7df0db",
-              }, color: "#333" }}
-              variant="contained"
-            >
-              <Link
-                href="https://www.tiktok.com/@illinoissail?_t=8k5CkALwpVS&_r=1"
-                variant="body1"
-                underline="none"
-              >
-                <img src={FontAwesomeIcon} alt="TikTok" style={{ width: "2em", height: "2em" }} />
-              </Link>
-            </Button>
-            
+            <footerButton href="https://www.instagram.com/cs_sail/" src={instagramImage} text="Instagram" />
+            <footerButton href="mailto:sail.cs.illinois@gmail.com" src={emailImage} text="Email" />
+            <footerButton href="https://www.tiktok.com/@cs_sail" src={tiktokImage} text="TikTok" />
           </Stack>
         </Grid>
       </Grid>

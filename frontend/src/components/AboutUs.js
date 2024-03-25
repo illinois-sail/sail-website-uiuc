@@ -36,7 +36,7 @@ function AboutUs() {
         { name: 'Gabe Delgado', role: 'Web Team', image: GabeDelgadoImage },
         { name: 'Sanjay Manoj', role: 'Web Team', image: SanjayManojImage },
         { name: 'Sreenidhi Vijayaraghavan', role: 'Web Team', image: SreenidhiVijayaraghavanImage },
-        { name: 'Vinayak Bagdi', role: 'Web Team', image: VinayakBagdiImage },
+        // { name: 'Vinayak Bagdi', role: 'Web Team', image: VinayakBagdiImage },
         { name: 'Ved', role: 'Web Team', image: VedImage },
         { name: 'Angela Qian', role: 'Design', image: AngelaQianImage },
         { name: 'Tom Karingada', role: 'Design', image: TomKaringadaImage },

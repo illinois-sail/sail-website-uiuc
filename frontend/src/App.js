@@ -3,7 +3,7 @@ import './App.css';
 import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
 import background from "./assets/final_background.png";
-import AuthContext, { AuthProvider, useAuth } from "./components/AuthContext";
+import { AuthProvider } from "./components/AuthContext";
 import Footer from './components/Footer'; // Import the Footer component
 const App = () => {
 
@@ -46,9 +46,9 @@ const App = () => {
             <NavBar />
             <AppRouter />
           </div>
-          {/* <div style={{position: "absolute", bottom: 0, width: "100%"}}> */}
+          <div style={{position: "absolute", bottom: 40, width: "100%"}}>
             {/* <Footer style={{  }} /> */}
-          {/* </div> */}
+          </div>
         </div>
       </AuthProvider>
   );

@@ -6,7 +6,8 @@ import AuthContext, { useAuth } from './AuthContext';
 import axios from 'axios';
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.194.25.232:5000" // replace with your local IP address
+const TEST_SERVER = "http://10.195.63.54:5000";
+
 
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
@@ -84,6 +85,7 @@ function Login() {
                 }
             })
             .catch(error => {
+                alert("Invalid login credentials");
                 console.error('Error:', error);
             });
     };
@@ -96,7 +98,7 @@ function Login() {
             justifyContent: "center",
             marginTop: "5vh"
         }}>
-            <h1 style={{ color: "white", fontFamily: "JetBrainsMono", fontSize: fontSize }}>Sign-In</h1>
+            <h1 style={{ color: "white", fontFamily: "JetBrainsMono", fontSize: fontSize }}>Student Sign-In</h1>
             <form onSubmit={handleLogin} className="form" style={{ width: formWidth }}>
                 <div className="input-group">
                     <input className="input" required type="text" id="username" onChange={handleEmailChange} value={email} />

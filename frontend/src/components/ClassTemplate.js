@@ -1,68 +1,197 @@
-import React from "react";
-// import Box from "@mui/material/Box";
-// import Typography from "@mui/material/Typography";
-// import Container from "@mui/material/Container";
-// import ClassCard from "./ClassCard";
-// import Grid from "@mui/material/Grid";
-// import TextField from "@mui/material/TextField";
-// import background from "../assets/final_background.png";
+import React, { useEffect, useState } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import ClassCard from "./ClassCard";
+import axios from "axios";
+import allClasses, { inPersonMorningClassesFirst, inPersonMorningClassesSecond, inPersonAfternoonClasses, virtualMorningClasses, virtualAfternoonClasses } from "./Classes";
 
-// const titles = [
-//   "Example Class 1", "Example Class 2", "Example Class 3", "Example Class 4", "Example Class 5", "Example Class 6", "Example Class 7", "Example Class 8", "Example Class 9", "Example Class 10", "Example Class 11", "Example Class 12", "Example Class 13", "Example Class 14", "Example Class 15", "Example Class 16", "Example Class 17", "Example Class 18", "Example Class 19", "Example Class 20", "Example Class 21", "Example Class 22", "Example Class 23", "Example Class 24", "Example Class 25", "Example Class 26", "Example Class 27", "Example Class 28", "Example Class 29", "Example Class 30", "Example Class 31", "Example Class 32", "Example Class 33", "Example Class 34", "Example Class 35", "Example Class 36", "Example Class 37", "Example Class 38", "Example Class 39", "Example Class 40", "Example Class 41", "Example Class 42", "Example Class 43", "Example Class 44", "Example Class 45", "Example Class 46", "Example Class 47", "Example Class 48", "Example Class 49", "Example Class 50"
-// ];
+const PROD_SERVER = "https://sail.cs.illinois.edu";
+const TEST_SERVER = "http://10.195.63.54:5000" // replace with your local IP address
 
-// const rooms = [
-//   "Room 1021", "Room 1022", "Room 1023", "Room 1024", "Room 1025", "Room 1026", "Room 1027", "Room 1028", "Room 1029", "Room 1030", "Room 1031", "Room 1032", "Room 1033", "Room 1034", "Room 1035", "Room 1036", "Room 1037", "Room 1038", "Room 1039", "Room 1040", "Room 1041", "Room 1042", "Room 1043", "Room 1044", "Room 1045", "Room 1046", "Room 1047", "Room 1048", "Room 1049", "Room 1050", "Room 1051", "Room 1052", "Room 1053", "Room 1054", "Room 1055", "Room 1056", "Room 1057", "Room 1058", "Room 1059", "Room 1060", "Room 1061", "Room 1062", "Room 1063", "Room 1064", "Room 1065", "Room 1066", "Room 1067", "Room 1068", "Room 1069", "Room 1070"
-// ];
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
-// const times = [
-//   "12:01", "12:02", "12:03", "12:04", "12:05", "12:06", "12:07", "12:08", "12:09", "12:10", "12:11", "12:12", "12:13", "12:14", "12:15", "12:16", "12:17", "12:18", "12:19", "12:20", "12:21", "12:22", "12:23", "12:24", "12:25", "12:26", "12:27", "12:28", "12:29", "12:30", "12:31", "12:32", "12:33", "12:34", "12:35", "12:36", "12:37", "12:38", "12:39", "12:40", "12:41", "12:42", "12:43", "12:44", "12:45", "12:46", "12:47", "12:48", "12:49", "12:50"
-// ];
+const CLASSES = allClasses;
 
-// const descriptions = [
+const IN_PERSON_MORNING_CLASSES_FIRST = inPersonMorningClassesFirst;
 
-// ]; // make an array of descriptions that is TBD 50 times
-const descriptions = ["TBD"];
-descriptions.length = 50;
-descriptions.fill("TBD");
+const IN_PERSON_MORNING_CLASSES_SECOND = inPersonMorningClassesSecond;
+
+const IN_PERSON_AFTERNOON_CLASSES = inPersonAfternoonClasses;
+
+const VIRTUAL_MORNING_CLASSES = virtualMorningClasses;
+
+const VIRTUAL_AFTERNOON_CLASSES = virtualAfternoonClasses;
+
+var initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
+console.log("initialAuthUser: ", initialAuthUser);
+var initialClasses = [];
+
+if (initialAuthUser) {
+  axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
+    .then((response) => {
+      console.log('Response from /get_classes:', response);
+      initialClasses = response.data.classes;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+} else {
+  console.log("No initial authUser found in local storage");
+}
+
+
+const ClassTemplateTimeSection = ({ classesList, title }) => {
+  const [authUser, setAuthUser] = useState(initialAuthUser);
+  const [isRegisteredForSection, setIsRegisteredForSection] = useState(false); // Track if user is registered for the section
+  const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
+
+  useEffect(() => {
+    if (!dataFetched) {
+      axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
+        .then((response) => {
+          console.log('Response from /get_classes:', response);
+          const initialClasses = response.data.classes;
+          var isRegistered = false;
+          for (var i = 0; i < classesList.length; i++) {
+            if (initialClasses[classesList[i].index] === "1") {
+              isRegistered = true;
+              break;
+            }
+          }
+          setIsRegisteredForSection(isRegistered);
+          setDataFetched(true); // Mark data as fetched
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [dataFetched, authUser]);
+
+  useEffect(() => {
+    console.log("authUser changed!")
+    if (authUser) {
+      localStorage.setItem('authUser', JSON.stringify(authUser));
+      console.log("changed authUser: ", authUser);
+      console.log("authUser classes: " + authUser.classes)
+    }
+  }, [authUser]);
+
+  function onRegisterClick(index) {
+    console.log("registering for class (index): ", index);
+
+    // make a POST request to the server to register the user for the class with the given index
+    axios.post(`${SERVER_URL}/registerForCourse`, { email: authUser.email, classIndex: index })
+      .then((response) => {
+        console.log('Response from /registerForCourse:', response);
+        setIsRegisteredForSection(true);
+
+        setAuthUser(response.data.authUser);
+
+        // make a message to the user that they have successfully registered for the class
+        alert("You have successfully REGISTERED for the class!");
+        window.location.reload();
+      })
+      .catch((error) => { 
+        console.error(error);
+        alert("There was an error registering for the class. Please try again later.")
+        window.location.reload();
+      });
+  };
+
+  function onUnregisterClick(index) {
+    console.log("unregistering for class (index): ", index);
+
+    // make a POST request to the server to unregister the user for the class with the given index
+    axios.post(`${SERVER_URL}/unregisterForCourse`, { email: authUser.email, classIndex: index })
+      .then((response) => {
+        console.log('Response from /unregisterForCourse:', response);
+        setIsRegisteredForSection(false);
+
+        setAuthUser(response.data.authUser);
+
+        // make a message to the user that they have successfully unregistered for the class
+        alert("You have successfully UNREGISTERED for the class!");
+        window.location.reload();
+      })
+      .catch((error) => { 
+        console.error(error);
+        alert("There was an error registering for the class. Please try again later.")
+        window.location.reload();
+      });
+  }
+
+  return (
+    <div className="class-template-time-section" style={{ color: "white", marginBottom: "20px", alignItems: "center" }}>
+      <div className="titleDiv" style={{ textAlign: "center", marginBottom: "2vh", fontSize: "1.6rem" }}>
+        <h2>{title}</h2>
+      </div>
+      
+      <div style={{ display: "flex", flexFlow: "row wrap", justifyContent: "space-around", gap: "1.3rem" }}>
+          {classesList && classesList.length > 0 ? (
+            classesList.map((classData) => (
+                <ClassCard 
+                  className={classData.className}
+                  room={classData.room}
+                  time={classData.time}
+                  description={classData.description}
+                  onRegisterClick={ () => {
+                    if (isRegisteredForSection) {
+                      onUnregisterClick(classData.index);
+                    } else {
+                      onRegisterClick(classData.index);
+                    }
+                  }}
+                  index={classData.index}
+                  activated={(isRegisteredForSection && authUser.classes[classData.index] === "1") || !isRegisteredForSection}
+                />
+            ))
+          ) : (
+            <div>No classes available</div>
+          )}
+      </div>
+      
+    </div>
+  );
+  
+}
 
 const ClassTemplate = () => {
-  return (
-    <div className="WholeGrid" style={{ paddingTop: "15vh", paddingBottom: "10vh" }}>
-      {/* <Grid
-        container
-        spacing={4}
-        style={{
-          paddingLeft: "40px",
-          paddingRight: "40px",
-          marginTop: "20px",
-        }}
-      >
-        {titles.map((title, index) => {
-          // map() is a function that takes in an array and returns a new array
-          return (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              style={{ justifyContent: "center" }}
-            >
-              <ClassCard 
-                className={title}
-                room={rooms[index]}
-                time={times[index]}
-                description={descriptions[index]}
-              />
-            </Grid>
-          );
-        })}
-      </Grid> */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} >
-        <h1 style={{ color: "white", fontFamily: "Hyperwave", fontSize: "100px", textAlign: "center" }}> 
-          CLASSES TO BE ANNOUNCED IN MARCH 
-        </h1>
+  if (!initialAuthUser) {
+    return (
+      <div className="class-template" style={{  }}>
+      <Container>
+        <Box sx={{ my: 4 }}>
+        <Typography variant="h2" gutterBottom color={"white"} fontFamily="Oxanium" >
+          Class Schedule
+        </Typography>
+        <Typography variant="h5" gutterBottom color={"white"} fontFamily="Oxanium" >
+          Please log in to view your class schedule
+        </Typography>
+        </Box>
+      </Container>
       </div>
+    );
+  }
+  return (
+    <div className="class-template" style={{ }}>
+      <Container maxWidth="false">
+        <Box sx={{ my: 5, mx: "8vw" }}>
+          <Typography variant="h2" gutterBottom color={"white"} fontFamily="Oxanium" >
+            Class Schedule
+          </Typography>
+          <ClassTemplateTimeSection title="In-Person Morning Classes (10:00 AM - 10:50 AM)" classesList={IN_PERSON_MORNING_CLASSES_FIRST} />
+          <br /><br /><br /><br /><br /><br /><br />
+          <ClassTemplateTimeSection title="In-Person Afternoon Classes (11:00 AM - 11:50 PM)" classesList={IN_PERSON_MORNING_CLASSES_SECOND} />
+          <br /><br /><br /><br /><br /><br /><br />
+          <ClassTemplateTimeSection title="In-Person Evening Classes (2:00 PM - 3:00 PM)" classesList={IN_PERSON_AFTERNOON_CLASSES} />
+          <br /><br /><br /><br /><br /><br /><br />
+          <ClassTemplateTimeSection title="Virtual Morning Classes (10:00 AM - 11:00 AM)" classesList={VIRTUAL_MORNING_CLASSES} />
+          {/* <br /><br /><br /><br /><br /><br /><br /> */}
+          <ClassTemplateTimeSection title="Virtual Afternoon Classes (12:30 PM - 1:15 PM)" classesList={VIRTUAL_AFTERNOON_CLASSES} />
+        </Box>
+      </Container>
     </div>
   );
 };

@@ -5,9 +5,13 @@ from dotenv import load_dotenv
 from hash_password import hash_password
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_cors import CORS
+import pandas as pd
 
 # GET emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
+# curl -X POST -H "Content-Type: application/json" -d '{"token":"ilovekennychensomuchandheistheloveofmylifekenny4eva38240239847083924"}' http://172.16.0.51:5000/get_students
+
+remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
 
 load_dotenv()
 
@@ -60,6 +64,10 @@ def profile():
 
 @app.route('/logout', methods=['GET'])
 def logout():
+    return render_template('index.html')
+
+@app.route('/registration', methods=['GET'])
+def registration():
     return render_template('index.html')
 
 
@@ -294,6 +302,102 @@ def change_user_info():
     else:
         return "User not found", 400
     
+@app.route('/isRegisteredForCourse', methods=['POST'])
+def is_registered_for_course():
+    response = request.json
+    print(response)
+    
+    email = response['email']
+    classIndex = response['classIndex']
+    
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        if user.classes[classIndex] == '1':
+            return {"isRegistered": True}, 200
+        else:
+            return {"isRegistered": False}, 200
+    else:
+        return "User not found", 400
+    
+@app.route('/registerForCourse', methods=['POST'])
+def register_for_course():
+    response = request.json
+    
+    email = response['email']
+    classIndex = response['classIndex']
+    print(email, classIndex)
+    
+    # if already registered, return an error
+    if Student.query.filter_by(email=email).first().classes[classIndex] == '1':
+        return "The user is already registered for the class", 402
+    
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        user.classes = user.classes[:classIndex] + '1' + user.classes[classIndex+1:]
+        if (len(user.classes) != 100):
+            print("The user's classes are not 100 characters long")
+        db.session.commit()
+        user_classes = Student.query.filter_by(email=email).first().classes
+        print(f"User classes: {user_classes}")
+        authUser = {
+            "classes": user_classes,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "shirt_size": user.shirt_size,
+            "parent_name": user.parent_name,
+            "parent_email": user.parent_email
+        }
+        
+        if remainingSeats["remainingSeats"].iloc[classIndex] <= 0:
+            return "The class is full", 401
+        
+        remainingSeats.loc[classIndex, "remainingSeats"] = remainingSeats["remainingSeats"].iloc[classIndex] - 1
+        remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
+        
+        print(f"Class Name: {remainingSeats['courseName'].iloc[classIndex]}, Remaining Seats: {remainingSeats['remainingSeats'].iloc[classIndex]}")
+        
+        return {"classIndex" : classIndex, "authUser" : authUser}, 200
+    else:
+        return {"error" : "User not found"}, 400
+    
+@app.route('/unregisterForCourse', methods=['POST'])
+def unregister_for_course():
+    print("Unregistering for course ---")
+    response = request.json
+    email = response['email']
+    classIndex = response['classIndex']
+    print(email, classIndex)
+    
+    # if not registered, return an error
+    if Student.query.filter_by(email=email).first().classes[classIndex] == '0':
+        return "The user is not registered for the class", 402
+    
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        user.classes = user.classes[:classIndex] + '0' + user.classes[classIndex + 1:]
+        if (len(user.classes) != 100):
+            print("The user's classes are not 100 characters long")
+        db.session.commit()
+        user_classes = Student.query.filter_by(email=email).first().classes
+        print(f"User classes: {user_classes}")
+        authUser = {
+            "classes": user_classes,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "shirt_size": user.shirt_size,
+            "parent_name": user.parent_name,
+            "parent_email": user.parent_email
+        }
+        
+        remainingSeats.loc[classIndex, "remainingSeats"] = remainingSeats["remainingSeats"].iloc[classIndex] + 1
+        remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
+        
+        return {"classIndex" : classIndex, "authUser" : authUser}, 200
+    else:
+        return {"error" : "User not found"}, 400
+
 @app.route('/check_email', methods=['POST'])
 def check_email():
     response = request.json
@@ -303,6 +407,20 @@ def check_email():
         return "The email is already in use", 400
     else:
         return "The email is not in use", 200
+
+@app.route('/get_classes/<email>', methods=['GET'])
+def get_classes(email):
+    user = Student.query.filter_by(email=email).first()
+    if user:
+        return {"classes" : user.classes}, 200
+    else:
+        return "User not found", 400
+    
+@app.route('/get_seats_remaining', methods=['GET'])
+def get_seats_remaining():
+    remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
+    remainingSeats = remainingSeats.to_dict(orient='records')
+    return remainingSeats, 200
     
 @app.route('/get_emails', methods=['POST'])
 def get_emails():
@@ -314,8 +432,31 @@ def get_emails():
     
     students = Student.query.all()
     emails = [student.email for student in students]
-    return jsonify(emails), 200
+    return { "emails" : emails, "number of registrations" : len(emails) }, 200
 
+@app.route('/reset_test_account_classes', methods=['PUT'])
+def reset_test_account_classes():
+    user = Student.query.filter_by(email="testaccount@gmail.com").first()
+    user.classes = "0" * 100
+    db.session.commit()
+    return "The test account's classes have been reset", 200
+
+@app.route('/recompute_remaining_seats', methods=['POST'])
+def recompute_remaining_seats():
+    response = request.json
+    token = response['token']
+    if token != os.getenv('ADMIN_TOKEN'):
+        return "invalid ADMIN TOKEN", 401
+    for i in range(len(remainingSeats)):
+        user_count = 0
+        for user in Student.query.all():
+            if user.classes[i] == '1':
+                user_count += 1
+        print(i, remainingSeats.loc[i, "capacity"] - user_count, type(remainingSeats.loc[i, "capacity"]- user_count))
+        remainingSeats.loc[i, "remainingSeats"] = (remainingSeats.loc[i, "capacity"]) - user_count
+    remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
+    return "The remaining seats have been recomputed", 200
+    
     
 if __name__ == '__main__':
     app.run(debug=True)
