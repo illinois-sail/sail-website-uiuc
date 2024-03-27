@@ -7,6 +7,12 @@ import './cyberpunk.css';
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
+const PROD_SERVER = "https://sail.cs.illinois.edu";
+const TEST_SERVER = "http://172.29.187.146:5000";
+
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
+
 function ResetPasswordToken() {
     const { token } = useParams(); // Extract the token from the URL parameters
     const [newPassword, setNewPassword] = useState('');
@@ -24,7 +30,7 @@ function ResetPasswordToken() {
         }
 
         const formData = { "new_password": newPassword };
-        fetch(`http://127.0.0.1:5000/reset_password/${token}`, { // Include the token in the URL
+        fetch(`${SERVER_URL}/reset_password/${token}`, { // Include the token in the URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

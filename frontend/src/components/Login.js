@@ -6,6 +6,12 @@ import './cyberpunk.css';
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
+const PROD_SERVER = "https://sail.cs.illinois.edu";
+const TEST_SERVER = "http://172.29.187.146:5000";
+
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
+
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,7 +23,7 @@ function Login() {
         e.preventDefault();
         const formData = { "email": email, "password": password };
 
-        fetch('http://127.0.0.1:5000/login', {
+        fetch(`${SERVER_URL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

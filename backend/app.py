@@ -7,6 +7,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 #imports for reset password
 from flask_mail import Mail
 from datetime import datetime, timedelta
+import pytz
 import secrets
 from flask_mail import Message
 #from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
@@ -81,6 +82,18 @@ def reset_password_page():
 # @app.route('/reset_password/<token>', methods=['GET'])
 # def reset_token_page(token):
 #     return render_template('index.html')
+# Get the server URL from an environment variable
+SERVER_URL = os.environ.get('SERVER_URL', 'http://172.29.187.146:5000')
+
+# Define the production and test server URLs
+PROD_SERVER = "https://sail.cs.illinois.edu"
+TEST_SERVER = "http://172.29.187.146:5000"
+
+# Assign the server URL based on the environment variable
+if SERVER_URL == PROD_SERVER:
+    SERVER_URL = PROD_SERVER
+else:
+    SERVER_URL = TEST_SERVER
 
 @app.route('/reset_password', methods=['POST'])
 def reset_password():
@@ -93,7 +106,10 @@ def reset_password():
         # Generate a unique reset token
         token = secrets.token_urlsafe(32)
         student.reset_token = token
-        student.reset_token_expiration = datetime.utcnow() + timedelta(hours=1)
+        # Get the UTC timezone object
+        utc = pytz.UTC
+        # Set the expiration time for the reset token
+        student.reset_token_expiration = utc.localize(datetime.now()) + timedelta(hours=1)
         db.session.commit()
 
         # Send an email with the reset token
@@ -105,28 +121,33 @@ def reset_password():
 
 def send_password_reset_email(student):
     token = student.reset_token
-    msg = Message('Password Reset Request',
-                  sender='cssailnoreply@gmail.com',
-                  recipients=[student.email])
-    msg.body = f'''To reset your password, visit the following link: {url_for('reset_token', token=token, _external=True)} If you did not make this request, simply ignore this email and no changes will be made.'''
+    msg = Message('Password Reset Request', sender='cssailnoreply@gmail.com', recipients=[student.email])
+    reset_url = f"{SERVER_URL}/reset_password/{token}"
+    msg.body = f"""To reset your password, visit the following link:
+
+{reset_url}
+
+If you did not make this request, simply ignore this email and no changes will be made."""
     mail.send(msg)
+
 
 @app.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
     print("Received a reset request!")
     student = Student.query.filter_by(reset_token=token).first()
     print("Student",student, student.reset_token_expiration)
-    if student and student.reset_token_expiration > datetime.utcnow():
-        if request.method == 'POST':
-            print("POST")
-            # Logic to handle password reset form submission
-            new_password = request.json['new_password']
-            print('New Password:', new_password)
-            student.password_hash = hash_password(new_password)
-            student.reset_token = None
-            student.reset_token_expiration = None
-            db.session.commit()
-            return "Password has been successfully reset."
+    if student:
+        if student.reset_token_expiration > datetime.now(pytz.utc).replace(tzinfo=None):
+            if request.method == 'POST':
+                print("POST")
+                # Logic to handle password reset form submission
+                new_password = request.json['new_password']
+                print('New Password:', new_password)
+                student.password_hash = hash_password(new_password)
+                student.reset_token = None
+                student.reset_token_expiration = None
+                db.session.commit()
+                return "Password has been successfully reset."
 
         return render_template('index.html')
     else:

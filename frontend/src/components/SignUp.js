@@ -5,7 +5,11 @@ import './cyberpunk.css';
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
-const SERVER_URL = "http://127.0.0.1:5000";
+const PROD_SERVER = "https://sail.cs.illinois.edu";
+const TEST_SERVER = "http://172.29.187.146:5000";
+
+// assign the server URL based on the url of the window
+const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 const CyberButton = ({ buttonText }) => {
     return (
