@@ -6,7 +6,7 @@ from hash_password import hash_password
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 #imports for reset password
 from flask_mail import Mail
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import pytz
 import secrets
 from flask_mail import Message
@@ -135,19 +135,24 @@ If you did not make this request, simply ignore this email and no changes will b
 def reset_token(token):
     print("Received a reset request!")
     student = Student.query.filter_by(reset_token=token).first()
-    print("Student",student, student.reset_token_expiration)
+    # utc = pytz.UTC
+    now = datetime.now().replace(tzinfo=None)
+    print("Student",student, student.reset_token_expiration,"Now", now)
+    print("Valid Time:", student.reset_token_expiration.replace(tzinfo=None) > now)
     if student:
-        if student.reset_token_expiration > datetime.now(pytz.utc).replace(tzinfo=None):
+        if student.reset_token_expiration.replace(tzinfo=None) > now:
             if request.method == 'POST':
                 print("POST")
                 # Logic to handle password reset form submission
                 new_password = request.json['new_password']
-                print('New Password:', new_password)
                 student.password_hash = hash_password(new_password)
+                print('New Password:', new_password, student.password_hash)
                 student.reset_token = None
                 student.reset_token_expiration = None
                 db.session.commit()
                 return "Password has been successfully reset."
+        # else:
+        #     return "Token has expired. Please request a new password reset."
 
         return render_template('index.html')
     else:
