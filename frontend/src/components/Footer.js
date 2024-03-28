@@ -36,7 +36,8 @@ const Footer = () => {
             <Button
               sx={{ backgroundColor: "purple", "&:hover": {
                 backgroundColor: "#7df0db",
-              }, color: "#333" }}
+              }, color: "#333", 
+              marginRight: auto, marginLeft: auto}}
               variant="contained"
             >
               <Link
@@ -50,7 +51,8 @@ const Footer = () => {
             <Button
               sx={{ backgroundColor: "purple", "&:hover": {
                 backgroundColor: "#7df0db",
-              }, color: "#333" }}
+              }, color: "#333", 
+              marginRight: auto, marginLeft: auto}}
               variant="contained"
             >
               <Link
@@ -58,13 +60,14 @@ const Footer = () => {
                 variant="body1"
                 underline="none"
               >
-                <InstagramIcon style={{ color: "white" }} />
+              <InstagramIcon style={{ color: "white" }} />
               </Link>
             </Button>
             <Button
               sx={{ backgroundColor: "purple", "&:hover": {
                 backgroundColor: "#7df0db",
-              }, color: "#333" }}
+              }, color: "#333", 
+              marginRight: auto, marginLeft: auto}}
               variant="contained"
             >
               <Link
@@ -72,7 +75,7 @@ const Footer = () => {
                 variant="body1"
                 underline="none"
               >
-                <FontAwesomeIcon icon="fa-brands fa-tiktok" />
+                <img src = "tiktok.svg" alt = "Tiktok logo"></img>
               </Link>
             </Button>
             
