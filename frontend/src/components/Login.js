@@ -118,6 +118,9 @@ function Login() {
                 <Link to="/signup" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
                     Don't have an account? Sign up here!
                 </Link>
+                <Link to="/reset_password" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
+                    Forgot your password? Reset it here!
+                </Link>
             </form>
         </div>
     );
