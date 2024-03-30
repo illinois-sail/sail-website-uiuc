@@ -6,7 +6,7 @@ import AuthContext, { useAuth } from './AuthContext';
 import axios from 'axios';
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.195.63.54:5000";
+const TEST_SERVER = "http://172.29.187.146:5000";
 
 
 // assign the server URL based on the url of the window

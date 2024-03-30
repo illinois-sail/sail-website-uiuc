@@ -37,19 +37,23 @@ function ResetPasswordToken() {
             },
             body: JSON.stringify(formData)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success! Data:', data);
+            .then(response => {
+                console.log('Response:', response);
 
-                if (data.status === 'success') {
-                    alert('Password has been successfully reset.');
-                    // Redirect or handle success as needed
-                } else {
-                    alert('Error: ' + data.message);
+                // if the response code is 400 then email does not exist
+                if (response.status === 401) {
+                    alert("Email Does Not Exist. Email Not Sent.");
+                }
+                // if the response code is 200 then return an alert to the user that the account has been created
+                else if (response.status === 200) {
+                    alert("Password reset successfully! Please login to continue.");
+                    window.location.href = "/login";
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+                if (error.response.status === 400) {
+                    alert("Invalid request. Email not sent.");
+                }
             });
     };
 

@@ -145,8 +145,8 @@ def reset_token(token):
     student = Student.query.filter_by(reset_token=token).first()
     # utc = pytz.UTC
     now = datetime.now().replace(tzinfo=None)
-    print("Student",student, student.reset_token_expiration,"Now", now)
-    print("Valid Time:", student.reset_token_expiration.replace(tzinfo=None) > now)
+    # print("Student",student, student.reset_token_expiration,"Now", now)
+    # print("Valid Time:", student.reset_token_expiration.replace(tzinfo=None) > now)
     if student:
         if student.reset_token_expiration.replace(tzinfo=None) > now:
             if request.method == 'POST':

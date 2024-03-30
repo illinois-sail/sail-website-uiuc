@@ -28,21 +28,23 @@ function ResetPassword() {
             },
             body: JSON.stringify(formData)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success! Data:', data);
+            .then(response => {
+                console.log('Response:', response);
 
-                if (data.status === 'success') {
-
-                    alert('Password reset instructions have been sent to your email.');
-                    // Redirect or handle success as needed
-                } else {
-                    alert('Error: NOT SUCCESS' + data.message);
+                // if the response code is 400 then email does not exist
+                if (response.status === 401) {
+                    alert("Email Does Not Exist. Email Not Sent.");
+                }
+                // if the response code is 200 then email exists and password reset sent
+                else if (response.status === 200) {
+                    alert("Password reset sent successfully! Please check your email.");
+                    window.location.href = "/login";
                 }
             })
             .catch(error => {
-                // alert('Error: HERE' + error);
-                console.error('Error:', error);
+                if (error.response.status === 400) {
+                    alert("Invalid. Password was not reset.");
+                }
             });
     };
 
