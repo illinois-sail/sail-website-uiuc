@@ -6,6 +6,12 @@ from hash_password import hash_password
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_cors import CORS
 import pandas as pd
+#imports for reset password
+from flask_mail import Mail
+from datetime import datetime, timedelta, timezone
+import pytz
+import secrets
+from flask_mail import Message
 
 # GET emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
@@ -20,6 +26,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
 # CORS(app, supports_credentials=True, origins=['http://sail.cs.illinois.edu:3000', 'http://localhost:5000', 'http://192.168.1.9:5000'])
 db = SQLAlchemy(app)
 
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_USERNAME'] = 'cssailnoreply@gmail.com'
+app.config['MAIL_PASSWORD'] = 'arjo dlse slfd payb' #$CS$5S@a!L$
+app.config['MAIL_PORT'] = 587  # Use 465 for SSL
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_TLS'] = True
+
+mail = Mail(app)
+
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -30,6 +45,8 @@ class Student(db.Model):
     parent_name = db.Column(db.String(120), nullable=False)
     parent_email = db.Column(db.String(120), nullable=False)
     classes = db.Column(db.String(100), nullable=True)
+    reset_token = db.Column(db.String(100), unique=True, nullable=True)
+    reset_token_expiration = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name} <{self.email}>"
@@ -70,7 +87,84 @@ def logout():
 def registration():
     return render_template('index.html')
 
+@app.route('/reset_password', methods=['GET'])
+def reset_password_page():
+    return render_template('index.html')
 
+SERVER_URL = os.environ.get('SERVER_URL', 'http://172.29.187.146:5000')
+
+# Define the production and test server URLs
+PROD_SERVER = "https://sail.cs.illinois.edu"
+TEST_SERVER = "http://172.29.187.146:5000"
+
+# Assign the server URL based on the environment variable
+if SERVER_URL == PROD_SERVER:
+    SERVER_URL = PROD_SERVER
+else:
+    SERVER_URL = TEST_SERVER
+    
+@app.route('/reset_password', methods=['POST'])
+def reset_password():
+    response = request.json
+    email = response['email']
+
+    student = Student.query.filter_by(email=email).first()
+
+    if student:
+        # Generate a unique reset token
+        token = secrets.token_urlsafe(32)
+        student.reset_token = token
+        # Get the UTC timezone object
+        utc = pytz.UTC
+        # Set the expiration time for the reset token
+        student.reset_token_expiration = utc.localize(datetime.now()) + timedelta(hours=1)
+        db.session.commit()
+
+        # Send an email with the reset token
+        send_password_reset_email(student)
+
+        return "Password reset instructions have been sent to your email.", 200
+    else:
+        return "No user found with that email address.", 400
+
+def send_password_reset_email(student):
+    token = student.reset_token
+    msg = Message('Password Reset Request', sender='cssailnoreply@gmail.com', recipients=[student.email])
+    reset_url = f"{SERVER_URL}/reset_password/{token}"
+    msg.body = f"""To reset your password, visit the following link:
+
+{reset_url}
+
+If you did not make this request, simply ignore this email and no changes will be made."""
+    mail.send(msg)
+
+
+@app.route("/reset_password/<token>", methods=['GET', 'POST'])
+def reset_token(token):
+    print("Received a reset request!")
+    student = Student.query.filter_by(reset_token=token).first()
+    # utc = pytz.UTC
+    now = datetime.now().replace(tzinfo=None)
+    # print("Student",student, student.reset_token_expiration,"Now", now)
+    # print("Valid Time:", student.reset_token_expiration.replace(tzinfo=None) > now)
+    if student:
+        if student.reset_token_expiration.replace(tzinfo=None) > now:
+            if request.method == 'POST':
+                print("POST")
+                # Logic to handle password reset form submission
+                new_password = request.json['new_password']
+                student.password_hash = hash_password(new_password)
+                print('New Password:', new_password, student.password_hash)
+                student.reset_token = None
+                student.reset_token_expiration = None
+                db.session.commit()
+                return "Password has been successfully reset."
+        # else:
+        #     return "Token has expired. Please request a new password reset."
+
+        return render_template('index.html')
+    else:
+        return "Invalid or expired token. Please try again."
 
 # @TODO: Develop the login route
 @app.route('/login', methods=['POST'])
