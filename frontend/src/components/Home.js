@@ -33,7 +33,7 @@ function Home() {
           <table class="schedule-table">
             <tr>
               <th class="table_head">Time</th>
-              <th class="table_head">Activity</th>
+              <th class="table_head">Student Activities</th>
             </tr>
             <tr>
               <td>8:00am</td>
@@ -79,11 +79,35 @@ function Home() {
             </tr>
           </table>
 
+          <p class="home_subtitle">Parent Track</p>
+          <table class="schedule-table">
+            <tr>
+              <th class="table_head">Time</th>
+              <th class="table_head">Parent Activities</th>
+            </tr>
+            <tr>
+              <td>8:00am</td>
+              <td>Breakfast</td>
+            </tr>
+            <tr>
+              <td>9:30am</td>
+              <td>Opening Ceremony<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
+            </tr>
+            <tr>
+              <td>10:00am</td>
+              <td>Parent Q & A<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
+            </tr>
+            <tr>
+              <td>11:00am</td>
+              <td>Free to Explore Campus!<br/></td>
+            </tr>
+          </table>
+
           <p class="home_subtitle">Day 2</p>
           <table class="schedule-table">
             <tr>
               <th class="table_head">Time</th>
-              <th class="table_head">Activity</th>
+              <th class="table_head">Student Activities</th>
             </tr>
             <tr>
               <td>12:00pm</td>

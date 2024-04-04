@@ -456,6 +456,36 @@ def recompute_remaining_seats():
         remainingSeats.loc[i, "remainingSeats"] = (remainingSeats.loc[i, "capacity"]) - user_count
     remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
     return "The remaining seats have been recomputed", 200
+
+@app.route('/unregisterFromClassWithIndex/<index>', methods=['PUT'])
+def unregister_from_class_with_index(index):
+    response = request.json
+    token = response['token']
+    if token != os.getenv('ADMIN_TOKEN'):
+        return
+    
+    # flip the bit at the index for all students to 0
+    for student in Student.query.all():
+        student.classes = student.classes[:int(index)] + '0' + student.classes[int(index)+1:]
+        
+    db.session.commit()
+    recompute_remaining_seats()
+    return "All students have been unregistered from the class", 200
+
+@app.route('/getAllStudentsRegisteredForClass/<index>', methods=['GET'])
+def get_all_students_registered_for_class(index):
+    response = request.json
+    token = response['token']
+    if token != os.getenv('ADMIN_TOKEN'):
+        return "invalid ADMIN Token", 401
+    
+    students = Student.query.all()
+    students_registered = []
+    for student in students:
+        if student.classes[int(index)] == '1':
+            students_registered.append(student.email)
+    return students_registered, 200
+
     
     
 if __name__ == '__main__':

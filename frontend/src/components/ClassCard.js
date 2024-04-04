@@ -27,7 +27,7 @@ const CyberButton = (props) => {
 
 const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 
-const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated }) => {
+const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated, capacity }) => {
   const [authUser, setAuthUser] = useState(initialAuthUser);
   const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
   const [isRegistered, setIsRegistered] = useState(false); // Track if user is registered for the class
@@ -79,7 +79,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
       <h1 style={{ fontFamily: "Oxanium"}}>{className}</h1>
       <h2 style={{ fontFamily: "Oxanium"}}>Siebel Room {room} @ {time}</h2>
       <p style={{ fontFamily: "Oxanium"}}>{description}</p>
-      <p>Seats Remaining: {seatsRemaining}</p>
+      <p>Seats Remaining: {seatsRemaining} / {capacity}</p>
       <div class="register-button" style={{ display: "flex", flexDirection: "center", alignContent: "center", justifyContent: "center", marginBottom: "0px" }} >
         <CyberButton 
           text={isRegistered ? "Unregister" : "Register"} 

@@ -133,6 +133,7 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
             classesList.map((classData) => (
                 <ClassCard 
                   className={classData.className}
+                  capacity={classData.capacity}
                   room={classData.room}
                   time={classData.time}
                   description={classData.description}
