@@ -9,12 +9,15 @@ const TEST_SERVER = "http://10.195.63.54:5000" // replace with your local IP add
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 const CyberButton = (props) => {
+  if (props.displayOrNot === "none") {
+    return null;
+  }
   const background = props.background || "bg-red";
   const foreground = props.foreground || "fg-white";
   const className = `cyber-button ${background} ${foreground}`;
   const text = props.text || "Button Text";
   return (
-      <button className={className} onClick={() => props.onRegisterClick(props.index)} disabled={props.disabled} style={{ opacity: props.disabled ? 0.5 : 1 }}>
+      <button className={className} onClick={() => props.onRegisterClick(props.index)} disabled={props.disabled} display={props.displayOrNot} style={{ opacity: props.disabled ? 0.5 : 1 }}  >
           {text}
           <span className="glitchtext">SAIL</span>
           <span className="tag">{ props.index }</span>
@@ -84,7 +87,9 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
           foreground={isRegistered ? "fg-white" : "fg-white"} 
           index={index} 
           onRegisterClick={() => { setIsRegistered(!isRegistered); onRegisterClick(index); }}
-          disabled={!activated} />
+          disabled={!activated} 
+          displayOrNot={authUser ? "block" : "none"}
+        />
       </div>
     </div>
   );

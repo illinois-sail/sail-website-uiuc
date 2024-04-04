@@ -48,14 +48,14 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
   const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
 
   useEffect(() => {
-    if (!dataFetched) {
+    if (!dataFetched && authUser) {
       axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
         .then((response) => {
           console.log('Response from /get_classes:', response);
           const initialClasses = response.data.classes;
           var isRegistered = false;
           for (var i = 0; i < classesList.length; i++) {
-            if (initialClasses[classesList[i].index] === "1") {
+            if (initialClasses[classesList[i].classIndex] === "1") {
               isRegistered = true;
               break;
             }
@@ -138,13 +138,13 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
                   description={classData.description}
                   onRegisterClick={ () => {
                     if (isRegisteredForSection) {
-                      onUnregisterClick(classData.index);
+                      onUnregisterClick(classData.classIndex);
                     } else {
-                      onRegisterClick(classData.index);
+                      onRegisterClick(classData.classIndex);
                     }
                   }}
-                  index={classData.index}
-                  activated={(isRegisteredForSection && authUser.classes[classData.index] === "1") || !isRegisteredForSection}
+                  index={classData.classIndex}
+                  activated={(isRegisteredForSection && authUser.classes[classData.classIndex] === "1") || !isRegisteredForSection}
                 />
             ))
           ) : (
@@ -158,22 +158,22 @@ const ClassTemplateTimeSection = ({ classesList, title }) => {
 }
 
 const ClassTemplate = () => {
-  if (!initialAuthUser) {
-    return (
-      <div className="class-template" style={{  }}>
-      <Container>
-        <Box sx={{ my: 4 }}>
-        <Typography variant="h2" gutterBottom color={"white"} fontFamily="Oxanium" >
-          Class Schedule
-        </Typography>
-        <Typography variant="h5" gutterBottom color={"white"} fontFamily="Oxanium" >
-          Please log in to view your class schedule
-        </Typography>
-        </Box>
-      </Container>
-      </div>
-    );
-  }
+  // if (!initialAuthUser) {
+  //   return (
+  //     <div className="class-template" style={{  }}>
+  //     <Container>
+  //       <Box sx={{ my: 4 }}>
+  //       <Typography variant="h2" gutterBottom color={"white"} fontFamily="Oxanium" >
+  //         Class Schedule
+  //       </Typography>
+  //       <Typography variant="h5" gutterBottom color={"white"} fontFamily="Oxanium" >
+  //         Please log in to view your class schedule
+  //       </Typography>
+  //       </Box>
+  //     </Container>
+  //     </div>
+  //   );
+  // }
   return (
     <div className="class-template" style={{ }}>
       <Container maxWidth="false">
@@ -185,11 +185,11 @@ const ClassTemplate = () => {
           <br /><br /><br /><br /><br /><br /><br />
           <ClassTemplateTimeSection title="In-Person Afternoon Classes (11:00 AM - 11:50 PM)" classesList={IN_PERSON_MORNING_CLASSES_SECOND} />
           <br /><br /><br /><br /><br /><br /><br />
-          <ClassTemplateTimeSection title="In-Person Evening Classes (2:00 PM - 3:00 PM)" classesList={IN_PERSON_AFTERNOON_CLASSES} />
+          <ClassTemplateTimeSection title="In-Person Evening Classes (2:00 PM - 2:50 PM)" classesList={IN_PERSON_AFTERNOON_CLASSES} />
           <br /><br /><br /><br /><br /><br /><br />
-          <ClassTemplateTimeSection title="Virtual Morning Classes (10:00 AM - 11:00 AM)" classesList={VIRTUAL_MORNING_CLASSES} />
+          <ClassTemplateTimeSection title="Virtual Morning Classes (12:30 PM - 1:20 PM)" classesList={VIRTUAL_MORNING_CLASSES} />
           {/* <br /><br /><br /><br /><br /><br /><br /> */}
-          <ClassTemplateTimeSection title="Virtual Afternoon Classes (12:30 PM - 1:15 PM)" classesList={VIRTUAL_AFTERNOON_CLASSES} />
+          <ClassTemplateTimeSection title="Virtual Afternoon Classes (1:30 PM - 2:20 PM)" classesList={VIRTUAL_AFTERNOON_CLASSES} />
         </Box>
       </Container>
     </div>
