@@ -1,5 +1,6 @@
 appnope==0.1.4
 asttokens==2.4.1
+blinker==1.7.0
 click==8.1.7
 comm==0.2.2
 debugpy==1.6.7
@@ -9,6 +10,7 @@ executing==2.0.1
 Flask==2.2.5
 Flask-Cors==4.0.0
 Flask-Login==0.6.2
+Flask-Mail==0.9.1
 Flask-SQLAlchemy==3.0.2
 greenlet==3.0.1
 importlib_metadata==7.0.2

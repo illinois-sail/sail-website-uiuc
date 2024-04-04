@@ -45,8 +45,8 @@ class Student(db.Model):
     parent_name = db.Column(db.String(120), nullable=False)
     parent_email = db.Column(db.String(120), nullable=False)
     classes = db.Column(db.String(100), nullable=True)
-    reset_token = db.Column(db.String(100), unique=True, nullable=True)
-    reset_token_expiration = db.Column(db.DateTime, nullable=True)
+    # reset_token = db.Column(db.String(100), unique=True, nullable=True)
+    # reset_token_expiration = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name} <{self.email}>"
@@ -421,6 +421,9 @@ def register_for_course():
     classIndex = response['classIndex']
     print(email, classIndex)
     
+    if remainingSeats["remainingSeats"].iloc[classIndex] <= 0:
+        return "The class is full", 401
+    
     # if already registered, return an error
     if Student.query.filter_by(email=email).first().classes[classIndex] == '1':
         return "The user is already registered for the class", 402
@@ -442,9 +445,6 @@ def register_for_course():
             "parent_name": user.parent_name,
             "parent_email": user.parent_email
         }
-        
-        if remainingSeats["remainingSeats"].iloc[classIndex] <= 0:
-            return "The class is full", 401
         
         remainingSeats.loc[classIndex, "remainingSeats"] = remainingSeats["remainingSeats"].iloc[classIndex] - 1
         remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)

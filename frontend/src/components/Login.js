@@ -6,7 +6,7 @@ import AuthContext, { useAuth } from './AuthContext';
 import axios from 'axios';
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://172.29.187.146:5000";
+const TEST_SERVER = "http://10.195.63.54:5000";
 
 
 // assign the server URL based on the url of the window
@@ -118,9 +118,9 @@ function Login() {
                 <Link to="/signup" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
                     Don't have an account? Sign up here!
                 </Link>
-                <Link to="/reset_password" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
+                {/* <Link to="/reset_password" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
                     Forgot your password? Reset it here!
-                </Link>
+                </Link> */}
             </form>
         </div>
     );
