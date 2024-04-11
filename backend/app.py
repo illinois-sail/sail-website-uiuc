@@ -45,8 +45,8 @@ class Student(db.Model):
     parent_name = db.Column(db.String(120), nullable=False)
     parent_email = db.Column(db.String(120), nullable=False)
     classes = db.Column(db.String(100), nullable=True)
-    # reset_token = db.Column(db.String(100), unique=True, nullable=True)
-    # reset_token_expiration = db.Column(db.DateTime, nullable=True)
+    reset_token = db.Column(db.String(100), unique=True, nullable=True)
+    reset_token_expiration = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name} <{self.email}>"
@@ -91,11 +91,11 @@ def registration():
 def reset_password_page():
     return render_template('index.html')
 
-SERVER_URL = os.environ.get('SERVER_URL', 'http://172.29.187.146:5000')
+SERVER_URL = os.environ.get('SERVER_URL', 'http://10.195.63.54:5000')
 
 # Define the production and test server URLs
 PROD_SERVER = "https://sail.cs.illinois.edu"
-TEST_SERVER = "http://172.29.187.146:5000"
+TEST_SERVER = "http://10.195.63.54:5000"
 
 # Assign the server URL based on the environment variable
 if SERVER_URL == PROD_SERVER:
