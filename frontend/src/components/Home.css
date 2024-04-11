@@ -101,7 +101,6 @@
   }
 }
 
-
 /* Adjust the title size for small phones */
 @media (max-width: 480px) {
   .logo-container {
@@ -216,8 +215,6 @@ th {
   padding: 8px;
   text-align: left;
 }
-
-
 
 .colored-footer {
   background-color: #000000; /* Replace with your desired color */
