@@ -4,14 +4,12 @@ import "../fonts.css";
 import VideoPlayer from './VideoPlayer';
 // import React, { useEffect, useState } from 'react';
 import React, { useEffect } from 'react';
-import { IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
-import { TikTok, Instagram } from '@mui/icons-material';
 import homepage_image from '../assets/logosvg.svg'
 import { useAuth } from './AuthContext';
 import FAQ from './faq';
 import Carousel from './Carousel';
+
+import { IconButton } from '@mui/material';
 
 import instaLogo from "./images/instagramlogo.jpeg"
 import tiktokLogo from "./images/tiktoklogo.webp"
