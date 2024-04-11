@@ -11,8 +11,8 @@ import Carousel from './Carousel';
 
 import { IconButton } from '@mui/material';
 
-import instaLogo from "./images/instagramlogo.jpeg"
-import tiktokLogo from "./images/tiktoklogo.webp"
+import instaLogo from "./images/instagramlogo.webp"
+import tiktokLogo from "./images/tiktoklogo.png"
 import emailLogo from "./images/emaillogo.jpeg"
 
 
