@@ -123,17 +123,7 @@ def reset_password_page():
     return render_template('index.html')
 
 
-SERVER_URL = os.environ.get('SERVER_URL', 'http://10.195.63.54:5000')
-
-# Define the production and test server URLs
-PROD_SERVER = "https://sail.cs.illinois.edu"
-TEST_SERVER = "http://10.195.63.54:5000"
-
-# Assign the server URL based on the environment variable
-if SERVER_URL == PROD_SERVER:
-    SERVER_URL = PROD_SERVER
-else:
-    SERVER_URL = TEST_SERVER
+SERVER_URL = "https://sail.cs.illinois.edu"
     
 @app.route('/reset_password', methods=['POST'])
 def reset_password():
