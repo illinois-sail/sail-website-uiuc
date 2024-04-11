@@ -12,6 +12,7 @@ from datetime import datetime, timedelta, timezone
 import pytz
 import secrets
 from flask_mail import Message
+import sqlite3
 
 # GET emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
@@ -22,7 +23,9 @@ remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
 load_dotenv()
 
 app = Flask(__name__, static_url_path='/', static_folder='./build', template_folder='./build')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_student_accounts.db'
+
 # CORS(app, supports_credentials=True, origins=['http://sail.cs.illinois.edu:3000', 'http://localhost:5000', 'http://192.168.1.9:5000'])
 db = SQLAlchemy(app)
 
@@ -50,9 +53,34 @@ class Student(db.Model):
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name} <{self.email}>"
-    
+
+def migrate_data():
+    old_conn = sqlite3.connect('student_accounts.db')
+    old_cursor = old_conn.cursor()
+
+    old_cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    print(old_cursor.fetchall())
+    rows = old_cursor.fetchall()
+
+    for row in rows:
+        student = Student()
+        student.id = row[0]
+        student.email = row[1]
+        student.password_hash = row[2]
+        student.first_name = row[3]
+        student.last_name = row[4]
+        student.shirt_size = row[5]
+        student.parent_name = row[6]
+        student.parent_email = row[7]
+        student.classes = row[8]
+        db.session.add(student)
+
+    db.session.commit()
+    old_conn.close()
+
 with app.app_context():
     db.create_all()
+    migrate_data()
 
 # GET ROUTES
 @app.route('/', methods=['GET'])
@@ -91,11 +119,11 @@ def registration():
 def reset_password_page():
     return render_template('index.html')
 
-SERVER_URL = os.environ.get('SERVER_URL', 'http://172.29.187.146:5000')
+SERVER_URL = os.environ.get('SERVER_URL', 'http://172.18.216.34:5000')
 
 # Define the production and test server URLs
 PROD_SERVER = "https://sail.cs.illinois.edu"
-TEST_SERVER = "http://172.29.187.146:5000"
+TEST_SERVER = "http://172.18.216.34:5000"
 
 # Assign the server URL based on the environment variable
 if SERVER_URL == PROD_SERVER:
@@ -157,6 +185,9 @@ def reset_token(token):
                 print('New Password:', new_password, student.password_hash)
                 student.reset_token = None
                 student.reset_token_expiration = None
+
+                # print the students password from the DB
+                print(f"Password: {student.password_hash}")
                 db.session.commit()
                 return "Password has been successfully reset."
         # else:
@@ -187,6 +218,8 @@ def login():
     if not student:
         print("The student does not exist")
         return jsonify({}), 400
+
+    
     
     elif (student.password_hash == hashed_password):
         # return a dictionary with the user's information in a key called "user"
