@@ -23,8 +23,8 @@ remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
 load_dotenv()
 
 app = Flask(__name__, static_url_path='/', static_folder='./build', template_folder='./build')
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_student_accounts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_student_accounts.db'
 
 # CORS(app, supports_credentials=True, origins=['http://sail.cs.illinois.edu:3000', 'http://localhost:5000', 'http://192.168.1.9:5000'])
 db = SQLAlchemy(app)
@@ -48,8 +48,8 @@ class Student(db.Model):
     parent_name = db.Column(db.String(120), nullable=False)
     parent_email = db.Column(db.String(120), nullable=False)
     classes = db.Column(db.String(100), nullable=True)
-    reset_token = db.Column(db.String(100), unique=True, nullable=True)
-    reset_token_expiration = db.Column(db.DateTime, nullable=True)
+    # reset_token = db.Column(db.String(100), unique=True, nullable=True)
+    # reset_token_expiration = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name} <{self.email}>"
@@ -81,6 +81,9 @@ def migrate_data():
 with app.app_context():
     db.create_all()
     migrate_data()
+    
+# make a map to store student email and their reset password token and reset password expiration time
+reset_password_map = {}
 
 # GET ROUTES
 @app.route('/', methods=['GET'])
@@ -140,25 +143,26 @@ def reset_password():
     student = Student.query.filter_by(email=email).first()
 
     if student:
-        # Generate a unique reset token
-        token = secrets.token_urlsafe(32)
-        student.reset_token = token
         # Get the UTC timezone object
         utc = pytz.UTC
         # Set the expiration time for the reset token
-        student.reset_token_expiration = utc.localize(datetime.now()) + timedelta(hours=1)
-        db.session.commit()
+        # Add the reset token and expiration time to the reset_password_map
+        reset_password_map[email] = {
+            'token': secrets.token_urlsafe(32),
+            'expiration': utc.localize(datetime.now()) + timedelta(hours=1),
+            'email': email
+        }
 
         # Send an email with the reset token
-        send_password_reset_email(student)
+        send_password_reset_email(email)
 
         return "Password reset instructions have been sent to your email.", 200
     else:
         return "No user found with that email address.", 400
 
-def send_password_reset_email(student):
-    token = student.reset_token
-    msg = Message('Password Reset Request', sender='cssailnoreply@gmail.com', recipients=[student.email])
+def send_password_reset_email(email):
+    token = reset_password_map[email]['token']
+    msg = Message('Password Reset Request', sender='cssailnoreply@gmail.com', recipients=[email])
     reset_url = f"{SERVER_URL}/reset_password/{token}"
     msg.body = f"""To reset your password, visit the following link:
 
@@ -171,21 +175,28 @@ If you did not make this request, simply ignore this email and no changes will b
 @app.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
     print("Received a reset request!")
-    student = Student.query.filter_by(reset_token=token).first()
+    # set student to the email that has a value of the token
+    student_email = ""
+    for (email, data) in reset_password_map.items():
+        if data["token"] == token:
+            student_email = email
+            break
+    student = Student.query.filter_by(email=student_email).first()
     # utc = pytz.UTC
     now = datetime.now().replace(tzinfo=None)
     # print("Student",student, student.reset_token_expiration,"Now", now)
     # print("Valid Time:", student.reset_token_expiration.replace(tzinfo=None) > now)
     if student:
-        if student.reset_token_expiration.replace(tzinfo=None) > now:
+        if reset_password_map[student.email]["expiration"].replace(tzinfo=None) > now:
             if request.method == 'POST':
                 print("POST")
                 # Logic to handle password reset form submission
                 new_password = request.json['new_password']
                 student.password_hash = hash_password(new_password)
                 print('New Password:', new_password, student.password_hash)
-                student.reset_token = None
-                student.reset_token_expiration = None
+                
+                # remove the reset token and expiration time from the reset_password_map
+                reset_password_map.pop(student.email)
 
                 # print the students password from the DB
                 print(f"Password: {student.password_hash}")
