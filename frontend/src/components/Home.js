@@ -4,10 +4,18 @@ import "../fonts.css";
 import VideoPlayer from './VideoPlayer';
 // import React, { useEffect, useState } from 'react';
 import React, { useEffect } from 'react';
+import { IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { TikTok, Instagram } from '@mui/icons-material';
 import homepage_image from '../assets/logosvg.svg'
 import { useAuth } from './AuthContext';
 import FAQ from './faq';
 import Carousel from './Carousel';
+
+import instaLogo from "./images/instagramlogo.jpeg"
+import tiktokLogo from "./images/tiktoklogo.webp"
+import emailLogo from "./images/emaillogo.jpeg"
 
 
 const imagesContext = require.context('./gallery_photos', false, /\.(png|jpg)$/);
@@ -142,6 +150,25 @@ function Home() {
             </div>
           </div>
         </div>
+
+        <footer className="footer colored-footer">
+          <div style={{ alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center", marginBottom: "-5%", marginTop: "5%" }}>
+            <p class="home_subtitle">Contact Us</p>
+          </div>
+          <div className="footer-container">
+            <div className="footer-buttons">
+              <IconButton color="primary" onClick={() => window.open("https://www.tiktok.com/@illinoissail", "_blank")}>
+                <img src={tiktokLogo} alt="TikTok" style={{ width: '50px', height: '50px' }}/>
+              </IconButton>
+              <IconButton color="primary" onClick={() => window.open("https://www.instagram.com/illinois_cs_sail/?hl=en", "_blank")}>
+                <img src={instaLogo} alt="Instagram" style={{ width: '50px', height: '50px' }}/>
+              </IconButton>
+              <IconButton color="primary" onClick={() => window.open("mailto:sail.cs.illinois@gmail.com", "_blank")}>
+                <img src={emailLogo} alt="Email" style={{ width: '50px', height: '50px' }}/>
+              </IconButton>
+            </div>
+          </div>
+        </footer>
     </div>
   );
 };
