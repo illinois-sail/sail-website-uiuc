@@ -119,11 +119,12 @@ def registration():
 def reset_password_page():
     return render_template('index.html')
 
-SERVER_URL = os.environ.get('SERVER_URL', 'http://172.18.216.34:5000')
+
+SERVER_URL = os.environ.get('SERVER_URL', 'http://10.195.63.54:5000')
 
 # Define the production and test server URLs
 PROD_SERVER = "https://sail.cs.illinois.edu"
-TEST_SERVER = "http://172.18.216.34:5000"
+TEST_SERVER = "http://10.195.63.54:5000"
 
 # Assign the server URL based on the environment variable
 if SERVER_URL == PROD_SERVER:
@@ -454,6 +455,9 @@ def register_for_course():
     classIndex = response['classIndex']
     print(email, classIndex)
     
+    if remainingSeats["remainingSeats"].iloc[classIndex] <= 0:
+        return "The class is full", 401
+    
     # if already registered, return an error
     if Student.query.filter_by(email=email).first().classes[classIndex] == '1':
         return "The user is already registered for the class", 402
@@ -475,9 +479,6 @@ def register_for_course():
             "parent_name": user.parent_name,
             "parent_email": user.parent_email
         }
-        
-        if remainingSeats["remainingSeats"].iloc[classIndex] <= 0:
-            return "The class is full", 401
         
         remainingSeats.loc[classIndex, "remainingSeats"] = remainingSeats["remainingSeats"].iloc[classIndex] - 1
         remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
@@ -583,6 +584,36 @@ def recompute_remaining_seats():
         remainingSeats.loc[i, "remainingSeats"] = (remainingSeats.loc[i, "capacity"]) - user_count
     remainingSeats.to_csv("instance/ClassAndCapacity.csv", index=False)
     return "The remaining seats have been recomputed", 200
+
+@app.route('/unregisterFromClassWithIndex/<index>', methods=['PUT'])
+def unregister_from_class_with_index(index):
+    response = request.json
+    token = response['token']
+    if token != os.getenv('ADMIN_TOKEN'):
+        return
+    
+    # flip the bit at the index for all students to 0
+    for student in Student.query.all():
+        student.classes = student.classes[:int(index)] + '0' + student.classes[int(index)+1:]
+        
+    db.session.commit()
+    recompute_remaining_seats()
+    return "All students have been unregistered from the class", 200
+
+@app.route('/getAllStudentsRegisteredForClass/<index>', methods=['GET'])
+def get_all_students_registered_for_class(index):
+    response = request.json
+    token = response['token']
+    if token != os.getenv('ADMIN_TOKEN'):
+        return "invalid ADMIN Token", 401
+    
+    students = Student.query.all()
+    students_registered = []
+    for student in students:
+        if student.classes[int(index)] == '1':
+            students_registered.append(student.email)
+    return students_registered, 200
+
     
     
 if __name__ == '__main__':
