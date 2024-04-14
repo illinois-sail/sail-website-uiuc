@@ -6,7 +6,7 @@ import allClasses from "./Classes";
 const CLASSES = allClasses
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.195.63.54:5000";
+const TEST_SERVER = "http://192.168.1.9:5000";
 
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
@@ -43,8 +43,8 @@ const BusInfomation = () => {
             <ul>
                 <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540) Pickup April 13, 2024 @ 5:45 AM</li>
                 <li>Union Station, Chicago (225 S Canal St, Chicago, IL 60606) Pickup April 13, 2024 @ 5:55 AM</li>
-                <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) Pickup April 13, 2024 @ 5:45 AM</li>
-                <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) Pickup April 13, 2024 @ 6:10 AM (Bus will be coming from Woodfield)</li>
+                <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) Pickup April 13, 2024 @ 5:45 AM -- Parking Lot E-30 and E-31 (near Ashley HomeStore)</li>
+                <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) Pickup April 13, 2024 @ 6:10 AM (Bus will be coming from Woodfield) -- Parking Lot E (Southwest corner of the center)</li>
             </ul>
         </div>
     );

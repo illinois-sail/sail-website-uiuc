@@ -11,9 +11,9 @@ import Carousel from './Carousel';
 
 import { IconButton } from '@mui/material';
 
-import instaLogo from "./images/instagramlogo.webp"
-import tiktokLogo from "./images/tiktoklogo.png"
-import emailLogo from "./images/emaillogo.jpeg"
+import instaLogo from "../assets/instagram.svg"
+import tiktokLogo from "../assets/tiktok.svg"
+import emailLogo from "../assets/email.svg"
 
 
 const imagesContext = require.context('./gallery_photos', false, /\.(png|jpg)$/);

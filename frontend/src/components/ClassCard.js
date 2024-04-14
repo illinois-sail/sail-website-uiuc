@@ -3,7 +3,7 @@ import './ClassCard.css';
 import axios from 'axios';
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.195.63.54:5000" // replace with your local IP address
+const TEST_SERVER = "http://192.168.1.9:5000" // replace with your local IP address
 
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
@@ -27,7 +27,7 @@ const CyberButton = (props) => {
 
 const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 
-const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated, capacity }) => {
+const ClassCard = ({ className, room, time, description, onRegisterClick, index, activated, capacity, zoomLink }) => {
   const [authUser, setAuthUser] = useState(initialAuthUser);
   const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
   const [isRegistered, setIsRegistered] = useState(false); // Track if user is registered for the class
@@ -77,7 +77,13 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
   return (
     <div class="cyber-tile-big fg-dark bg-cyan" style={{ padding: "10px", display: "flex", flexDirection: "column", justifyContent: "space-around"}}>
       <h1 style={{ fontFamily: "Oxanium"}}>{className}</h1>
-      <h2 style={{ fontFamily: "Oxanium"}}>Siebel Room {room} @ {time}</h2>
+      {authUser && room === "zoom" && zoomLink ? (
+        <a href={zoomLink} target="_blank" rel="noopener noreferrer">
+          <h2 style={{ fontFamily: "Oxanium"}}>Zoom Meeting</h2>
+        </a>
+      ) : (
+        <h2 style={{ fontFamily: "Oxanium"}}>Siebel Room {room} @ {time}</h2>
+      )}
       <p style={{ fontFamily: "Oxanium"}}>{description}</p>
       <p>Seats Remaining: {seatsRemaining} / {capacity}</p>
       <div class="register-button" style={{ display: "flex", flexDirection: "center", alignContent: "center", justifyContent: "center", marginBottom: "0px" }} >

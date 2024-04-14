@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./cyberpunk.css";
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.194.25.232:5000" // replace with your local IP address
+const TEST_SERVER = "http://192.168.1.9:5000" // replace with your local IP address
 
 // assign the server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
