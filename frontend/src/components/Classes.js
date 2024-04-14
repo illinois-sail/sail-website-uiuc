@@ -48,7 +48,7 @@ allClasses.push(
     { className: 'Vim: CLI editing like a pro', time: '12:30pm-1:20pm', room: 'zoom', capacity: 25, description: 'Become an effective programmer by learning command line editing tools!', classIndex: 43, zoomLink: "https://illinois.zoom.us/j/85867825835?pwd=ZGQyQXdKZHpaczA1ZjJxVElQUFhtQT09"},
     { className: 'RPG Game Development using Javascript with Codédex', time: '12:30pm-1:20pm', room: 'zoom', capacity: 100, description: 'Build an RPG Game from top-to-bottom using Javascript Libraries!', classIndex: 44, zoomLink: "https://illinois.zoom.us/j/3970722058?pwd=WGJQTjBjRUorN292dGIxd0tNTStSUT09"},
     { className: 'Inside the Mind of a Hacker', time: '12:30pm-1:20pm', room: 'zoom', capacity: 30, description: 'Launch into cybersecurity with a beginner-friendly introduction to the adversarial mindset to learn how to think like a hacker.', classIndex: 45, zoomLink: "https://illinois.zoom.us/j/8997938159?pwd=TE1GSHRoRGFtdEVGRDN6SG1VbUVPZz09"},
-    { className: 'Programming Killer AI Bots', time: '12:30pm-1:20pm', room: 'zoom', capacity: 100, description: 'Teach a program how to intelligently play board games such as chess, checkers, or scrabble through programming!', classIndex: 46},
+    { className: 'Programming Killer AI Bots', time: '12:30pm-1:20pm', room: 'zoom', capacity: 100, description: 'Teach a program how to intelligently play board games such as chess, checkers, or scrabble through programming!', classIndex: 46, zoomLink: "https://illinois.zoom.us/j/87475270006?pwd=SWhtYmwvWGlBZ3JUUGpwRnRFaFY5QT09"},
 );
 
 allClasses.push(
