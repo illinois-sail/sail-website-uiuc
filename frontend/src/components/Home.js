@@ -29,8 +29,27 @@ function Home() {
           <img style={{ width: "100%", height: "auto" }} src={homepage_image} alt="SAIL 2024 Logo" />
         </div>
 
-          <p class="home_text">April 13-14, 2024</p>
+          <p class="home_text" style={{ color: "white" }}>April 13-14, 2024</p>
         </div>
+
+        <div className="surroundingBox" style={{ width: "100%", display: "flex", flexDirection: "column", alignContent: "center", alignItems: "center" }}>
+          <div className="bus-information" style={{ paddingLeft: "5vw", paddingRight: "5vw", 
+              display: "flex", 
+              flexDirection: "column",
+              justifyContent: "center",
+              textAlign: "center",
+              border: "2px solid purple",
+              borderRadius: "10px",
+              boxShadow: "0 0 5px blue, 0 0 10px purple",
+              width: "40%",
+          }}>
+            <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
+              <h1 color="white">VIRTUAL SAIL EVENT LINK</h1>
+            </a>
+          </div>
+        </div>
+        
+
         <div class="container" style={{marginTop: "60px"}}>
           <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center", marginBottom: "-5%", marginTop: "5%" }}>
             <p class="home_title">Schedule</p>
@@ -117,7 +136,11 @@ function Home() {
             </tr>
             <tr>
               <td>12:00pm</td>
-              <td>Opening Ceremony</td>
+              <td>
+                <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
+                  <h2>Opening Ceremony</h2>
+                </a>
+              </td>
             </tr>
             <tr>
               <td>12:30pm</td>
@@ -129,11 +152,19 @@ function Home() {
             </tr>
             <tr>
               <td>2:30pm</td>
-              <td>Q&A Panel</td>
+              <td>
+                <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
+                  <h2>Q&A Panel</h2>
+                </a>
+              </td>
             </tr>
             <tr>
               <td>3:30pm</td>
-              <td>Closing Ceremony</td>
+              <td>
+                <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
+                  <h2>Closing Ceremony</h2>
+                </a>
+              </td>
             </tr>
           </table>
         </div>
