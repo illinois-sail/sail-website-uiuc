@@ -1,0 +1,123 @@
+@import '../fonts.css';
+
+.homepage {
+  height: 100%;
+}
+
+.container {
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center children vrtically */
+  align-items: center; /* Center children horizontally */
+  min-height: 100vh; /* As tall as the viewport */
+}
+  
+.logo-container {
+  max-width: 40vw; /* Corrected */
+  width: 100%; /* Fills container */
+  display: flex;
+  justify-content: center; /* Logo centered */
+}
+
+
+
+/* NEED TO FIX RESPONSIVENESS */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+  .logo-container {
+    max-width: 60vw;
+  }
+  .stardust-right {
+    width: 300px;
+  }
+  .countdown-container {
+    transform: translate(-50%, 200%);
+  }
+  .about-sail {
+    gap: 15px;
+    margin-top: 80px;
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  .logo-container {
+    max-width: 70vw;
+  }
+  .stardust-right {
+    width: 200px;
+  }
+  .countdown-container {
+    flex-direction: column;
+    transform: translate(-50%, 150%);
+    gap: 5px;
+  }
+  .about-sail {
+    gap: 10px;
+    margin-top: 60px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .logo-container {
+    max-width: 90vw;
+  }
+  .stardust-right {
+    width: 150px;
+  }
+  .countdown-container {
+    transform: translate(-50%, 100%);
+  }
+  .about-sail {
+    gap: 8px;
+    margin-top: 40px;
+  }
+}
+
+/* When the viewport height is less than 600px, adjust the position of the countdown */
+@media (max-height: 600px) {
+  .sail-date {
+    top: 300px; /* Adjust to prevent overlap */
+  }
+}
+
+/* For even smaller viewports (optional, for fine-tuning) */
+@media (max-height: 400px) {
+  .sail-date {
+    top: 150px; /* Further adjustment */
+  }
+}
+
+
+.schedule-day {
+  width: 90%;
+  max-width: 1084px;
+  height: 29px;
+  font-family: 'Anta';
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 42px;
+  letter-spacing: 0.68px;
+  text-align: center;
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  opacity: 1;
+  color: white;
+}
+
+.home-title {
+  width: 90%;
+  max-width: 1084px;
+  height: 29px;
+  font-family: 'Anta', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 42px;
+  letter-spacing: 0.68px;
+  text-align: center;
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  opacity: 1;
+  color: white;
+}
