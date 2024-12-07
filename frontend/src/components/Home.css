@@ -37,7 +37,7 @@
   }
   .about-sail {
     gap: 15px;
-    margin-top: 80px;
+    margin-top: 180px;
   }
 }
 
@@ -46,6 +46,9 @@
   .logo-container {
     max-width: 70vw;
   }
+  .sail-title {
+    font-size: 100px;
+  }
   .stardust-right {
     width: 200px;
   }
@@ -53,6 +56,9 @@
     flex-direction: column;
     transform: translate(-50%, 150%);
     gap: 5px;
+  }
+  .clouds-image {
+    top: calc(50vh + 30px); /* Adjust the value for smaller screens */
   }
   .about-sail {
     gap: 10px;
@@ -92,6 +98,22 @@
 }
 
 
+/* What is Sail, Schedule */
+.home-title {
+  width: 90%;
+  max-width: 1084px;
+  height: 29px;
+  font-family: 'Anta', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 42px;
+  letter-spacing: 0.68px;
+  text-align: center;
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  opacity: 1;
+  color: white;
+}
+
 .schedule-day {
   width: 90%;
   max-width: 1084px;
@@ -107,17 +129,51 @@
   color: white;
 }
 
-.home-title {
-  width: 90%;
-  max-width: 1084px;
-  height: 29px;
-  font-family: 'Anta', sans-serif;
-  font-size: 42px;
-  font-weight: 400;
-  line-height: 42px;
-  letter-spacing: 0.68px;
-  text-align: center;
+.schedule-table {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  text-align: left; 
+}
+
+.schedule-table th {
+  font-family: "Anta", sans-serif;
+  font-size: 2.5em;
+  color: white;
+  padding: 8px 0;
+  border-bottom: 2px solid white; 
   text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
-  opacity: 1;
+}
+
+.schedule-table td {
+  font-family: "DM-Sans", sans-serif;
+  padding: 20px 0px 20px 0px; /* Spacing within rows */
+  font-size: 2.3em;
   color: white;
 }
+
+.schedule-table tr:not(:last-child) td {
+  border-bottom: 1px solid white; /* Horizontal line between rows */
+}
+
+/* Remove top and bottom borders */
+
+.schedule-table tr:first-child th {
+  border-top: none; 
+}
+
+.schedule-table tr:last-child td {
+  border-bottom: none; 
+}
+
+.note {
+  margin-top: 2px;
+  font-size: 0.6em;
+  color: white; /* Light color for notes */
+  font-family: "DM-Sans", sans-serif;
+  margin-top: 4px; /* Brings the note closer to its activity */
+  display: block;
+  margin-bottom: 10px;
+}
+
