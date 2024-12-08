@@ -1,10 +1,10 @@
 import './Home.css';
-import '../fonts.css'
+import '../fonts.css';
 import stardust1 from '../assets/stardust-1.png';
 import clouds2 from '../assets/footer-clouds-2.png'
 import hourglass from '../assets/hourglass.png';
-import starwide from '../assets/star-wide.png'
-import starsmall from '../assets/star-small.png'
+import starwide from '../assets/star-wide.png';
+import starsmall from '../assets/star-small.png';
 import Footer from './Footer.js';
 import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
@@ -62,7 +62,11 @@ function Home() {
                         justifyContent: 'center' 
                     }}
                 >
-                    <img src={starwide} alt="star" style={{ width: '55px', height: '55px', transform: 'translateY(40px)' }} />
+
+                    <img src={starwide} alt="star" style={{ width: '55px', height: '55px', transform: 'translateX(500px) translateY(-220px)' }} />
+
+                    <img src={starsmall} alt="star" style={{ width: '40px', height: '40px', transform: 'translateX(500px) translateY(-170px)' }} />
+                    
                     
                     <Typography
                         variant='h1' 
@@ -88,7 +92,9 @@ function Home() {
                         SAIL 2025
                     </Typography>
 
-                    <img src={starwide} alt="star" style={{ width: '40px', height: '40px' }} />
+                    <img src={starwide} alt="star" style={{ width: '55px', height: '55px', transform: 'translateX(-470px) translateY(-20px)' }} />
+
+                    <img src={starsmall} alt="star" style={{ width: '40px', height: '40px', transform: 'translateX(-560px) translateY(-70px)' }} />
 
 
                     
@@ -204,7 +210,7 @@ function Home() {
                     <Typography variant="h2" className="home-title" style={{ fontFamily: 'Anta' }}>
                         WHAT IS SAIL
                     </Typography>
-                    <img src={starwide} alt="star" style={{ width: '40px', height: '40px' }} />
+                    <img src={starsmall} alt="star" style={{ width: '50px', height: '50px' }} />
                 </div>
 
                 
@@ -246,7 +252,7 @@ function Home() {
                     <Typography variant="h2" className="home-title" style={{ fontFamily: 'Anta' }}>
                         SCHEDULE
                     </Typography>
-                    <img src={starwide} alt="star" style={{ width: '40px', height: '40px' }} />
+                    <img src={starsmall} alt="star" style={{ width: '50px', height: '50px' }} />
                 </div>
 
                 <Typography variant="h3" className="schedule-day" style={{ fontFamily: 'Anta', lineHeight: '3', marginBottom: '60px' }}>

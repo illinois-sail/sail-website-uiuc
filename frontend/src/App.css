@@ -8,14 +8,12 @@
 
 body {
   margin-top: 60px;
-  background-image: url("./assets/final-background.png");
+  background: rgb(84, 79, 149);
+  background: linear-gradient(180deg, rgba(84, 79, 149, 1) 35%, rgba(42, 39, 86, 1) 70%, rgba(14, 13, 41, 1) 100%);
   background-repeat: no-repeat;
   height: 150vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed; /* Background fixed while scrolling */
-  /* transition: background-size 0.5s ease;  Smooth transition */
-  position: relative;
 }

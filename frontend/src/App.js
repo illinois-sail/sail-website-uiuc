@@ -14,18 +14,12 @@ const App = () => {
           id='background-container'
           className='background-container'
           style={{
-            backgroundImage: `url(${background})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            // backgroundAttachment: 'fixed',
-            // position: 'fixed',
             position: 'relative',
             top: 0,
             left: 0,
             width: '100%',
             height: '100%',
             zIndex: -1,
-            //transition: 'background-color 0.3s ease', // Transition for smooth color change
           }}
         />
         
