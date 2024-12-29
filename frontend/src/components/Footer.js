@@ -103,9 +103,9 @@ function Footer() {
         style={{
           position: 'absolute',
           bottom: '0',
-          left: '56%',  // Centered horizontally
-          width: '100%',
-          height: '20%',
+          left: '50%',  // Centered horizontally
+          width: '100vw',
+          height: '70vh',
           transform: 'translateX(-50%)',  // Ensures perfect centering
           backgroundImage: `url(${shootingstar})`,
           backgroundSize: 'contain',  // Ensures the entire image fits while maintaining aspect ratio
@@ -113,7 +113,9 @@ function Footer() {
           backgroundPosition: 'center center', 
           zIndex: -1,
         }}
-      />
+        >
+      </div>
+    
     </div>
 
   );
