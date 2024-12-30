@@ -1,27 +1,29 @@
 import './Home.css';
 import '../fonts.css';
-import stardust1 from '../assets/stardust-1.png';
 import clouds2 from '../assets/footer-clouds-2.png'
 import hourglass from '../assets/hourglass.png';
 import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
+import sail2025title from '../assets/sail2025-title.png';
 import Footer from './Footer.js';
 import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 
 function Home() {
 
+    // VERY IMPO: WHEN DAYLIGHT SAVINGS STARTS, CHANGE TARGET DATE BY 1 HR
+
     // Calculating number of days until Sail
-    const targetDate = new Date('2025-03-29T00:00:00');
+    const targetDate = new Date('2025-03-28T18:00:00-06:00');
     const [daysLeft, setDaysLeft] = useState(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
             const now = new Date();
             const timeDiff = targetDate - now;
-            const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // update every min
+            const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
             setDaysLeft(daysRemaining);
-        }, 1000);
+        }, 1000); // update every min
 
         return () => clearInterval(interval);
     }, [targetDate]);
@@ -32,64 +34,13 @@ function Home() {
             {/* TITLE PAGE*/}
             {/* TODO: ADD STARS */}
             <div className='container'>
-                <div className='stardust-right'>
-                    <img src={stardust1} alt='' />
-                </div>
-
-                <div className='logo-container'>
-                    <img src={starwide} className="starwide-right" alt="star" />
-                    <img src={starsmall} className="starsmall-right" alt="star" />
-                    
-                    
-                    <Typography
-                        variant='h1' 
-                        className='sail-title'
-                        sx={{
-                            fontFamily: 'TAN-PEARL',
-                            fontSize: '130px',
-                            fontWeight: '400', 
-                            lineHeight: '96px', 
-                            letterSpacing: '0.48px', 
-                            opacity: '1', 
-                            textAlign: 'center', 
-                            color: 'white',
-                            textShadow: `
-                                0 0 7px rgba(255, 255, 255, 0.7),
-                                0 0 10px rgba(255, 255, 255, 0.7),
-                                0 0 21px rgba(255, 255, 255, 0.7)
-                            `,
-                            position: 'absolute', 
-                            top: '33vh',
-                        }}
-                        >
-                        SAIL 2025
-                    </Typography>
-
-                    <img src={starwide} className="starwide-left" alt="star" />
-                    <img src={starsmall} className="starsmall-left" alt="star" />
-                    
-                </div>
-
-                <Typography
-                    className='sail-date'
-                    variant='h2' 
-                    style={{
-                        fontFamily: 'Anta', 
-                        fontSize: '44px', 
-                        fontWeight: '400', 
-                        lineHeight: '24.34px',
-                        letterSpacing: '0', 
-                        textAlign: 'left',
-                        position: 'absolute',
-                        opacity: '1',
-                        color: 'white',
-                        top: 'calc(33vh + 150px)', 
-                        left: '50%',
-                        transform: 'translate(0%, 40%)',
-                    }}
-                    >
-                    March 29-30, 2025
-                </Typography>
+            <div className='title'>
+                <img
+                    className="title-image"
+                    src={sail2025title}
+                    alt="SAIL 2025 Title"
+                />
+            </div>
 
                 <div className='countdown-container'>
                     <img 
@@ -101,7 +52,7 @@ function Home() {
                     <Typography
                         variant='h3' 
                         className='days-left'
-                        style={{
+                        sx={{
                             fontFamily: 'Anta',
                             fontSize: '38px', 
                             fontWeight: '400', 
@@ -130,7 +81,7 @@ function Home() {
                 
                 <div className="title-container">
                     <img src={starwide} className='starwide-title' alt="star" />
-                    <Typography variant="h2" className="home-title" style={{ fontFamily: 'Anta' }}>
+                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
                         WHAT IS SAIL
                     </Typography>
                     <img src={starsmall} className='starsmall-title' alt="star" />
@@ -140,7 +91,7 @@ function Home() {
                 <Typography
                     variant='body1'
                     className='about-desc'
-                    style={{
+                    sx={{
                         width: '60%',
                         maxWidth: '1350px',
                         height: '90px',
@@ -163,13 +114,13 @@ function Home() {
             <div className='schedule' >
                 <div className="title-container">
                     <img src={starwide} className='starwide-title' alt="star" />
-                    <Typography variant="h2" className="home-title" style={{ fontFamily: 'Anta' }}>
+                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
                     SCHEDULE
                     </Typography>
                     <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
 
-                <Typography variant="h3" className="schedule-day" style={{ fontFamily: 'Anta', lineHeight: '3', marginBottom: '30px' }}>
+                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
                     DAY 1
                 </Typography>
                 
@@ -278,7 +229,7 @@ function Home() {
                 </table>
 
 
-                <Typography variant="h3" className="schedule-day" style={{ fontFamily: 'Anta', lineHeight: '3', marginBottom: '60px', marginTop: '40px' }}>
+                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
                     DAY 2
                 </Typography>
 

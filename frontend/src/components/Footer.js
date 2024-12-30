@@ -9,7 +9,7 @@ import React from "react";
 import Box from '@mui/material/Box';
 import { Stack } from "@mui/system";
 import { Button } from "@mui/material";
-;
+
 function FooterButton({ href, src, alt }) {
   return (
     <Button
@@ -24,7 +24,19 @@ function FooterButton({ href, src, alt }) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src={src} alt={alt} style={{ width: '50px', height: '50px' }} />
+      <Box
+        component="img"
+        src={src}
+        alt={alt}
+        sx={{
+          width: '50px',
+          height: '50px',
+          '@media (max-width: 480px)': {
+            width: '40px',
+            height: '40px',
+          },
+        }}
+      />
     </Button>
   );
 }
@@ -44,6 +56,12 @@ function Footer() {
             marginTop: '300px',
             paddingBottom: '500px',
             color: 'white',
+            '@media (max-width: 1024px)': { 
+              paddingBottom: '400px',
+            },
+            '@media (max-width: 768px)': { 
+              paddingBottom: '300px',
+            },
           }}
           >
           <Typography
@@ -54,6 +72,13 @@ function Footer() {
             lineHeight: '1.3',
             textShadow: '0px 0px 20px rgba(255, 255, 255, 0.8)',
             textAlign: 'center',
+            '@media (max-width: 1024px)': { 
+              fontSize: '45px',
+            },
+            '@media (max-width: 480px)': { 
+              fontSize: '40px',
+            },
+            
             }}
           >
             CONTACT US
@@ -99,22 +124,29 @@ function Footer() {
         >
       </div>
 
-      <div
-        style={{
+      <Box
+        className="footer-stars"
+        sx={{
           position: 'absolute',
           bottom: '0',
-          left: '50%',  // Centered horizontally
-          width: '100vw',
-          height: '70vh',
-          transform: 'translateX(-50%)',  // Ensures perfect centering
+          left: '50%', 
+          width: '100%',
+          height: '90vh',
+          transform: 'translateX(-50%)', 
           backgroundImage: `url(${shootingstar})`,
-          backgroundSize: 'contain',  // Ensures the entire image fits while maintaining aspect ratio
+          backgroundSize: 'contain', 
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center center', 
+          backgroundPosition: 'center bottom', 
           zIndex: -1,
+          '@media (max-width: 900px)': { 
+            backgroundSize: 'cover', 
+          },
+          '@media (max-width: 768px)': { 
+            height: '80vh',
+          },
         }}
-        >
-      </div>
+      />
+      
     
     </div>
 
