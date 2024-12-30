@@ -131,7 +131,8 @@ function Footer() {
           bottom: '0',
           left: '50%', 
           width: '100%',
-          height: '90vh',
+          height: '100vh',
+          maxHeight: '900px',
           transform: 'translateX(-50%)', 
           backgroundImage: `url(${shootingstar})`,
           backgroundSize: 'contain', 
@@ -140,6 +141,7 @@ function Footer() {
           zIndex: -1,
           '@media (max-width: 900px)': { 
             backgroundSize: 'cover', 
+            height: '90vh',
           },
           '@media (max-width: 768px)': { 
             height: '80vh',
