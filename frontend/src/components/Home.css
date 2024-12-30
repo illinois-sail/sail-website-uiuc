@@ -1,5 +1,7 @@
 @import '../fonts.css';
 
+/* Home Page */
+
 .homepage {
   height: 100%;
 }
@@ -8,97 +10,236 @@
   width: 100%; 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center children vrtically */
-  align-items: center; /* Center children horizontally */
-  min-height: 100vh; /* As tall as the viewport */
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
 }
-  
+
+/* Title */
+
+.stardust-right {
+  position: absolute;
+  top: calc(33vh + 100px); 
+  left: 50%;
+  transform: translate(15%, -80%); 
+  width: 650px;
+}
+
+.stardust-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .logo-container {
-  max-width: 40vw; /* Corrected */
-  width: 100%; /* Fills container */
+  max-width: 40vw;
+  width: 100%; 
   display: flex;
-  justify-content: center; /* Logo centered */
+  justify-content: center; 
+  align-items: center;
+  align-content: center;
+}
+
+.starwide-left {
+  width: 55px;
+  height: 55px;
+  transform: translateX(-470px) translateY(-20px);
+}
+
+.starsmall-left {
+  width: 40px;
+  height: 40px;
+  transform: translateX(-560px) translateY(-70px);
+}
+
+.starwide-right {
+  width: 55px;
+  height: 55px;
+  transform: translateX(500px) translateY(-220px);
+}
+
+.starsmall-right {
+  width: 40px;
+  height: 40px;
+  transform: translateX(500px) translateY(-170px);
 }
 
 
+/* Date, Countdown, Clouds */
 
-/* NEED TO FIX RESPONSIVENESS */
+.countdown-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  gap: 10px;
+  opacity: 1;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, 370%);
+}
 
-/* Tablets and small desktops */
-@media (max-width: 1024px) {
-  .logo-container {
-    max-width: 60vw;
-  }
+.hourglass {
+  width: 36px;
+  height: 36px;
+  padding: 3px 7.5px;
+  opacity: 1;
+}
+
+.home-clouds {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(-50%);
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
+}
+
+/* Responsiveness for Sail Home Page */
+
+@media (max-width: 1700px) {
+  .sail-title.MuiTypography-root { font-size: 100px; }
+  .starwide-left { transform: translateX(-380px) translateY(-25px); }
+  .starsmall-left { transform: translateX(-470px) translateY(-75px); }
+  .starwide-right { transform: translateX(410px) translateY(-200px); }
+  .starsmall-right { transform: translateX(410px) translateY(-150px); }
   .stardust-right {
+    transform: translate(15%, -90%); 
+    width: 500px;
+  }
+  
+}
+@media (max-width: 1200px) {
+  .sail-title.MuiTypography-root { font-size: 80px; }
+  .starwide-left { transform: translateX(-310px) translateY(-35px); }
+  .starsmall-left { transform: translateX(-400px) translateY(-85px); }
+  .starwide-right { transform: translateX(340px) translateY(-180px); }
+  .starsmall-right { transform: translateX(340px) translateY(-140px); }
+  .stardust-right {
+    transform: translate(20%, -90%); 
+    width: 400px;
+  }
+}
+@media (max-width: 1000px) {
+  .sail-title.MuiTypography-root { font-size: 100px; top: 23vh; white-space: normal; max-width: 50%; line-height: 120px; }
+  .starwide-left { transform: translateX(-240px) translateY(10px); }
+  .starsmall-left { transform: translateX(-320px) translateY(-25px); }
+  .starwide-right { transform: translateX(240px) translateY(-245px); }
+  .starsmall-right { transform: translateX(230px) translateY(-210px); }
+  .stardust-right {
+    transform: translate(0%, -125%); 
+    width: 350px;
+  }
+}
+@media (max-width: 768px) {
+  .sail-title.MuiTypography-root { font-size: 80px; top: 23vh; white-space: normal; max-width: 50%; line-height: 100px; }
+  .starwide-left { transform: translateX(-190px) translateY(-10px); }
+  .starsmall-left { transform: translateX(-270px) translateY(-45px); }
+  .starwide-right { transform: translateX(200px) translateY(-245px); }
+  .starsmall-right { transform: translateX(190px) translateY(-210px); }
+  .stardust-right {
+    transform: translate(-5%, -140%); 
     width: 300px;
   }
-  .countdown-container {
-    transform: translate(-50%, 200%);
-  }
-  .about-sail {
-    gap: 15px;
-    margin-top: 180px;
-  }
 }
-
-/* Large phones */
-@media (max-width: 768px) {
-  .logo-container {
-    max-width: 70vw;
-  }
-  .sail-title {
-    font-size: 100px;
-  }
+@media (max-width: 580px) {
+  .sail-title.MuiTypography-root { font-size: 70px; top: 23vh; white-space: normal; max-width: 50%; line-height: 90px; }
+  .starwide-left { width: 40px; height: 40px; transform: translateX(-160px) translateY(-40px); }
+  .starsmall-left { width: 24px; height: 24px; transform: translateX(-220px) translateY(-65px); }
+  .starwide-right { width: 40px; height: 40px; transform: translateX(170px) translateY(-245px); }
+  .starsmall-right { width: 24px; height: 24px; transform: translateX(160px) translateY(-210px); }
   .stardust-right {
-    width: 200px;
-  }
-  .countdown-container {
-    flex-direction: column;
-    transform: translate(-50%, 150%);
-    gap: 5px;
-  }
-  .clouds-image {
-    top: calc(50vh + 30px); /* Adjust the value for smaller screens */
-  }
-  .about-sail {
-    gap: 10px;
-    margin-top: 60px;
+    transform: translate(0%, -170%); 
+    width: 230px;
   }
 }
-
-/* Small phones */
 @media (max-width: 480px) {
-  .logo-container {
-    max-width: 90vw;
-  }
+  .sail-title.MuiTypography-root { font-size: 60px; top: 23vh; white-space: normal; max-width: 50%; line-height: 80px; }
+  .starwide-left { width: 30px; height: 30px; transform: translateX(-130px) translateY(-60px); }
+  .starsmall-left { width: 24px; height: 24px; transform: translateX(-180px) translateY(-85px); }
+  .starwide-right { width: 30px; height: 30px; transform: translateX(130px) translateY(-235px); }
+  .starsmall-right { width: 24px; height: 24px; transform: translateX(130px) translateY(-210px); }
   .stardust-right {
-    width: 150px;
-  }
-  .countdown-container {
-    transform: translate(-50%, 100%);
-  }
-  .about-sail {
-    gap: 8px;
-    margin-top: 40px;
+    transform: translate(15%, -235%); 
+    width: 140px;
   }
 }
 
-/* When the viewport height is less than 600px, adjust the position of the countdown */
-@media (max-height: 600px) {
-  .sail-date {
-    top: 300px; /* Adjust to prevent overlap */
-  }
+
+/* Date, Countdown, Clouds */
+
+.countdown-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  gap: 10px;
+  opacity: 1;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, 370%);
 }
 
-/* For even smaller viewports (optional, for fine-tuning) */
-@media (max-height: 400px) {
-  .sail-date {
-    top: 150px; /* Further adjustment */
-  }
+.hourglass {
+  width: 36px;
+  height: 36px;
+  padding: 3px 7.5px;
+  opacity: 1;
+}
+
+.home-clouds {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(-50%);
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
 }
 
 
 /* What is Sail, Schedule */
+
+.about-sail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  margin-top: 280px;
+}
+
+.schedule {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 110px;
+}
+
+
+.starwide-title {
+  width: 55px;
+  height: 55px;
+  transform: translateY(40px);
+}
+
+.starsmall-title {
+  width: 50px;
+  height: 50px;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .home-title {
   width: 90%;
   max-width: 1084px;
@@ -130,6 +271,7 @@
 }
 
 .schedule-table {
+  margin-top: 30px;
   margin: 0 auto;
   width: 80%;
   max-width: 1200px;

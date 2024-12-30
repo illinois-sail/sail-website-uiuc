@@ -32,48 +32,21 @@ function Home() {
             {/* TITLE PAGE*/}
             {/* TODO: ADD STARS */}
             <div className='container'>
-                <div 
-                    className='stardust-right'
-                    style={{
-                        position: 'absolute', 
-                        top: 'calc(33vh + 180px)', 
-                        left: '50%',
-                        transform: 'translate(20%, -80%)', 
-                        width: '700px',
-                    }}
-                >
-                    <img 
-                        src={stardust1} 
-                        alt='' 
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain'
-                        }}
-                    />
+                <div className='stardust-right'>
+                    <img src={stardust1} alt='' />
                 </div>
-                <div 
-                    className='logo-container'
-                    style={{
-                        width: '100%', 
-                        alignContent: 'center', 
-                        alignItems: 'center', 
-                        display: 'flex', 
-                        justifyContent: 'center' 
-                    }}
-                >
 
-                    <img src={starwide} alt="star" style={{ width: '55px', height: '55px', transform: 'translateX(500px) translateY(-220px)' }} />
-
-                    <img src={starsmall} alt="star" style={{ width: '40px', height: '40px', transform: 'translateX(500px) translateY(-170px)' }} />
+                <div className='logo-container'>
+                    <img src={starwide} className="starwide-right" alt="star" />
+                    <img src={starsmall} className="starsmall-right" alt="star" />
                     
                     
                     <Typography
                         variant='h1' 
                         className='sail-title'
-                        style={{
+                        sx={{
                             fontFamily: 'TAN-PEARL',
-                            fontSize: '130px', 
+                            fontSize: '130px',
                             fontWeight: '400', 
                             lineHeight: '96px', 
                             letterSpacing: '0.48px', 
@@ -92,63 +65,42 @@ function Home() {
                         SAIL 2025
                     </Typography>
 
-                    <img src={starwide} alt="star" style={{ width: '55px', height: '55px', transform: 'translateX(-470px) translateY(-20px)' }} />
-
-                    <img src={starsmall} alt="star" style={{ width: '40px', height: '40px', transform: 'translateX(-560px) translateY(-70px)' }} />
-
-
-                    
+                    <img src={starwide} className="starwide-left" alt="star" />
+                    <img src={starsmall} className="starsmall-left" alt="star" />
                     
                 </div>
 
-                <div className='sail-date'> 
-                    <Typography
-                        variant='h2' 
-                        style={{
-                            fontFamily: 'Anta', 
-                            fontSize: '44px', 
-                            fontWeight: '400', 
-                            lineHeight: '24.34px',
-                            letterSpacing: '0', 
-                            textAlign: 'left',
-                            position: 'absolute',
-                            opacity: '1',
-                            color: 'white',
-                            top: 'calc(33vh + 150px)', 
-                            left: '50%',
-                            transform: 'translate(0%, 40%)',
-                        }}
-                        >
-                        March 29-30, 2025
-                    </Typography>
-                </div>
-
-                <div
-                    className='countdown-container'
+                <Typography
+                    className='sail-date'
+                    variant='h2' 
                     style={{
-                        display: 'flex', 
-                        alignItems: 'center',  
+                        fontFamily: 'Anta', 
+                        fontSize: '44px', 
+                        fontWeight: '400', 
+                        lineHeight: '24.34px',
+                        letterSpacing: '0', 
+                        textAlign: 'left',
                         position: 'absolute',
-                        gap: '10px',  
-                        opacity: '1', 
-                        top: '50vh',
-                        left: '50%', 
-                        transform: 'translate(-50%, 370%)', 
+                        opacity: '1',
+                        color: 'white',
+                        top: 'calc(33vh + 150px)', 
+                        left: '50%',
+                        transform: 'translate(0%, 40%)',
                     }}
-                >
+                    >
+                    March 29-30, 2025
+                </Typography>
+
+                <div className='countdown-container'>
                     <img 
                         src={hourglass}
+                        className="hourglass"
                         alt='Hourglass Icon' 
-                        style={{
-                            width: '36px',
-                            height: '36px', 
-                            padding: '3px 7.5px', 
-                            opacity: '1', 
-                        }} 
                     />
                     
                     <Typography
                         variant='h3' 
+                        className='days-left'
                         style={{
                             fontFamily: 'Anta',
                             fontSize: '38px', 
@@ -166,56 +118,28 @@ function Home() {
                             : 'Loading...'}
                     </Typography>
 
-                    
-
                 </div>
-
-                {/* clouds */}
                 
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: '150px',  
-                        left: '50%',  
-                        width: '100vw',  
-                        height: '100vh',  
-                        transform: 'translateX(-50%)',  
-                        backgroundImage: `url(${clouds2})`,  
-                        backgroundSize: 'cover',  
-                        backgroundPosition: 'center center',  
-                        zIndex: -1,  
-                    }}
-                ></div>
-
-
-
+                <div className='home-clouds' style={{ backgroundImage: `url(${clouds2})` }}></div>
 
             </div>
 
             {/* ABOUT SAIL */}
             {/* TODO: ADD STARS */}
-            <div 
-                className='about-sail' 
-                style={{
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '80px',
-                    marginTop: '280px', 
-                }}
-            >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                    <img src={starwide} alt="star" style={{ width: '55px', height: '55px', transform: 'translateY(40px)' }} />
+            <div className='about-sail'>
+                
+                <div className="title-container">
+                    <img src={starwide} className='starwide-title' alt="star" />
                     <Typography variant="h2" className="home-title" style={{ fontFamily: 'Anta' }}>
                         WHAT IS SAIL
                     </Typography>
-                    <img src={starsmall} alt="star" style={{ width: '50px', height: '50px' }} />
+                    <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
 
                 
                 <Typography
                     variant='body1'
+                    className='about-desc'
                     style={{
                         width: '60%',
                         maxWidth: '1350px',
@@ -236,26 +160,16 @@ function Home() {
 
             {/* SCHEDULE */}
             {/* TODO: ADD STARS */}
-            <div
-                className='schedule' 
-                style={{
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '40px',
-                    marginTop: '110px', 
-                }}
-            >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                    <img src={starwide} alt="star" style={{ width: '55px', height: '55px', transform: 'translateY(40px)' }} />
+            <div className='schedule' >
+                <div className="title-container">
+                    <img src={starwide} className='starwide-title' alt="star" />
                     <Typography variant="h2" className="home-title" style={{ fontFamily: 'Anta' }}>
-                        SCHEDULE
+                    SCHEDULE
                     </Typography>
-                    <img src={starsmall} alt="star" style={{ width: '50px', height: '50px' }} />
+                    <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
 
-                <Typography variant="h3" className="schedule-day" style={{ fontFamily: 'Anta', lineHeight: '3', marginBottom: '60px' }}>
+                <Typography variant="h3" className="schedule-day" style={{ fontFamily: 'Anta', lineHeight: '3', marginBottom: '30px' }}>
                     DAY 1
                 </Typography>
                 
@@ -310,9 +224,6 @@ function Home() {
                         </tr>
                     </tbody>
                 </table>
-
-                {/* gap between tables */}
-                <div style={{ marginTop: '30px', }}></div> 
 
                 <table className="schedule-table">
                     <thead>
