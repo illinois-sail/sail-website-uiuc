@@ -62,6 +62,15 @@ function Footer() {
             '@media (max-width: 768px)': { 
               paddingBottom: '300px',
             },
+            '@media (max-width: 480px)': { 
+              paddingBottom: '200px',
+            },
+            '@media (max-height: 640px)': { 
+              paddingBottom: '200px',
+            },
+            '@media (max-height: 480px)': { 
+              paddingBottom: '200px',
+            },
           }}
           >
           <Typography
@@ -78,7 +87,6 @@ function Footer() {
             '@media (max-width: 480px)': { 
               fontSize: '40px',
             },
-            
             }}
           >
             CONTACT US
@@ -139,12 +147,14 @@ function Footer() {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center bottom', 
           zIndex: -1,
-          '@media (max-width: 900px)': { 
-            backgroundSize: 'cover', 
-            height: '90vh',
+          '@media (max-width: 560px)': { 
+            marginBottom: '90px',
           },
-          '@media (max-width: 768px)': { 
-            height: '80vh',
+          '@media (max-width: 480px)': { 
+            marginBottom: '100px',
+          },
+          '@media (max-width: 360px)': { 
+            marginBottom: '120px',
           },
         }}
       />

@@ -14,6 +14,21 @@
   align-items: center; 
   min-height: 100vh; 
 }
+@media (min-width: 1200px) and (max-height: 480px) {
+  .container {
+    margin-top: 400px;
+  }
+}
+@media (min-width: 1024px) and (max-height: 480px) {
+  .container {
+    margin-top: 200px;
+  }
+}
+@media (min-width: 768px) and (max-height: 480px) {
+  .container {
+    margin-top: 100px;
+  }
+}
 
 /* Title */
 
@@ -42,6 +57,11 @@
 @media (max-width: 768px) {
   .title-image {
     width: 100%; 
+  }
+}
+@media (max-height: 480px) {
+  .title {
+    margin-top: -10vh;  
   }
 }
 
@@ -79,7 +99,15 @@
   background-position: center center;
   z-index: -1;
 }
-
+@media (max-width: 3000px) and (max-height: 600px) {
+  .home-clouds {
+    height: 20%;
+    top: 0px;
+  }
+  .container {
+    margin-bottom: 500px;
+  }
+}
 @media (max-width: 1600px) {
   .hourglass {
     width: 28px;
@@ -117,8 +145,14 @@
   }
 
   .countdown-container {
-    top: 60vh;
+    top: 50vh;
     transform: translate(-50%, 0%);
+  }
+  .home-clouds {
+    top: 0px;
+  }
+  .container {
+    margin-bottom: -200px;
   }
 }
 @media (max-width: 480px) {
@@ -131,6 +165,65 @@
   .days-left.MuiTypography-root {
     font-size: 18px;
     line-height: 18px;
+  }
+  .home-clouds {
+    top: 0px;
+  }
+  .container {
+    margin-bottom: -200px;
+  }
+}
+@media (max-height: 480px) and (max-width: 1600px) {
+  .countdown-container {
+    top: 90vh;
+    transform: translate(-50%, 0%);
+  }
+  .home-clouds {
+    height: 20%;
+    top: 0px;
+  }
+  .container {
+    margin-bottom: 500px;
+  }
+}
+@media (max-height: 480px) and (max-width: 1200px) {
+  .countdown-container {
+    top: 100vh;
+    transform: translate(-50%, 0%);
+  }
+  .home-clouds {
+    height: 20%;
+    top: 0px;
+  }
+  .container {
+    margin-bottom: 500px;
+  }
+}
+@media (max-height: 480px) and (max-width: 768px) {
+  .countdown-container {
+    top: 80vh;
+    transform: translate(-50%, 0%);
+  }
+  .home-clouds {
+    height: 20%;
+    top: 0px;
+  }
+  .container {
+    margin-bottom: 500px;
+  }
+  
+}
+@media (max-height: 480px) and (max-width: 488px) {
+  .countdown-container {
+    top: 70vh;
+    transform: translate(-50%, 0%);
+  }
+  .home-clouds {
+    height: 20%;
+    top: 0px;
+  }
+  .container {
+    margin-bottom: 500px;
   }
 }
 
