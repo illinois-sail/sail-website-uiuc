@@ -46,7 +46,7 @@ function FooterButton({ href, src, alt }) {
 
 function Footer() {
   return (
-    <div>
+    <div style={{ overflow: 'hidden', }}>
       <div className='contact-container'>
         <Box className="footer"
           sx={{
@@ -159,14 +159,16 @@ function Footer() {
       <div className='footer-clouds'
         style={{
             position: 'absolute',
-            bottom: '0vh',  
+            bottom: '0px',  
+            border: 'none',
             left: '50%',  
             width: '100%',  
-            height: '75vh',  
+            height: '70vh',  
             transform: 'translateX(-50%)',  
             backgroundImage: `url(${clouds1})`,  
             backgroundSize: 'cover',  
             backgroundPosition: 'center center', 
+            overflow: 'hidden',
             zIndex: -1,  
         }}
         >
@@ -186,7 +188,7 @@ function Footer() {
           backgroundPosition: 'center center', 
           zIndex: -2,
         }}
-      />
+      /> 
       
     
     </div>
