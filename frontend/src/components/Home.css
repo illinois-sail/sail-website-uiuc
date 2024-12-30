@@ -131,6 +131,15 @@
     font-size: 25px;
     line-height: 25px;
   }
+  .container {
+    margin-bottom: 300px;
+  }
+}
+@media (max-width: 900px) {
+  .countdown-container {
+    top: 60vh;
+    transform: translate(-50%, 0%);
+  }
 }
 @media (max-width: 768px) {
   .hourglass {
@@ -145,14 +154,23 @@
   }
 
   .countdown-container {
-    top: 50vh;
+    top: 55vh;
     transform: translate(-50%, 0%);
   }
   .home-clouds {
     top: 0px;
   }
   .container {
-    margin-bottom: -200px;
+    margin-bottom: -100px;
+  }
+}
+@media (max-width: 600px) {
+  .countdown-container {
+    top: 50vh;
+    transform: translate(-50%, 0%);
+  }
+  .container {
+    margin-bottom: -100px;
   }
 }
 @media (max-width: 480px) {
@@ -171,6 +189,23 @@
   }
   .container {
     margin-bottom: -200px;
+  }
+}
+@media (max-width: 350px) {
+  .hourglass {
+    width: 9px;
+    height: 9px;
+    padding: 1px 0px;
+  }
+  
+  .days-left.MuiTypography-root {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+@media (max-width: 250px) {
+  .home-clouds {
+    top: -50px;
   }
 }
 @media (max-height: 480px) and (max-width: 1600px) {
@@ -328,6 +363,29 @@
     height: 25px;
   }
 }
+@media (max-width: 350px) {
+  .about-desc.MuiTypography-root {
+    font-size: 12px;
+  }
+  .home-title.MuiTypography-root {
+    font-size: 30px;
+  }
+  .starwide-title {
+    width: 20px;
+    height: 20px;
+    transform: translateY(20px);
+  }
+  .starsmall-title {
+    width: 15px;
+    height: 15px;
+    transform: translateY(-10px);
+  }
+}
+@media (max-width: 250px) {
+  .home-title.MuiTypography-root {
+    font-size: 25px;
+  }
+}
 
 /* Schedule Table */
 
@@ -431,6 +489,15 @@
     font-size: 1em;
   }
   .schedule-table td {
+    font-size: 0.8em;
+  }
+}
+@media (max-width: 300px) {
+  .schedule-day.MuiTypography-root {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .schedule-table th {
     font-size: 0.8em;
   }
 }

@@ -5,7 +5,6 @@ import hourglass from '../assets/hourglass.png';
 import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 import sail2025title from '../assets/sail2025-title.png';
-import Footer from './Footer.js';
 import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 
@@ -291,8 +290,7 @@ function Home() {
             <div>
             </div>
 
-            {/* FOOTER */}
-            <Footer />
+            
         </div>
     );
 };

@@ -1,10 +1,13 @@
 import '../fonts.css'
+import './Footer.css';
 import { Typography } from '@mui/material';
 import clouds1 from '../assets/footer-clouds-1.png'
 import shootingstar from '../assets/shooting-star-footer.png'
 import tiktok from '../assets/tiktok-logo.png'
 import instagram from '../assets/instagram-logo.png'
 import email from '../assets/email-logo.png'
+import starwide from '../assets/star-wide.png';
+import starsmall from '../assets/star-small.png';
 import React from "react";
 import Box from '@mui/material/Box';
 import { Stack } from "@mui/system";
@@ -45,8 +48,7 @@ function Footer() {
   return (
     <div>
       <div className='contact-container'>
-        <Box
-          className="footer"
+        <Box className="footer"
           sx={{
             width: '100%',
             display: 'flex',
@@ -54,45 +56,83 @@ function Footer() {
             alignItems: 'center',
             gap: '40px',
             marginTop: '300px',
-            paddingBottom: '500px',
+            paddingBottom: '400px',
             color: 'white',
-            '@media (max-width: 1024px)': { 
-              paddingBottom: '400px',
-            },
-            '@media (max-width: 768px)': { 
-              paddingBottom: '300px',
-            },
-            '@media (max-width: 480px)': { 
-              paddingBottom: '200px',
-            },
-            '@media (max-height: 640px)': { 
-              paddingBottom: '200px',
-            },
-            '@media (max-height: 480px)': { 
-              paddingBottom: '200px',
-            },
           }}
           >
-          <Typography
-          variant="h3"
-          sx={{
-            fontFamily: 'Anta',
-            color: 'white',
-            lineHeight: '1.3',
-            textShadow: '0px 0px 20px rgba(255, 255, 255, 0.8)',
-            textAlign: 'center',
-            '@media (max-width: 1024px)': { 
-              fontSize: '45px',
-            },
-            '@media (max-width: 480px)': { 
-              fontSize: '40px',
-            },
+          
+          <Box className='contact-us'
+            sx={{
+              display: 'flex',
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              gap: '10px', 
+              textAlign: 'center', 
             }}
           >
-            CONTACT US
-          </Typography>
+            <Box
+              component="img"
+              src={starwide}
+              alt="star"
+              sx={{
+                width: '55px',
+                height: '55px',
+                transform: 'translateY(20px)',
+                '@media (max-width: 1024px)': {
+                  width: '45px',
+                  height: '45px',
+                },
+                '@media (max-width: 480px)': {
+                  width: '35px',
+                  height: '35px',
+                },
+              }}
+            />
+            
+            <Typography className='footer-text'
+              variant="h3"
+              sx={{
+                fontFamily: 'Anta',
+                color: 'white',
+                lineHeight: '1.3',
+                textShadow: '0px 0px 20px rgba(255, 255, 255, 0.8)',
+                '@media (max-width: 1024px)': { 
+                  fontSize: '45px',
+                },
+                '@media (max-width: 480px)': { 
+                  fontSize: '40px',
+                },
+                '@media (max-width: 400px)': { 
+                  fontSize: '35px',
+                },
+              }}
+            >
+              CONTACT US
+            </Typography>
+            
+            <Box
+              component="img"
+              src={starsmall}
+              alt="star"
+              sx={{
+                width: '40px',
+                height: '40px',
+                transform: 'translateY(-20px)',
+                '@media (max-width: 1024px)': {
+                  width: '30px',
+                  height: '30px',
+                },
+                '@media (max-width: 480px)': {
+                  width: '25px',
+                  height: '25px',
+                },
+              }}
+            />
 
-          <Stack
+          </Box>
+
+
+          <Stack className='social-media'
           direction="row"
           spacing={2}
           sx={{ justifyContent: 'center', alignItems: 'center' }}
@@ -116,7 +156,7 @@ function Footer() {
         </Box>
       </div>
 
-      <div
+      <div className='footer-clouds'
         style={{
             position: 'absolute',
             bottom: '0vh',  
@@ -132,30 +172,19 @@ function Footer() {
         >
       </div>
 
-      <Box
-        className="footer-stars"
+      <Box className="footer-shooting-stars"
         sx={{
           position: 'absolute',
-          bottom: '0',
+          bottom: '0vh',
           left: '50%', 
           width: '100%',
           height: '100vh',
-          maxHeight: '900px',
           transform: 'translateX(-50%)', 
           backgroundImage: `url(${shootingstar})`,
-          backgroundSize: 'contain', 
+          backgroundSize: 'auto 100%', 
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center bottom', 
-          zIndex: -1,
-          '@media (max-width: 560px)': { 
-            marginBottom: '90px',
-          },
-          '@media (max-width: 480px)': { 
-            marginBottom: '100px',
-          },
-          '@media (max-width: 360px)': { 
-            marginBottom: '120px',
-          },
+          backgroundPosition: 'center center', 
+          zIndex: -2,
         }}
       />
       

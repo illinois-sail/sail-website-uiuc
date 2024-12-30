@@ -1,0 +1,78 @@
+@import '../fonts.css';
+
+/* Base styles for footer elements */
+.footer-shooting-stars.MuiBox-root {
+  height: 100vh;
+}
+
+.footer.MuiBox-root {
+  padding-bottom: 100px;
+}
+
+/* Height breakpoints */
+@media (min-height: 400px) {
+  .footer.MuiBox-root {
+    padding-bottom: 200px;
+  }
+}
+
+@media (min-height: 600px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 90vh;
+  }
+  .footer.MuiBox-root {
+    padding-bottom: 300px;
+  }
+}
+
+@media (min-height: 768px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 80vh;
+  }
+}
+
+@media (min-height: 1024px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 70vh;
+  }
+  .footer.MuiBox-root {
+    padding-bottom: 400px;
+  }
+}
+
+@media (min-height: 1200px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 60vh;
+  }
+  .footer.MuiBox-root {
+    padding-bottom: 500px;
+  }
+}
+
+@media (min-height: 1600px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 50vh;
+  }
+}
+
+/* Special cases for larger heights at 1200px+ width */
+@media (min-width: 1200px) and (min-height: 1900px) {
+  .footer.MuiBox-root {
+    padding-bottom: 600px;
+  }
+}
+
+@media (min-width: 1200px) and (min-height: 2200px) {
+  .footer.MuiBox-root {
+    padding-bottom: 700px;
+  }
+}
+
+@media (min-width: 2500px) and (min-height: 2500px) {
+    .footer-shooting-stars.MuiBox-root {
+        height: 40vh;
+      }
+    .footer.MuiBox-root {
+        padding-bottom: 1500px;
+    }
+}
