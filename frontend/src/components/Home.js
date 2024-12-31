@@ -20,7 +20,7 @@ function Home() {
         const interval = setInterval(() => {
             const now = new Date();
             const timeDiff = targetDate - now;
-            const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
+            const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)) + 1; 
             setDaysLeft(daysRemaining);
         }, 1000); // update every min
 

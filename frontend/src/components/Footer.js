@@ -1,4 +1,4 @@
-import '../fonts.css'
+import '../fonts.css';
 import './Footer.css';
 import { Typography } from '@mui/material';
 import clouds1 from '../assets/footer-clouds-1.png'
@@ -198,11 +198,11 @@ function Footer() {
       <div className='footer-stars'
         style={{
           position: 'absolute',
-          top: '0',  // start from the top of the container
+          top: '50%',  
           left: '50%', 
           width: '100%',
           height: '100%',
-          transform: 'translateX(-50%)', 
+          transform: 'translate(-50%, -50%)',
           zIndex: 10,  // stars are on top of the footer
           overflow: 'hidden',
           pointerEvents: 'none', 
@@ -215,7 +215,7 @@ function Footer() {
           sx={{
             position: 'fixed',
             top: '20%',
-            left: '60%',
+            left: '55%',
             width: '30px',
             height: '30px',
             overflow: 'hidden',
@@ -229,7 +229,7 @@ function Footer() {
           sx={{
             position: 'fixed',
             top: '50%',
-            left: '10%',
+            left: '30%',
             width: '30px',
             height: '30px',
             animation: 'star-animation 3s infinite ease-in-out',
@@ -241,8 +241,8 @@ function Footer() {
           alt="star"
           sx={{
             position: 'fixed',
-            top: '65%',
-            left: '80%',
+            top: '60%',
+            left: '70%',
             width: '30px',
             height: '30px',
             animation: 'star-animation 1.5s infinite ease-in-out',

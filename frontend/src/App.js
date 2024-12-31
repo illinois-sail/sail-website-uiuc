@@ -3,6 +3,8 @@ import './App.css';
 import { AuthProvider } from './components/AuthContext';
 import AppRouter from './components/AppRouter'; 
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
   const [background, setBackground] = useState(
@@ -30,9 +32,10 @@ const App = () => {
 
   return (
     <AuthProvider>
+    <BrowserRouter>
       <div style={{ 
         position: 'relative',
-        minHeight: '100vh',
+        height: '100%',
       }}>
         {/* Background wrapper */}
         <div 
@@ -49,19 +52,22 @@ const App = () => {
         />
         
         {/* Content wrapper */}
-        <div style={{ 
+        <div 
+        style={{ 
           position: 'relative',
           zIndex: 1,
           backgroundColor: 'transparent'
         }}>
-          <div>
-            <AppRouter />
-          </div>
+          
+          <Navbar />
+          <AppRouter />
+          
           <div style={{position: 'relative', bottom: 0, width: '100%'}}>
             <Footer />
           </div>
         </div>
       </div>
+    </BrowserRouter>
     </AuthProvider>
   );
 }

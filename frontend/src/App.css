@@ -1,15 +1,6 @@
-/*
-.ombre-background {
-  position: relative;
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #FF7E5F, #feb47b); 
-}
-*/
-
 body {
-  margin-top: 60px;
   background: rgb(84, 79, 149);
-  min-height: 150vh; /* Ensure enough scrollable height */
+  min-height: 100vh; 
   width: 100vw;
   background-size: cover;
   background-position: center;
