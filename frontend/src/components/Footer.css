@@ -1,5 +1,42 @@
 @import '../fonts.css';
 
+@keyframes star-animation {
+  0% {
+    transform: scale(1); 
+  }
+  50% {
+    transform: scale(1.5); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
+
+@keyframes starwidefooter-animation {
+  0% {
+    transform: translateY(19px) scale(1); 
+  }
+  50% {
+    transform: translateY(20px) scale(1.5); 
+  }
+  100% {
+    transform: translateY(19px) scale(1); 
+  }
+}
+
+@keyframes starsmallfooter-animation {
+  0% {
+    transform: translateY(-19px) scale(1); 
+  }
+  50% {
+    transform: translateY(-20px) scale(1.5); 
+  }
+  100% {
+    transform: translateY(-19px) scale(1); 
+  }
+}
+
+
 /* Base styles for footer elements */
 .footer-shooting-stars.MuiBox-root {
   height: 100vh;
@@ -68,11 +105,20 @@
   }
 }
 
+@media (min-width: 2000px) and (min-height: 2000px) {
+  .footer-shooting-stars.MuiBox-root {
+      height: 40vh;
+    }
+  .footer.MuiBox-root {
+      padding-bottom: 700px;
+  }
+}
+
 @media (min-width: 2500px) and (min-height: 2500px) {
     .footer-shooting-stars.MuiBox-root {
         height: 40vh;
       }
     .footer.MuiBox-root {
-        padding-bottom: 1500px;
+        padding-bottom: 700px;
     }
 }

@@ -46,7 +46,7 @@ function FooterButton({ href, src, alt }) {
 
 function Footer() {
   return (
-    <div style={{ overflow: 'hidden', }}>
+    <div className='footer-container' style={{ overflow: 'hidden', }}>
       <div className='contact-container'>
         <Box className="footer"
           sx={{
@@ -77,7 +77,8 @@ function Footer() {
               sx={{
                 width: '55px',
                 height: '55px',
-                transform: 'translateY(20px)',
+                animation: 'starwidefooter-animation 3s infinite ease-in-out',
+                position: 'relative',
                 '@media (max-width: 1024px)': {
                   width: '45px',
                   height: '45px',
@@ -105,6 +106,9 @@ function Footer() {
                 '@media (max-width: 400px)': { 
                   fontSize: '35px',
                 },
+                '@media (max-width: 300px)': { 
+                  fontSize: '25px',
+                },
               }}
             >
               CONTACT US
@@ -118,6 +122,7 @@ function Footer() {
                 width: '40px',
                 height: '40px',
                 transform: 'translateY(-20px)',
+                animation: 'starsmallfooter-animation 3s infinite ease-in-out',
                 '@media (max-width: 1024px)': {
                   width: '30px',
                   height: '30px',
@@ -130,7 +135,6 @@ function Footer() {
             />
 
           </Box>
-
 
           <Stack className='social-media'
           direction="row"
@@ -153,26 +157,27 @@ function Footer() {
             alt="TikTok"
             />
           </Stack>
+
         </Box>
       </div>
 
-      <div className='footer-clouds'
-        style={{
-            position: 'absolute',
-            bottom: '0px',  
-            border: 'none',
-            left: '50%',  
-            width: '100%',  
-            height: '70vh',  
-            transform: 'translateX(-50%)',  
-            backgroundImage: `url(${clouds1})`,  
-            backgroundSize: 'cover',  
-            backgroundPosition: 'center center', 
-            overflow: 'hidden',
-            zIndex: -1,  
+      <Box className='footer-clouds'
+        sx={{
+          position: 'absolute',
+          bottom: '0px',  
+          border: 'none',
+          left: '50%',  
+          width: '100%',  
+          height: '75vh',  
+          transform: 'translateX(-50%)',  
+          backgroundImage: `url(${clouds1})`,  
+          backgroundSize: 'cover',  
+          backgroundPosition: 'center center', 
+          overflow: 'hidden',
+          zIndex: -1,  
+          clipPath: 'inset(2px 0 0 0)', // weird line was happening so i clipped off top
         }}
-        >
-      </div>
+        />
 
       <Box className="footer-shooting-stars"
         sx={{
@@ -189,8 +194,63 @@ function Footer() {
           zIndex: -2,
         }}
       /> 
+
+      <div className='footer-stars'
+        style={{
+          position: 'absolute',
+          top: '0',  // start from the top of the container
+          left: '50%', 
+          width: '100%',
+          height: '100%',
+          transform: 'translateX(-50%)', 
+          zIndex: 10,  // stars are on top of the footer
+          overflow: 'hidden',
+          pointerEvents: 'none', 
+        }}
+      >
+        <Box
+          component="img"
+          src={starsmall}
+          alt="star"
+          sx={{
+            position: 'fixed',
+            top: '20%',
+            left: '60%',
+            width: '30px',
+            height: '30px',
+            overflow: 'hidden',
+            animation: 'star-animation 2s infinite ease-in-out',
+          }}
+        />
+        <Box
+          component="img"
+          src={starsmall}
+          alt="star"
+          sx={{
+            position: 'fixed',
+            top: '50%',
+            left: '10%',
+            width: '30px',
+            height: '30px',
+            animation: 'star-animation 3s infinite ease-in-out',
+          }}
+        />
+        <Box
+          component="img"
+          src={starsmall}
+          alt="star"
+          sx={{
+            position: 'fixed',
+            top: '65%',
+            left: '80%',
+            width: '30px',
+            height: '30px',
+            animation: 'star-animation 1.5s infinite ease-in-out',
+          }}
+        />
+      </div>
       
-    
+        
     </div>
 
   );
