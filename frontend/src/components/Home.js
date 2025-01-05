@@ -1,207 +1,299 @@
-import Typography from "@mui/material/Typography";
-import "./Home.css";
-import "../fonts.css";
-import VideoPlayer from './VideoPlayer';
-// import React, { useEffect, useState } from 'react';
-import React, { useEffect } from 'react';
-import homepage_image from '../assets/logosvg.svg'
-import { useAuth } from './AuthContext';
-import FAQ from './faq';
-import Carousel from './Carousel';
-
-import { IconButton } from '@mui/material';
-
-import instaLogo from "../assets/instagram.svg"
-import tiktokLogo from "../assets/tiktok.svg"
-import emailLogo from "../assets/email.svg"
-
-
-const imagesContext = require.context('./gallery_photos', false, /\.(png|jpg)$/);
-const carouselImages = imagesContext.keys().map(imagesContext);
-
+import './Home.css';
+import '../fonts.css';
+import clouds2 from '../assets/footer-clouds-2.png'
+import hourglass from '../assets/hourglass.png';
+import starwide from '../assets/star-wide.png';
+import starsmall from '../assets/star-small.png';
+import sail2025title from '../assets/sail2025-title.png';
+import { Typography } from '@mui/material';
+import React, { useState, useEffect } from 'react';
 
 function Home() {
 
-  return (
-    <div className="homepage">
-        <div class="container">
-        <div className="logo-container" style={{ width: "100%", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-          <img style={{ width: "100%", height: "auto" }} src={homepage_image} alt="SAIL 2024 Logo" />
-        </div>
+    // VERY IMPO: WHEN DAYLIGHT SAVINGS STARTS, CHANGE TARGET DATE BY 1 HR
 
-          <p class="home_text" style={{ color: "white" }}>April 13-14, 2024</p>
-        </div>
+    // Calculating number of days until Sail
+    const targetDate = new Date('2025-03-28T18:00:00-06:00');
+    const [daysLeft, setDaysLeft] = useState(null);
 
-        <div className="surroundingBox" style={{ width: "100%", display: "flex", flexDirection: "column", alignContent: "center", alignItems: "center" }}>
-          <div className="bus-information" style={{ paddingLeft: "5vw", paddingRight: "5vw", 
-              display: "flex", 
-              flexDirection: "column",
-              justifyContent: "center",
-              textAlign: "center",
-              border: "2px solid purple",
-              borderRadius: "10px",
-              boxShadow: "0 0 5px blue, 0 0 10px purple",
-              width: "40%",
-          }}>
-            <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
-              <h1 color="white">VIRTUAL SAIL EVENT LINK</h1>
-            </a>
-          </div>
-        </div>
-        
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const now = new Date();
+            const timeDiff = targetDate - now;
+            const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)) + 1; 
+            setDaysLeft(daysRemaining);
+        }, 1000); // update every min
 
-        <div class="container" style={{marginTop: "60px"}}>
-          <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center", marginBottom: "-5%", marginTop: "5%" }}>
-            <p class="home_title">Schedule</p>
-          </div>
-          <p class="home_subtitle">Day 1</p>
-          <table class="schedule-table">
-            <tr>
-              <th class="table_head">Time</th>
-              <th class="table_head">Student Activities</th>
-            </tr>
-            <tr>
-              <td>8:00am</td>
-              <td>Check-in, Breakfast, and RSO fair</td>
-            </tr>
-            <tr>
-              <td>9:30am</td>
-              <td>Opening Ceremony<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
-            </tr>
-            <tr>
-              <td>10:00am</td>
-              <td>Class #1</td>
-            </tr>
-            <tr>
-              <td>11:00am</td>
-              <td>Class #2<br/></td>
-            </tr>
-            <tr>
-              <td rowspan="2">12:00pm</td>
-              <td>Lunch (Group X)<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
-            </tr>
-            <tr>
-              <td>Tour (Group Y)</td>
-            </tr>
-            <tr>
-              <td>1:00pm</td>
-              <td>Lunch (Group Y)<br/>Tour (Group X)</td>
-            </tr>
-            <tr>
-              <td>2:00pm</td>
-              <td>Class #3</td>
-            </tr>
-            <tr>
-              <td rowspan="2">3:00pm</td>
-              <td>Prospective Student Q&A Panel</td>
-            </tr>
-            <tr>
-              <td>Admitted Student Q&A Panel</td>
-            </tr>
-            <tr>
-              <td>4:00pm</td>
-              <td>Professor Wade Talk<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
-            </tr>
-          </table>
+        return () => clearInterval(interval);
+    }, [targetDate]);
 
-          <p class="home_subtitle">Parent Track</p>
-          <table class="schedule-table">
-            <tr>
-              <th class="table_head">Time</th>
-              <th class="table_head">Parent Activities</th>
-            </tr>
-            <tr>
-              <td>8:00am</td>
-              <td>Breakfast</td>
-            </tr>
-            <tr>
-              <td>9:30am</td>
-              <td>Opening Ceremony<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
-            </tr>
-            <tr>
-              <td>10:00am</td>
-              <td>Parent Q & A<br/><span class="note" style={{ fontFamily: "JetBrainsMono" }}>(Room 1404)</span></td>
-            </tr>
-            <tr>
-              <td>11:00am</td>
-              <td>Free to Explore Campus!<br/></td>
-            </tr>
-          </table>
 
-          <p class="home_subtitle">Day 2</p>
-          <table class="schedule-table">
-            <tr>
-              <th class="table_head">Time</th>
-              <th class="table_head">Student Activities</th>
-            </tr>
-            <tr>
-              <td>12:00pm</td>
-              <td>
-                <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
-                  <h2>Opening Ceremony</h2>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>12:30pm</td>
-              <td>Virtual Class #1</td>
-            </tr>
-            <tr>
-              <td>1:30pm</td>
-              <td>Virtual Class #2</td>
-            </tr>
-            <tr>
-              <td>2:30pm</td>
-              <td>
-                <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
-                  <h2>Q&A Panel</h2>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>3:30pm</td>
-              <td>
-                <a href="https://illinois.zoom.us/j/86585503333?pwd=UGdEcWpmWUZ5NkZubXo3ajVLc0xRQT09">
-                  <h2>Closing Ceremony</h2>
-                </a>
-              </td>
-            </tr>
-          </table>
-        </div>
-        
-        <div class="container">
-          <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-            <p class="home_title">Gallery</p>
-          </div>
-          <div class="carousel_container">
-            <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-              <Carousel images={carouselImages} />
+    return (
+        <div className='homepage'>
+            {/* TITLE PAGE*/}
+            {/* TODO: ADD STARS */}
+            <div className='container'>
+            <div className='title'>
+                <img
+                    className="title-image"
+                    src={sail2025title}
+                    alt="SAIL 2025 Title"
+                />
             </div>
-          </div>
-        </div>
 
-        <footer className="footer colored-footer">
-          <div style={{ alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center", marginBottom: "-5%", marginTop: "5%" }}>
-            <p class="home_subtitle">Contact Us</p>
-          </div>
-          <div className="footer-container">
-            <div className="footer-buttons">
-              <IconButton color="primary" onClick={() => window.open("https://www.tiktok.com/@illinoissail", "_blank")}>
-                <img src={tiktokLogo} alt="TikTok" style={{ width: '50px', height: '50px' }}/>
-              </IconButton>
-              <IconButton color="primary" onClick={() => window.open("https://www.instagram.com/illinois_cs_sail/?hl=en", "_blank")}>
-                <img src={instaLogo} alt="Instagram" style={{ width: '50px', height: '50px' }}/>
-              </IconButton>
-              <IconButton color="primary" onClick={() => window.open("mailto:sail.cs.illinois@gmail.com", "_blank")}>
-                <img src={emailLogo} alt="Email" style={{ width: '50px', height: '50px' }}/>
-              </IconButton>
+                <div className='countdown-container'>
+                    <img 
+                        src={hourglass}
+                        className="hourglass"
+                        alt='Hourglass Icon' 
+                    />
+                    
+                    <Typography
+                        variant='h3' 
+                        className='days-left'
+                        sx={{
+                            fontFamily: 'Anta',
+                            fontSize: '38px', 
+                            fontWeight: '400', 
+                            lineHeight: '34px', 
+                            letterSpacing: '0', 
+                            textAlign: 'center',
+                            opacity: '1', 
+                            color: 'white', 
+                            gap: '8px', 
+                        }}
+                    >
+                        {daysLeft !== null
+                            ? `${daysLeft} days until Sail 2025`
+                            : 'Loading...'}
+                    </Typography>
+
+                </div>
+                
+                <div className='home-clouds' style={{ backgroundImage: `url(${clouds2})` }}></div>
+
             </div>
-          </div>
-        </footer>
-    </div>
-  );
+
+            {/* ABOUT SAIL */}
+            {/* TODO: ADD STARS */}
+            <div className='about-sail'>
+                
+                <div className="title-container">
+                    <img src={starwide} className='starwide-title' alt="star" />
+                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
+                        WHAT IS SAIL
+                    </Typography>
+                    <img src={starsmall} className='starsmall-title' alt="star" />
+                </div>
+
+                
+                <Typography
+                    variant='body1'
+                    className='about-desc'
+                    sx={{
+                        width: '60%',
+                        maxWidth: '1350px',
+                        height: '90px',
+                        fontFamily: 'DM-Sans',
+                        fontSize: '32px',
+                        fontWeight: '400',
+                        textAlign: 'center',
+                        lineHeight: '1.3',
+                        opacity: '1',
+                        color: 'white',
+                        marginBottom: '100px', 
+                    }}
+                >
+                    Sail is an entirely student-run organization that hosts an annual two-day outreach event for high school students! At Sail, attendees will be able to experience what it's like to be a CS student at UIUC.
+                </Typography>
+            </div>
+
+            {/* SCHEDULE */}
+            {/* TODO: ADD STARS */}
+            <div className='schedule' >
+                <div className="title-container">
+                    <img src={starwide} className='starwide-title' alt="star" />
+                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
+                    SCHEDULE
+                    </Typography>
+                    <img src={starsmall} className='starsmall-title' alt="star" />
+                </div>
+
+                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
+                    DAY 1
+                </Typography>
+                
+                <table className="schedule-table">
+                    <thead>
+                        <tr>
+                            <th className="table-head">TIME</th>
+                            <th className="table-head">STUDENT ACTIVITIES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8:00 AM</td>
+                            <td>
+                                <div >
+                                    Check In, Breakfast, RSO Fair<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9:30 AM</td>
+                            <td>
+                                <div >
+                                    Opening Ceremony<br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>
+                                <div >
+                                    Lunch (Group X) <br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                                <div>
+                                    Tour (Group Y)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM</td>
+                            <td>
+                                <div >
+                                    Lunch (Group Y) <br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                                <div>
+                                    Tour (Group X)
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table className="schedule-table">
+                    <thead>
+                        <tr>
+                            <th className="table-head">TIME</th>
+                            <th className="table-head">PARENT ACTIVITIES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8:00 AM</td>
+                            <td>
+                                <div >
+                                    Check In, Breakfast, RSO Fair<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9:30 AM</td>
+                            <td>
+                                <div >
+                                    Opening Ceremony<br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>
+                                <div >
+                                    Lunch (Group X) <br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                                <div>
+                                    Tour (Group Y)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM</td>
+                            <td>
+                                <div >
+                                    Lunch (Group Y) <br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                                <div>
+                                    Tour (Group X)
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
+                    DAY 2
+                </Typography>
+
+                <table className="schedule-table">
+                    <thead>
+                        <tr>
+                            <th className="table-head">TIME</th>
+                            <th className="table-head">STUDENT ACTIVITIES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8:00 AM</td>
+                            <td>
+                                <div >
+                                    Check In, Breakfast, RSO Fair<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9:30 AM</td>
+                            <td>
+                                <div >
+                                    Opening Ceremony<br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>
+                                <div >
+                                    Lunch (Group X) <br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                                <div>
+                                    Tour (Group Y)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM</td>
+                            <td>
+                                <div >
+                                    Lunch (Group Y) <br />
+                                    <span class="note">Room 1404</span>
+                                </div>
+                                <div>
+                                    Tour (Group X)
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            {/* TODO: GALLERY */}
+            <div>
+            </div>
+
+            
+        </div>
+    );
 };
 
 export default Home;
-
 

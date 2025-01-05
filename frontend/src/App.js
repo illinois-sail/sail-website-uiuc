@@ -1,56 +1,74 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import AppRouter from './components/AppRouter';
-import NavBar from './components/NavBar';
-import background from "./assets/final_background.png";
-import { AuthProvider } from "./components/AuthContext";
-import Footer from './components/Footer'; // Import the Footer component
+import { AuthProvider } from './components/AuthContext';
+import AppRouter from './components/AppRouter'; 
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import { BrowserRouter } from 'react-router-dom';
+
 const App = () => {
+  const [background, setBackground] = useState(
+    'linear-gradient(180deg, rgba(84, 79, 149, 1) 35%, rgba(42, 39, 86, 1) 70%, rgba(14, 13, 41, 1) 100%)'
+  );
+
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / docHeight;
+
+    const startColor = `rgba(84, 79, 149, ${1 - scrollFraction})`;
+    const midColor = `rgba(42, 39, 86, ${1 - scrollFraction / 2})`;
+    const endColor = `rgba(14, 13, 41, 1)`;
+
+    setBackground(`linear-gradient(180deg, ${startColor} 35%, ${midColor} 70%, ${endColor} 100%)`);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const newBackgroundSize = 100 + scrollPosition * 0.1; // Adjust the multiplier as needed
-      document.getElementById("background-container").style.backgroundSize = `${newBackgroundSize}% ${newBackgroundSize}%`;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener when the component unmounts
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-      <AuthProvider>
-        <div style={{ position: "relative", minHeight: "100vh" }}>
-        <div
-          id="background-container"
-          className="background-container"
-          style={{
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-            position: "fixed",
+    <AuthProvider>
+    <BrowserRouter>
+      <div style={{ 
+        position: 'relative',
+        height: '100%',
+      }}>
+        {/* Background wrapper */}
+        <div 
+          style={{ 
+            position: 'absolute',
             top: 0,
             left: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: -1,
-            transition: "background-color 0.3s ease", // Add transition property for smooth color change
-          }}
+            width: '100%',
+            height: '100%',
+            background,
+            zIndex: 0,
+            pointerEvents: 'none'  // This allows clicks to pass through to content
+          }} 
         />
-          <div style={{ zIndex: 1 }}>
-            <NavBar />
-            <AppRouter />
-          </div>
-          <div style={{position: "absolute", bottom: 40, width: "100%"}}>
-            {/* <Footer style={{  }} /> */}
+        
+        {/* Content wrapper */}
+        <div 
+        style={{ 
+          position: 'relative',
+          zIndex: 1,
+          backgroundColor: 'transparent'
+        }}>
+          
+          <Navbar />
+          <AppRouter />
+          
+          <div style={{position: 'relative', bottom: 0, width: '100%'}}>
+            <Footer />
           </div>
         </div>
-      </AuthProvider>
+      </div>
+    </BrowserRouter>
+    </AuthProvider>
   );
 }
 

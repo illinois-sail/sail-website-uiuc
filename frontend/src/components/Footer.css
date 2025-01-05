@@ -1,0 +1,124 @@
+@import '../fonts.css';
+
+@keyframes star-animation {
+  0% {
+    transform: scale(1); 
+  }
+  50% {
+    transform: scale(1.5); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
+
+@keyframes starwidefooter-animation {
+  0% {
+    transform: translateY(19px) scale(1); 
+  }
+  50% {
+    transform: translateY(20px) scale(1.5); 
+  }
+  100% {
+    transform: translateY(19px) scale(1); 
+  }
+}
+
+@keyframes starsmallfooter-animation {
+  0% {
+    transform: translateY(-19px) scale(1); 
+  }
+  50% {
+    transform: translateY(-20px) scale(1.5); 
+  }
+  100% {
+    transform: translateY(-19px) scale(1); 
+  }
+}
+
+
+/* Base styles for footer elements */
+.footer-shooting-stars.MuiBox-root {
+  height: 100vh;
+}
+
+.footer.MuiBox-root {
+  padding-bottom: 100px;
+}
+
+/* Height breakpoints */
+@media (min-height: 400px) {
+  .footer.MuiBox-root {
+    padding-bottom: 200px;
+  }
+}
+
+@media (min-height: 600px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 90vh;
+  }
+  .footer.MuiBox-root {
+    padding-bottom: 300px;
+  }
+}
+
+@media (min-height: 768px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 80vh;
+  }
+}
+
+@media (min-height: 1024px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 70vh;
+  }
+  .footer.MuiBox-root {
+    padding-bottom: 400px;
+  }
+}
+
+@media (min-height: 1200px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 60vh;
+  }
+  .footer.MuiBox-root {
+    padding-bottom: 500px;
+  }
+}
+
+@media (min-height: 1600px) {
+  .footer-shooting-stars.MuiBox-root {
+    height: 50vh;
+  }
+}
+
+/* Special cases for larger heights at 1200px+ width */
+@media (min-width: 1200px) and (min-height: 1900px) {
+  .footer.MuiBox-root {
+    padding-bottom: 600px;
+  }
+}
+
+@media (min-width: 1200px) and (min-height: 2200px) {
+  .footer.MuiBox-root {
+    padding-bottom: 700px;
+  }
+}
+
+@media (min-width: 2000px) and (min-height: 2000px) {
+  .footer-shooting-stars.MuiBox-root {
+      height: 40vh;
+    }
+  .footer.MuiBox-root {
+      padding-bottom: 700px;
+  }
+}
+
+@media (min-width: 2500px) and (min-height: 2500px) {
+    .footer-shooting-stars.MuiBox-root {
+        height: 40vh;
+      }
+    .footer.MuiBox-root {
+        padding-bottom: 700px;
+    }
+}
