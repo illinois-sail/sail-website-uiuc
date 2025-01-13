@@ -75,13 +75,13 @@ function Footer() {
               src={starwide}
               alt="star"
               sx={{
-                width: '55px',
-                height: '55px',
+                width: '50px',
+                height: '50px',
                 animation: 'starwidefooter-animation 3s infinite ease-in-out',
                 position: 'relative',
                 '@media (max-width: 1024px)': {
-                  width: '45px',
-                  height: '45px',
+                  width: '40px',
+                  height: '40px',
                 },
                 '@media (max-width: 480px)': {
                   width: '35px',
@@ -176,6 +176,9 @@ function Footer() {
           overflow: 'hidden',
           zIndex: -1,  
           clipPath: 'inset(2px 0 0 0)', // weird line was happening so i clipped off top
+          '@media (max-height: 520px)': {
+            height: '100vh',  
+          },
         }}
         />
 
@@ -220,6 +223,18 @@ function Footer() {
             height: '30px',
             overflow: 'hidden',
             animation: 'star-animation 2s infinite ease-in-out',
+            '@media (max-height: 768px)': {
+              top: '25%',  
+            },
+            '@media (max-height: 600px)': {
+              top: '30%',  
+            },
+            '@media (max-height: 480px)': {
+              top: '35%',  
+            },
+            '@media (max-height: 400px)': {
+              top: '40%',  
+            },
           }}
         />
         <Box

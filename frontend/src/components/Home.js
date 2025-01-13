@@ -5,6 +5,7 @@ import hourglass from '../assets/hourglass.png';
 import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 import sail2025title from '../assets/sail2025-title.png';
+import titleshootingstars from '../assets/title-shooting-stars.png';
 import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 
@@ -20,7 +21,7 @@ function Home() {
         const interval = setInterval(() => {
             const now = new Date();
             const timeDiff = targetDate - now;
-            const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)) + 1; 
+            const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
             setDaysLeft(daysRemaining);
         }, 1000); // update every min
 
@@ -34,6 +35,11 @@ function Home() {
             {/* TODO: ADD STARS */}
             <div className='container'>
             <div className='title'>
+                <img
+                    className="corner-image"
+                    src={titleshootingstars} 
+                    alt="Corner Decoration"
+                />
                 <img
                     className="title-image"
                     src={sail2025title}
