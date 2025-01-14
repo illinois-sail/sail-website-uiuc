@@ -1,0 +1,162 @@
+@import '../fonts.css';
+
+/* Login Page */
+
+.loginpage {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 10vh; 
+}
+
+.login-title.MuiTypography-root {
+    font-family: 'TAN-PEARL';
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0.68px;
+    opacity: 1;
+    text-align: center;
+    color: white;
+    text-shadow: 
+        0 0 7px rgba(255, 255, 255, 0.7),
+        0 0 10px rgba(255, 255, 255, 0.7),
+        0 0 21px rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px; 
+    padding-top: 20rem;
+}
+@media (max-width: 900px) {
+    .login-title.MuiTypography-root {
+        margin-top: 12rem; 
+    }
+  }
+  @media (max-width: 480px) {
+    .login-title.MuiTypography-root {
+        font-size: 48px;
+    }
+  }
+  @media (max-width: 340px) {
+    .login-title.MuiTypography-root {
+        font-size: 32px;
+    }
+  }
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%; 
+    max-width: 500px; 
+    margin: 0 auto; 
+    padding: 1rem;
+}
+
+.input-group {
+    font-family: 'Anta';
+    font-size: 1.25rem;
+    position: relative;
+    --primary: #D9D9D966;
+    width: 100%;
+    display: flex;
+    margin-bottom: 0.3rem; 
+}
+
+.input {
+    all: unset;
+    width: 100%;
+    color: #fefefe;
+    padding: 1.5rem;
+    padding-top: 2rem;
+    border-radius: 20px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--primary); 
+
+
+    /* ensures styling consistent with autofill */
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        -webkit-text-fill-color: #fefefe !important;
+        transition: background-color 5000s ease-in-out 0s;
+        font-family: 'Anta';
+    }
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: #d4d4d4;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left top;
+}
+
+.input:focus {
+    background-color: var(--primary);
+}
+
+.input:is(:focus, :valid) ~ .label {
+    transform: translateY(-100%) translateX(0.5em) scale(0.7);
+    padding-inline: 0em;
+}
+
+.login-button {
+    width: 70%;
+    max-width: 400px; 
+    height: 60px; 
+    margin-top: 1.5rem;
+    padding: 6px 24px;
+    border: 3px solid #95C5FF;
+    border-radius: 20px;
+    background-color: #95C5FF80;
+    
+    /* Text styling */
+    font-family: 'Anta'; 
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: rgba(149, 197, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(1px);
+}
+
+
+/* Links */
+
+.link-container {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.link {
+    font-family: 'DM-Sans';
+    color: #EAEAEA;
+    text-decoration: none;
+    font-size: 24px;
+    margin-top: 1rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: #FCFCFC;
+}

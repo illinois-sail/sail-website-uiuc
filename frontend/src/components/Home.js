@@ -4,7 +4,7 @@ import clouds2 from '../assets/footer-clouds-2.png'
 import hourglass from '../assets/hourglass.png';
 import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
-import sail2025title from '../assets/sail2025-title.png';
+import sail2025title from '../assets/titles/sail2025-title.png';
 import titleshootingstars from '../assets/title-shooting-stars.png';
 import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
@@ -32,7 +32,6 @@ function Home() {
     return (
         <div className='homepage'>
             {/* TITLE PAGE*/}
-            {/* TODO: ADD STARS */}
             <div className='container'>
             <div className='title'>
                 <img
@@ -81,7 +80,6 @@ function Home() {
             </div>
 
             {/* ABOUT SAIL */}
-            {/* TODO: ADD STARS */}
             <div className='about-sail'>
                 
                 <div className="title-container">
@@ -115,7 +113,6 @@ function Home() {
             </div>
 
             {/* SCHEDULE */}
-            {/* TODO: ADD STARS */}
             <div className='schedule' >
                 <div className="title-container">
                     <img src={starwide} className='starwide-title' alt="star" />

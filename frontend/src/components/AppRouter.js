@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-// import Login from "./Login";
+import Login from "./Login";
 import { Provider } from "react-redux"; // TODO
 import Home from "./Home";
 // import ClassTemplate from "./ClassTemplate";
@@ -23,10 +23,11 @@ const AppRouter = () => {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path="/login" element={<Login />} />
 
 
           {/* <Route path="/classes" element={<ClassTemplate />} />
-          <Route path="/login" element={<Login />} />
+          
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
           <Route path='/aboutus' element={<AboutUs />} />
