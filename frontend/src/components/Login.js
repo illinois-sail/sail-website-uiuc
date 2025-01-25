@@ -3,6 +3,7 @@ import '../fonts.css';
 import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 import titleshootingstars from '../assets/title-shooting-stars.png';
+import nebula from '../assets/nebula.png';
 import { Typography } from '@mui/material';
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom'; 
@@ -12,12 +13,12 @@ import axios from 'axios';
 const PROD_SERVER = "https://sail.cs.illinois.edu";
 const TEST_SERVER = "http://192.168.50.2:5000";
 
+// server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 axios.defaults.withCredentials = true;
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
-const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
 
 function Login() {
@@ -100,55 +101,68 @@ function Login() {
 
     return (
         <div className='loginpage'>
-            <div className='container'>
-                {/* TITLE SECTION */}
-                <div className='title'>
-                    <img
-                        className="corner-image"
-                        src={titleshootingstars} 
-                        alt="Corner Decoration"
-                    />
-                    
-                    <Typography variant="h2" className="login-title" sx={{ fontFamily: 'TAN-PEARL' }}>
-                        WELCOME
-                    </Typography>
 
-                </div>
+            {/* TITLE SECTION */}
+            <div className='title'>
+                <img
+                    className="corner-image"
+                    src={titleshootingstars} 
+                    alt="Corner Decoration"
+                />
+                
+                <Typography variant="h2" className="title">
+                    SIGN IN
+                </Typography>
 
-                {/* LOGIN FORM */}
-                <form onSubmit={handleLogin} className="form" style={{ width: formWidth }}>
-                    <div className="input-group">
-                        <input className="input" required type="text" id="username" onChange={handleEmailChange} value={email} />
-                        <label className="label" htmlFor="username">Email</label>
-                    </div>
-                    <br />
+                <Typography className="subtitle">
+                    Please ensure that you are <Link to="/register" className="link">registered</Link> with UIUC before proceeding.
+                </Typography>
 
-                    <div className="input-group">
-                        <input className="input" required type="password" id="password" onChange={handlePasswordChange} value={password} />
-                        <label className="label" htmlFor="password">Password</label>
-                    </div>
-                    <br />
-
-                    <button className="login-button" type="submit">
-                        LOGIN
-                    </button>
-                    <br />
-                    
-                    <div className="link-container">
-                        <Link to="/signup" className="link">
-                            Don't have an account? Sign up here!
-                        </Link>
-                        <br />
-                        <Link to="/reset_password" className="link">
-                            Forgot your password? Reset it here!
-                        </Link>
-                    </div>
-                </form>
             </div>
 
+            {/* IMAGE DECOR */}
+            <div className='image-container'>
+                <img className="starwide-left" src={starsmall} alt="Star Left" />
+                <img className="starsmall-left" src={starwide} alt="Star Left" />
+                <img className="nebula-right" src={nebula} alt="Nebula Right" />
+            </div>
+
+            {/* LOGIN FORM */}
+            <form onSubmit={handleLogin} className="form" style={{ width: formWidth }}>
+                <div className="input-group">
+                    <input className="input" required type="text" id="username" onChange={handleEmailChange} value={email} />
+                    <label className="label" htmlFor="username">Email</label>
+                </div>
+                <br />
+
+                <div className="input-group">
+                    <input className="input" required type="password" id="password" onChange={handlePasswordChange} value={password} />
+                    <label className="label" htmlFor="password">Password</label>
+                </div>
+                <Link to="/reset_password" className="link forgot-password">
+                    Forgot Password?
+                </Link>
+                <br />
+
+                <button className="submit-button" type="submit">
+                    LOG IN
+                </button>
+                <br />
+                
+                <div className="link-container">
+                    <Typography className="no-account">
+                    Don't have an account?
+                    <br />
+                    <span className="register-link">
+                        <Link to="/signup" className="link">Register now</Link>
+                    </span>
+                    </Typography>
+                </div>
+            </form>
 
             
         </div>
+
     );
 };
 

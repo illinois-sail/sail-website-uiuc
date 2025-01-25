@@ -2,17 +2,57 @@
 
 /* Login Page */
 
+.starwide-left, .starsmall-left {
+    position: absolute;
+    top: 20%;
+    z-index: -1; 
+    left: 5%;
+    width: 40px; 
+}
+.starsmall-left {
+    transform: translateY(70%) translateX(70%);
+}
+.nebula-right {
+    position: absolute;
+    opacity: 0.7;
+    top: 25%;
+    z-index: -1; 
+    right: 15%;
+    width: 350px;
+}
+@media (max-width: 1400px) {
+    .nebula-right {  right: 10%; width: 320px; }
+}
+@media (max-width: 1200px) {
+    .nebula-right {  width: 300px; }
+}
+@media (max-width: 1024px) {
+    .nebula-right {  right: 5%; width: 300px; }
+}
+@media (max-width: 900px) {
+    .starwide-left, .starsmall-left, .nebula-right {
+        margin-top: 10rem; 
+    }
+    .nebula-right {
+        width: 200px;
+    }
+  }
+@media (max-width: 600px) {
+    .nebula-right {  right: 5%; width: 150px; }
+}
+@media (max-width: 400px) {
+    .nebula-right {  right: 0%; width: 130px; }
+}
+
 .loginpage {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: center; 
     align-items: center; 
     min-height: 10vh; 
 }
 
-.login-title.MuiTypography-root {
+.title.MuiTypography-root {
     font-family: 'TAN-PEARL';
     font-size: 64px;
     font-weight: 400;
@@ -26,21 +66,23 @@
         0 0 10px rgba(255, 255, 255, 0.7),
         0 0 21px rgba(255, 255, 255, 0.7);
     margin-bottom: 40px; 
-    padding-top: 20rem;
+    margin-top: 25rem; 
 }
-@media (max-width: 900px) {
-    .login-title.MuiTypography-root {
-        margin-top: 12rem; 
+@media (min-height: 900px) {
+    .title.MuiTypography-root {
+        padding-top: 10rem; 
     }
-  }
+}
   @media (max-width: 480px) {
-    .login-title.MuiTypography-root {
+    .title.MuiTypography-root {
         font-size: 48px;
+        margin-top: 27rem; 
     }
   }
   @media (max-width: 340px) {
-    .login-title.MuiTypography-root {
+    .title.MuiTypography-root {
         font-size: 32px;
+        margin-top: 27rem; 
     }
   }
 
@@ -108,7 +150,7 @@
     padding-inline: 0em;
 }
 
-.login-button {
+.submit-button {
     width: 70%;
     max-width: 400px; 
     height: 60px; 
@@ -129,34 +171,72 @@
     transition: all 0.3s ease;
 }
 
-.login-button:hover {
+.submit-button:hover {
     background-color: rgba(149, 197, 255, 0.6);
     transform: translateY(-2px);
 }
 
-.login-button:active {
+.submit-button:active {
     transform: translateY(1px);
 }
 
 
 /* Links */
 
-.link-container {
-    display: flex;
-    flex-direction: column; 
-    text-align: center;
-    margin-top: 2rem;
-}
-
 .link {
-    font-family: 'DM-Sans';
-    color: #EAEAEA;
-    text-decoration: none;
-    font-size: 24px;
-    margin-top: 1rem;
+    font-family: 'Anta'; 
+    color: #92CEFF;
+    text-decoration: underline;
+    font-size: 20px;
 }
 
 .link:hover {
     text-decoration: underline;
-    color: #FCFCFC;
+    color: #92CEFF;
+}
+
+.forgot-password {
+    margin-top: 15px;
+    font-size: 20px;
+    display: block;
+    text-align: right;
+    width: 100%;
+    font-family: 'Anta';
+}
+
+.no-account.MuiTypography-root {
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Anta'; 
+    color: white;
+}
+
+.subtitle.MuiTypography-root {
+    font-family: 'Anta';
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: white;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.register-link {
+    display: inline-block; 
+    margin-top: 20px; 
+}
+
+
+@media (max-width: 480px) {
+    .link, .forgot-password, .no-account.MuiTypography-root, .subtitle.MuiTypography-root {
+        font-size: 16px;
+    }
+}
+@media (max-width: 400px) {
+    .submit-button {
+    font-size: 20px;
+  }
 }

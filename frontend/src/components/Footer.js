@@ -164,7 +164,7 @@ function Footer() {
       <Box className='footer-clouds'
         sx={{
           position: 'absolute',
-          bottom: '0px',  
+          bottom: '0vh',  
           border: 'none',
           left: '50%',  
           width: '100%',  
