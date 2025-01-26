@@ -7,7 +7,7 @@ import { Typography } from '@mui/material';
 const CLASSES = allClasses;
 
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://192.168.1.9:5000";
+const TEST_SERVER = "http://10.192.104.68:5000";
 
 // server URL based on url of window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
@@ -61,45 +61,45 @@ const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 
 function Profile() {  
     const [authUser, setAuthUser] = useState(initialAuthUser);
-    // const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
+    const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
 
-    // if (!authUser) {
-    //     console.log("No initial authUser found in local storage");
-    //     window.location.href = "/login";
-    // }
+    if (!authUser) {
+        console.log("No initial authUser found in local storage");
+        window.location.href = "/login";
+    }
 
-    // useEffect(() => {
-    //     if (!dataFetched) {
-    //         axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
-    //             .then((response) => {
-    //                 console.log('Response from /get_classes:', response);
-    //                 const initialClasses = response.data.classes;
-    //                 setAuthUser((prevAuthUser) => {
-    //                     return {
-    //                         ...prevAuthUser,
-    //                         classes: initialClasses
-    //                     }
-    //                 });
-    //                 setDataFetched(true); // data fetched
-    //             })
-    //             .catch((error) => {
-    //                 console.error(error);
-    //             });
-    //     }
-    // }, [dataFetched, authUser]);
+    useEffect(() => {
+        if (!dataFetched) {
+            axios.get(`${SERVER_URL}/get_classes/${initialAuthUser.email}`)
+                .then((response) => {
+                    console.log('Response from /get_classes:', response);
+                    const initialClasses = response.data.classes;
+                    setAuthUser((prevAuthUser) => {
+                        return {
+                            ...prevAuthUser,
+                            classes: initialClasses
+                        }
+                    });
+                    setDataFetched(true); // data fetched
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+    }, [dataFetched, authUser]);
 
-    // useEffect(() => {
-    //     console.log("authUser changed!")
-    //     if (authUser) {
-    //         localStorage.setItem('authUser', JSON.stringify(authUser));
-    //         console.log("changed authUser: ", authUser);
-    //         console.log("authUser classes: " + authUser.classes)
-    //     }
-    // }, [authUser]);
+    useEffect(() => {
+        console.log("authUser changed!")
+        if (authUser) {
+            localStorage.setItem('authUser', JSON.stringify(authUser));
+            console.log("changed authUser: ", authUser);
+            console.log("authUser classes: " + authUser.classes)
+        }
+    }, [authUser]);
 
-    // const [isEditingFirstName, setIsEditingFirstName] = useState(false);
-    // const [isEditingLastName, setIsEditingLastName] = useState(false);
-    // const [isEditingEmail, setIsEditingEmail] = useState(false);
+    const [isEditingFirstName, setIsEditingFirstName] = useState(false);
+    const [isEditingLastName, setIsEditingLastName] = useState(false);
+    const [isEditingEmail, setIsEditingEmail] = useState(false);
 
     const[isEditing, setIsEditing] = useState(false);
     
@@ -107,9 +107,9 @@ function Profile() {
     const [editedLastName, setEditedLastName] = useState("");
     const [editedEmail, setEditedEmail] = useState("");
 
-    // const [originalFirstName, setOriginalFirstName] = useState(authUser ? authUser.first_name : "");
-    // const [originalLastName, setOriginalLastName] = useState(authUser ? authUser.last_name : "");
-    // const [originalEmail, setOriginalEmail] = useState(authUser ? authUser.email : "");
+    const [originalFirstName, setOriginalFirstName] = useState(authUser ? authUser.first_name : "");
+    const [originalLastName, setOriginalLastName] = useState(authUser ? authUser.last_name : "");
+    const [originalEmail, setOriginalEmail] = useState(authUser ? authUser.email : "");
 
     const [isSmallScreen, setIsSmallScreen] = useState(window.matchMedia('(max-width: 1200px)').matches)
     const [flexDirection, setFlexDirection] = useState(isSmallScreen ? "column" : "row")
@@ -128,92 +128,92 @@ function Profile() {
 
     const handleSave = () => {
         // if any field is empty, set it to original value
-        // if (editedEmail === "") {
-        //     setEditedEmail(originalEmail);
-        // }
-        // if (editedFirstName === "") {
-        //     setEditedFirstName(originalFirstName);
-        // }
-        // if (editedLastName === "") {
-        //     setEditedLastName(originalLastName);
-        // }
+        if (editedEmail === "") {
+            setEditedEmail(originalEmail);
+        }
+        if (editedFirstName === "") {
+            setEditedFirstName(originalFirstName);
+        }
+        if (editedLastName === "") {
+            setEditedLastName(originalLastName);
+        }
         console.log("editedEmail: ", editedEmail);
-        // console.log("originalEmail: ", originalEmail);
+        console.log("originalEmail: ", originalEmail);
 
 
         // if user edits email, confirm user actually wants to
-        // if (editedEmail !== originalEmail && editedEmail !== "") {
-        //     if (window.confirm("Are you sure you want to change your email?")) {
-        //         // then continue with the save
-        //     } else {
-        //         // if the user cancels, then return
-        //         return;
-        //     }
-        // }
+        if (editedEmail !== originalEmail && editedEmail !== "") {
+            if (window.confirm("Are you sure you want to change your email?")) {
+                // then continue with the save
+            } else {
+                // if the user cancels, then return
+                return;
+            }
+        }
 
         // POST request to change user info
         
-        // axios.post(`${SERVER_URL}/change_user_info`, {
-        //     firstName: editedFirstName ? editedFirstName : originalFirstName,
-        //     lastName: editedLastName ? editedLastName : originalLastName,
-        //     oldEmail: originalEmail,
-        //     newEmail: editedEmail ? editedEmail : originalEmail,
-        // }, {
-        //     // withCredentials: true, 
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         // 'Access-Control-Allow-Origin': 'true',
-        //     },
-        //     // mode: 'cors'
-        // })
-        // .then(response => {
-        //     // set the authUser to the new information
-        //     console.log("response: ", response);
-        //     localStorage.setItem('authUser', JSON.stringify(response.data));
-        //     setOriginalFirstName(response.data.first_name);
-        //     setOriginalLastName(response.data.last_name);
-        //     setOriginalEmail(response.data.email);
-        // })
-        // .catch(error => {
-        //     // handle the error if needed
-        //     console.log(error);
-        // });
+        axios.post(`${SERVER_URL}/change_user_info`, {
+            firstName: editedFirstName ? editedFirstName : originalFirstName,
+            lastName: editedLastName ? editedLastName : originalLastName,
+            oldEmail: originalEmail,
+            newEmail: editedEmail ? editedEmail : originalEmail,
+        }, {
+            // withCredentials: true, 
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': 'true',
+            },
+            // mode: 'cors'
+        })
+        .then(response => {
+            // set the authUser to the new information
+            console.log("response: ", response);
+            localStorage.setItem('authUser', JSON.stringify(response.data));
+            setOriginalFirstName(response.data.first_name);
+            setOriginalLastName(response.data.last_name);
+            setOriginalEmail(response.data.email);
+        })
+        .catch(error => {
+            // handle the error if needed
+            console.log(error);
+        });
 
-        // setOriginalFirstName(editedFirstName);
-        // setOriginalLastName(editedLastName);
-        // setOriginalEmail(editedEmail);
+        setOriginalFirstName(editedFirstName);
+        setOriginalLastName(editedLastName);
+        setOriginalEmail(editedEmail);
         
         setIsEditing(false);
-        // setIsEditingFirstName(false);
-        // setIsEditingLastName(false);
-        // setIsEditingEmail(false);
+        setIsEditingFirstName(false);
+        setIsEditingLastName(false);
+        setIsEditingEmail(false);
     };
 
     const handleCancel = () => {
-        // setEditedFirstName(originalFirstName);
-        // setEditedLastName(originalLastName);
-        // setEditedEmail(originalEmail);
+        setEditedFirstName(originalFirstName);
+        setEditedLastName(originalLastName);
+        setEditedEmail(originalEmail);
         
         setIsEditing(false);
-        // setIsEditingFirstName(false);
-        // setIsEditingLastName(false);
-        // setIsEditingEmail(false);
+        setIsEditingFirstName(false);
+        setIsEditingLastName(false);
+        setIsEditingEmail(false);
     };
 
     console.log("authUser: ", authUser)
-    // const userClasses = authUser ? getClasses(authUser.classes, CLASSES) : [];
-    // console.log("userClasses: ", userClasses);
+    const userClasses = authUser ? getClasses(authUser.classes, CLASSES) : [];
+    console.log("userClasses: ", userClasses);
     const firstName = authUser ? authUser.first_name : "Not Signed In";
     const lastName = authUser ? authUser.last_name : "Not Signed In";
     const email = authUser ? authUser.email : "notloggedin@sail.edu";
 
-    // const loggedState = localStorage.getItem('isLoggedIn');
+    const loggedState = localStorage.getItem('isLoggedIn');
 
-    // if ((loggedState === "false" || loggedState === null || loggedState === undefined || loggedState === false) && SERVER_URL === PROD_SERVER) {
-    //     console.log("User not logged in. Redirecting to login page...");
-    //     console.log("authUser: ", authUser)
-    //     //window.location.href = "/login";
-    // }
+    if ((loggedState === "false" || loggedState === null || loggedState === undefined || loggedState === false) && SERVER_URL === PROD_SERVER) {
+        console.log("User not logged in. Redirecting to login page...");
+        console.log("authUser: ", authUser)
+        //window.location.href = "/login";
+    }
 
     return (
         <div style={{ 
