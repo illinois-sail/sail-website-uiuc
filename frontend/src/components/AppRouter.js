@@ -11,6 +11,7 @@ import store from "./store";
 // import Profile from "./Profile";
 // import AboutUs from "./AboutUs";
 import Logout from "./Logout";
+import AboutPage from "./AboutPage";
 // import Registration from "./Registration";
 // import ResetPassword from "./ResetPassword";
 // import ResetPasswordToken from "./ResetPasswordToken";
@@ -23,6 +24,7 @@ const AppRouter = () => {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/aboutus' element={<AboutPage />} />
 
 
           {/* <Route path="/classes" element={<ClassTemplate />} />

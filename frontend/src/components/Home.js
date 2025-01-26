@@ -27,6 +27,67 @@ function Home() {
         return () => clearInterval(interval);
     }, [targetDate]);
 
+    useEffect(() => {
+        const images = document.getElementById('gallery-images');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+    
+        let currentIndex = 0;
+        const totalImages = images.children.length;
+    
+        function updateGallery() {
+          images.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    
+        function goToPrevious() {
+          currentIndex = currentIndex === 0 ? totalImages - 1 : currentIndex - 1;
+          updateGallery();
+        }
+    
+        function goToNext() {
+          currentIndex = currentIndex === totalImages - 1 ? 0 : currentIndex + 1;
+          updateGallery();
+        }
+    
+        // Event listeners for buttons
+        prevButton.addEventListener('click', goToPrevious);
+        nextButton.addEventListener('click', goToNext);
+    
+        // Touch gesture handling
+        let startX = 0;
+        let endX = 0;
+    
+        images.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        });
+    
+        images.addEventListener('touchmove', (e) => {
+          endX = e.touches[0].clientX;
+        });
+    
+        images.addEventListener('touchend', () => {
+          if (startX > endX + 50) {
+            // Swipe left
+            goToNext();
+          } else if (startX < endX - 50) {
+            // Swipe right
+            goToPrevious();
+          }
+        });
+    
+        // Initialize the gallery
+        updateGallery();
+    
+        // Cleanup event listeners on unmount
+        return () => {
+          prevButton.removeEventListener('click', goToPrevious);
+          nextButton.removeEventListener('click', goToNext);
+          images.removeEventListener('touchstart', () => {});
+          images.removeEventListener('touchmove', () => {});
+          images.removeEventListener('touchend', () => {});
+        };
+      }, []);
+    
 
     return (
         <div className='homepage'>
@@ -287,8 +348,29 @@ function Home() {
             </div>
 
             {/* TODO: GALLERY */}
-            <div>
-            </div>
+            {/* <Gallery /> */}
+            <div className='about-sail'>
+                
+                <div className="title-container">
+                    <img src={starwide} className='starwide-title' alt="star" />
+                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
+                        GALLERY                    </Typography>
+                    <img src={starsmall} className='starsmall-title' alt="star" />
+                </div>
+                </div>
+
+                <div className="gallery-container">
+        <div className="gallery-wrapper">
+          <div className="gallery-images" id="gallery-images">
+            <img src="/placeholder.svg?height=400&width=800" alt="Gallery image 1" />
+            <img src="/placeholder.svg?height=400&width=800" alt="Gallery image 2" />
+            <img src="/placeholder.svg?height=400&width=800" alt="Gallery image 3" />
+            <img src="/placeholder.svg?height=400&width=800" alt="Gallery image 4" />
+          </div>
+        </div>
+        <button className="gallery-nav prev" id="prev-button">&lt;</button>
+        <button className="gallery-nav next" id="next-button">&gt;</button>
+      </div>
 
             
         </div>
