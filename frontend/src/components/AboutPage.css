@@ -1,0 +1,128 @@
+@import '../fonts.css';
+
+
+.container1 {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin-top:-50px;
+}
+
+
+
+.title-image {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.about-clouds {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(-50%);
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+}
+/* Team Sections */
+.team-section {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.team-name {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.member-image-container {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glow effect */
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-name {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: #ffffff; /* White color */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .member-image-container {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .member-name {
+        font-size: 1rem;
+    }
+
+    .team-name {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .member-image-container {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .member-name {
+        font-size: 0.95rem;
+    }
+
+    .team-name {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-image-container {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .member-name {
+        font-size: 0.875rem;
+    }
+
+    .team-name {
+        font-size: 1.25rem;
+    }
+}
