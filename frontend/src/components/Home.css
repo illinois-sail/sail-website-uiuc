@@ -9,11 +9,11 @@
 .container {
   width: 100%; 
   display: flex;
-  flex-direction: column;
-  justify-content: center; 
   align-items: center; 
   min-height: 100vh; 
   margin-top:-50px;
+  flex-direction: column;
+  justify-content: center; 
 }
 @media (min-width: 1200px) and (max-height: 480px) {
   .container {
@@ -37,10 +37,20 @@
   margin-top: -35vh; 
 }
 
+.corner-image {
+  position: absolute;
+  top: 50px; /* Adjust to place the image where needed */
+  left: 50px; /* Adjust to place the image where needed */
+  width: 220px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  z-index: -1; /* Ensure it is layered correctly */
+}
+
+
 .title-image {
   display: block; 
-  margin-left: auto;  
   margin-right: auto; 
+  margin-left: auto; 
   width: 70%; 
   height: auto; 
 }
@@ -49,20 +59,32 @@
   .title-image {
     width: calc(100% - 20vw); 
   }
+  .corner-image {
+    width: 200px;
+  }
 }
 @media (max-width: 1200px) and (min-width: 768px) {
   .title-image {
     width: calc(100% - 10vw); 
+  }
+  .corner-image {
+    width: 170px;
   }
 }
 @media (max-width: 768px) and (max-height: 480px) {
   .title-image {
     margin-top: 60vh;  
   }
+  .corner-image {
+    width: 150px;
+  }
 }
 @media (max-width: 768px) {
   .title-image {
     width: 100%; 
+  }
+  .corner-image {
+    width: 150px;
   }
 }
 @media (max-height: 480px) {

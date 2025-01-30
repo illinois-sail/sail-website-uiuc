@@ -1,21 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.74ade8b0.css",
-    "main.js": "/static/js/main.38bbfd27.js",
+    "main.css": "/static/css/main.674f1f89.css",
+    "main.js": "/static/js/main.2225640b.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
-    "static/media/final-background.png": "/static/media/final-background.c0fc46ca40a98ed2a441.png",
-    "static/media/stardust-1.png": "/static/media/stardust-1.d4312009afa218e38f00.png",
+    "static/media/footer-clouds-2.png": "/static/media/footer-clouds-2.6df5e3cc692b21811875.png",
+    "static/media/sail2025-title.png": "/static/media/sail2025-title.33c77b4fcf7e95b78898.png",
+    "static/media/footer-clouds-1.png": "/static/media/footer-clouds-1.83c25d639f57b434bb5b.png",
+    "static/media/title-shooting-stars.png": "/static/media/title-shooting-stars.beda863b9fed43bae138.png",
+    "static/media/shooting-star-footer.png": "/static/media/shooting-star-footer.7bc11eacca88d64ef838.png",
+    "static/media/nebula.png": "/static/media/nebula.ac9cefed23f18960dbe4.png",
+    "static/media/sail-logo.png": "/static/media/sail-logo.15771e73915df7b36865.png",
     "static/media/Anta-Regular.ttf": "/static/media/Anta-Regular.0e0da7a3dc95e085b230.ttf",
     "static/media/DMSans_24pt-Regular.ttf": "/static/media/DMSans_24pt-Regular.18b000764da24551deee.ttf",
-    "static/media/sail-title.png": "/static/media/sail-title.edde8fe8a0e80e666cb1.png",
     "static/media/tan-pearl.otf": "/static/media/tan-pearl.657acf1fede9b308aafa.otf",
     "index.html": "/index.html",
-    "main.74ade8b0.css.map": "/static/css/main.74ade8b0.css.map",
-    "main.38bbfd27.js.map": "/static/js/main.38bbfd27.js.map",
+    "main.674f1f89.css.map": "/static/css/main.674f1f89.css.map",
+    "main.2225640b.js.map": "/static/js/main.2225640b.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.74ade8b0.css",
-    "static/js/main.38bbfd27.js"
+    "static/css/main.674f1f89.css",
+    "static/js/main.2225640b.js"
   ]
 }
