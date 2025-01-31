@@ -9,6 +9,7 @@ import ClassTemplate from "./ClassTemplate";
 import store from "./store";
 import SignUp from "./SignUp";
 import Profile from "./Profile";
+import ResetPassword from "./ResetPassword";
 // import AboutUs from "./AboutUs";
 import Logout from "./Logout";
 // import Registration from "./Registration";
@@ -27,6 +28,7 @@ const AppRouter = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/classes" element={<ClassTemplate />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/reset_password" element={<ResetPassword />} />
 
           {/* 
           <Route path='/aboutus' element={<AboutUs />} />
