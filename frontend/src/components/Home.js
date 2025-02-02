@@ -184,7 +184,7 @@ function Home() {
                 </div>
 
                 <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
-                    DAY 1
+                    DAY 1 (SATURDAY)
                 </Typography>
                 
                 <table className="schedule-table">
@@ -213,14 +213,29 @@ function Home() {
                             </td>
                         </tr>
                         <tr>
+                            <td>10:00 AM</td>
+                            <td>
+                                <div >
+                                    Class #1<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM</td>
+                            <td>
+                                <div >
+                                    Class #2<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>12:00 PM</td>
                             <td>
                                 <div >
-                                    Lunch (Group X) <br />
-                                    <span class="note">Room 1404</span>
+                                    Lunch (Group A) <br />
                                 </div>
                                 <div>
-                                    Tour (Group Y)
+                                    Q&A Prospective Students (Group B)
                                 </div>
                             </td>
                         </tr>
@@ -228,11 +243,42 @@ function Home() {
                             <td>1:00 PM</td>
                             <td>
                                 <div >
-                                    Lunch (Group Y) <br />
-                                    <span class="note">Room 1404</span>
+                                    Lunch (Group B) <br />
                                 </div>
                                 <div>
-                                    Tour (Group X)
+                                    Q&A Admitted Students (Group A)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2:00 PM</td>
+                            <td>
+                                <div >
+                                    Class #3<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3:00 PM</td>
+                            <td>
+                                <div >
+                                    Puzzle Scavenger Hunt<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td>
+                                <div >
+                                    Professor Wade talk!<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5:00 PM</td>
+                            <td>
+                                <div >
+                                    Closing Ceremony<br />
                                 </div>
                             </td>
                         </tr>
@@ -260,31 +306,39 @@ function Home() {
                             <td>
                                 <div >
                                     Opening Ceremony<br />
-                                    <span class="note">Room 1404</span>
+                                    <span class="note"></span>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>12:00 PM</td>
+                            <td>10:00 AM</td>
                             <td>
                                 <div >
-                                    Lunch (Group X) <br />
-                                    <span class="note">Room 1404</span>
-                                </div>
-                                <div>
-                                    Tour (Group Y)
+                                    Parent Q&A <br />
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>1:00 PM</td>
+                            <td>11:00 AM</td>
                             <td>
                                 <div >
-                                    Lunch (Group Y) <br />
-                                    <span class="note">Room 1404</span>
+                                    Free time around campus!
                                 </div>
-                                <div>
-                                    Tour (Group X)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td>
+                                <div >
+                                    Professor Wade talk!<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5:00 PM</td>
+                            <td>
+                                <div >
+                                    Closing Ceremony<br />
                                 </div>
                             </td>
                         </tr>
@@ -293,7 +347,7 @@ function Home() {
 
 
                 <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
-                    DAY 2
+                    DAY 2 (SUNDAY)
                 </Typography>
 
                 <table className="schedule-table">
@@ -305,43 +359,66 @@ function Home() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>8:00 AM</td>
-                            <td>
-                                <div >
-                                    Check In, Breakfast, RSO Fair<br />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>9:30 AM</td>
-                            <td>
-                                <div >
-                                    Opening Ceremony<br />
-                                    <span class="note">Room 1404</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>12:00 PM</td>
                             <td>
                                 <div >
-                                    Lunch (Group X) <br />
-                                    <span class="note">Room 1404</span>
-                                </div>
-                                <div>
-                                    Tour (Group Y)
+                                    Opening Ceremony<br />
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>1:00 PM</td>
+                            <td>12:30 PM</td>
                             <td>
                                 <div >
-                                    Lunch (Group Y) <br />
-                                    <span class="note">Room 1404</span>
+                                    Class #1<br />
                                 </div>
-                                <div>
-                                    Tour (Group X)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1:20 PM</td>
+                            <td>
+                                <div >
+                                    Break<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1:30 PM</td>
+                            <td>
+                                <div >
+                                    Class #2<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2:20 PM</td>
+                            <td>
+                                <div >
+                                    Break<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2:30 PM</td>
+                            <td>
+                                <div >
+                                    TBD<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3:30 PM</td>
+                            <td>
+                                <div >
+                                    CS/CS+X Q&A Session<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td>
+                                <div >
+                                    Closing Ceremony<br />
                                 </div>
                             </td>
                         </tr>
