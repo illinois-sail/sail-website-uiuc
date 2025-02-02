@@ -1,3 +1,6 @@
+#TODO: remove shirt size + parent info from db, signup, etc.
+
+
 from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -92,6 +95,10 @@ def index():
 
 @app.route('/classes', methods=['GET'])
 def classes():
+    return render_template('index.html')
+
+@app.route('/classes_test', methods=['GET'])
+def classes_test():
     return render_template('index.html')
 
 @app.route('/login', methods=['GET'])
@@ -261,10 +268,11 @@ def signup():
         "password_hash": hash_password(response['password']),
         "first_name": response['firstName'],
         "last_name": response['lastName'],
-        "shirt_size": response['shirtSize'],
-        "parent_name": response['parentName'],
-        "parent_email": response['parentEmail'],
+        "shirt_size": "X",
+        "parent_name": "X",
+        "parent_email": "X",
         "classes": "0" * 100
+        
     }
 
     # if the email is already in use, return an error
@@ -410,9 +418,9 @@ def change_user_info():
     lastName = response['lastName'].capitalize()
     oldEmail = response['oldEmail']
     newEmail = response['newEmail']
-    parent_email = response['parentEmail']
-    parent_name = response['parentName']
-    shirt_size = response['shirtSize']
+    # parent_email = response['parentEmail']
+    # parent_name = response['parentName']
+    # shirt_size = response['shirtSize']
     
     # find the user in the database
     user = Student.query.filter_by(email=oldEmail).first()
@@ -422,9 +430,9 @@ def change_user_info():
         user.first_name = firstName.capitalize()
         user.last_name = lastName.capitalize()
         user.email = newEmail
-        user.parent_email = parent_email
-        user.parent_name = parent_name
-        user.shirt_size = shirt_size
+        user.parent_email = "X"
+        user.parent_name = "X"
+        user.shirt_size = "X"
         db.session.commit()
         
         user_data = {

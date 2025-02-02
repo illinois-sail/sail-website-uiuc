@@ -1,95 +1,101 @@
 import React, { useState, useEffect } from "react";
-import "./cyberpunk.css"; 
 import axios from "axios";
 import allClasses from "./Classes";
+import { Typography, Box, Divider } from '@mui/material';
+import SERVER_URL, { PROD_SERVER } from './server_url';
+import starsmall from '../assets/star-small.png';
+import planet from '../assets/planet.png';
 
-const CLASSES = allClasses
+const CLASSES = allClasses;
 
-const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://192.168.1.9:5000";
-
-// assign the server URL based on the url of the window
-const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
-
-const CyberButton = (props) => {
-    const background = props.background || "bg-red";
-    const foreground = props.foreground || "fg-white";
-    const className = `cyber-button ${background} ${foreground}`;
-    const text = props.text || "Button Text";
-    const onClick = props.onClick || (() => console.log("Button clicked"));
-    return (
-        <button className={className} onClick={onClick}>
-            {text}
-            <span className="glitchtext">SAIL</span>
-            <span className="tag">CS</span>
-        </button>
-    );
-};
 
 const BusInfomation = () => {
     return (
-        <div className="bus-information" style={{ marginTop: "2vh", paddingLeft: "5vw", paddingRight: "5vw", 
+        <div className="bus-information" style={{ 
+            marginTop: "2vh", 
+            paddingLeft: "10vw", 
+            paddingRight: "10vw", 
             display: "flex", 
             flexDirection: "column",
-            // justifyContent: "center",
-            border: "2px solid purple",
-            borderRadius: "10px",
-            boxShadow: "0 0 5px blue, 0 0 10px purple",
             marginBottom: "2vh",
             marginTop: "8vh",
+            fontFamily: "Anta",
         }}>
-            <h1 style={{ fontSize: "3rem" }}>Bus Information</h1>
-            <p>If you need a bus, here are all the provided bus stops:</p>
-            <ul>
-                <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540) Pickup April 13, 2024 @ 5:45 AM</li>
-                <li>Union Station, Chicago (225 S Canal St, Chicago, IL 60606) Pickup April 13, 2024 @ 5:55 AM</li>
-                <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) Pickup April 13, 2024 @ 5:45 AM -- Parking Lot E-30 and E-31 (near Ashley HomeStore)</li>
-                <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) Pickup April 13, 2024 @ 6:10 AM (Bus will be coming from Woodfield) -- Parking Lot E (Southwest corner of the center)</li>
-            </ul>
+            <h1 style={{ fontSize: "3rem" }}>BUS INFORMATION</h1>
+            <div style={{ backgroundColor: '#FFFFFF26', borderRadius: '20px', paddingLeft: "2vw", paddingRight: "2vw", }}>
+                <p style={{ fontSize: "2rem" }}>If you need a bus, here are all the provided bus stops:</p>
+                <ul style={{ fontSize: "2rem" }}>
+                    <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540) Pickup March 29, 2025 @ 5:30 AM (Bus departs @ 5:45am)</li>
+                    <li>Union Station, Chicago (225 S Canal St, Chicago, IL 60606) Pickup March 29, 2025 @ 5:40 AM (Bus departs at 5:55am)</li>
+                    <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) Pickup March 29, 2025 @ 5:45 AM -- Parking Lot E-30 and E-31 (near Ashley HomeStore) (Bus departs at 6:00am)</li>
+                    <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) Pickup March 29, 2025 @ 6:10 AM (Bus will be coming from Woodfield) -- Parking Lot E (Southwest corner of the center) (Bus departs at 6:25am)</li>
+                </ul>
+            </div>
         </div>
     );
 }
 
-// find the classes that the user is in given their bitsequence and the official list of classes
+const TitleWithPlanet = ({ firstName }) => (
+    <Box
+        sx={{
+            position: 'relative',  
+            width: '50%',
+            height: { 
+                xs: '200px',      
+                sm: '250px',     
+                md: '350px', 
+                lg: '450px', 
+                xl: '500px',    
+            },
+            backgroundImage: `url(${planet})`, 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'top',
+            backgroundPosition: 'center',
+            display: 'flex',
+            justifyContent: 'center', 
+            alignItems: 'center',     
+            backgroundRepeat: 'no-repeat',
+            margin: '0 auto'
+        }}
+    >
+        <Typography 
+            variant="h3" 
+            sx={{
+                fontFamily: 'Anta',
+                textAlign: "center",
+                color: 'white',  // You may want to ensure the text is visible over the image
+                zIndex: 1,       // Ensure text is above the image
+                textShadow: '0px 0px 15px rgba(255, 255, 255, 1)',
+            }}
+        >
+            {firstName}
+        </Typography>
+    </Box>
+);
+
+
+
+
+// use bitsequence to find user's classes
 function getClasses(bitsequence, classes) {
-    let returny = [];
+    let classesTaking = [];
     for (let i = 0; i < Math.min(bitsequence.length, classes.length); i++) {
         if (bitsequence[i] === "1") {
-            // find the class is classIndex = i and push back to returny
+            // find the class and add to classesTaking
             for (let j = 0; j < classes.length; j++) {
                 if (classes[j].classIndex === i) {
-                    returny.push(classes[j]);
+                    classesTaking.push(classes[j]);
                     break;
                 }
             }
         }
     }
-    return returny;
+    return classesTaking;
 }
 
-const InformationLink = (props) => {
-    return (
-        <div style={{
-            display: "flex", 
-            justifyContent: "center",
-            border: "2px solid purple",
-            borderRadius: "10px",
-            boxShadow: "0 0 5px blue, 0 0 10px purple",
-            width: "40%",
-            padding: "0.5%",
-            textAlign: "center",
-
-        }}>
-            <h3>
-                <a href={props.href} style={{ color: "white",  fontFamily: "JetBrainsMono" }}>
-                    {props.text}
-                </a>
-            </h3>
-        </div>
-    );
-}
 
 const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
+
 
 function Profile() {  
     const [authUser, setAuthUser] = useState(initialAuthUser);
@@ -112,7 +118,7 @@ function Profile() {
                             classes: initialClasses
                         }
                     });
-                    setDataFetched(true); // Mark data as fetched
+                    setDataFetched(true); // data fetched
                 })
                 .catch((error) => {
                     console.error(error);
@@ -132,23 +138,16 @@ function Profile() {
     const [isEditingFirstName, setIsEditingFirstName] = useState(false);
     const [isEditingLastName, setIsEditingLastName] = useState(false);
     const [isEditingEmail, setIsEditingEmail] = useState(false);
-    const [isEditingShirtSize, setIsEditingShirtSize] = useState(false);
-    const [isEditingParentName, setIsEditingParentName] = useState(false);
-    const [isEditingParentEmail, setIsEditingParentEmail] = useState(false);
+
+    const[isEditing, setIsEditing] = useState(false);
     
     const [editedFirstName, setEditedFirstName] = useState("");
     const [editedLastName, setEditedLastName] = useState("");
     const [editedEmail, setEditedEmail] = useState("");
-    const [editedShirtSize, setEditedShirtSize] = useState("");
-    const [editedParentName, setEditedParentName] = useState("");
-    const [editedParentEmail, setEditedParentEmail] = useState("");
-    
+
     const [originalFirstName, setOriginalFirstName] = useState(authUser ? authUser.first_name : "");
     const [originalLastName, setOriginalLastName] = useState(authUser ? authUser.last_name : "");
     const [originalEmail, setOriginalEmail] = useState(authUser ? authUser.email : "");
-    const [originalShirtSize, setOriginalShirtSize] = useState(authUser ? authUser.shirt_size : "");
-    const [originalParentName, setOriginalParentName] = useState(authUser ? authUser.parent_name : "");
-    const [originalParentEmail, setOriginalParentEmail] = useState(authUser ? authUser.parent_email : "");
 
     const [isSmallScreen, setIsSmallScreen] = useState(window.matchMedia('(max-width: 1200px)').matches)
     const [flexDirection, setFlexDirection] = useState(isSmallScreen ? "column" : "row")
@@ -165,58 +164,10 @@ function Profile() {
         return () => window.removeEventListener('resize', handleResize)
     }, []);
 
-    const handleDoubleClick = (field) => {
-        switch (field) {
-            case "all":
-                setIsEditingFirstName(true);
-                setIsEditingLastName(true);
-                setIsEditingEmail(true);
-                setIsEditingShirtSize(true);
-                setIsEditingParentName(true);
-                setIsEditingParentEmail(true);
-                break;
-            case "email":
-                setIsEditingEmail(true);
-                setEditedEmail(originalEmail);
-                break;
-            case "shirtSize":
-                setIsEditingShirtSize(true);
-                setEditedShirtSize(originalShirtSize);
-                break;
-            case "parentName":
-                setIsEditingParentName(true);
-                setEditedParentName(originalParentName);
-                break;
-            case "parentEmail":
-                setIsEditingParentEmail(true);
-                setEditedParentEmail(originalParentEmail);
-                break;
-            case "firstName":
-                setIsEditingFirstName(true);
-                setEditedFirstName(originalFirstName);
-                break;
-            case "lastName":
-                setIsEditingLastName(true);
-                setEditedLastName(originalLastName);
-                break;
-            default:
-                break;
-        }
-    };
-
     const handleSave = () => {
-        // if any field is empty, set it to the original value
+        // if any field is empty, set it to original value
         if (editedEmail === "") {
             setEditedEmail(originalEmail);
-        }
-        if (editedShirtSize === "") {
-            setEditedShirtSize(originalShirtSize);
-        }
-        if (editedParentName === "") {
-            setEditedParentName(originalParentName);
-        }
-        if (editedParentEmail === "") {
-            setEditedParentEmail(originalParentEmail);
         }
         if (editedFirstName === "") {
             setEditedFirstName(originalFirstName);
@@ -228,7 +179,7 @@ function Profile() {
         console.log("originalEmail: ", originalEmail);
 
 
-        // if the editedEmail is different from the originalEmail, then alert the user they are changing their email and ask for confirmation
+        // if user edits email, confirm user actually wants to
         if (editedEmail !== originalEmail && editedEmail !== "") {
             if (window.confirm("Are you sure you want to change your email?")) {
                 // then continue with the save
@@ -238,18 +189,13 @@ function Profile() {
             }
         }
 
-        // Send a POST request with the new information to "localhost:5000/change_user_info"
-        // You can use a library like axios to make the POST request
-        // Example using axios:
+        // POST request to change user info
         
         axios.post(`${SERVER_URL}/change_user_info`, {
             firstName: editedFirstName ? editedFirstName : originalFirstName,
             lastName: editedLastName ? editedLastName : originalLastName,
             oldEmail: originalEmail,
             newEmail: editedEmail ? editedEmail : originalEmail,
-            shirtSize: editedShirtSize ? editedShirtSize : originalShirtSize,
-            parentName: editedParentName ? editedParentName : originalParentName,
-            parentEmail: editedParentEmail ? editedParentEmail : originalParentEmail
         }, {
             // withCredentials: true, 
             headers: {
@@ -259,228 +205,331 @@ function Profile() {
             // mode: 'cors'
         })
         .then(response => {
-            // take the response and set the authUser to the new information
+            // set the authUser to the new information
             console.log("response: ", response);
             localStorage.setItem('authUser', JSON.stringify(response.data));
             setOriginalFirstName(response.data.first_name);
             setOriginalLastName(response.data.last_name);
             setOriginalEmail(response.data.email);
-            setOriginalShirtSize(response.data.shirt_size);
-            setOriginalParentName(response.data.parent_name);
-            setOriginalParentEmail(response.data.parent_email);
         })
         .catch(error => {
-            // Handle the error if needed
+            // handle the error if needed
+            console.log(error);
         });
 
         setOriginalFirstName(editedFirstName);
         setOriginalLastName(editedLastName);
         setOriginalEmail(editedEmail);
-        setOriginalShirtSize(editedShirtSize);
-        setOriginalParentName(editedParentName);
-        setOriginalParentEmail(editedParentEmail);
         
+        setIsEditing(false);
         setIsEditingFirstName(false);
         setIsEditingLastName(false);
         setIsEditingEmail(false);
-        setIsEditingShirtSize(false);
-        setIsEditingParentName(false);
-        setIsEditingParentEmail(false);
     };
 
     const handleCancel = () => {
         setEditedFirstName(originalFirstName);
         setEditedLastName(originalLastName);
         setEditedEmail(originalEmail);
-        setEditedShirtSize(originalShirtSize);
-        setEditedParentName(originalParentName);
-        setEditedParentEmail(originalParentEmail);
         
+        setIsEditing(false);
         setIsEditingFirstName(false);
         setIsEditingLastName(false);
         setIsEditingEmail(false);
-        setIsEditingShirtSize(false);
-        setIsEditingParentName(false);
-        setIsEditingParentEmail(false);
     };
 
     console.log("authUser: ", authUser)
     const userClasses = authUser ? getClasses(authUser.classes, CLASSES) : [];
     console.log("userClasses: ", userClasses);
     const firstName = authUser ? authUser.first_name : "Not Signed In";
-    const lastName = authUser ? authUser.last_name : "";
+    const lastName = authUser ? authUser.last_name : "Not Signed In";
     const email = authUser ? authUser.email : "notloggedin@sail.edu";
-    const shirtSize = authUser ? authUser.shirt_size : "X";
-    const parentName = authUser ? authUser.parent_name : "Not Signed In";
-    const parentEmail = authUser ? authUser.parent_email : "notloggedin@sail.edu";
 
     const loggedState = localStorage.getItem('isLoggedIn');
 
     if ((loggedState === "false" || loggedState === null || loggedState === undefined || loggedState === false) && SERVER_URL === PROD_SERVER) {
         console.log("User not logged in. Redirecting to login page...");
         console.log("authUser: ", authUser)
-        window.location.href = "/login";
+        //window.location.href = "/login";
     }
 
     return (
-        <div style={{ 
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-            padding: "0vw"
-         }}>
-            <div style={{ 
-                display: "flex", 
-                justifyContent: "center",
-                border: "2px solid purple",
-                borderRadius: "10px",
-                boxShadow: "0 0 5px blue, 0 0 10px purple",
-                marginBottom: "2vh",
-                marginTop: "8vh",
-            }}>
-                <h1
-                    className="cyber-glitch-2"
-                    style={{
-                        fontSize: "10vw", // Increase the font size for more space
-                        fontFamily: "Hyperwave",
-                        color: "rgba(255, 255, 0, 0.5)",
-                        textShadow: "0 0 5px blue",
-                        marginBottom: "1.5vh",
-                        marginTop: "2vh",
-                        marginLeft: "2vw",
-                        transform: "skewX(-20deg)",
-                        background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
-                        padding: "0 10px 0 30px", // Adjusted padding
-                        display: "inline-block",
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",  
+            justifyContent: "flex-start",
+                color: "white",
+                width: "100%",
+                maxWidth: "100vw",
+            }}
+        >
+            {/* TITLE */}
+            <Box sx={{ width: "100%" }}>
+                <TitleWithPlanet firstName={firstName} /> 
+            </Box>
+
+            {/* PROFILE */}
+            <Box
+                sx={{
+                    display: "flex",
+                    width: "100%",
+                    marginTop: "8vh",
+                    flexDirection: { xs: "column", md: "row" },
+                    alignItems: "stretch",
+                }}
+            >
+                {/* PERSONAL INFO SECTION */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        padding: "2rem",
+                        backgroundColor: "transparent",
+                        borderRadius: "15px",
+                        display: "flex",
+                        flexDirection: "column",
                     }}
-                    onDoubleClick={() => handleDoubleClick("firstName")}
                 >
-                    {isEditingFirstName ? (
-                        <div className="cyber-input ac-purple fg-green" style={{ fontSize: "4vw" }}>
+                    <Typography
+                    component="h2"
+                    sx={{
+                        fontFamily: "Anta",
+                        fontSize: "clamp(1.5rem, 5vw, 4rem)",
+                        fontWeight: "400",
+                        textAlign: "center",
+                        marginBottom: "1rem",
+                        whiteSpace: "nowrap", 
+                        overflow: "hidden",
+                        textOverflow: "ellipsis", 
+                    }}
+                >
+                    PERSONAL INFO
+                </Typography>
+        
+                {[
+                    { 
+                        label: "Email", 
+                        value: email, 
+                        editedValue: editedEmail, 
+                        onChange: setEditedEmail 
+                    },
+                    { 
+                        label: "First Name", 
+                        value: firstName, 
+                        editedValue: editedFirstName, 
+                        onChange: setEditedFirstName 
+                    },
+                    { 
+                        label: "Last Name", 
+                        value: lastName, 
+                        editedValue: editedLastName, 
+                        onChange: setEditedLastName 
+                    }
+                ].map(({ label, value, editedValue, onChange }) => (
+                    <Box
+                        key={label}
+                        sx={{
+                            display: "flex",
+                            flexDirection: { xs: "column", sm: "row" },
+                            alignItems: "center",
+                            justifyContent: "center", 
+                            gap: "1rem", 
+                            fontFamily: "Anta",
+                            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" }, 
+                            fontWeight: "400",
+                            width: "100%",
+                            marginBottom: "1rem",
+                            textAlign: "center", 
+                        }}
+                    >
+                        {/* Label */}
+                        <Typography
+                            component="span"
+                            sx={{
+                                fontFamily: "Anta",
+                                textAlign: "center", 
+                                fontSize: '1.2rem',
+                            }}
+                        >
+                            {label}:
+                        </Typography>
+
+                        {/* Editable Input or Value Display */}
+                        {isEditing ? (
                             <input
                                 type="text"
-                                value={editedFirstName}
-                                onChange={(e) => setEditedFirstName(e.target.value)}
-                                placeholder={firstName}
+                                value={editedValue}
+                                onChange={(e) => onChange(e.target.value)}
+                                placeholder={value}
+                                style={{ 
+                                    fontFamily: "Anta",
+                                    fontSize: '1.2rem',
+                                    width: "100%",
+                                    maxWidth: "400px", 
+                                    textAlign: "center", 
+                                    boxSizing: "border-box",
+                                    background: "#D9D9D966"
+                                }}
                             />
-                        </div>
-                    ) : (
-                        firstName
-                    )}
-                </h1>
-                <h1
-                    className="cyber-glitch-2"
-                    style={{
-                        fontSize: "10vw", // Increase the font size for more space
-                        fontFamily: "Hyperwave",
-                        color: "rgba(255, 255, 0, 0.5)",
-                        textShadow: "0 0 5px blue",
-                        marginBottom: "1.5vh",
-                        marginTop: "2vh",
-                        marginRight: "2vw",
-                        marginLeft: "2vw",
-                        transform: "skewX(-20deg)",
-                        background: "linear-gradient(45deg, rgba(0, 255, 0, 0), rgba(255, 0, 255, 0))",
-                        padding: "0 30px 0 10px", // Adjusted padding
-                        display: "inline-block",
+                        ) : (
+                            <Typography
+                                component="span"
+                                sx={{
+                                    fontFamily: "Anta",
+                                    textAlign: "center", 
+                                    wordBreak: "break-word", 
+                                    fontSize: '1.2rem',
+                                }}
+                            >
+                                {value}
+                            </Typography>
+                        )}
+                    </Box>
+                ))}
+
+
+                
+                    {/* BUTTONS */}
+                    <Box
+                        sx={{
+                            marginTop: "auto",
+                            paddingTop: "2rem",
+                            textAlign: "center"
+                        }}
+                    >
+                        {isEditing ? (
+                            <>
+                                <button 
+                                    onClick={handleSave} 
+                                    className="submit-button"
+                                    style={{ 
+                                        marginRight: "1rem",
+                                    }}
+                                >
+                                    Save
+                                </button>
+                                <button 
+                                    onClick={handleCancel} 
+                                    className="submit-button"
+                                >
+                                    Cancel
+                                </button>
+                            </>
+                        ) : (
+                            <button 
+                                onClick={() => setIsEditing(true)} 
+                                className="submit-button"
+                            >
+                                Edit
+                            </button>
+                        )}
+                    </Box>
+                </Box>
+    
+                {/* STYLIZED DIVIDER */}
+                <Box
+                    sx={{
+                        display: { xs: "none", md: "flex" },
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "relative",
+                        width: "0%", // Full width to center everything
                     }}
-                    onDoubleClick={() => handleDoubleClick("lastName")}
                 >
-                    {isEditingLastName ? (
-                        <div className="cyber-input ac-purple fg-green" style={{ fontSize: "4vw" }}>
-                            <input
-                                type="text"
-                                value={editedLastName}
-                                onChange={(e) => setEditedLastName(e.target.value)}
-                                placeholder={lastName}
-                            />
-                        </div>
-                    ) : (
-                        lastName
-                    )}
-                </h1>
-            </div>
-            <br/>
-            <InformationLink href="/registration" text="Register for SAIL" />
-            <br/>
-            <div className="infoAndClasses" style={{ display: displayStyle, fontFamily: "JetBrainsMono", width: "50%", flexDirection: flexDirection, gap: "1vw" }}>
-                <div className="info" position="relative" style={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "left", width: "60%" }}>
-                    <h2 onDoubleClick={() => handleDoubleClick("email")}>{isEditingEmail ? <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}><input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} placeholder={email}/></div> : email}</h2>
-                    <p onDoubleClick={() => handleDoubleClick("shirtSize")}>
-                        Shirt Size: {isEditingShirtSize ? (
-                            <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}>
-                                <input
-                                    type="text"
-                                    value={editedShirtSize}
-                                    onChange={(e) => setEditedShirtSize(e.target.value)}
-                                    placeholder={shirtSize}
-                                    style={{ fontFamily: "JetBrainsMono" }}
-                                />
-                            </div>
-                        ) : (
-                            <span style={{ fontFamily: "JetBrainsMono" }}>{shirtSize}</span>
-                        )}
-                    </p>
-                    <p onDoubleClick={() => handleDoubleClick("parentName")}>
-                        Parent Name: {isEditingParentName ? (
-                            <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}>
-                                <input
-                                    type="text"
-                                    value={editedParentName}
-                                    onChange={(e) => setEditedParentName(e.target.value)}
-                                    placeholder={parentName}
-                                    style={{ fontFamily: "JetBrainsMono" }}
-                                />
-                            </div>
-                        ) : (
-                            <span style={{ fontFamily: "JetBrainsMono" }}>{parentName}</span>
-                        )}
-                    </p>
-                    <p onDoubleClick={() => handleDoubleClick("parentEmail")}>
-                        Parent Email: {isEditingParentEmail ? (
-                            <div className="cyber-input ac-purple fg-green" style={{ fontSize: "1vw" }}>
-                                <input
-                                    type="text"
-                                    value={editedParentEmail}
-                                    onChange={(e) => setEditedParentEmail(e.target.value)}
-                                    placeholder={parentEmail}
-                                    style={{ fontFamily: "JetBrainsMono" }}
-                                />
-                            </div>
-                        ) : (
-                            <span style={{ fontFamily: "JetBrainsMono" }}>{parentEmail}</span>
-                        )}
-                    </p>
-                    </div>
-                <div>
-                    <h2 style={{ }}>Classes</h2>
-                    <ul>
-                        {userClasses.map((item, index) => {
-                            return (
-                                <li key={index}>
-                                    <span>{item.className} </span>
-                                    <span>({item.time}, {item.room})</span>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            </div>
-            {(isEditingEmail || isEditingShirtSize || isEditingParentName || isEditingParentEmail || isEditingFirstName || isEditingLastName) ? (
-                <div style={{ marginTop: "10px" }}>
-                    <CyberButton text="Save" onClick={handleSave} background="bg-green" />
-                    <span style={{ marginRight: "10px" }}></span>
-                    <CyberButton text="Cancel" onClick={handleCancel} />
-                </div>
-            ) : (
-                <CyberButton text="Edit" onClick={() => handleDoubleClick("all")} />
-            )}
-            <br/> <br/> <br/> <br/><br/><br/>
-            <BusInfomation />
-            <br/> <br/> <br/> <br/><br/><br/>
-        </div>
+                    {/* Star on top */}
+                    <img 
+                        src={starsmall} 
+                        alt="star top" 
+                        style={{
+                            position: "absolute",
+                            top: "-1rem", // Adjust this value based on the space you want
+                            width: "40px", // Adjust size as needed
+                            height: "auto"
+                        }} 
+                    />
+
+                    {/* STYLIZED DIVIDER */}
+                    <Divider 
+                        orientation="vertical" 
+                        flexItem
+                        sx={{
+                            width: "2px",
+                            backgroundColor: "white",
+                            margin: "0 1rem",
+                            marginTop: "1rem", // Adjust as needed for top margin
+                            marginBottom: "1rem",
+                        }}
+                    />
+
+                    {/* Star on bottom */}
+                    <img 
+                        src={starsmall} 
+                        alt="star bottom" 
+                        style={{
+                            position: "absolute",
+                            bottom: "-1rem", // Adjust this value based on the space you want
+                            width: "40px", // Adjust size as needed
+                            height: "auto"
+                        }} 
+                    />
+                </Box>
+                
+                
+        
+                {/* CLASSES SECTION */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        padding: "2rem",
+                        backgroundColor: "transparent",
+                        borderRadius: "15px",
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <Typography
+                        component="h2"
+                        sx={{
+                            fontFamily: "Anta",
+                            fontSize: "clamp(1.5rem, 5vw, 4rem)", 
+                            fontWeight: "400",
+                            textAlign: "center",
+                            marginBottom: "1rem",
+                            whiteSpace: "nowrap", 
+                            overflow: "hidden",
+                            textOverflow: "ellipsis", 
+                        }}
+                    >
+                        CLASSES
+                    </Typography>
+    
+                    <Typography
+                        sx={{
+                            fontFamily: "Anta",
+                            padding: 0,
+                            textAlign: "center",
+                            fontSize: '1.2rem',
+                            wordBreak: "break-word"
+                        }}
+                    >
+                        No classes currently enrolled.
+                    </Typography>
+                </Box>
+
+
+                
+            </Box>
+
+
+
+
+    
+            {/* BUS INFO */}
+            <Box sx={{ marginTop: "4rem", width: "100%" }}>
+                <BusInfomation />
+            </Box>
+        </Box>
     );
 };
 

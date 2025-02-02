@@ -1,21 +1,11 @@
-// ResetPassword.js
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
-import './Login.css';
-import './cyberpunk.css';
+import React, { useState } from "react";
+import './ResetPassword.css';
+import rocket from '../assets/rocket.png';
 
-const formWidth = window.innerWidth > 600 ? "50%" : "100%";
-const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
-const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://192.168.1.9:5000";
+import SERVER_URL from './server_url';
 
-// assign the server URL based on the url of the window
-const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
-
-function ResetPassword() {
-    const [email, setEmail] = useState('');
-
-    const handleEmailChange = (e) => setEmail(e.target.value);
+const ResetPassword = () => {
+    const [email, setEmail] = useState("");
 
     const handleResetPassword = (e) => {
         e.preventDefault();
@@ -30,14 +20,13 @@ function ResetPassword() {
         })
             .then(response => {
                 console.log('Response:', response);
-
-                // if the response code is 400 then email does not exist
+                //  400 then email does not exist
                 if (response.status === 401) {
                     alert("Email Does Not Exist. Email Not Sent.");
                 }
-                // if the response code is 200 then email exists and password reset sent
+                //  200 then email exists and password reset sent
                 else if (response.status === 200) {
-                    alert("Password reset sent successfully! Please check your email.");
+                    alert(`An email has been sent to ${email} with reset instructions.`);
                     window.location.href = "/login";
                 }
             })
@@ -49,32 +38,42 @@ function ResetPassword() {
     };
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "5vh"
-        }}>
-            <h1 style={{ color: "white", fontFamily: "JetBrainsMono", fontSize: fontSize }}>Reset Password</h1>
-            <form onSubmit={handleResetPassword} className="form" style={{ width: formWidth }}>
-                <div className="input-group">
-                    <input className="input" required type="text" id="email" onChange={handleEmailChange} value={email} />
-                    <label className="label" htmlFor="email">Email</label>
+        <div className="reset-password-page">
+            <div className="main-content">
+                {/* Rocket */}
+                <div className="rocket-container">
+                    <img src={rocket} alt="Rocket" className="rocket" />
                 </div>
-                <br />
-                {/* You may optionally include a link or message here for additional instructions */}
-                <button className="cyber-button bg-purple fg-white" style={{ width: "35%" }} type="submit">
-                    Reset Password
-                    <span className="glitchtext">CS SAIL</span>
-                    <span className="tag">SAIL</span>
-                </button>
-                <Link to="/login" style={{ marginTop: "1rem", color: "#2196f3", textDecoration: "none", fontSize: "1.2rem" }}>
-                    Back to Login
-                </Link>
-            </form>
+
+                {/* Reset Password Form */}
+                <div className="form-container">
+                    <h1 className="form-title">RESET PASSWORD</h1>
+                    <form
+                        onSubmit={handleResetPassword}
+                        className="form reset-password-form"
+                    >
+                        <div className="input-group">
+                            <input
+                                className="input"
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                autoComplete="email"
+                            />
+                            <label className="label" htmlFor="email">
+                                Email
+                            </label>
+                        </div>
+                        <button className="submit-button" type="submit">
+                            Reset Password
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     );
-}
+};
 
 export default ResetPassword;

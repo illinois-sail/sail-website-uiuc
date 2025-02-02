@@ -1,0 +1,18 @@
+@import '../fonts.css';
+
+.classes-title.MuiTypography-root {
+    line-height: 80px;
+}
+
+.classes-subtitle.MuiTypography-root {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 34px;
+}
+
+.link.register { font-size: 34px; }
+
+@media (max-width: 480px) {
+    .classes-subtitle.MuiTypography-root, .link.register {  font-size: 20px; }
+
+}
