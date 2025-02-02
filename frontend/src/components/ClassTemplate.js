@@ -23,7 +23,7 @@ function ClassTemplate() {
                 </Typography>
 
                 <Typography className="subtitle classes-subtitle">
-                    Please ensure that you are <Link to="/register" className="link">registered</Link> with UIUC!
+                    Please ensure that you are <Link to="/register" className="link register">registered</Link> with UIUC!
                 </Typography>
 
             </div>

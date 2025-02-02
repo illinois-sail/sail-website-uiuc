@@ -73,6 +73,11 @@
         padding-top: 10rem; 
     }
 }
+@media (min-height: 900px) {
+    .title.MuiTypography-root {
+        padding-top: 10rem; 
+    }
+}
   @media (max-width: 480px) {
     .title.MuiTypography-root {
         font-size: 48px;
@@ -85,6 +90,11 @@
         margin-top: 27rem; 
     }
   }
+  @media (min-width: 1000px) {
+    .title.MuiTypography-root {
+        margin-top: 60rem; 
+    }
+  }
 
 /* Form */
 .form {
@@ -92,10 +102,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%; 
+    width: 80%; 
     max-width: 500px; 
     margin: 0 auto; 
-    padding: 1rem;
+    padding: 0;
 }
 
 .input-group {
@@ -103,14 +113,14 @@
     font-size: 1.25rem;
     position: relative;
     --primary: #D9D9D966;
-    width: 100%;
+    width: 80%;
     display: flex;
     margin-bottom: 0.3rem; 
 }
 
 .input {
     all: unset;
-    width: 100%;
+    width: 90%;
     color: #fefefe;
     padding: 1.5rem;
     padding-top: 2rem;
@@ -200,7 +210,7 @@
     font-size: 20px;
     display: block;
     text-align: right;
-    width: 100%;
+    width: 80%;
     font-family: 'Anta';
 }
 
