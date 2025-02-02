@@ -97,6 +97,10 @@ def index():
 def classes():
     return render_template('index.html')
 
+@app.route('/classes_test', methods=['GET'])
+def classes_test():
+    return render_template('index.html')
+
 @app.route('/login', methods=['GET'])
 def login_page():
     return render_template('index.html')

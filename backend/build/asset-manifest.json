@@ -1,11 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.674f1f89.css",
-    "main.js": "/static/js/main.2225640b.js",
+    "main.css": "/static/css/main.ed7bd725.css",
+    "main.js": "/static/js/main.989af8bd.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
+    "static/media/planet.png": "/static/media/planet.b131e80e0a280ca3b4b8.png",
+    "static/media/rocket.png": "/static/media/rocket.a95ead4cbcf69f69c96b.png",
     "static/media/footer-clouds-2.png": "/static/media/footer-clouds-2.6df5e3cc692b21811875.png",
     "static/media/sail2025-title.png": "/static/media/sail2025-title.33c77b4fcf7e95b78898.png",
     "static/media/footer-clouds-1.png": "/static/media/footer-clouds-1.83c25d639f57b434bb5b.png",
+    "static/media/about-us-title.png": "/static/media/about-us-title.0d354adacddeaf5addff.png",
     "static/media/title-shooting-stars.png": "/static/media/title-shooting-stars.beda863b9fed43bae138.png",
     "static/media/shooting-star-footer.png": "/static/media/shooting-star-footer.7bc11eacca88d64ef838.png",
     "static/media/nebula.png": "/static/media/nebula.ac9cefed23f18960dbe4.png",
@@ -14,12 +17,12 @@
     "static/media/DMSans_24pt-Regular.ttf": "/static/media/DMSans_24pt-Regular.18b000764da24551deee.ttf",
     "static/media/tan-pearl.otf": "/static/media/tan-pearl.657acf1fede9b308aafa.otf",
     "index.html": "/index.html",
-    "main.674f1f89.css.map": "/static/css/main.674f1f89.css.map",
-    "main.2225640b.js.map": "/static/js/main.2225640b.js.map",
+    "main.ed7bd725.css.map": "/static/css/main.ed7bd725.css.map",
+    "main.989af8bd.js.map": "/static/js/main.989af8bd.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.674f1f89.css",
-    "static/js/main.2225640b.js"
+    "static/css/main.ed7bd725.css",
+    "static/js/main.989af8bd.js"
   ]
 }
