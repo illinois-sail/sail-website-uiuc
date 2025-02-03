@@ -1,40 +1,92 @@
 @import '../fonts.css';
 
+/* Remove the .about-page-wrapper styles since we're using .homepage from Home.css */
 
-.container1 {
-    width: 100%; 
+.about-content-wrapper {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh; 
-    margin-top:-50px;
 }
 
-
-
-.title-image {
-  width: 70%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.about-clouds {
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    width: 100vw;
+/* Rest of your existing styles, but update the selectors */
+.title-section {
     height: 100vh;
-    transform: translateX(-50%);
-    background-size: cover;
-    background-position: center center;
-    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
-/* Team Sections */
+
+.teams-section {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(40px, 8vh, 80px);
+    padding: clamp(20px, 5vw, 60px);
+}
+
 .team-section {
-    padding: 3rem 1rem;
-    text-align: center;
+    width: 100%;
+    max-width: min(90vw, 1200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 4vh, 40px);
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(15px, 3vw, 30px);
+}
+
+.member-image-container {
+    width: clamp(100px, 25vw, 150px);
+    height: clamp(100px, 25vw, 150px);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* This centers the image */
+}
+
+/* Responsive typography */
+.team-section h2 {
+    font-size: clamp(24px, 5vw, 32px);
+    margin-bottom: clamp(15px, 3vh, 30px);
+}
+
+.member-name {
+    font-size: clamp(14px, 3vw, 16px);
+}
+
+/* Media queries for layout adjustments */
+@media (min-width: 768px) {
+    .teams-section {
+        padding-top: clamp(100px, 15vh, 200px);
+    }
+}
+
+@media (max-width: 767px) {
+    .teams-section {
+        padding-top: 60px;
+    }
 }
 
 .team-name {
@@ -46,83 +98,9 @@
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
 }
 
-.team-members {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-}
-
-.team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.member-image-container {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glow effect */
-}
-
-.member-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.member-name {
-    margin-top: 1rem;
-    font-size: 1.125rem;
-    color: #ffffff; /* White color */
-}
-
-/* Responsive Media Queries */
-@media (max-width: 1024px) {
-    .member-image-container {
-        width: 8rem;
-        height: 8rem;
-    }
-
-    .member-name {
-        font-size: 1rem;
-    }
-
-    .team-name {
-        font-size: 1.75rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .member-image-container {
-        width: 7rem;
-        height: 7rem;
-    }
-
-    .member-name {
-        font-size: 0.95rem;
-    }
-
-    .team-name {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .member-image-container {
-        width: 6rem;
-        height: 6rem;
-    }
-
-    .member-name {
-        font-size: 0.875rem;
-    }
-
-    .team-name {
-        font-size: 1.25rem;
-    }
+.title-image {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }

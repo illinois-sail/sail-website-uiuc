@@ -8,112 +8,124 @@ import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 
 
+import Aaren from '../assets/Member Images/Aaren Photo - Aaren Kang.jpg';
+import Tia from '../assets/Member Images/Screenshot 2024-12-07 at 8.09.28 PM - Tia Kashyap.png';
+import Arwen from '../assets/Member Images/20231203_144610 - Arwen Louie.jpg';
+import Skyla from '../assets/Member Images/headshot (small) - Skyla Jin.JPG';
+import James from '../assets/Member Images/image0 - James Yang.jpg';
+import Justin from '../assets/Member Images/IMG_0874 - Justin Lauinger.jpeg';
+import LilyG from '../assets/Member Images/IMG_7918 - Lily Ge.jpeg';
+import Manvitha from '../assets/Member Images/IMG_8647 - Manvitha Veeramreddy.jpeg';
+import Stephanie from '../assets/Member Images/kjd - Stephanie Tian.jpeg';
+import Peter from '../assets/Member Images/peter_lin_headshot - Peter Lin.JPG';
+import Kyle from '../assets/Member Images/Screenshot_20240912_104456_Docs - Kyle Li.jpg';
+import LilyL from '../assets/Member Images/selfie - Lily Liu.jpg';
+import Firmiana from '../assets/Member Images/wang_firmiana_headshot - Firmiana Wang.jpg';
+import Stephen from '../assets/Member Images/Stephen.jpg';
+import Utkarsh from '../assets/Member Images/WhatsApp Image 2025-02-01 at 17.48.18_75ff5c05.jpg';
+
+const memberImages = {
+  "Aaren Kang": Aaren,
+  "Peter Lin": Peter,
+  "Firmiana Wang": Firmiana,
+  "Tia Kashyap": Tia,
+  "Utkarsh Singh": Utkarsh,
+  "Manvitha V": Manvitha,
+  "Skyla Jin": Skyla,
+  "Lily Ge": LilyG,
+  "Stephanie Tian": Stephanie,
+  "Stephen He": Stephen,
+  "James Yang": James,
+  "Lily Liu": LilyL,
+  "Arwen Louie": Arwen,
+  "Justin Lauinger": Justin,
+  "Kyle Li": Kyle,
+};
+
 function AboutPage() {
   const teams = {
-    DIRECTORS: [1, 2],
-    "DEV TEAM": [1, 2, 3],
-    "DESIGN TEAM": [1, 2, 3],
-    "LOGISTICS TEAM": [1, 2, 3, 4],
-    "MARKETING TEAM": [1, 2, 3],
+    "DIRECTORS": ["Peter Lin", "Firmiana Wang"],
+    "DEV TEAM": ["Tia Kashyap", "Utkarsh Singh", "Manvitha V"],
+    "DESIGN TEAM": ["Skyla Jin", "Lily Ge", "Stephanie Tian"],
+    "LOGISTICS TEAM": ["Aaren Kang", "Stephen He", "James Yang", "Lily Liu"],
+    "MARKETING TEAM": ["Arwen Louie", "Justin Lauinger", "Kyle Li"],
   };
 
   return (
     <div className="homepage">
-      {/* TITLE PAGE */}
-      <div className="container1" style={{ marginTop: '-30px' }}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '10px',
-          }}
-        >
+      <div className="about-content-wrapper">
+        {/* Title Section */}
+        <div className="title-section">
           <Box
-            component="img"
-            src={starwide}
-            alt="star"
             sx={{
-              width: '55px',
-              height: '55px',
-              animation: 'starwidefooter-animation 3s infinite ease-in-out',
-              position: 'relative',
-              '@media (max-width: 1024px)': {
-                width: '45px',
-                height: '45px',
-              },
-              '@media (max-width: 480px)': {
-                width: '35px',
-                height: '35px',
-              },
-            }}
-          />
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: 'Anta',
-              color: 'white',
-              textShadow: '0px 0px 20px rgba(255, 255, 255, 0.8)',
-              fontSize: '80px',
-              '@media (max-width: 1024px)': { fontSize: '70px' },
-              '@media (max-width: 480px)': { fontSize: '60px' },
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '10px',
+              flexDirection: 'column',
+              width: '100%'
             }}
           >
-            ABOUT US
-          </Typography>
-          <Box
-            component="img"
-            src={starsmall}
-            alt="star"
-            sx={{
-              width: '40px',
-              height: '40px',
-              transform: 'translateY(-20px)',
-              animation: 'starsmallfooter-animation 3s infinite ease-in-out',
-              '@media (max-width: 1024px)': {
-                width: '30px',
-                height: '30px',
-              },
-              '@media (max-width: 480px)': {
-                width: '25px',
-                height: '25px',
-              },
-            }}
-          />
-        </Box>
-        <div className="about-clouds" style={{ backgroundImage: `url(${clouds2})` }}></div>
-      </div>
+            <Typography
+              variant="h1"
+              sx={{
+                fontFamily: 'Anta',
+                color: 'white',
+                textShadow: '0px 0px 20px rgba(255, 255, 255, 0.8)',
+                fontSize: { xs: '40px', sm: '60px', md: '80px' },
+                textAlign: 'center',
+                position: 'relative'
+              }}
+            >
+              ABOUT US
+            </Typography>
+          </Box>
+        </div>
 
-      <Box className="footer"
-          sx={{
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '40px',
-            marginTop: '200px',
-            paddingBottom: '200px',
-            color: 'white',
-          }}
-          >
-      {/* TEAM SECTIONS */}
-      <div style={{ paddingTop: '50px' }}></div>
-      {Object.entries(teams).map(([teamName, members], index) => (
-        <section key={index} className="team-section">
-          <h2 className="team-name">{teamName}</h2>
-          <div className="team-members">
-            {members.map((i) => (
-              <div key={i} className="team-member">
-                <div className="member-image-container">
-                  <img src="/placeholder.svg" alt="Team member" className="member-image" />
-                </div>
-                <span className="member-name">Team Member</span>
+        {/* Clouds Section */}
+        <div className='home-clouds' style={{ backgroundImage: `url(${clouds2})` }}></div>
+
+
+        {/* Teams Section */}
+        <div className="teams-section">
+          {Object.entries(teams).map(([teamName, members]) => (
+            <section className="team-section" key={teamName}>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontFamily: 'Anta',
+                  color: 'white',
+                  textAlign: 'center'
+                }}
+              >
+                {teamName}
+              </Typography>
+              <div className="team-members">
+                {members.map((member) => (
+                  <div className="team-member" key={member}>
+                    <div className="member-image-container">
+                      <img
+                        src={memberImages[member]}
+                        alt={member}
+                        className="member-image"
+                      />
+                    </div>
+                    <Typography
+                      sx={{
+                        color: 'white',
+                        fontSize: { xs: '14px', sm: '16px' },
+                        fontFamily: 'Inter'
+                      }}
+                    >
+                      {member}
+                    </Typography>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
-      ))}
-    </Box>
+            </section>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
