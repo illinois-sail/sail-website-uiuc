@@ -94,18 +94,18 @@ function Home() {
         <div className='homepage'>
             {/* TITLE PAGE*/}
             <div className='container'>
-            <div className='title'>
-                <img
-                    className="corner-image"
-                    src={titleshootingstars} 
-                    alt="Corner Decoration"
-                />
-                <img
-                    className="title-image"
-                    src={sail2025title}
-                    alt="SAIL 2025 Title"
-                />
-            </div>
+                <div className='title'>
+                    <img
+                        className="corner-image"
+                        src={titleshootingstars} 
+                        alt="Corner Decoration"
+                    />
+                    <img
+                        className="title-image"
+                        src={sail2025title}
+                        alt="SAIL 2025 Title"
+                    />
+                </div>
 
                 <div className='countdown-container'>
                     <img 

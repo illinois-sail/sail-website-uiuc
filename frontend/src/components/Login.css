@@ -4,7 +4,7 @@
 
 .starwide-left, .starsmall-left {
     position: absolute;
-    top: 20%;
+    top: 25%;
     z-index: -1; 
     left: 5%;
     width: 40px; 
@@ -15,7 +15,7 @@
 .nebula-right {
     position: absolute;
     opacity: 0.7;
-    top: 25%;
+    top: 30%;
     z-index: -1; 
     right: 15%;
     width: 350px;
@@ -30,18 +30,13 @@
     .nebula-right {  right: 5%; width: 300px; }
 }
 @media (max-width: 900px) {
-    .starwide-left, .starsmall-left, .nebula-right {
-        margin-top: 10rem; 
-    }
-    .nebula-right {
-        width: 200px;
-    }
+    .nebula-right { right: 5%; width: 200px; }
+  }
+  @media (max-width: 768px) {
+    .nebula-right { right: 0%; width: 200px; }
   }
 @media (max-width: 600px) {
-    .nebula-right {  right: 5%; width: 150px; }
-}
-@media (max-width: 400px) {
-    .nebula-right {  right: 0%; width: 130px; }
+    .starwide-left, .starsmall-left, .nebula-right {  display: none; }
 }
 
 .loginpage {
@@ -68,12 +63,22 @@
     margin-bottom: 40px; 
     margin-top: 25rem; 
 }
-@media (min-height: 900px) {
+@media (min-height: 1400px) {
     .title.MuiTypography-root {
-        padding-top: 10rem; 
+        padding-top: 40rem; 
     }
 }
-@media (min-height: 900px) {
+@media (min-height: 1100px) and (max-height: 1400px) {
+    .title.MuiTypography-root {
+        padding-top: 30rem; 
+    }
+}
+@media (min-height: 1024px) and (max-height: 1100px) {
+    .title.MuiTypography-root {
+        padding-top: 20rem; 
+    }
+}
+@media (min-height: 900px) and (max-height: 1024px) {
     .title.MuiTypography-root {
         padding-top: 10rem; 
     }
@@ -88,11 +93,6 @@
     .title.MuiTypography-root {
         font-size: 32px;
         margin-top: 27rem; 
-    }
-  }
-  @media (min-width: 1000px) {
-    .title.MuiTypography-root {
-        margin-top: 60rem; 
     }
   }
 
@@ -232,6 +232,11 @@
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+}
+@media (max-width: 500px) {
+    .subtitle.MuiTypography-root { 
+        max-width: calc(100% - 30px); 
+    }
 }
 
 .register-link {

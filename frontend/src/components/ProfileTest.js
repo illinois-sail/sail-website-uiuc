@@ -66,6 +66,7 @@ const TitleWithPlanet = ({ firstName }) => (
                 color: 'white',  // You may want to ensure the text is visible over the image
                 zIndex: 1,       // Ensure text is above the image
                 textShadow: '0px 0px 15px rgba(255, 255, 255, 1)',
+                paddingBottom: '1.5rem',
             }}
         >
             {firstName}

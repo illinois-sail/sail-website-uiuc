@@ -16,7 +16,7 @@ function ClassTemplate() {
                     alt="Corner Decoration"
                 />
                 
-                <Typography variant="h2" className="title classes-title">
+                <Typography variant="h2" className="classes-title">
                     Coming 
                     <br />
                     Soon!
