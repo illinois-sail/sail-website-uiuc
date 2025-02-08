@@ -6,16 +6,11 @@ import { Typography } from '@mui/material';
 import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 import titleshootingstars from '../assets/title-shooting-stars.png';
+import SERVER_URL, { PROD_SERVER } from './server_url';
 
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
 const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
-
-const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.192.104.68:5000";
-
-// server URL based on the url of the window
-const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 function SignUp() {
 

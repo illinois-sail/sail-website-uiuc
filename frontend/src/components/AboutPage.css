@@ -86,6 +86,7 @@
     align-items: center;
     gap: clamp(40px, 8vh, 80px);
     padding: clamp(20px, 5vw, 60px);
+
 }
 
 .team-section {

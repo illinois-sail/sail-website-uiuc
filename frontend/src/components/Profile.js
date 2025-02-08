@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import allClasses from "./Classes";
-import { Typography } from '@mui/material';
-
+import { Typography, Box, Divider } from '@mui/material';
+import SERVER_URL, { PROD_SERVER } from './server_url';
+import starsmall from '../assets/star-small.png';
+import planet from '../assets/planet.png';
 
 const CLASSES = allClasses;
 
-const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://10.192.104.68:5000";
-
-// server URL based on url of window
-const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu") ? PROD_SERVER : TEST_SERVER;
 
 const BusInfomation = () => {
     return (
@@ -28,15 +25,56 @@ const BusInfomation = () => {
             <div style={{ backgroundColor: '#FFFFFF26', borderRadius: '20px', paddingLeft: "2vw", paddingRight: "2vw", }}>
                 <p style={{ fontSize: "2rem" }}>If you need a bus, here are all the provided bus stops:</p>
                 <ul style={{ fontSize: "2rem" }}>
-                    <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540) Pickup April 13, 2024 @ 5:45 AM</li>
-                    <li>Union Station, Chicago (225 S Canal St, Chicago, IL 60606) Pickup April 13, 2024 @ 5:55 AM</li>
-                    <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) Pickup April 13, 2024 @ 5:45 AM -- Parking Lot E-30 and E-31 (near Ashley HomeStore)</li>
-                    <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) Pickup April 13, 2024 @ 6:10 AM (Bus will be coming from Woodfield) -- Parking Lot E (Southwest corner of the center)</li>
+                    <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540) Pickup March 29, 2025 @ 5:30 AM (Bus departs @ 5:45am)</li>
+                    <li>Union Station, Chicago (225 S Canal St, Chicago, IL 60606) Pickup March 29, 2025 @ 5:40 AM (Bus departs at 5:55am)</li>
+                    <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) Pickup March 29, 2025 @ 5:45 AM -- Parking Lot E-30 and E-31 (near Ashley HomeStore) (Bus departs at 6:00am)</li>
+                    <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) Pickup March 29, 2025 @ 6:10 AM (Bus will be coming from Woodfield) -- Parking Lot E (Southwest corner of the center) (Bus departs at 6:25am)</li>
                 </ul>
             </div>
         </div>
     );
 }
+
+const TitleWithPlanet = ({ firstName }) => (
+    <Box
+        sx={{
+            position: 'relative',  
+            width: '50%',
+            height: { 
+                xs: '200px',      
+                sm: '250px',     
+                md: '350px', 
+                lg: '450px', 
+                xl: '500px',    
+            },
+            backgroundImage: `url(${planet})`, 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'top',
+            backgroundPosition: 'center',
+            display: 'flex',
+            justifyContent: 'center', 
+            alignItems: 'center',     
+            backgroundRepeat: 'no-repeat',
+            margin: '0 auto'
+        }}
+    >
+        <Typography 
+            variant="h3" 
+            sx={{
+                fontFamily: 'Anta',
+                textAlign: "center",
+                color: 'white',  // You may want to ensure the text is visible over the image
+                zIndex: 1,       // Ensure text is above the image
+                textShadow: '0px 0px 15px rgba(255, 255, 255, 1)',
+            }}
+        >
+            {firstName}
+        </Typography>
+    </Box>
+);
+
+
+
 
 // use bitsequence to find user's classes
 function getClasses(bitsequence, classes) {
@@ -216,172 +254,282 @@ function Profile() {
     }
 
     return (
-        <div style={{ 
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-            padding: "0vw"
-        }}>
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",  
+            justifyContent: "flex-start",
+                color: "white",
+                width: "100%",
+                maxWidth: "100vw",
+            }}
+        >
             {/* TITLE */}
+            <Box sx={{ width: "100%" }}>
+                <TitleWithPlanet firstName={firstName} /> 
+            </Box>
 
-            <Typography variant="h2" sx={{fontFamily: 'TAN-PEARL' }}>
-                {firstName}
-            </Typography>
-
-            <div classname="main-info" style={{ 
-                display: "flex", 
-                width: "90%", // Increased overall width
-                justifyContent: "space-between", // Distribute space between sections
-                gap: "5rem", // Add space between sections
-                marginTop: "8vh",
-            }}>
-                {/* PROFILE SECTION */}
-                <div className="info" style={{ 
-                    display: "flex", 
-                    flexDirection: "column", 
-                    width: "50%", 
-                    gap: "1.5rem",
-                    textAlign: "right" // Right-align all text
-                }}>
-                    <h2 style={{ 
-                        fontFamily: "Anta", 
-                        fontSize: "64px", 
-                        fontWeight: "400", 
-                        textAlign: "center", // Center the header
-                        marginBottom: "1rem" 
-                    }}>
-                        PERSONAL INFO
-                    </h2>
+            {/* PROFILE */}
+            <Box
+                sx={{
+                    display: "flex",
+                    width: "100%",
+                    marginTop: "8vh",
+                    flexDirection: { xs: "column", md: "row" },
+                    alignItems: "stretch",
+                }}
+            >
+                {/* PERSONAL INFO SECTION */}
+                <Box
+                    sx={{
+                        flex: 1,
+                        padding: "2rem",
+                        backgroundColor: "transparent",
+                        borderRadius: "15px",
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <Typography
+                    component="h2"
+                    sx={{
+                        fontFamily: "Anta",
+                        fontSize: "clamp(1.5rem, 5vw, 4rem)",
+                        fontWeight: "400",
+                        textAlign: "center",
+                        marginBottom: "1rem",
+                        whiteSpace: "nowrap", 
+                        overflow: "hidden",
+                        textOverflow: "ellipsis", 
+                    }}
+                >
+                    PERSONAL INFO
+                </Typography>
         
-                    {[
-                        { 
-                            label: "Email", 
-                            value: email, 
-                            editedValue: editedEmail, 
-                            onChange: setEditedEmail 
-                        },
-                        { 
-                            label: "First Name", 
-                            value: firstName, 
-                            editedValue: editedFirstName, 
-                            onChange: setEditedFirstName 
-                        },
-                        { 
-                            label: "Last Name", 
-                            value: lastName, 
-                            editedValue: editedLastName, 
-                            onChange: setEditedLastName 
-                        }
-                    ].map(({ label, value, editedValue, onChange }) => (
-                        <div key={label} style={{ 
-                            display: "flex", 
+                {[
+                    { 
+                        label: "Email", 
+                        value: email, 
+                        editedValue: editedEmail, 
+                        onChange: setEditedEmail 
+                    },
+                    { 
+                        label: "First Name", 
+                        value: firstName, 
+                        editedValue: editedFirstName, 
+                        onChange: setEditedFirstName 
+                    },
+                    { 
+                        label: "Last Name", 
+                        value: lastName, 
+                        editedValue: editedLastName, 
+                        onChange: setEditedLastName 
+                    }
+                ].map(({ label, value, editedValue, onChange }) => (
+                    <Box
+                        key={label}
+                        sx={{
+                            display: "flex",
+                            flexDirection: { xs: "column", sm: "row" },
                             alignItems: "center",
-                            gap: "10px",
-                            fontFamily: "Anta", 
-                            fontSize: "40px", 
+                            justifyContent: "center", 
+                            gap: "1rem", 
+                            fontFamily: "Anta",
+                            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" }, 
                             fontWeight: "400",
-                            width: "100%"
-                        }}>
-                            <span>{label}:</span>
-                            {isEditing ? (
-                                <input
-                                    type="text"
-                                    value={editedValue}
-                                    onChange={(e) => onChange(e.target.value)}
-                                    placeholder={value}
-                                    style={{ 
-                                        fontFamily: "Anta", 
-                                        fontSize: "40px",
-                                        flexGrow: 1,
-                                        minWidth: 0
-                                    }}
-                                />
-                            ) : (
-                                <span style={{ 
-                                    flexGrow: 1, 
-                                    textAlign: 'left' 
-                                }}>{value}</span>
-                            )}
-                        </div>
-                    ))}
-                
-                {/* BUTTONS */}
-                {isEditing ? (
-                    <div style={{ 
-                        marginTop: "2rem", 
-                        textAlign: "center" 
-                    }}>
-                        <button 
-                            onClick={handleSave} 
-                            className="submit-button"
-                            style={{ 
-                                display: "inline-block",
-                                marginRight: "1rem" // Space between buttons
+                            width: "100%",
+                            marginBottom: "1rem",
+                            textAlign: "center", 
+                        }}
+                    >
+                        {/* Label */}
+                        <Typography
+                            component="span"
+                            sx={{
+                                fontFamily: "Anta",
+                                textAlign: "center", 
+                                fontSize: '1.2rem',
                             }}
                         >
-                            Save
-                        </button>
-                        <button 
-                            onClick={handleCancel} 
-                            className="submit-button"
-                            style={{ 
-                                display: "inline-block" 
-                            }}
-                        >
-                            Cancel
-                        </button>
-                    </div>
-                ) : (
-                    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-                        <button 
-                            onClick={() => setIsEditing(true)} 
-                            className="submit-button"
-                            style={{ display: "inline-block" }}
-                        >
-                            Edit
-                        </button>
-                    </div>
-                )}
+                            {label}:
+                        </Typography>
 
-                </div>
+                        {/* Editable Input or Value Display */}
+                        {isEditing ? (
+                            <input
+                                type="text"
+                                value={editedValue}
+                                onChange={(e) => onChange(e.target.value)}
+                                placeholder={value}
+                                style={{ 
+                                    fontFamily: "Anta",
+                                    fontSize: '1.2rem',
+                                    width: "100%",
+                                    maxWidth: "400px", 
+                                    textAlign: "center", 
+                                    boxSizing: "border-box",
+                                    background: "#D9D9D966"
+                                }}
+                            />
+                        ) : (
+                            <Typography
+                                component="span"
+                                sx={{
+                                    fontFamily: "Anta",
+                                    textAlign: "center", 
+                                    wordBreak: "break-word", 
+                                    fontSize: '1.2rem',
+                                }}
+                            >
+                                {value}
+                            </Typography>
+                        )}
+                    </Box>
+                ))}
+
+
+                
+                    {/* BUTTONS */}
+                    <Box
+                        sx={{
+                            marginTop: "auto",
+                            paddingTop: "2rem",
+                            textAlign: "center"
+                        }}
+                    >
+                        {isEditing ? (
+                            <>
+                                <button 
+                                    onClick={handleSave} 
+                                    className="submit-button"
+                                    style={{ 
+                                        marginRight: "1rem",
+                                    }}
+                                >
+                                    Save
+                                </button>
+                                <button 
+                                    onClick={handleCancel} 
+                                    className="submit-button"
+                                >
+                                    Cancel
+                                </button>
+                            </>
+                        ) : (
+                            <button 
+                                onClick={() => setIsEditing(true)} 
+                                className="submit-button"
+                            >
+                                Edit
+                            </button>
+                        )}
+                    </Box>
+                </Box>
+    
+                {/* STYLIZED DIVIDER */}
+                <Box
+                    sx={{
+                        display: { xs: "none", md: "flex" },
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "relative",
+                        width: "0%", // Full width to center everything
+                    }}
+                >
+                    {/* Star on top */}
+                    <img 
+                        src={starsmall} 
+                        alt="star top" 
+                        style={{
+                            position: "absolute",
+                            top: "-1rem", // Adjust this value based on the space you want
+                            width: "40px", // Adjust size as needed
+                            height: "auto"
+                        }} 
+                    />
+
+                    {/* STYLIZED DIVIDER */}
+                    <Divider 
+                        orientation="vertical" 
+                        flexItem
+                        sx={{
+                            width: "2px",
+                            backgroundColor: "white",
+                            margin: "0 1rem",
+                            marginTop: "1rem", // Adjust as needed for top margin
+                            marginBottom: "1rem",
+                        }}
+                    />
+
+                    {/* Star on bottom */}
+                    <img 
+                        src={starsmall} 
+                        alt="star bottom" 
+                        style={{
+                            position: "absolute",
+                            bottom: "-1rem", // Adjust this value based on the space you want
+                            width: "40px", // Adjust size as needed
+                            height: "auto"
+                        }} 
+                    />
+                </Box>
+                
+                
         
                 {/* CLASSES SECTION */}
-                <div className="user-classes" style={{
-                    width: "50%",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1rem",
-                }}>
-                    <h2 style={{ 
-                        fontFamily: "Anta", 
-                        fontSize: "64px", 
-                        fontWeight: "400", 
-                        textAlign: "center", // Center the header
-                        marginBottom: "1rem" 
-                    }}>
+                <Box
+                    sx={{
+                        flex: 1,
+                        padding: "2rem",
+                        backgroundColor: "transparent",
+                        borderRadius: "15px",
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <Typography
+                        component="h2"
+                        sx={{
+                            fontFamily: "Anta",
+                            fontSize: "clamp(1.5rem, 5vw, 4rem)", 
+                            fontWeight: "400",
+                            textAlign: "center",
+                            marginBottom: "1rem",
+                            whiteSpace: "nowrap", 
+                            overflow: "hidden",
+                            textOverflow: "ellipsis", 
+                        }}
+                    >
                         CLASSES
-                    </h2>
-
-                    <p style={{ 
-                        fontFamily: "Anta", 
-                        padding: 0,
-                        textAlign: "center",
-                        fontSize: "40px"
-                    }}>
+                    </Typography>
+    
+                    <Typography
+                        sx={{
+                            fontFamily: "Anta",
+                            padding: 0,
+                            textAlign: "center",
+                            fontSize: '1.2rem',
+                            wordBreak: "break-word"
+                        }}
+                    >
                         No classes currently enrolled.
-                    </p>
-                </div>
-            </div>
-        
-            
-        
+                    </Typography>
+                </Box>
+
+
+                
+            </Box>
+
+
+
+
+    
             {/* BUS INFO */}
-            <div style={{ marginTop: "4rem" }}>
+            <Box sx={{ marginTop: "4rem", width: "100%" }}>
                 <BusInfomation />
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };
 
