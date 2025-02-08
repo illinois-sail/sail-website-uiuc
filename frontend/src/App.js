@@ -34,6 +34,8 @@ const App = () => {
     <AuthProvider>
     <BrowserRouter>
       <div style={{ 
+        display: 'flex',
+        flexDirection: 'column',
         position: 'relative',
         height: '100%',
       }}>
@@ -54,18 +56,21 @@ const App = () => {
         {/* Content wrapper */}
         <div 
         style={{ 
-          position: 'relative',
+          display: 'flex',
           zIndex: 1,
-          backgroundColor: 'transparent'
-        }}>
-          
-          <Navbar />
+          flexDirection: 'column',
+          minHeight: '100vh' 
+        }}
+      >
+        <Navbar />
+        <div style={{ flex: 1 }}> 
           <AppRouter />
-          
-          <div style={{position: 'relative', bottom: 0, width: '100%'}}>
+        </div>
+        <div style={{position: 'relative', bottom: '0vh', width: '100%'}}>
             <Footer />
           </div>
-        </div>
+      </div>
+
       </div>
     </BrowserRouter>
     </AuthProvider>

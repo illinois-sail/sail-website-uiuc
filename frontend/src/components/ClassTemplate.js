@@ -9,14 +9,14 @@ function ClassTemplate() {
         <div className='classespage'>
 
             {/* TITLE SECTION */}
-            <div className='title'>
+            <div className='classes-page'>
                 <img
                     className="corner-image"
                     src={titleshootingstars} 
                     alt="Corner Decoration"
                 />
                 
-                <Typography variant="h2" className="title classes-title">
+                <Typography variant="h2" className="classes-title">
                     Coming 
                     <br />
                     Soon!

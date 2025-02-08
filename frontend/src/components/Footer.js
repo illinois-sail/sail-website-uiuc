@@ -175,7 +175,7 @@ function Footer() {
           backgroundPosition: 'center center', 
           overflow: 'hidden',
           zIndex: -1,  
-          clipPath: 'inset(2px 0 0 0)', // weird line was happening so i clipped off top
+          clipPath: 'inset(3px 0 0 0)', // weird line was happening so i clipped off top
           '@media (max-height: 520px)': {
             height: '100vh',  
           },

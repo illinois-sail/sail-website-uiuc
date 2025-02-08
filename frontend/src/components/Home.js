@@ -37,18 +37,18 @@ function Home() {
         <div className='homepage'>
             {/* TITLE PAGE*/}
             <div className='container'>
-            <div className='title'>
-                <img
-                    className="corner-image"
-                    src={titleshootingstars} 
-                    alt="Corner Decoration"
-                />
-                <img
-                    className="title-image"
-                    src={sail2025title}
-                    alt="SAIL 2025 Title"
-                />
-            </div>
+                <div className='title'>
+                    <img
+                        className="corner-image"
+                        src={titleshootingstars} 
+                        alt="Corner Decoration"
+                    />
+                    <img
+                        className="title-image"
+                        src={sail2025title}
+                        alt="SAIL 2025 Title"
+                    />
+                </div>
 
                 <div className='countdown-container'>
                     <img 
@@ -127,7 +127,7 @@ function Home() {
                 </div>
 
                 <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
-                    DAY 1
+                    DAY 1 (SATURDAY MARCH 29)
                 </Typography>
                 
                 <table className="schedule-table">
@@ -290,7 +290,7 @@ function Home() {
 
 
                 <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
-                    DAY 2 (SUNDAY)
+                    DAY 2 (SUNDAY MARCH 30)
                 </Typography>
 
                 <table className="schedule-table">

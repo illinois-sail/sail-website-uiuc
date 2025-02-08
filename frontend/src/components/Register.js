@@ -9,7 +9,7 @@ function Register() {
         <div className='classespage'>
 
             {/* TITLE SECTION */}
-            <div className='title'>
+            <div className='classtitle'>
                 <img
                     className="corner-image"
                     src={titleshootingstars} 
