@@ -7,6 +7,10 @@ import titleshootingstars from '../assets/title-shooting-stars.png';
 import { Typography } from '@mui/material';
 import React from 'react';
 import Box from '@mui/material/Box';
+import starwide from '../assets/star-wide.png';
+import starsmall from '../assets/star-small.png';
+import aboutUsTitle from '../assets/titles/about-us-title.png';
+import titleshootingstars from '../assets/title-shooting-stars.png';
 
 
 import Aaren from '../assets/Member Images/Aaren Photo - Aaren Kang.jpg';
@@ -53,39 +57,22 @@ function AboutPage() {
   };
 
   return (
-    <div className="homepage">
-      <div className="about-content-wrapper">
-        {/* Title Section */}
-        <div className="title-section">
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
-              flexDirection: 'column',
-              width: '100%'
-            }}
-          >
-            <Typography
-              variant="h1"
-              sx={{
-                fontFamily: 'Anta',
-                color: 'white',
-                textShadow: '0px 0px 20px rgba(255, 255, 255, 0.8)',
-                fontSize: { xs: '40px', sm: '60px', md: '80px' },
-                textAlign: 'center',
-                position: 'relative'
-              }}
-            >
-              ABOUT US
-            </Typography>
-          </Box>
-        </div>
+    <div className="homepage-about">
 
-        {/* Clouds Section */}
-        <div className='home-clouds' style={{ backgroundImage: `url(${clouds2})` }}></div>
-
+    {/* TITLE PAGE*/}
+    <div className='container-about'>
+      <div className='title-about'>
+        <img
+            className="corner-image-about"
+            src={titleshootingstars} 
+            alt="Corner Decoration"
+        />
+        <img
+            className="title-image-about"
+            src={aboutUsTitle}
+            alt="ABOUT US Title"
+        />
+      </div>
 
         {/* Teams Section */}
         <div className="teams-section">
