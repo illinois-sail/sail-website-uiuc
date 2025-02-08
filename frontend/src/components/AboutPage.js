@@ -1,11 +1,12 @@
 import './AboutPage.css';
 import '../fonts.css';
-import clouds2 from '../assets/footer-clouds-2.png';
+import starwide from '../assets/star-wide.png';
+import starsmall from '../assets/star-small.png';
+import aboutUsTitle from '../assets/titles/about-us-title.png';
+import titleshootingstars from '../assets/title-shooting-stars.png';
 import { Typography } from '@mui/material';
 import React from 'react';
 import Box from '@mui/material/Box';
-import starwide from '../assets/star-wide.png';
-import starsmall from '../assets/star-small.png';
 
 
 import Aaren from '../assets/Member Images/Aaren Photo - Aaren Kang.jpg';
@@ -121,6 +122,7 @@ function AboutPage() {
                     </Typography>
                   </div>
                 ))}
+
               </div>
             </section>
           ))}
