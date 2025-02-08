@@ -47,7 +47,22 @@
     min-height: 10vh; 
 }
 
-.title.MuiTypography-root {
+.authpage .auth-title.MuiTypography-root {
+    line-height: 80px;
+}
+
+.subtitle.MuiTypography-root {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 34px;
+}
+
+@media (max-width: 480px) {
+    .subtitle.MuiTypography-root, .link.register {  font-size: 20px; }
+
+}
+
+.auth-title.MuiTypography-root {
     font-family: 'TAN-PEARL';
     font-size: 64px;
     font-weight: 400;
@@ -61,40 +76,50 @@
         0 0 10px rgba(255, 255, 255, 0.7),
         0 0 21px rgba(255, 255, 255, 0.7);
     margin-bottom: 40px; 
-    margin-top: 25rem; 
+    margin-top: 20vh; 
 }
-@media (min-height: 1400px) {
-    .title.MuiTypography-root {
-        padding-top: 40rem; 
+
+@media (max-height: 768px) {
+    .auth-title.MuiTypography-root {
+        margin-top: 15vh;
+        
     }
-}
-@media (min-height: 1100px) and (max-height: 1400px) {
-    .title.MuiTypography-root {
-        padding-top: 30rem; 
+  }
+  @media (max-height: 480px) {
+    .auth-title.MuiTypography-root {
+        margin-top: 25vh;
     }
-}
-@media (min-height: 1024px) and (max-height: 1100px) {
-    .title.MuiTypography-root {
-        padding-top: 20rem; 
-    }
-}
-@media (min-height: 900px) and (max-height: 1024px) {
-    .title.MuiTypography-root {
-        padding-top: 10rem; 
-    }
-}
+  }
+
   @media (max-width: 480px) {
-    .title.MuiTypography-root {
+    .auth-title.MuiTypography-root {
         font-size: 48px;
-        margin-top: 27rem; 
     }
   }
   @media (max-width: 340px) {
-    .title.MuiTypography-root {
+    .auth-title.MuiTypography-root {
         font-size: 32px;
-        margin-top: 27rem; 
     }
   }
+
+
+.subtitle.MuiTypography-root {
+    font-family: 'Anta';
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: white;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 500px) {
+    .subtitle.MuiTypography-root { 
+        max-width: calc(100% - 30px); 
+        font-size: 16px;
+    }
+}
 
 /* Form */
 .form {
@@ -117,6 +142,15 @@
     display: flex;
     margin-bottom: 0.3rem; 
 }
+@media (max-width: 600px) {
+    .input-group {
+        width: 90%; /* Increase the width on mobile */
+    }
+    .input {
+        width: 100%; /* Make the input field take the full width of the parent */
+    }
+}
+
 
 .input {
     all: unset;
@@ -222,22 +256,6 @@
     color: white;
 }
 
-.subtitle.MuiTypography-root {
-    font-family: 'Anta';
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    color: white;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-@media (max-width: 500px) {
-    .subtitle.MuiTypography-root { 
-        max-width: calc(100% - 30px); 
-    }
-}
 
 .register-link {
     display: inline-block; 
@@ -246,7 +264,7 @@
 
 
 @media (max-width: 480px) {
-    .link, .forgot-password, .no-account.MuiTypography-root, .subtitle.MuiTypography-root {
+    .link, .forgot-password, .no-account.MuiTypography-root {
         font-size: 16px;
     }
 }

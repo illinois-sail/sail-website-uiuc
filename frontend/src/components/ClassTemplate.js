@@ -9,7 +9,7 @@ function ClassTemplate() {
         <div className='classespage'>
 
             {/* TITLE SECTION */}
-            <div className='title'>
+            <div className='classes-page'>
                 <img
                     className="corner-image"
                     src={titleshootingstars} 

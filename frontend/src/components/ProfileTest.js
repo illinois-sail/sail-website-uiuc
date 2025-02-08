@@ -23,56 +23,98 @@ const BusInfomation = () => {
         }}>
             <h1 style={{ fontSize: "3rem" }}>BUS INFORMATION</h1>
             <div style={{ backgroundColor: '#FFFFFF26', borderRadius: '20px', paddingLeft: "2vw", paddingRight: "2vw", }}>
-                <p style={{ fontSize: "2rem" }}>If you need a bus, here are all the provided bus stops:</p>
-                <ul style={{ fontSize: "2rem" }}>
-                    <li>Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540) Pickup April 13, 2024 @ 5:45 AM</li>
-                    <li>Union Station, Chicago (225 S Canal St, Chicago, IL 60606) Pickup April 13, 2024 @ 5:55 AM</li>
-                    <li>Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) Pickup April 13, 2024 @ 5:45 AM -- Parking Lot E-30 and E-31 (near Ashley HomeStore)</li>
-                    <li>Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) Pickup April 13, 2024 @ 6:10 AM (Bus will be coming from Woodfield) -- Parking Lot E (Southwest corner of the center)</li>
-                </ul>
-            </div>
+    <p style={{ fontSize: "2rem" }}>If you need a bus, here are all the provided bus stops:</p>
+    <ul style={{ fontSize: "2rem" }}>
+        <li>
+            Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540)
+            <ul>
+                <li>Pickup: March 29, 2025 @ 5:30 AM</li>
+                <li>Bus departs: 5:45 AM</li>
+            </ul>
+        </li>
+        <li>
+            Union Station, Chicago (225 S Canal St, Chicago, IL 60606)
+            <ul>
+                <li>Pickup: March 29, 2025 @ 5:40 AM</li>
+                <li>Bus departs: 5:55 AM</li>
+            </ul>
+        </li>
+        <li>
+            Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) -- Parking Lot E-30 and E-31 (near Ashley HomeStore)
+            <ul>
+                <li>Pickup: March 29, 2025 @ 5:45 AM</li>
+                <li>Bus departs: 6:00 AM</li>
+            </ul>
+        </li>
+        <li>
+            Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) -- Parking Lot E (Southwest corner of the center)
+            <ul>
+                <li>Pickup: March 29, 2025 @ 6:10 AM</li>
+                <li>Bus departs: 6:25 AM</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
         </div>
     );
 }
 
 const TitleWithPlanet = ({ firstName }) => (
     <Box
-        sx={{
-            position: 'relative',  // Position relative to the Box
-            width: '50%',
-            height: { 
-                xs: '200px',      // For small screens (xs), height will be 200px
-                sm: '250px',      // For medium screens (sm), height will be 300px
-                md: '350px', 
-                lg: '450px', 
-                xl: '500px',     // For larger screens (md), height will be 400px
-            },
-            backgroundImage: `url(${planet})`,  // Set the image as background
-            backgroundSize: 'cover',  // Fit the image inside the container without clipping
-            backgroundPosition: 'top',
-            backgroundPosition: 'center', // Center the image
-            display: 'flex',
-            justifyContent: 'center',  // Center text horizontally
-            alignItems: 'center',      // Center text vertically
-            backgroundRepeat: 'no-repeat',
-            margin: '0 auto'
-        }}
-    >
-        <Typography 
-            variant="h3" 
+    sx={{
+        position: 'relative',
+        width: '50%',
+        height: { xs: '200px', sm: '250px', md: '350px', lg: '500px', xl: '600px' },
+        backgroundImage: `url(${planet})`,
+        backgroundSize: {
+            xs: 'cover',     // For small screens (xs), use cover
+            sm: 'cover',     // Same for medium screens (sm)
+            md: 'cover',     // Same for medium devices (md)
+            lg: 'contain',   // For large screens (lg) and above, switch to contain
+            xl: 'contain',   // For extra-large screens (xl), maintain contain
+        },
+        backgroundPosition: 'center', // Keep the background centered
+        backgroundRepeat: 'no-repeat',
+        margin: '0 auto',
+    }}
+>
+
+        {/* Rotating Name (Horizontal Ring) */}
+        <Box
             sx={{
-                fontFamily: 'Anta',
-                textAlign: "center",
-                color: 'white',  // You may want to ensure the text is visible over the image
-                zIndex: 1,       // Ensure text is above the image
-                textShadow: '0px 0px 15px rgba(255, 255, 255, 1)',
-                paddingBottom: '1.5rem',
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                animation: "rotateText 5s linear infinite",
+                "@keyframes rotateText": {
+                    "0%": { transform: "rotateY(0deg) translateX(calc(10vw + 20px)) rotateY(0deg)" },
+                    "100%": { transform: "rotateY(360deg) translateX(calc(10vw + 20px)) rotateY(-360deg)" }
+                }
             }}
         >
-            {firstName}
-        </Typography>
+            <Typography
+                variant="h3"
+                sx={{
+                    fontFamily: "Anta",
+                    textAlign: "center",
+                    color: "white",
+                    zIndex: 1,
+                    textShadow: "0px 0px 15px rgba(255, 255, 255, 1)",
+                    marginBottom: '1.5rem',
+                    fontSize: 'clamp(2rem, 5vw, 5rem)',
+                }}
+            >
+                {firstName}
+            </Typography>
+        </Box>
     </Box>
 );
+
+
 
 
 
@@ -237,7 +279,7 @@ function ProfileTest() {
                 sx={{
                     display: "flex",
                     width: "100%",
-                    marginTop: "8vh",
+                    marginTop: "0vh",
                     flexDirection: { xs: "column", md: "row" },
                     alignItems: "stretch",
                 }}
@@ -269,40 +311,46 @@ function ProfileTest() {
                     PERSONAL INFO
                 </Typography>
         
-                {[
-                        { 
-                            label: "Email", 
-                            value: email, 
-                            editedValue: editedEmail, 
-                            onChange: setEditedEmail 
-                        },
-                        { 
-                            label: "First Name", 
-                            value: firstName, 
-                            editedValue: editedFirstName, 
-                            onChange: setEditedFirstName 
-                        },
-                        { 
-                            label: "Last Name", 
-                            value: lastName, 
-                            editedValue: editedLastName, 
-                            onChange: setEditedLastName 
-                        }
+                    {[
+        { 
+            label: "Email", 
+            value: email, 
+            editedValue: editedEmail, 
+            onChange: setEditedEmail 
+        },
+        { 
+            label: "First Name", 
+            value: firstName, 
+            editedValue: editedFirstName, 
+            onChange: setEditedFirstName 
+        },
+        { 
+            label: "Last Name", 
+            value: lastName, 
+            editedValue: editedLastName, 
+            onChange: setEditedLastName 
+        }
                     ].map(({ label, value, editedValue, onChange }) => (
                         <Box
-                            key={label}
+                        key={label}
+                        sx={{
+                            display: "flex",
+                            flexDirection: { xs: "column", sm: "row" },
+                            alignItems: "center",
+                            justifyContent: "center", // Keep center alignment
+                            gap: "10px",
+                            fontFamily: "Anta",
+                            fontWeight: "400",
+                            width: "100%",
+                            marginBottom: "1rem",
+                            textAlign: "center",
+                        }}
+                        >
+                        <Box
                             sx={{
                                 display: "flex",
-                                flexDirection: { xs: "column", sm: "row" },
-                                alignItems: "center",
-                                justifyContent: "center", // Ensure full centering
-                                gap: "10px",
-                                fontFamily: "Anta",
-                                fontSize: { xs: "2rem", sm: "3rem", md: "4rem" }, 
-                                fontWeight: "400",
-                                width: "100%",
-                                marginBottom: "1rem",
-                                textAlign: "center", // Ensure text aligns center in all child elements
+                                width: { xs: "100%", sm: "80%" }, // Control the width of the label-value container
+                                maxWidth: "600px", // Prevent too wide spacing on large screens
                             }}
                         >
                             {/* Label */}
@@ -310,8 +358,10 @@ function ProfileTest() {
                                 component="span"
                                 sx={{
                                     fontFamily: "Anta",
-                                    flexGrow: 1, // Make label and value equally spaced
+                                    flexGrow: 1,
                                     fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
+                                    textAlign: "right", // Right align the label
+                                    paddingRight: "1rem", // Space between label and value
                                 }}
                             >
                                 {label}:
@@ -319,19 +369,25 @@ function ProfileTest() {
 
                             {/* Editable Input or Value Display */}
                             {isEditing ? (
-                                <input
+                                <Box
+                                    component="input"
                                     type="text"
                                     value={editedValue}
                                     onChange={(e) => onChange(e.target.value)}
                                     placeholder={value}
-                                    style={{ 
+                                    sx={{ 
                                         fontFamily: "Anta",
                                         fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-                                        width: "100%",
-                                        maxWidth: "400px", // Limit width to prevent stretching
-                                        textAlign: "center", // Center text inside input field
+                                        color: "white",
+                                        flexGrow: 1,
+                                        textAlign: "left", // Left align the input
                                         boxSizing: "border-box",
-                                        background: "#D9D9D966"
+                                        background: "#766fd1",
+                                        borderColor: "#766fd1",
+                                        "&::placeholder": { 
+                                            color: "white", 
+                                            opacity: 0.6 
+                                        }
                                     }}
                                 />
                             ) : (
@@ -339,9 +395,9 @@ function ProfileTest() {
                                     component="span"
                                     sx={{
                                         fontFamily: "Anta",
-                                        flexGrow: 1, // Ensures equal spacing with label
-                                        textAlign: "center", // Centers text when not editing
-                                        wordBreak: "break-word", // Prevents overflow issues
+                                        flexGrow: 1,
+                                        textAlign: "left", // Left align the value
+                                        wordBreak: "break-word",
                                         fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
                                     }}
                                 >
@@ -349,10 +405,11 @@ function ProfileTest() {
                                 </Typography>
                             )}
                         </Box>
+                        </Box>
                     ))}
 
                 
-                    {/* BUTTONS */}
+                    {/* EDIT BUTTON */}
                     <Box
                         sx={{
                             marginTop: "auto",
@@ -389,55 +446,53 @@ function ProfileTest() {
                     </Box>
                 </Box>
     
-                {/* STYLIZED DIVIDER - Only visible on medium screens and up */}
+                {/* STYLIZED DIVIDER */}
                 <Box
-    sx={{
-        display: { xs: "none", md: "flex" },
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        width: "0%", // Full width to center everything
-    }}
->
-    {/* Star on top */}
-    <img 
-        src={starsmall} 
-        alt="star top" 
-        style={{
-            position: "absolute",
-            top: "-1rem", // Adjust this value based on the space you want
-            width: "40px", // Adjust size as needed
-            height: "auto"
-        }} 
-    />
+                    sx={{
+                        display: { xs: "none", md: "flex" },
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "relative",
+                        width: "0%", // Full width to center everything
+                    }}
+                >
+                    {/* Star on top */}
+                    <img 
+                        src={starsmall} 
+                        alt="star top" 
+                        style={{
+                            position: "absolute",
+                            top: "-1rem", // Adjust this value based on the space you want
+                            width: "40px", // Adjust size as needed
+                            height: "auto"
+                        }} 
+                    />
 
-    {/* STYLIZED DIVIDER */}
-    <Divider 
-        orientation="vertical" 
-        flexItem
-        sx={{
-            width: "2px",
-            backgroundColor: "white",
-            margin: "0 1rem",
-            marginTop: "1rem", // Adjust as needed for top margin
-            marginBottom: "1rem",
-        }}
-    />
+                    {/* STYLIZED DIVIDER */}
+                    <Divider 
+                        orientation="vertical" 
+                        flexItem
+                        sx={{
+                            width: "2px",
+                            backgroundColor: "white",
+                            margin: "0 1rem",
+                            marginTop: "1rem", // Adjust as needed for top margin
+                            marginBottom: "1rem",
+                        }}
+                    />
 
-    {/* Star on bottom */}
-    <img 
-        src={starsmall} 
-        alt="star bottom" 
-        style={{
-            position: "absolute",
-            bottom: "-1rem", // Adjust this value based on the space you want
-            width: "40px", // Adjust size as needed
-            height: "auto"
-        }} 
-    />
-</Box>
-                
-                
+                    {/* Star on bottom */}
+                    <img 
+                        src={starsmall} 
+                        alt="star bottom" 
+                        style={{
+                            position: "absolute",
+                            bottom: "-1rem", // Adjust this value based on the space you want
+                            width: "40px", // Adjust size as needed
+                            height: "auto"
+                        }} 
+                    />
+                </Box>
         
                 {/* CLASSES SECTION */}
                 <Box
@@ -471,7 +526,7 @@ function ProfileTest() {
                             fontFamily: "Anta",
                             padding: 0,
                             textAlign: "center",
-                            fontSize: { xs: "1rem", sm: "1.5rem", md: "2rem" },
+                            fontSize: { xs: "1rem", sm: "1.5rem", md: "1.7rem" },
                             wordBreak: "break-word"
                         }}
                     >

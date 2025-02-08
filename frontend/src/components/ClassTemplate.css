@@ -31,37 +31,28 @@
         0 0 10px rgba(255, 255, 255, 0.7),
         0 0 21px rgba(255, 255, 255, 0.7);
     margin-bottom: 40px; 
-    margin-top: 25rem; 
+    margin-top: 10vh; 
 }
-@media (min-height: 1400px) {
+
+@media (max-height: 768px) {
     .classes-title.MuiTypography-root {
-        padding-top: 40rem; 
+        margin-top: 15vh;
+        
     }
-}
-@media (min-height: 1100px) and (max-height: 1400px) {
+  }
+  @media (max-height: 480px) {
     .classes-title.MuiTypography-root {
-        padding-top: 30rem; 
+        margin-top: 25vh;
     }
-}
-@media (min-height: 1024px) and (max-height: 1100px) {
-    .classes-title.MuiTypography-root {
-        padding-top: 20rem; 
-    }
-}
-@media (min-height: 900px) and (max-height: 1024px) {
-    .classes-title.MuiTypography-root {
-        padding-top: 5rem; 
-    }
-}
+  }
+
   @media (max-width: 480px) {
     .classes-title.MuiTypography-root {
         font-size: 48px;
-        margin-top: 27rem; 
     }
   }
   @media (max-width: 340px) {
     .classes-title.MuiTypography-root {
         font-size: 32px;
-        margin-top: 27rem; 
     }
   }

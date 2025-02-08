@@ -98,14 +98,14 @@ function Login() {
         <div className='loginpage'>
 
             {/* TITLE SECTION */}
-            <div className='title'>
+            <div className='auth-page'>
                 <img
                     className="corner-image"
                     src={titleshootingstars} 
                     alt="Corner Decoration"
                 />
                 
-                <Typography variant="h2" className="title">
+                <Typography variant="h2" className="auth-title">
                     SIGN IN
                 </Typography>
 
