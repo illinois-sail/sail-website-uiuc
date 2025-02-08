@@ -248,26 +248,34 @@ function Profile() {
         .then(response => {
             // set the authUser to the new information
             console.log("response: ", response);
-            localStorage.setItem('authUser', JSON.stringify(response.data));
-            setOriginalFirstName(response.data.first_name);
-            setOriginalLastName(response.data.last_name);
-            setOriginalEmail(response.data.email);
+            if (response.data) {
+                localStorage.setItem('authUser', JSON.stringify(response.data));
+                setOriginalFirstName(response.data.first_name);
+                setOriginalLastName(response.data.last_name);
+                setOriginalEmail(response.data.email);
+            }
+            
+            // force reload after saving
+            setTimeout(() => {
+                window.location.reload(true);
+            }, 100);
+            
         })
         .catch(error => {
             // handle the error if needed
             console.log(error);
         });
 
-        setOriginalFirstName(editedFirstName);
-        setOriginalLastName(editedLastName);
-        setOriginalEmail(editedEmail);
+        // setOriginalFirstName(editedFirstName);
+        // setOriginalLastName(editedLastName);
+        // setOriginalEmail(editedEmail);
         
         setIsEditing(false);
         setIsEditingFirstName(false);
         setIsEditingLastName(false);
         setIsEditingEmail(false);
 
-        // FORCE PAGE RELOAD??
+        
     };
 
     const handleCancel = () => {
