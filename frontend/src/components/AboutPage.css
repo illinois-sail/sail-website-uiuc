@@ -2,25 +2,81 @@
 
 /* Remove the .about-page-wrapper styles since we're using .homepage from Home.css */
 
-.about-content-wrapper {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
+.homepage-about {
+    height: 100%;
+  }
+  
+  .container-about {
+    width: 100%; 
     display: flex;
+    align-items: center; 
+    margin-top: 0px;
     flex-direction: column;
+    justify-content: center; 
+  }
+  
+  /* Title */
+  
+  .title-about {
+    margin-top: 0vh; 
+  }
+  
+  .corner-image-about {
+    position: absolute;
+    top: 50px; /* Adjust to place the image where needed */
+    left: 50px; /* Adjust to place the image where needed */
+    width: 220px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: -1; /* Ensure it is layered correctly */
+  }
+  
+  
+  .title-image-about {
+    display: block; 
+    margin-right: auto; 
+    margin-left: auto; 
+    width: 70%; 
+    height: auto; 
+  }
+  
+  @media (max-width: 1600px) and (min-width: 1200px) {
+    .title-image-about {
+      width: calc(100% - 20vw); 
+    }
+    .corner-image-about {
+      width: 200px;
+    }
+  }
+  @media (max-width: 1200px) and (min-width: 768px) {
+    .title-image-about {
+      width: calc(100% - 10vw); 
+    }
+    .corner-image-about {
+      width: 170px;
+    }
+  }
+  @media (max-width: 768px) and (max-height: 480px) {
+    .title-image-about {
+      margin-top: 60vh;  
+    }
+    .corner-image-about {
+      width: 150px;
+    }
+  }
+  @media (max-width: 768px) {
+    .title-image-about {
+      width: 100%; 
+    }
+    .corner-image-about {
+      width: 150px;
+    }
+  }
+  @media (max-width: 600px) {
+    .title-image-about {
+      margin-top: 5rem;  
+    }
 }
   
-
-/* Rest of your existing styles, but update the selectors */
-.title-section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
 .teams-section {
     min-height: 100vh;
     position: relative;
