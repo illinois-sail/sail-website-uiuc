@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ClassCard.css'; 
 import axios from 'axios';
 import SERVER_URL from './server_url';
+import { useMediaQuery } from '@mui/material';
 
 const initialAuthUser = JSON.parse(localStorage.getItem('authUser'));
 
@@ -10,6 +11,8 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
   const [dataFetched, setDataFetched] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
   const [seatsRemaining, setSeatsRemaining] = useState("loading");
+  const [showDescription, setShowDescription] = useState(false);
+  const isMobile = useMediaQuery('(max-width:768px)');
 
   useEffect(() => {
     if (!dataFetched) {
@@ -48,39 +51,51 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
   }, [isRegistered]);
 
   return (
-    <div className="cyber-tile-big fg-dark bg-cyan" style={{ padding: "10px", display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
-      <h1 style={{ fontFamily: "Oxanium" }}>{className}</h1>
-      {authUser && room === "zoom" && zoomLink ? (
-        <a href={zoomLink} target="_blank" rel="noopener noreferrer">
-          <h2 style={{ fontFamily: "Oxanium" }}>Zoom Meeting</h2>
-        </a>
+    <div className="cyber-tile-big">
+      <h1 className="class-title">{className}</h1>
+      
+      <div className="class-location-time">
+        <span>Siebel Room {room}</span>
+        <span>•</span>
+        <span>{time}</span>
+      </div>
+      
+      {isMobile ? (
+        <>
+          <button 
+            className="view-description-btn"
+            onClick={() => setShowDescription(!showDescription)}
+          >
+            {showDescription ? 'Hide Description' : 'View Description'}
+          </button>
+          <div className={`class-description ${showDescription ? 'show' : ''}`}>
+            {description}
+          </div>
+        </>
       ) : (
-        <h2 style={{ fontFamily: "Oxanium" }}>Siebel Room {room} @ {time}</h2>
+        <div className="class-description">
+          {description}
+        </div>
       )}
-      <p style={{ fontFamily: "Oxanium" }}>{description}</p>
-      <p>Seats Remaining: {seatsRemaining} / {capacity}</p>
-      <div className="register-button" style={{ display: "flex", justifyContent: "center", marginBottom: "0px" }}>
-        {authUser && (
+      
+      <div className="remaining-seats">
+        Remaining seats: {seatsRemaining} / {capacity}
+      </div>
+      
+      {authUser && (
+        <div className="register-button">
           <button
-            className="regular-button"
+            className="register-btn"
             onClick={() => { setIsRegistered(!isRegistered); onRegisterClick(index); }}
             disabled={!activated}
             style={{ 
-              padding: "10px 20px", 
-              fontSize: "1rem", 
-              cursor: activated ? "pointer" : "not-allowed",
-              backgroundColor: isRegistered ? "red" : "green", 
-              color: "white", 
-              border: "none", 
-              borderRadius: "5px", 
-              opacity: activated ? 1 : 0.5,
-              display: "block"
+              backgroundColor: isRegistered ? "rgba(255, 68, 68, 0.8)" : "rgba(68, 170, 68, 0.8)",
             }}
           >
             {isRegistered ? "Unregister" : "Register"}
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
