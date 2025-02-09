@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.afd23070.css",
-    "main.js": "/static/js/main.54c07e40.js",
+    "main.js": "/static/js/main.a1115864.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
     "static/media/wang_firmiana_headshot - Firmiana Wang.jpg": "/static/media/wang_firmiana_headshot - Firmiana Wang.bd97ac0f186ce745dfdf.jpg",
     "static/media/peter_lin_headshot - Peter Lin.JPG": "/static/media/peter_lin_headshot - Peter Lin.49e4c8c21625accda9fb.JPG",
@@ -37,11 +37,11 @@
     "static/media/image0 - James Yang.jpg": "/static/media/image0 - James Yang.d370e18017fda44832bd.jpg",
     "index.html": "/index.html",
     "main.afd23070.css.map": "/static/css/main.afd23070.css.map",
-    "main.54c07e40.js.map": "/static/js/main.54c07e40.js.map",
+    "main.a1115864.js.map": "/static/js/main.a1115864.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.afd23070.css",
-    "static/js/main.54c07e40.js"
+    "static/js/main.a1115864.js"
   ]
 }

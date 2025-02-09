@@ -35,7 +35,6 @@ const AppRouter = () => {
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path='/reset_password/:token' element={<ResetPasswordToken />} />
           <Route path='/register' element={<Register />} />
-
           {/* 
           
           

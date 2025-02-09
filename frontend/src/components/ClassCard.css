@@ -76,3 +76,157 @@
     font-size: 18px; /* Adjust font size as needed */
     font-weight: bold;
   }
+
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cyber-tile-big {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: auto;
+  margin: 0;
+}
+
+.class-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.class-location-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.class-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.remaining-seats {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  margin-top: auto;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.register-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: rgba(68, 170, 68, 0.8);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.register-btn:hover:not(:disabled) {
+  background: rgba(68, 170, 68, 1);
+  box-shadow: 0 0 15px rgba(68, 170, 68, 0.4);
+}
+
+.register-btn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.regular-button {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.regular-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.view-description-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .class-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .class-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .cyber-tile-big {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+  }
+
+  .class-title {
+    font-size: 1.5rem;
+  }
+
+  .remaining-seats {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .class-description {
+    display: none;
+  }
+
+  .class-description.show {
+    display: block;
+  }
+}
