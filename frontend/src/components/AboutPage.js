@@ -99,7 +99,7 @@ function AboutPage() {
                       sx={{
                         color: 'white',
                         fontSize: { xs: '14px', sm: '16px' },
-                        fontFamily: 'Inter'
+                        fontFamily: 'Anta'
                       }}
                     >
                       {member}

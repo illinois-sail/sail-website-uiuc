@@ -19,6 +19,7 @@
 /* Title */
 
 .title {
+  display: relative;
   margin-top: -45rem; 
 }
 
@@ -75,7 +76,7 @@
 /* Date, Countdown, Clouds */
 
 .countdown-container {
-  display: flex;
+  display: relative;
   align-items: center;
   position: absolute;
   gap: 10px;
@@ -88,6 +89,7 @@
 }
 
 .hourglass {
+  display: relative;
   width: 36px;
   height: 36px;
   padding: 3px 7.5px;

@@ -137,32 +137,34 @@ function SignUp() {
                 ))}
             </div> */}
 
-        {/* TITLE SECTION */}
-        <div className='title'>
+            {/* TITLE SECTION */}
+            <div className='auth-page'>
                 <img
                     className="corner-image"
                     src={titleshootingstars} 
                     alt="Corner Decoration"
                 />
                 
-                <Typography variant="h2" className="title">
+                <Typography variant="h2" className="auth-title">
                     SIGN UP
                 </Typography>
+            </div>
 
 
-            </div>
-        <form onSubmit={handleSubmit} className="form">
-            <div className="input-row" style={{ display: "flex", justifyContent: "space-between" }}>
-                <div className="input-group half-width" style={{ width: "48%" }}>
-                    <input className="input" required type="text" id="firstName" onChange={handleFirstNameChange} value={firstName} />
-                    <label className="label" htmlFor="firstName">First Name</label>
+            <form onSubmit={handleSubmit} className="form">
+                <div className="input-row" style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div className="input-group half-width" style={{ width: "48%" }}>
+                        <input className="input" required type="text" id="firstName" onChange={handleFirstNameChange} value={firstName} />
+                        <label className="label" htmlFor="firstName">First Name</label>
+                    </div>
+                    <div className="input-group half-width" style={{ width: "48%" }}>
+                        <input className="input" required type="text" id="lastName" onChange={handleLastNameChange} value={lastName} />
+                        <label className="label" htmlFor="lastName">Last Name</label>
+                    </div>
                 </div>
-                <div className="input-group half-width" style={{ width: "48%" }}>
-                    <input className="input" required type="text" id="lastName" onChange={handleLastNameChange} value={lastName} />
-                    <label className="label" htmlFor="lastName">Last Name</label>
-                </div>
-            </div>
-            <br />
+
+                <br />
+
                 <div className="input-group">
                     <input className="input" required type="text" id="email" onChange={handleEmailChange} value={email} />
                     <label className="label" htmlFor="email">Email</label>
@@ -184,7 +186,6 @@ function SignUp() {
                 <button className="submit-button" type="submit">
                     SIGN UP
                 </button>
-                
             </form>
         </div>
     );
