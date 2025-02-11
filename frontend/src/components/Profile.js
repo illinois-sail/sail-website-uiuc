@@ -5,9 +5,9 @@ import { Typography, Box, Divider } from '@mui/material';
 import SERVER_URL, { PROD_SERVER } from './server_url';
 import starsmall from '../assets/star-small.png';
 import planet from '../assets/planet.png';
+import './Profile.css'; 
 
 const CLASSES = allClasses;
-
 
 const BusInfomation = () => {
     return (
@@ -21,10 +21,10 @@ const BusInfomation = () => {
             marginTop: "8vh",
             fontFamily: "Anta",
         }}>
-            <h1 style={{ fontSize: "3rem" }}>BUS INFORMATION</h1>
+            <h1 class="bus-info-title" style={{ fontSize: "3rem" }}>BUS INFORMATION</h1>
             <div style={{ backgroundColor: '#FFFFFF26', borderRadius: '20px', paddingLeft: "2vw", paddingRight: "2vw", }}>
-                <p style={{ fontSize: "2rem" }}>If you need a bus, here are all the provided bus stops:</p>
-                <ul style={{ fontSize: "2rem" }}>
+                <p class="bus-info-text" >If you need a bus, here are all the provided bus stops:</p>
+                <ul class="bus-info-list" >
                     <li>
                         Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540)
                         <ul>
@@ -49,7 +49,7 @@ const BusInfomation = () => {
                     <li>
                         Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) -- Parking Lot E (Southwest corner of the center)
                         <ul>
-                            <li>Pickup: March 29, 2025 @ 6:10 AM (Bus will be coming from Woodfield)</li>
+                            <li>Pickup: March 29, 2025 @ 6:10 AM</li>
                             <li>Bus departs: 6:25 AM</li>
                         </ul>
                     </li>

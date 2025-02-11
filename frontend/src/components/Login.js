@@ -31,6 +31,7 @@ function Login() {
         if (storedUser) {
             setIsLoggedIn(true);
             setAuthUser(JSON.parse(storedUser));
+            window.location.href = "/home";
         }
     }, []);
 

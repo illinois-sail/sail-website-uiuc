@@ -15,8 +15,8 @@
 .button-63 {
   align-items: center;
   vertical-align: middle;
-  background-image: linear-gradient(144deg,#4b077b, #5B42F3 50%);
-  border: 0;
+  background-color: #95C5FF80;
+  border: 3px solid #95C5FF;
   border-radius: 50%;
   color: #FFFFFF;
   display: flex;

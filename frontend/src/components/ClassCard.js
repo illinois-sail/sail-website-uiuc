@@ -27,18 +27,18 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
             console.error(error);
           });
       }
-
-      if (seatsRemaining === "loading") {
-        axios.get(`${SERVER_URL}/get_seats_remaining`)
-          .then((response) => {
-            setSeatsRemaining(response.data[index].remainingSeats);
-          })
-          .catch((error) => {
-            console.error("error fetching seats remaining:", error);
-          });
-      }
+      
     }
-  }, [authUser, dataFetched]);
+    if (seatsRemaining === "loading") {
+      axios.get(`${SERVER_URL}/get_seats_remaining`)
+        .then((response) => {
+          setSeatsRemaining(response.data[index].remainingSeats);
+        })
+        .catch((error) => {
+          console.error("error fetching seats remaining:", error);
+        });
+    }
+  }, [authUser, dataFetched, seatsRemaining]);
 
   useEffect(() => {
     if (authUser) {
@@ -51,15 +51,61 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
   }, [isRegistered]);
 
   return (
-    <div className="cyber-tile-big">
+    <div className="class-tile-big">
       <h1 className="class-title">{className}</h1>
       
-      <div className="class-location-time">
-        <span>Siebel Room {room}</span>
-        <span>•</span>
-        <span>{time}</span>
-      </div>
       
+
+
+      {/* {authUser && room === "zoom" && zoomLink ? (
+        <a href={zoomLink} target="_blank" rel="noopener noreferrer">
+          <h2 style={{ fontFamily: "Oxanium" }}>Zoom Meeting</h2>
+        </a>
+      ) : (
+        <div className="class-location-time">
+          <span>Siebel Room {room}</span>
+          <span>•</span>
+          <span>{time}</span>
+        </div>
+      )} */}
+
+      {!authUser ? (
+        //if no authuser + virtual
+          room === "zoom" || room === "virtual" ? (
+            <div className="class-location-time">
+              <span>Siebel - Zoom</span>
+              <span>•</span>
+              <span>{time}</span>
+            </div>
+          ) : (
+            //if no authuser + in person
+            <div className="class-location-time">
+              <span>Siebel Room {room}</span>
+              <span>•</span>
+              <span>{time}</span>
+            </div>
+          )
+        ) : room === "zoom" && zoomLink ? (
+          //if authuser + virtual
+          <div className="class-location-time">
+            <span>
+              <a href={zoomLink} target="_blank" rel="noopener noreferrer">
+              <span>Zoom Meeting</span>
+              </a>
+            </span>
+            <span>•</span>
+            <span>{time}</span>
+          </div>
+          //if authuser + in person
+          ) : (
+            <div className="class-location-time">
+              <span>Siebel Room {room}</span>
+              <span>•</span>
+              <span>{time}</span>
+            </div>
+        )}
+
+
       {isMobile ? (
         <>
           <button 
@@ -78,6 +124,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
         </div>
       )}
       
+
       <div className="remaining-seats">
         Remaining seats: {seatsRemaining} / {capacity}
       </div>
@@ -89,7 +136,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
             onClick={() => { setIsRegistered(!isRegistered); onRegisterClick(index); }}
             disabled={!activated}
             style={{ 
-              backgroundColor: isRegistered ? "rgba(255, 68, 68, 0.8)" : "rgba(68, 170, 68, 0.8)",
+              backgroundColor: isRegistered ? "rgba(149, 197, 255, 0.9)" : "rgba(149, 197, 255, 0.5)",
             }}
           >
             {isRegistered ? "Unregister" : "Register"}

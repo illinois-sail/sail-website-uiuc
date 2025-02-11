@@ -7,6 +7,7 @@ import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 import titleshootingstars from '../assets/title-shooting-stars.png';
 import SERVER_URL, { PROD_SERVER } from './server_url';
+import AuthContext, { useAuth } from './AuthContext';
 
 
 const formWidth = window.innerWidth > 600 ? "50%" : "100%";
@@ -62,6 +63,17 @@ function SignUp() {
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
     const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
+
+    const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('authUser');
+        if (storedUser) {
+            setIsLoggedIn(true);
+            setAuthUser(JSON.parse(storedUser));
+            window.location.href = "/home";
+        }
+    }, []);
     
     const handleSubmit = (e) => {
         e.preventDefault(); 

@@ -21,6 +21,9 @@ import sqlite3
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"ilovekennychensomuchandheistheloveofmylifekenny4eva38240239847083924"}' http://172.16.0.51:5000/get_students
 
+
+# curl -X POST -H "Content-Type: application/json" -d '{"token":"firmianawaitheydontloveyoulikeiloveyouwaittheydontloveyoulikeiloveyou5ZzROOKeBo2dCVsuxb0qvNBvObaIYeRn"}' --tlsv1.2 https://10.192.104.68:5000/get_emails
+
 remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
 
 load_dotenv()
@@ -93,13 +96,17 @@ reset_password_map = {}
 def index():
     return render_template('index.html')
 
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('index.html')
+
 @app.route('/classes', methods=['GET'])
 def classes():
     return render_template('index.html')
 
-@app.route('/classes_test', methods=['GET'])
-def classes_test():
-    return render_template('index.html')
+# @app.route('/classes_test', methods=['GET'])
+# def classes_test():
+#     return render_template('index.html')
 
 @app.route('/login', methods=['GET'])
 def login_page():
@@ -130,11 +137,11 @@ def reset_password_page():
     return render_template('index.html')
 
 
-SERVER_URL = os.environ.get('SERVER_URL', 'http://172.16.35.32:5000')
+SERVER_URL = os.environ.get('SERVER_URL', 'http://10.192.104.68:5000')
 
 # Define the production and test server URLs
 PROD_SERVER = "https://sail.cs.illinois.edu"
-TEST_SERVER = "http://172.16.35.32:5000"
+TEST_SERVER = "http://10.192.104.68:5000"
 
 # Assign the server URL based on the environment variable
 if SERVER_URL == PROD_SERVER:
@@ -143,7 +150,7 @@ else:
     SERVER_URL = TEST_SERVER
     
 @app.route('/reset_password', methods=['POST'])
-def reset_password():
+def reset_password():    
     response = request.json
     email = response['email']
 

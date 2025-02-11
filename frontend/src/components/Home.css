@@ -76,7 +76,7 @@
 /* Date, Countdown, Clouds */
 
 .countdown-container {
-  display: relative;
+  display: flex;
   align-items: center;
   position: absolute;
   gap: 10px;
@@ -89,7 +89,6 @@
 }
 
 .hourglass {
-  display: relative;
   width: 36px;
   height: 36px;
   padding: 3px 7.5px;
@@ -621,7 +620,6 @@
   }
 }
 
-
 /* What is Sail, Schedule */
 
 .about-sail {
@@ -630,7 +628,8 @@
   flex-direction: column;
   align-items: center;
   gap: 80px;
-  margin-top: 280px;
+  margin-top: 20rem;
+  padding-top: 10rem;
 }
 
 .schedule {
@@ -900,6 +899,7 @@
     font-size: 0.8em;
   }
 }
+
 /* Gallery Section */
 
 .carousel_container {

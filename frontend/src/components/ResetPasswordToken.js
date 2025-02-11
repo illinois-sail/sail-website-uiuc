@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './ResetPassword.css';
 import SERVER_URL, { PROD_SERVER } from './server_url';
 import rocket from '../assets/rocket.png';
+import AuthContext, { useAuth } from './AuthContext';
+
 
 function ResetPasswordToken() {
     const { token } = useParams(); // extract token from url parameters
@@ -11,6 +13,17 @@ function ResetPasswordToken() {
 
     const handleNewPasswordChange = (e) => setNewPassword(e.target.value);
     const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
+
+    const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('authUser');
+        if (storedUser) {
+            setIsLoggedIn(true);
+            setAuthUser(JSON.parse(storedUser));
+            window.location.href = "/home";
+        }
+    }, []);
 
     const handleResetPassword = (e) => {
         e.preventDefault();

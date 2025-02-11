@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './ResetPassword.css';
 import rocket from '../assets/rocket.png';
+import AuthContext, { useAuth } from './AuthContext';
+
 
 import SERVER_URL from './server_url';
 
 const ResetPassword = () => {
     const [email, setEmail] = useState("");
+
+    const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('authUser');
+        if (storedUser) {
+            setIsLoggedIn(true);
+            setAuthUser(JSON.parse(storedUser));
+            window.location.href = "/home";
+        }
+    }, []);
 
     const handleResetPassword = (e) => {
         e.preventDefault();
