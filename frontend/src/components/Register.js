@@ -20,27 +20,31 @@ function Register() {
                     REGISTER
                 </Typography>
 
-                {/* <Typography className="subtitle classes-subtitle">
+                <Typography className="subtitle classes-subtitle">
                     Admitted Students: 
                     <br />
-                    <Link to="/register" className="link">Virtual Registration</Link> 
+                    <a href="https://myillini.illinois.edu/AdmittedEvents/cs_admitted_virtual" className="link" target="_blank" rel="noopener noreferrer">
+                        Virtual Registration
+                    </a> 
                     <br />
-                    <Link to="/register" className="link">In-Person Registration</Link>
+                    <a href="https://myillini.illinois.edu/AdmittedEvents/cs_admitted" className="link" target="_blank" rel="noopener noreferrer">
+                        In-Person Registration
+                    </a>
                 </Typography>
                 <br />
                 <Typography className="subtitle classes-subtitle" sx={{fontSize: '4em' }}>
                     Prospective Students: 
                     <br />
-                    <Link to="/register" className="link">Virtual Registration</Link> 
+                    <a href="https://enroll.illinois.edu/register/VirtualSail" className="link" target="_blank" rel="noopener noreferrer">
+                        Virtual Registration
+                    </a> 
                     <br />
-                    <Link to="/register" className="link">In-Person Registration</Link>
-                </Typography> */}
+                    <a href="https://enroll.illinois.edu/register/ProspectSAIL" className="link" target="_blank" rel="noopener noreferrer">
+                        In-Person Registration
+                    </a>
+                </Typography> 
 
-                <Typography className="subtitle classes-subtitle">
-                    Registration links coming soon!
-                    <br />
-                    Check back in the coming week!
-                </Typography>
+                
 
 
             </div>

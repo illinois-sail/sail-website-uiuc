@@ -26,6 +26,7 @@ function Home() {
             const now = new Date();
             const timeDiff = targetDate - now;
             const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
+            if (daysRemaining < 0) daysRemaining = 0;
             setDaysLeft(daysRemaining);
         }, 1000); // update every min
 
@@ -73,7 +74,9 @@ function Home() {
                         }}
                     >
                         {daysLeft !== null
-                            ? `${daysLeft} days until Sail 2025`
+                            ? daysLeft === 0 
+                                ? 'Today is Sail 2025!' 
+                                : `${daysLeft} days until Sail 2025`
                             : 'Loading...'}
                     </Typography>
 
@@ -126,7 +129,7 @@ function Home() {
                     <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
 
-                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
+                <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
                     DAY 1
                 </Typography>
                 
@@ -288,8 +291,7 @@ function Home() {
                     </tbody>
                 </table>
 
-
-                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
+                <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
                     DAY 2
                 </Typography>
 
@@ -381,13 +383,14 @@ function Home() {
           <div className='about-sail'>
                 
                 <div className="title-container">
-                    <img src={starwide} className='starwide-title' alt="star" style={{ paddingBottom: '80px' }} />
-                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta', paddingBottom: '80px' }}>
+                    <img src={starwide} className='starwide-title' alt="star" />
+                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
                         GALLERY
                     </Typography>
-                    <img src={starsmall} className='starsmall-title' alt="star" style={{ paddingBottom: '80px' }} />
+                    <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
-                </div>
+                <br/>
+          </div>
           </div>
           <div class="carousel_container">
             <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
