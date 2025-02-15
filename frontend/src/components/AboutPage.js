@@ -8,23 +8,21 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import Box from '@mui/material/Box';
 
-
-
-import Aaren from '../assets/Member Images/Aaren Photo - Aaren Kang.jpg';
-import Tia from '../assets/Member Images/Screenshot 2024-12-07 at 8.09.28 PM - Tia Kashyap.png';
-import Arwen from '../assets/Member Images/20231203_144610 - Arwen Louie.jpg';
-import Skyla from '../assets/Member Images/headshot (small) - Skyla Jin.JPG';
-import James from '../assets/Member Images/image0 - James Yang.jpg';
-import Justin from '../assets/Member Images/IMG_0874 - Justin Lauinger.jpeg';
-import LilyG from '../assets/Member Images/IMG_7918 - Lily Ge.jpeg';
-import Manvitha from '../assets/Member Images/IMG_8647 - Manvitha Veeramreddy.jpeg';
-import Stephanie from '../assets/Member Images/kjd - Stephanie Tian.jpeg';
-import Peter from '../assets/Member Images/peter_lin_headshot - Peter Lin.JPG';
-import Kyle from '../assets/Member Images/Screenshot_20240912_104456_Docs - Kyle Li.jpg';
-import LilyL from '../assets/Member Images/selfie - Lily Liu.jpg';
-import Firmiana from '../assets/Member Images/wang_firmiana_headshot - Firmiana Wang.jpg';
-import Stephen from '../assets/Member Images/Stephen.jpg';
-import Utkarsh from '../assets/Member Images/WhatsApp Image 2025-02-01 at 17.48.18_75ff5c05.jpg';
+import Aaren from '../assets/Member-Images/aaren-kang.jpg';
+import Tia from '../assets/Member-Images/tia-kashyap.png';
+import Arwen from '../assets/Member-Images/arwen-louie.jpg';
+import Skyla from '../assets/Member-Images/skyla-jin.JPG';
+import James from '../assets/Member-Images/james-yang.jpg';
+import Justin from '../assets/Member-Images/justin-lauinger.jpeg';
+import LilyG from '../assets/Member-Images/lily-ge.jpeg';
+import Manvitha from '../assets/Member-Images/manvitha-veeramreddy.jpeg';
+import Stephanie from '../assets/Member-Images/stephanie-tian.jpeg';
+import Peter from '../assets/Member-Images/peter-lin.JPG';
+import Kyle from '../assets/Member-Images/kyle-li.jpg'
+import LilyL from '../assets/Member-Images/lily-liu.jpg';
+import Firmiana from '../assets/Member-Images/firmiana-wang.jpg';
+import Stephen from '../assets/Member-Images/stephen-he.jpg';
+import Utkarsh from '../assets/Member-Images/utkarsh-singh.jpg';
 
 const memberImages = {
   "Aaren Kang": Aaren,
@@ -99,7 +97,7 @@ function AboutPage() {
                       sx={{
                         color: 'white',
                         fontSize: { xs: '14px', sm: '16px' },
-                        fontFamily: 'Inter'
+                        fontFamily: 'Anta'
                       }}
                     >
                       {member}

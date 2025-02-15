@@ -6,7 +6,7 @@ import Login from "./Login";
 import { Provider } from "react-redux"; // TODO
 import Home from "./Home";
 import ClassTemplate from "./ClassTemplate";
-import ClassTest from "./ClassTest"
+import ClassSchedule from "./ClassSchedule"
 import store from "./store";
 import SignUp from "./SignUp";
 import Profile from "./Profile";
@@ -29,16 +29,15 @@ const AppRouter = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/classes" element={<ClassTemplate />} />
-          <Route path="/classes_test" element={<ClassTest />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/profile_test" element={<ProfileTest />} />
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path='/reset_password/:token' element={<ResetPasswordToken />} />
           <Route path='/register' element={<Register />} />
+          <Route path="/profile_test" element={<ProfileTest />} />
+
           {/* 
-          
-          
-          
+          <Route path="/classes_test" element={<ClassSchedule />} />
+           
             */}
         </Routes>
     </Provider>

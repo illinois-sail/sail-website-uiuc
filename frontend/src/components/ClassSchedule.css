@@ -1,0 +1,154 @@
+@import '../fonts.css';
+
+.class-schedule-container {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.tabs-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tab-trigger {
+  font-family: 'Anta';
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.tab-trigger:hover {
+  opacity: 0.8;
+}
+
+.tab-trigger.active {
+  opacity: 1;
+  border-bottom: 2px solid white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.time-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+.time-button {
+  font-family: 'Anta';
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.time-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.time-button.active {
+  background: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.class-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.class-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Cinzel', serif;
+}
+
+.class-info {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.class-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.view-description-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .classes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .class-schedule-container {
+    padding: 2rem 1rem;
+  }
+
+  .classes-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .tabs-list {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tab-trigger {
+    font-size: 1.2rem;
+  }
+
+  .time-filters {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .class-description {
+    display: none;
+  }
+  
+  .class-description.show {
+    display: block;
+  }
+}

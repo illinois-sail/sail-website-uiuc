@@ -127,7 +127,7 @@ function Home() {
                 </div>
 
                 <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
-                    DAY 1 (SATURDAY MARCH 29)
+                    DAY 1
                 </Typography>
                 
                 <table className="schedule-table">
@@ -290,7 +290,7 @@ function Home() {
 
 
                 <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
-                    DAY 2 (SUNDAY MARCH 30)
+                    DAY 2
                 </Typography>
 
                 <table className="schedule-table">

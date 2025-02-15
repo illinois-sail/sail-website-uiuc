@@ -19,6 +19,7 @@
 /* Title */
 
 .title {
+  display: relative;
   margin-top: -45rem; 
 }
 
@@ -619,7 +620,6 @@
   }
 }
 
-
 /* What is Sail, Schedule */
 
 .about-sail {
@@ -628,7 +628,8 @@
   flex-direction: column;
   align-items: center;
   gap: 80px;
-  margin-top: 280px;
+  margin-top: 20rem;
+  padding-top: 10rem;
 }
 
 .schedule {
@@ -898,6 +899,7 @@
     font-size: 0.8em;
   }
 }
+
 /* Gallery Section */
 
 .carousel_container {

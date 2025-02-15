@@ -1,3 +1,5 @@
+@import '../fonts.css';
+
 .classCard {
     background-size: cover;
     background-position: center;
@@ -22,6 +24,7 @@
   }
   
   .registerButton {
+    font-family: 'Anta';
     background-repeat: no-repeat;
     width: 340px;
     display: flex;
@@ -38,7 +41,7 @@
   .buttonOverlay {
     position: relative;
     font-size: large;
-    font-family: "JetBrainsMono";
+    font-family: 'Anta';
     font-weight: 100;
   }
   
@@ -86,7 +89,7 @@
   margin: 0 auto;
 }
 
-.cyber-tile-big {
+.class-tile-big {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 15px;
   padding: 2rem;
@@ -102,7 +105,7 @@
 }
 
 .class-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Anta';
   font-size: 1.8rem;
   text-align: center;
   margin-bottom: 0.5rem;
@@ -111,6 +114,7 @@
 }
 
 .class-location-time {
+  font-family: 'DM-Sans';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,6 +126,7 @@
 }
 
 .class-description {
+  font-family: 'DM-Sans';
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   font-size: 0.9rem;
@@ -131,6 +136,7 @@
 }
 
 .remaining-seats {
+  font-family: 'DM-Sans';
   text-align: center;
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
@@ -144,6 +150,7 @@
 }
 
 .register-btn {
+  font-family: 'Anta';
   width: 100%;
   padding: 1rem;
   border-radius: 8px;
@@ -168,6 +175,7 @@
 }
 
 .regular-button {
+  font-family: 'Anta';
   width: 100%;
   padding: 0.8rem;
   border-radius: 8px;
@@ -208,7 +216,7 @@
     padding: 1rem;
   }
 
-  .cyber-tile-big {
+  .class-tile-big {
     margin: 1.5rem 0;
     padding: 1.5rem;
   }
