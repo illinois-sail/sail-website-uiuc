@@ -3,12 +3,12 @@
 # Navigate to root of repository
 cd "$(git rev-parse --show-toplevel)" || exit
 
+# Remove existing build directory in backend if it exists
+rm -rf backend/build
+
 # Build frontend
 cd frontend
 npm run build
-
-# Remove existing build directory in backend if it exists
-rm -rf ../backend/build
 
 # Move build directory to backend
 mv build ../backend/

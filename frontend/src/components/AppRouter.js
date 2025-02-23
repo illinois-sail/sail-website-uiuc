@@ -34,11 +34,9 @@ const AppRouter = () => {
           <Route path='/reset_password/:token' element={<ResetPasswordToken />} />
           <Route path='/register' element={<Register />} />
           <Route path="/profile_test" element={<ProfileTest />} />
+          
 
-          {/* 
-          <Route path="/classes_test" element={<ClassSchedule />} />
-           
-            */}
+          {/*  <Route path="/classes_test" element={<ClassSchedule />} /> */}
         </Routes>
     </Provider>
   );

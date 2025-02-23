@@ -6,7 +6,7 @@ import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 import sail2025title from '../assets/titles/sail2025-title.png';
 import titleshootingstars from '../assets/title-shooting-stars.png';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import Carousel from './Carousel.js';
 
@@ -121,6 +121,7 @@ function Home() {
 
             {/* SCHEDULE */}
             <div className='schedule' >
+                
                 <div className="title-container">
                     <img src={starwide} className='starwide-title' alt="star" />
                     <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
@@ -128,10 +129,13 @@ function Home() {
                     </Typography>
                     <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
-
-                <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
-                    DAY 1
-                </Typography>
+                
+                <div>
+                    <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
+                        DAY 1 -- SATURDAY March 29 (IN-PERSON)
+                    </Typography>
+                </div>
+                
                 
                 <table className="schedule-table">
                     <thead>
@@ -290,10 +294,14 @@ function Home() {
                         </tr>
                     </tbody>
                 </table>
+                
+                
 
-                <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
-                    DAY 2
-                </Typography>
+                <div>
+                    <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
+                        DAY 2 -- SUNDAY March 30 (VIRTUAL)
+                    </Typography>
+                </div>
 
                 <table className="schedule-table">
                     <thead>
@@ -372,32 +380,28 @@ function Home() {
 
             </div>
 
-            {/* TODO: GALLERY */}
-            {/* <Gallery /> */}
+            {/* GALLERY */}
 
-
-
-
-        <div class="container">
-          <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-          <div className='about-sail'>
-                
-                <div className="title-container">
-                    <img src={starwide} className='starwide-title' alt="star" />
-                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
-                        GALLERY
-                    </Typography>
-                    <img src={starsmall} className='starsmall-title' alt="star" />
-                </div>
-                <br/>
-          </div>
-          </div>
-          <div class="carousel_container">
+            <div class="container">
             <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-              <Carousel images={carouselImages} />
+            <div className='about-sail'>
+                    
+                    <div className="title-container">
+                        <img src={starwide} className='starwide-title' alt="star" />
+                        <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
+                            GALLERY
+                        </Typography>
+                        <img src={starsmall} className='starsmall-title' alt="star" />
+                    </div>
+                    <br/>
             </div>
-          </div>
-        </div>
+            </div>
+            <div class="carousel_container">
+                <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
+                <Carousel images={carouselImages} />
+                </div>
+            </div>
+            </div>
         </div>
     );
 };
