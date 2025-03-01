@@ -6,6 +6,8 @@ import SERVER_URL, { PROD_SERVER } from './server_url';
 import starsmall from '../assets/star-small.png';
 import planet from '../assets/planet.png';
 import './Profile.css'; 
+import { Link } from 'react-router-dom'; 
+
 
 const CLASSES = allClasses;
 
@@ -23,9 +25,9 @@ const BusInfomation = () => {
         }}>
             <h1 class="bus-info-title" style={{ fontSize: "3rem" }}>BUS INFORMATION</h1>
             <div style={{ backgroundColor: '#FFFFFF26', borderRadius: '20px', paddingLeft: "2vw", paddingRight: "2vw", }}>
-                <p class="bus-info-text" >If you need a bus, here are all the provided bus stops.</p>
+                <p class="bus-info-text" >If you need a bus, here are all the provided bus stops. THESE ARE FREE! You do not have to buy a ticket or pay for them.</p>
                 <br/>
-                <p class="bus-info-text" >Please arrive 15 minutes before the bus is set to depart.</p>
+                <p class="bus-info-text" >There are buses to take you to the Siebel Center for CS and back. Please arrive 15 minutes before the bus is set to depart.</p>
                 <br/>
                 <p class="bus-info-text" >MORNING BUSES (DEPARTURES):</p>
                 <ul class="bus-info-list" >
