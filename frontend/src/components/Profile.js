@@ -611,12 +611,22 @@ function Profile() {
                         sx={{
                             fontFamily: "Anta",
                             padding: 0,
-                            textAlign: "center",
+                            textAlign: "left",
                             fontSize: { xs: "1rem", sm: "1.5rem", md: "1.7rem" },
                             wordBreak: "break-word"
                         }}
                     >
-                        No classes currently enrolled.
+                        <ul>
+                            {userClasses.map((item, index) => {
+                                const date = item.room === "Zoom" ? "March 30" : "March 29";
+                                return (
+                                    <li key={index}>
+                                        <span>{item.className} </span>
+                                        <span>({date}, {item.time}, {item.room})</span>
+                                    </li>
+                                );
+                            })}
+                        </ul>
                     </Typography>
                 </Box>
             </Box>

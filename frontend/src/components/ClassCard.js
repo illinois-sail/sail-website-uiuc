@@ -80,12 +80,12 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
           ) : (
             //if no authuser + in person
             <div className="class-location-time">
-              <span>Siebel Room {room}</span>
+              <span>{room}</span>
               <span>•</span>
               <span>{time}</span>
             </div>
           )
-        ) : room === "zoom" && zoomLink ? (
+        ) : room === "Zoom" && zoomLink ? (
           //if authuser + virtual
           <div className="class-location-time">
             <span>
@@ -99,7 +99,7 @@ const ClassCard = ({ className, room, time, description, onRegisterClick, index,
           //if authuser + in person
           ) : (
             <div className="class-location-time">
-              <span>Siebel Room {room}</span>
+              <span>{room}</span>
               <span>•</span>
               <span>{time}</span>
             </div>

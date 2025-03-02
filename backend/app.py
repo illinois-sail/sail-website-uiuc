@@ -104,10 +104,6 @@ def home():
 def classes():
     return render_template('index.html')
 
-# @app.route('/classes_test', methods=['GET'])
-# def classes_test():
-#     return render_template('index.html')
-
 @app.route('/login', methods=['GET'])
 def login_page():
     return render_template('index.html')
@@ -128,7 +124,7 @@ def profile():
 def logout():
     return render_template('index.html')
 
-@app.route('/registration', methods=['GET'])
+@app.route('/register', methods=['GET'])
 def registration():
     return render_template('index.html')
 
@@ -639,8 +635,6 @@ def get_all_students_registered_for_class(index):
         if student.classes[int(index)] == '1':
             students_registered.append(student.email)
     return students_registered, 200
-
-    
     
 if __name__ == '__main__':
     app.run(debug=True)
