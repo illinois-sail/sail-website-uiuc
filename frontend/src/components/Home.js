@@ -115,7 +115,7 @@ function Home() {
                         marginBottom: '100px', 
                     }}
                 >
-                    Sail is an entirely student-run organization that hosts an annual two-day outreach event for high school students! At Sail, attendees will be able to experience what it's like to be a CS student at UIUC.
+                    Sail is an entirely student-run organization that hosts an annual two-day outreach event for high school students! At Sail, attendees will be able to experience what it's like to be a CS student at UIUC. Saturday, March 29 is in-person at the UIUC campus. Sunday, March 30 is virtual. Each day we will have different events, so students are encouraged to register for both days!
                 </Typography>
             </div>
 
@@ -355,7 +355,7 @@ function Home() {
                             <td>2:30 PM</td>
                             <td>
                                 <div >
-                                    TBD<br />
+                                    Set Sail: A Chat with Sail's Original Founders<br />
                                 </div>
                             </td>
                         </tr>

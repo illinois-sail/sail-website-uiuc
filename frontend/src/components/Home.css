@@ -630,6 +630,7 @@
   gap: 80px;
   margin-top: 20rem;
   padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 
 .schedule {
@@ -815,6 +816,30 @@
   max-width: 1200px;
   border-collapse: collapse;
   text-align: left; 
+  table-layout: fixed; /* Ensures fixed column widths */
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 15px;
+  font-family: "DM-Sans", sans-serif;
+  font-size: 2.3em;
+  color: white;
+  text-align: left;
+  vertical-align: top; /* Ensures multi-line text aligns correctly */
+}
+
+.schedule-table th:first-child,
+.schedule-table td:first-child {
+  width: 25%; /* 25% width for time column */
+  min-width: 140px; /* Prevents shrinking too much */
+  text-align: left;
+  white-space: nowrap;
+}
+
+.schedule-table th:last-child,
+.schedule-table td:last-child {
+  width: 75%; /* 75% width for event column */
+  text-align: left;
 }
 
 .schedule-table th {

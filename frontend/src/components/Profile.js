@@ -21,7 +21,7 @@ const BusInfomation = () => {
             flexDirection: "column",
             marginBottom: "2vh",
             marginTop: "8vh",
-            fontFamily: "Anta",
+            fontFamily: "DM-Sans",
         }}>
             <h1 class="bus-info-title" style={{ fontSize: "3rem" }}>BUS INFORMATION</h1>
             <div style={{ backgroundColor: '#FFFFFF26', borderRadius: '20px', paddingLeft: "2vw", paddingRight: "2vw", }}>

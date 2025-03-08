@@ -635,6 +635,20 @@ def get_all_students_registered_for_class(index):
         if student.classes[int(index)] == '1':
             students_registered.append(student.email)
     return students_registered, 200
-    
+
+@app.route('/reset_all_student_classes', methods=['PUT'])
+def reset_all_student_classes():
+    response = request.json
+    token = response.get('token')
+    if token != os.getenv('ADMIN_TOKEN'):
+        return "Invalid ADMIN TOKEN", 401
+
+    for student in Student.query.all(): # reset class registration
+        student.classes = '0' * len(student.classes)
+
+    db.session.commit()
+    recompute_remaining_seats()
+    return "All students' class registrations have been reset", 200
+
 if __name__ == '__main__':
     app.run(debug=True)
