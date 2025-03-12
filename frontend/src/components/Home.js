@@ -9,6 +9,7 @@ import titleshootingstars from '../assets/title-shooting-stars.png';
 import { Typography, Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import Carousel from './Carousel.js';
+import { Link } from 'react-router-dom'; 
 
 const imagesContext = require.context('../gallery_photos', false, /\.(png|jpg)$/);
 const carouselImages = imagesContext.keys().map(imagesContext);
@@ -80,6 +81,45 @@ function Home() {
                             : 'Loading...'}
                     </Typography>
 
+                </div>
+
+                <div style={{ 
+                    position: 'fixed',
+                    bottom: '30px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '90%',
+                    maxWidth: '800px',
+                    textAlign: 'center',
+                    zIndex: '10',
+                    padding: '15px',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+                }}>
+                    <Typography
+                        sx={{
+                            fontFamily: 'DM-Sans',
+                            fontSize: '16px',
+                            color: 'white',
+                            textAlign: 'center',
+                            textShadow: '0 0 10px rgba(255, 255, 255, 0.4)',
+                        }}
+                    >
+                        <strong>IMPORTANT:</strong> You must register on both this website AND through{' '}
+                        <Link 
+                            to="/register" 
+                            style={{
+                                color: '#ADD8E6',
+                                textDecoration: 'underline',
+                                textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            official Slate registration
+                        </Link>
+                        {' '}to participate in SAIL 2025.
+                    </Typography>
                 </div>
                 
                 <div className='home-clouds' style={{ backgroundImage: `url(${clouds2})` }}></div>
