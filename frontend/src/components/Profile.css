@@ -49,3 +49,12 @@
         font-size: 1.2rem;
     }
 }
+
+.custom-link {
+    color: #92CEFF;
+    text-decoration: none;
+}
+
+.custom-link:hover {
+    text-decoration: underline;
+}

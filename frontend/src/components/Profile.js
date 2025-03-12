@@ -6,6 +6,8 @@ import SERVER_URL, { PROD_SERVER } from './server_url';
 import starsmall from '../assets/star-small.png';
 import planet from '../assets/planet.png';
 import './Profile.css'; 
+import { Link } from 'react-router-dom'; 
+
 
 const CLASSES = allClasses;
 
@@ -19,38 +21,75 @@ const BusInfomation = () => {
             flexDirection: "column",
             marginBottom: "2vh",
             marginTop: "8vh",
-            fontFamily: "Anta",
+            fontFamily: "DM-Sans",
         }}>
             <h1 class="bus-info-title" style={{ fontSize: "3rem" }}>BUS INFORMATION</h1>
             <div style={{ backgroundColor: '#FFFFFF26', borderRadius: '20px', paddingLeft: "2vw", paddingRight: "2vw", }}>
-                <p class="bus-info-text" >If you need a bus, here are all the provided bus stops:</p>
+                <p class="bus-info-text" >If you need a bus, here are all the provided bus stops. THESE ARE FREE! You do not have to buy a ticket or pay for them.</p>
+                <br/>
+                <p class="bus-info-text" >There are buses to take you to the Siebel Center for CS and back. Please arrive 15 minutes before the bus is set to depart.</p>
+                <br/>
+                <p class="bus-info-text" >MORNING BUSES (DEPARTURES):</p>
                 <ul class="bus-info-list" >
                     <li>
                         Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540)
                         <ul>
-                            <li>Pickup: March 29, 2025 @ 5:30 AM</li>
-                            <li>Bus departs: 5:45 AM</li>
+                            <li>Depart Naperville Metra Station @ 5:45 AM</li>
+                            <li>Arrive at Siebel Center for CS @ 8:00 AM</li>
                         </ul>
                     </li>
                     <li>
                         Union Station, Chicago (225 S Canal St, Chicago, IL 60606)
                         <ul>
-                            <li>Pickup: March 29, 2025 @ 5:40 AM</li>
-                            <li>Bus departs: 5:55 AM</li>
+                            <li>Depart Union Station @ 5:55 AM</li>
+                            <li>Arrive at Siebel Center for CS @ 8:00 AM</li>
                         </ul>
                     </li>
                     <li>
                         Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) -- Parking Lot E-30 and E-31 (near Ashley HomeStore)
                         <ul>
-                            <li>Pickup: March 29, 2025 @ 5:45 AM</li>
-                            <li>Bus departs: 6:00 AM</li>
+                            <li>Depart Woodfield Mall @ 5:45 AM</li>
+                            <li>Arrive at Oakbrook Center, Oak Brook @ 6:00 AM</li>
                         </ul>
                     </li>
                     <li>
                         Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) -- Parking Lot E (Southwest corner of the center)
                         <ul>
-                            <li>Pickup: March 29, 2025 @ 6:10 AM</li>
-                            <li>Bus departs: 6:25 AM</li>
+                            <li>Depart Oakbrook Center @ 6:15 AM</li>
+                            <li>Arrive at Siebel Center for CS @ 8:15 AM</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <br/>
+                <p class="bus-info-text" >EVENING BUSES (ARRIVALS):</p>
+                <ul class="bus-info-list" >
+                    <li>
+                        Naperville Metra Station (North Ellsworth Street, 105 E 4th Ave, Naperville, IL 60540)
+                        <ul>
+                            <li>Depart Siebel Center for CS @ 6:00 PM</li>
+                            <li>Arrive at Naperville Metra Station @ 8:15 PM</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Union Station, Chicago (225 S Canal St, Chicago, IL 60606)
+                        <ul>
+                            <li>Depart Siebel Center for CS @ 6:15 PM</li>
+                            <li>Arrive at Union Station @ 8:30 PM</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Oakbrook Center, Oak Brook (100 Oakbrook Center, Oak Brook, IL 60523) -- Parking Lot E (Southwest corner of the center)
+                        <ul>
+                            <li>Depart Siebel Center for CS @ 6:30 PM</li>
+                            <li>Arrive at Oakbrook Center @ 8:45 PM</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Woodfield Mall, Schaumburg (5 Woodfield Mall, Schaumburg, IL 60173) -- Parking Lot E-30 and E-31 (near Ashley HomeStore)
+                        <ul>
+                            <li>Depart Oakbrook Center @ 8:50 PM</li>
+                            <li>Arrive at Woodfield Mall @ 9:00 PM</li>
                         </ul>
                     </li>
                 </ul>
@@ -572,12 +611,22 @@ function Profile() {
                         sx={{
                             fontFamily: "Anta",
                             padding: 0,
-                            textAlign: "center",
+                            textAlign: "left",
                             fontSize: { xs: "1rem", sm: "1.5rem", md: "1.7rem" },
                             wordBreak: "break-word"
                         }}
                     >
-                        No classes currently enrolled.
+                        <ul>
+                            {userClasses.map((item, index) => {
+                                const date = item.room === "Zoom" ? "March 30" : "March 29";
+                                return (
+                                    <li key={index}>
+                                        <span>{item.className} </span>
+                                        <span>({date}, {item.time}, {item.room})</span>
+                                    </li>
+                                );
+                            })}
+                        </ul>
                     </Typography>
                 </Box>
             </Box>

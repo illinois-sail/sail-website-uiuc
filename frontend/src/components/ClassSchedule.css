@@ -87,6 +87,10 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-family: 'Cinzel', serif;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width:100%;
 }
 
 .class-info {

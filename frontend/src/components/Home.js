@@ -6,7 +6,7 @@ import starwide from '../assets/star-wide.png';
 import starsmall from '../assets/star-small.png';
 import sail2025title from '../assets/titles/sail2025-title.png';
 import titleshootingstars from '../assets/title-shooting-stars.png';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import Carousel from './Carousel.js';
 
@@ -26,6 +26,7 @@ function Home() {
             const now = new Date();
             const timeDiff = targetDate - now;
             const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
+            if (daysRemaining < 0) daysRemaining = 0;
             setDaysLeft(daysRemaining);
         }, 1000); // update every min
 
@@ -73,7 +74,9 @@ function Home() {
                         }}
                     >
                         {daysLeft !== null
-                            ? `${daysLeft} days until Sail 2025`
+                            ? daysLeft === 0 
+                                ? 'Today is Sail 2025!' 
+                                : `${daysLeft} days until Sail 2025`
                             : 'Loading...'}
                     </Typography>
 
@@ -112,12 +115,13 @@ function Home() {
                         marginBottom: '100px', 
                     }}
                 >
-                    Sail is an entirely student-run organization that hosts an annual two-day outreach event for high school students! At Sail, attendees will be able to experience what it's like to be a CS student at UIUC.
+                    Sail is an entirely student-run organization that hosts an annual two-day outreach event for high school students! At Sail, attendees will be able to experience what it's like to be a CS student at UIUC. Saturday, March 29 is in-person at the UIUC campus. Sunday, March 30 is virtual. Each day we will have different events, so students are encouraged to register for both days!
                 </Typography>
             </div>
 
             {/* SCHEDULE */}
             <div className='schedule' >
+                
                 <div className="title-container">
                     <img src={starwide} className='starwide-title' alt="star" />
                     <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
@@ -125,10 +129,13 @@ function Home() {
                     </Typography>
                     <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
-
-                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
-                    DAY 1
-                </Typography>
+                
+                <div>
+                    <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
+                        DAY 1 -- SATURDAY March 29 (IN-PERSON)
+                    </Typography>
+                </div>
+                
                 
                 <table className="schedule-table">
                     <thead>
@@ -287,11 +294,14 @@ function Home() {
                         </tr>
                     </tbody>
                 </table>
+                
+                
 
-
-                <Typography variant="h3" className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3'}}>
-                    DAY 2
-                </Typography>
+                <div>
+                    <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
+                        DAY 2 -- SUNDAY March 30 (VIRTUAL)
+                    </Typography>
+                </div>
 
                 <table className="schedule-table">
                     <thead>
@@ -345,7 +355,7 @@ function Home() {
                             <td>2:30 PM</td>
                             <td>
                                 <div >
-                                    TBD<br />
+                                    Set Sail: A Chat with Sail's Original Founders<br />
                                 </div>
                             </td>
                         </tr>
@@ -370,31 +380,28 @@ function Home() {
 
             </div>
 
-            {/* TODO: GALLERY */}
-            {/* <Gallery /> */}
+            {/* GALLERY */}
 
-
-
-
-        <div class="container">
-          <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-          <div className='about-sail'>
-                
-                <div className="title-container">
-                    <img src={starwide} className='starwide-title' alt="star" style={{ paddingBottom: '80px' }} />
-                    <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta', paddingBottom: '80px' }}>
-                        GALLERY
-                    </Typography>
-                    <img src={starsmall} className='starsmall-title' alt="star" style={{ paddingBottom: '80px' }} />
-                </div>
-                </div>
-          </div>
-          <div class="carousel_container">
+            <div class="container">
             <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
-              <Carousel images={carouselImages} />
+            <div className='about-sail'>
+                    
+                    <div className="title-container">
+                        <img src={starwide} className='starwide-title' alt="star" />
+                        <Typography variant="h2" className="home-title" sx={{ fontFamily: 'Anta' }}>
+                            GALLERY
+                        </Typography>
+                        <img src={starsmall} className='starsmall-title' alt="star" />
+                    </div>
+                    <br/>
             </div>
-          </div>
-        </div>
+            </div>
+            <div class="carousel_container">
+                <div style={{ width: "40vw", alignContent: "center", alignItems: "center", display: "flex", justifyContent: "center" }}>
+                <Carousel images={carouselImages} />
+                </div>
+            </div>
+            </div>
         </div>
     );
 };
