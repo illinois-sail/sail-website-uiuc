@@ -225,7 +225,7 @@ function Home() {
                                     Lunch (Group A) <br />
                                 </div>
                                 <div>
-                                    Q&A Prospective Students (Group B)
+                                    Q&A Panel (Group B)
                                 </div>
                             </td>
                         </tr>
@@ -236,7 +236,7 @@ function Home() {
                                     Lunch (Group B) <br />
                                 </div>
                                 <div>
-                                    Q&A Admitted Students (Group A)
+                                    Q&A Panel (Group A)
                                 </div>
                             </td>
                         </tr>
