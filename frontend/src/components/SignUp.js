@@ -143,7 +143,7 @@ function SignUp() {
                     SIGN UP
                 </button>
 
-                <div style={{ 
+                {/* <div style={{ 
                     marginTop: '20px', 
                     textAlign: 'center', 
                     padding: '15px',
@@ -176,7 +176,7 @@ function SignUp() {
                         </Link>
                         {' '}to participate in SAIL 2025.
                     </Typography>
-                </div>
+                </div> */}
 
             </form>
         </div>

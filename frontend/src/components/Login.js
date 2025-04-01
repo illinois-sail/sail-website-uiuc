@@ -110,18 +110,8 @@ function Login() {
                     SIGN IN
                 </Typography>
 
-                <Typography className="subtitle">
-                <a 
-                    href="https://illinois.zoom.us/j/87341007142?pwd=jQ2TcYKR9M7swoaIejYrLiNpaduTZc.1" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="link"
-                >
-                    Opening Ceremony Zoom Link @ 12PM CDT
-                </a>
+            
                     
-                </Typography>
-
                                    
 
             </div>
@@ -155,7 +145,7 @@ function Login() {
                 </button>
                 <br />
 
-                <div style={{ 
+                {/* <div style={{ 
                     marginTop: '20px', 
                     marginBottom: '20px',
                     textAlign: 'center', 
@@ -187,7 +177,7 @@ function Login() {
                         </Link>
                         {' '}to participate in SAIL 2025.
                     </Typography>
-                </div>
+                </div> */}
                 
                 <div className="link-container">
                     <Typography className="no-account">

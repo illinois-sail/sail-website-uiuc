@@ -52,12 +52,6 @@ function Home() {
                 </div>
 
                 <div className='countdown-container'>
-                    <img 
-                        src={hourglass}
-                        className="hourglass"
-                        alt='Hourglass Icon' 
-                    />
-                    
                     <Typography
                         variant='h3' 
                         className='days-left'
@@ -73,26 +67,12 @@ function Home() {
                             gap: '8px', 
                         }}
                     >
-                        Today is Sail 2025! 
-                        <br/>
-                        <a 
-                            href="https://illinois.zoom.us/j/87341007142?pwd=jQ2TcYKR9M7swoaIejYrLiNpaduTZc.1" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            style={{
-                                color: '#ADD8E6',
-                                textDecoration: 'underline',
-                                textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                           Opening Ceremony Zoom Link @ 12PM CDT
-                        </a>
+                        Thanks for an amazing Sail 2025! 
                     </Typography>
 
                 </div>
 
-                <div style={{ 
+                {/* <div style={{ 
                     position: 'fixed',
                     bottom: '30px',
                     left: '50%',
@@ -143,7 +123,7 @@ function Home() {
                             Virtual SAIL Opening Ceremony Zoom Link @ 12PM CDT
                         </a>
                     </Typography>
-                </div>
+                </div> */}
                 
                 <div className='home-clouds' style={{ backgroundImage: `url(${clouds2})` }}></div>
 
@@ -192,136 +172,11 @@ function Home() {
                     </Typography>
                     <img src={starsmall} className='starsmall-title' alt="star" />
                 </div>
-                
-
-                <div>
-                    <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
-                        DAY 2 -- SUNDAY March 30 (VIRTUAL)
-                        <br/>
-                        ALL TIMES IN CDT
-                    </Typography>
-                </div>
-
-                <table className="schedule-table">
-                    <thead>
-                        <tr>
-                            <th className="table-head">TIME</th>
-                            <th className="table-head">STUDENT ACTIVITIES</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>12:00 PM</td>
-                            <td>
-                                <div >
-                                    Opening Ceremony (<a 
-                                        href="https://illinois.zoom.us/j/87341007142?pwd=jQ2TcYKR9M7swoaIejYrLiNpaduTZc.1" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        style={{
-                                            color: '#ADD8E6',
-                                            textDecoration: 'underline',
-                                            textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        Zoom Link
-                                    </a>)
-                                    <br />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12:30 PM</td>
-                            <td>
-                                <div >
-                                    Class #1<br />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1:20 PM</td>
-                            <td>
-                                <div >
-                                    Break<br />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1:30 PM</td>
-                            <td>
-                                <div >
-                                    Class #2<br />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2:20 PM</td>
-                            <td>
-                                <div >
-                                    Break<br />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2:30 PM</td>
-                            <td>
-                                <div >
-                                    Set Sail: A Chat with Sail's Original Founders (<a 
-                                        href="https://illinois.zoom.us/j/84066854250?pwd=EaCtcqXLYaXb3QlIbdTMhIu75bYMMt.1" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        style={{
-                                            color: '#ADD8E6',
-                                            textDecoration: 'underline',
-                                            textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        Zoom Link
-                                    </a>)
-                                    <br /> 
-                                    <span class="note">Nathan Handler graduated from the University of Illinois in 2015 with a degree in computer science, where he kept busy directing HackIllinois, co-founding Sail, serving as treasurer of ACM, and helping out with the Computer Science Student Leadership Council (CSSLC). After college, he kicked off his career as a Site Reliability Engineer at Yelp, then jumped into the startup world at Orchid Labs, helping launch their decentralized bandwidth marketplace. Since 2020, he's been at Reddit, where he worked on video infrastructure, helped bring the chaotic magic of r/place (Reddit's April Fools' Day collaborative art experiment) to life, and even won a Webby. Now, as a Security Engineer, he focuses on keeping Reddit's infrastructure secure while tackling identity, access management, and compliance.</span>
-                                    <span class="note">Matthew Dierker attended Illinois as a CS major, receiving his B.S. in 2015. As a first-year student, Matthew proudly convinced IEEE to buy 1500ft of Christmas lights for the Engineering Open House in 2011. The project was partially successful but kickstarted his drive for extracurricular activities.  While a student, Matthew and friends founded HackIllinois and CS Sail, two student-led events that have persisted. Matthew graduated in 2015 and joined Google as an engineer in Mountain View, CA. He spent several years working on Gmail before switching to Waymo, where he happily codes away on self-driving cars.</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3:30 PM</td>
-                            <td>
-                                <div >
-                                    CS/CS+X Q&A Session (<a 
-                                        href="https://illinois.zoom.us/j/84066854250?pwd=EaCtcqXLYaXb3QlIbdTMhIu75bYMMt.1" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        style={{
-                                            color: '#ADD8E6',
-                                            textDecoration: 'underline',
-                                            textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        Zoom Link
-                                    </a>)
-                                    <br /> 
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4:00 PM</td>
-                            <td>
-                                <div >
-                                    Closing Ceremony<br />
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
 
 
                 <div>
                     <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
-                        CONCLUDED DAY 1 -- SATURDAY March 29 (IN-PERSON)
+                        DAY 1 -- SATURDAY March 29 (IN-PERSON)
                     </Typography>
                 </div>
                 
@@ -514,7 +369,91 @@ function Home() {
                     </tbody>
                 </table>
                 
-                
+                <div>
+                    <Typography className="schedule-day" sx={{ fontFamily: 'Anta', lineHeight: '3' }}>
+                        DAY 2 -- SUNDAY March 30 (VIRTUAL)
+                    </Typography>
+                </div>
+
+                <table className="schedule-table">
+                    <thead>
+                        <tr>
+                            <th className="table-head">TIME</th>
+                            <th className="table-head">STUDENT ACTIVITIES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>
+                                <div >
+                                    Opening Ceremony 
+                                    <br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12:30 PM</td>
+                            <td>
+                                <div >
+                                    Class #1<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1:20 PM</td>
+                            <td>
+                                <div >
+                                    Break<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1:30 PM</td>
+                            <td>
+                                <div >
+                                    Class #2<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2:20 PM</td>
+                            <td>
+                                <div >
+                                    Break<br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2:30 PM</td>
+                            <td>
+                                <div >
+                                    Set Sail: A Chat with Sail's Original Founders 
+                                    <br /> 
+                                    <span class="note">Nathan Handler graduated from the University of Illinois in 2015 with a degree in computer science, where he kept busy directing HackIllinois, co-founding Sail, serving as treasurer of ACM, and helping out with the Computer Science Student Leadership Council (CSSLC). After college, he kicked off his career as a Site Reliability Engineer at Yelp, then jumped into the startup world at Orchid Labs, helping launch their decentralized bandwidth marketplace. Since 2020, he's been at Reddit, where he worked on video infrastructure, helped bring the chaotic magic of r/place (Reddit's April Fools' Day collaborative art experiment) to life, and even won a Webby. Now, as a Security Engineer, he focuses on keeping Reddit's infrastructure secure while tackling identity, access management, and compliance.</span>
+                                    <span class="note">Matthew Dierker attended Illinois as a CS major, receiving his B.S. in 2015. As a first-year student, Matthew proudly convinced IEEE to buy 1500ft of Christmas lights for the Engineering Open House in 2011. The project was partially successful but kickstarted his drive for extracurricular activities.  While a student, Matthew and friends founded HackIllinois and CS Sail, two student-led events that have persisted. Matthew graduated in 2015 and joined Google as an engineer in Mountain View, CA. He spent several years working on Gmail before switching to Waymo, where he happily codes away on self-driving cars.</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3:30 PM</td>
+                            <td>
+                                <div >
+                                    CS/CS+X Q&A Session 
+                                    <br /> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td>
+                                <div >
+                                    Closing Ceremony<br />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
 
