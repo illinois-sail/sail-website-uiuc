@@ -125,6 +125,10 @@
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
+.class-location-time a {
+  color: #ADD8E6;
+}
+
 .class-description {
   font-family: 'DM-Sans';
   color: rgba(255, 255, 255, 0.8);

@@ -111,8 +111,18 @@ function Login() {
                 </Typography>
 
                 <Typography className="subtitle">
-                    Please ensure that you are <Link to="/register" className="link">registered</Link> with UIUC before proceeding.
+                <a 
+                    href="https://illinois.zoom.us/j/87341007142?pwd=jQ2TcYKR9M7swoaIejYrLiNpaduTZc.1" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="link"
+                >
+                    Opening Ceremony Zoom Link @ 12PM CDT
+                </a>
+                    
                 </Typography>
+
+                                   
 
             </div>
 
