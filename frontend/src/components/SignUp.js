@@ -15,41 +15,6 @@ const fontSize = window.innerWidth > 600 ? "2vw" : "7vw";
 
 function SignUp() {
 
-    // //stars logic
-    // const [stars, setStars] = useState([]);
-    // // generate random positions for stars
-    // const generateRandomStars = () => {
-    //     const starCount = 20; // Desired number of stars
-    //     const newStars = [];
-    
-    //     while (newStars.length < starCount) {
-    //         // Generate random positions
-    //         const top = Math.random() * 100;
-    //         const left = Math.random() * 100;
-    
-    //         // Check if the position is valid
-    //         if (top >= 90 || top <= 10 || left >= 30 || left <= 70) {
-    //             continue; // Skip invalid positions
-    //         }
-    
-    //         // Add valid star to the array
-    //         newStars.push({
-    //             id: newStars.length, // Unique ID based on array length
-    //             type: Math.random() > 0.5 ? 'wide' : 'small', // Random star type
-    //             top: `${top}%`, // Top position as a percentage
-    //             left: `${left}%`, // Left position as a percentage
-    //         });
-    //     }
-    
-    //     // Update state with the generated stars
-    //     setStars(newStars);
-    // };
-    
-    // useEffect(() => {
-    //     generateRandomStars();
-    // }, []);
-
-
     // actual signup logic
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -129,26 +94,6 @@ function SignUp() {
             alignItems: 'center',
         }}>
 
-        {/* STARS */}
-        {/* <div className="star-container">
-                {stars.map((star) => (
-                    <img
-                        key={star.id}
-                        src={star.type === 'wide' ? starwide : starsmall}
-                        alt="Star"
-                        className="star-signup"
-                        style={{
-                            position: 'absolute',
-                            top: star.top,
-                            left: star.left,
-                            zIndex: '-3',
-                            transform: 'translate(-50%, -50%)',
-                            
-                        }}
-                    />
-                ))}
-            </div> */}
-
             {/* TITLE SECTION */}
             <div className='auth-page'>
                 <img
@@ -161,7 +106,6 @@ function SignUp() {
                     SIGN UP
                 </Typography>
             </div>
-
 
             <form onSubmit={handleSubmit} className="form">
                 <div className="input-row" style={{ display: "flex", justifyContent: "space-between" }}>
@@ -198,6 +142,42 @@ function SignUp() {
                 <button className="submit-button" type="submit">
                     SIGN UP
                 </button>
+
+                {/* <div style={{ 
+                    marginTop: '20px', 
+                    textAlign: 'center', 
+                    padding: '15px',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    width: '80%',
+                    maxWidth: '500px'
+                }}>
+                    <Typography
+                        sx={{
+                            fontFamily: 'DM-Sans',
+                            fontSize: '16px',
+                            color: 'white',
+                            textAlign: 'center',
+                            textShadow: '0 0 10px rgba(255, 255, 255, 0.4)',
+                        }}
+                    >
+                        <strong>IMPORTANT:</strong> You must register on both this website AND through{' '}
+                        <Link 
+                            to="/register" 
+                            style={{
+                                color: '#ADD8E6',
+                                textDecoration: 'underline',
+                                textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            official Slate registration
+                        </Link>
+                        {' '}to participate in SAIL 2025.
+                    </Typography>
+                </div> */}
+
             </form>
         </div>
     );

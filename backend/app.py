@@ -19,10 +19,8 @@ import sqlite3
 
 # GET emails
 # curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' https://sail.cs.illinois.edu/get_emails
-# curl -X POST -H "Content-Type: application/json" -d '{"token":"ilovekennychensomuchandheistheloveofmylifekenny4eva38240239847083924"}' http://172.16.0.51:5000/get_students
-
-
-# curl -X POST -H "Content-Type: application/json" -d '{"token":"firmianawaitheydontloveyoulikeiloveyouwaittheydontloveyoulikeiloveyou5ZzROOKeBo2dCVsuxb0qvNBvObaIYeRn"}' --tlsv1.2 https://10.192.104.68:5000/get_emails
+# curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' http://172.16.0.51:5000/get_students
+# curl -X POST -H "Content-Type: application/json" -d '{"token":"<adminTokenhere>"}' --tlsv1.2 https://10.192.104.68:5000/get_emails
 
 remainingSeats = pd.read_csv("instance/ClassAndCapacity.csv")
 
@@ -132,7 +130,6 @@ def registration():
 def reset_password_page():
     return render_template('index.html')
 
-
 SERVER_URL = os.environ.get('SERVER_URL', 'http://10.192.104.68:5000')
 
 # Define the production and test server URLs
@@ -140,7 +137,7 @@ PROD_SERVER = "https://sail.cs.illinois.edu"
 TEST_SERVER = "http://10.192.104.68:5000"
 
 # Assign the server URL based on the environment variable
-if SERVER_URL == PROD_SERVER:
+if SERVER_URL.rstrip('/') == PROD_SERVER.rstrip('/'):
     SERVER_URL = PROD_SERVER
 else:
     SERVER_URL = TEST_SERVER
@@ -173,7 +170,7 @@ def reset_password():
 def send_password_reset_email(email):
     token = reset_password_map[email]['token']
     msg = Message('Password Reset Request', sender='cssailnoreply@gmail.com', recipients=[email])
-    reset_url = f"{SERVER_URL}/reset_password/{token}"
+    reset_url = f"{PROD_SERVER}/reset_password/{token}"
     msg.body = f"""To reset your password, visit the following link:
 
 {reset_url}

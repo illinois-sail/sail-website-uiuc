@@ -110,9 +110,9 @@ function Login() {
                     SIGN IN
                 </Typography>
 
-                <Typography className="subtitle">
-                    Please ensure that you are <Link to="/register" className="link">registered</Link> with UIUC before proceeding.
-                </Typography>
+            
+                    
+                                   
 
             </div>
 
@@ -144,6 +144,40 @@ function Login() {
                     LOG IN
                 </button>
                 <br />
+
+                {/* <div style={{ 
+                    marginTop: '20px', 
+                    marginBottom: '20px',
+                    textAlign: 'center', 
+                    padding: '15px',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+                }}>
+                    <Typography
+                        sx={{
+                            fontFamily: 'DM-Sans',
+                            fontSize: '16px',
+                            color: 'white',
+                            textAlign: 'center',
+                            textShadow: '0 0 10px rgba(255, 255, 255, 0.4)',
+                        }}
+                    >
+                        <strong>IMPORTANT:</strong> You must register on both this website AND through{' '}
+                        <Link 
+                            to="/register" 
+                            style={{
+                                color: '#ADD8E6',
+                                textDecoration: 'underline',
+                                textShadow: '0 0 10px rgba(173, 216, 230, 0.4)',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            official Slate registration
+                        </Link>
+                        {' '}to participate in SAIL 2025.
+                    </Typography>
+                </div> */}
                 
                 <div className="link-container">
                     <Typography className="no-account">
