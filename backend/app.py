@@ -130,17 +130,11 @@ def registration():
 def reset_password_page():
     return render_template('index.html')
 
-SERVER_URL = os.environ.get('SERVER_URL', 'http://10.192.104.68:5000')
-
-# Define the production and test server URLs
 PROD_SERVER = "https://sail.cs.illinois.edu"
-TEST_SERVER = "http://10.192.104.68:5000"
 
-# Assign the server URL based on the environment variable
-if SERVER_URL.rstrip('/') == PROD_SERVER.rstrip('/'):
-    SERVER_URL = PROD_SERVER
-else:
-    SERVER_URL = TEST_SERVER
+SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:5000")
+
+print(f"[INFO] Flask backend running at: {SERVER_URL}")
     
 @app.route('/reset_password', methods=['POST'])
 def reset_password():    
