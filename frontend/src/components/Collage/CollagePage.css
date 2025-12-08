@@ -9,26 +9,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  mix-blend-mode: hard-light;
-}
-.photoImage .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: yellow; /* overlay color */
-  opacity: 0; /* overlay initially invisible */
-  mix-blend-mode: hard-light; /* overlay blend mode */
-  pointer-events: none; /* clicks pass through */
-  transition: opacity 0.3s ease;
 }
 .photoImage:hover {
   filter: brightness(95%) contrast(114%) opacity(1);
-}
-.photoImage:hover .overlay {
-  opacity: 0.2;
 }
 
 .topleft-back {

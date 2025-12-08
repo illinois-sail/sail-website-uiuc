@@ -1,8 +1,6 @@
 import React from "react";
 import "./CollagePage.css";
 
-import black from "../../images/black.jpg";
-
 const CollagePage = ({ image1, image2, image3, image4, image5 }) => {
   return (
     <div className="collageContainer">
