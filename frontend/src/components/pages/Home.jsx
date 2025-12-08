@@ -1,4 +1,4 @@
-import Collage from "../Collage/Collage";
+import Collage from "../collage/Collage";
 
 import image1 from "../../assets/images/collage-1.jpg";
 import image2 from "../../assets/images/collage-2.jpg";
