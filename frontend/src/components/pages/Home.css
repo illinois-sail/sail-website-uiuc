@@ -3,22 +3,43 @@
     height: 100vh;
 }
 
-.image-stack {
-    position: absolute;
-    left: var(--offset-x, 375px);
-    top: var(--offset-y, 287px);
+.opening-stack {
+    margin-top: 20vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 7vw;
 }
 
 .cs-sail-image {
-    width: 624px;
-    height: 412px;
+    width: 40vw;
+    max-width: 624px;
+    height: auto;
 }
 
 .register-now-image {
-    width: 257px;
-    height: 75px;
+    width: 17vw;
+    max-width: 257px;
+    height: auto;
+}
+
+.ch-one-block {
+    margin-top: 10vw;
+    margin-left: 15vw;
+}
+
+.ch-one-text {
+    color: #3F3E3E;
+    font-family: "Comic Sans MS", "Comic Sans", cursive; /* Classic Comic not in CSS */
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.cartoon-frame-image {
+    margin-top: 3vw;
+    width: 67vw;
+    max-width: 1027px;
+    height: auto;
 }

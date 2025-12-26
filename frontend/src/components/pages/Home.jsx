@@ -1,6 +1,7 @@
 import "./Home.css";
 import CS_SAIL_IMAGE from "../../assets/cssail.png";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
+import CARTOON_FRAME from "../../assets/cartoon-frame.png";
 
 import Collage from "../collage/Collage";
 
@@ -13,10 +14,17 @@ import image5 from "../../assets/images/collage-5.png";
 function Home() {
   return (
     <div className="home-page" style={{ justifyItems: "center" }}>
-      <div className="image-stack">
+
+      <div className="opening-stack">
         <img src={CS_SAIL_IMAGE} className="cs-sail-image" />
-        <img src={REGISTER_NOW_BUTTON} className="register-now-image"/>
+        <img src={REGISTER_NOW_BUTTON} className="register-now-image" />
       </div>
+
+      <div className="ch-one-block">
+        <span className="ch-one-text">CHAPTER 1: INTRODUCTION</span>
+        <img src={CARTOON_FRAME} className="cartoon-frame-image" />
+      </div>
+
       <Collage images={[image1, image2, image3, image4, image5]} />
     </div>
   );
