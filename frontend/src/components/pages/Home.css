@@ -39,7 +39,31 @@
 
 .cartoon-frame-image {
     margin-top: 3vw;
-    width: 67vw;
+    width: 71vw;
     max-width: 1027px;
     height: auto;
+}
+
+.character-stats-row {
+    position: relative;
+    width: fit-content;
+    margin-top: 5vw;
+}
+
+.character-stats-image {
+    margin-top: 0;
+    width: 71vw;
+    max-width: 1027px;
+    height: auto;
+}
+
+.corn-ch-one-image {
+    position: absolute;
+    width: 24vw;
+    max-width: 355.392px;
+    height: auto;
+    left: -9.97vw;
+    transform: rotate(1.762deg);
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
 }

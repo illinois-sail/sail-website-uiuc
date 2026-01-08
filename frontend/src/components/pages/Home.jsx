@@ -2,6 +2,8 @@ import "./Home.css";
 import CS_SAIL_IMAGE from "../../assets/cssail.png";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
 import CARTOON_FRAME from "../../assets/cartoon-frame.png";
+import CHARACTER_STATS from "../../assets/characterstats.png";
+import CORN_CH_ONE from "../../assets/corn-ch1.png";
 
 import Collage from "../collage/Collage";
 
@@ -23,6 +25,12 @@ function Home() {
       <div className="ch-one-block">
         <span className="ch-one-text">CHAPTER 1: INTRODUCTION</span>
         <img src={CARTOON_FRAME} className="cartoon-frame-image" />
+
+        <div className="character-stats-row">
+          <img src={CORN_CH_ONE} className="corn-ch-one-image" />
+          <img src={CHARACTER_STATS} className="character-stats-image" />
+        </div>
+
       </div>
 
       <Collage images={[image1, image2, image3, image4, image5]} />
