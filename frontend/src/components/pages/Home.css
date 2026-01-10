@@ -30,7 +30,7 @@
 
 .ch-one-text {
     color: #3F3E3E;
-    font-family: "Comic Sans MS", "Comic Sans", cursive; /* Classic Comic not in CSS */
+    font-family: "Classic Comic";
     font-size: 2.5vw;
     font-style: normal;
     font-weight: 500;
@@ -50,20 +50,53 @@
     margin-top: 5vw;
 }
 
-.character-stats-image {
-    margin-top: 0;
-    width: 71vw;
-    max-width: 1027px;
-    height: auto;
-}
-
 .corn-ch-one-image {
     position: absolute;
     width: 24vw;
     max-width: 355.392px;
     height: auto;
     left: -9.97vw;
+    top: -2vw;
     transform: rotate(1.762deg);
     grid-template-rows: repeat(1, minmax(0, 1fr));
     grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.ellipse-wrapper {
+    position: absolute;
+    width: 18.5vw;
+    max-width: 283px;
+    left: 8.2vw;
+    bottom: 3.6vw;
+}
+
+.ellipse-ch-one-image {
+    width: 100%;
+    height: auto;
+}
+
+.ellipse-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+
+    width: 11.3vw;
+    max-width: 173px;
+    height: auto;
+
+    color: #000;
+    text-align: center;
+    font-family: "Classic Comic";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.character-stats-image {
+    margin-top: 0;
+    width: 71vw;
+    max-width: 1027px;
+    height: auto;
 }

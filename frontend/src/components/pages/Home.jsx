@@ -2,8 +2,10 @@ import "./Home.css";
 import CS_SAIL_IMAGE from "../../assets/cssail.png";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
 import CARTOON_FRAME from "../../assets/cartoon-frame.png";
-import CHARACTER_STATS from "../../assets/characterstats.png";
 import CORN_CH_ONE from "../../assets/corn-ch1.png";
+import ELLIPSE_CH_ONE from "../../assets/ellipse-ch1.png";
+import CHARACTER_STATS from "../../assets/characterstats.png";
+
 
 import Collage from "../collage/Collage";
 
@@ -28,6 +30,12 @@ function Home() {
 
         <div className="character-stats-row">
           <img src={CORN_CH_ONE} className="corn-ch-one-image" />
+
+          <div className="ellipse-wrapper">
+            <img src={ELLIPSE_CH_ONE} className="ellipse-ch-one-image" />
+            <span className="ellipse-text">WELCOME HEROES. MY NAME IS CAPTAIN CORNELIUS, AND I WILL BE YOUR HELPFUL GUIDE TODAY!</span>
+          </div>
+
           <img src={CHARACTER_STATS} className="character-stats-image" />
         </div>
 
