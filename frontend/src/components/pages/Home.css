@@ -67,7 +67,7 @@
     width: 18.5vw;
     max-width: 283px;
     left: 8.2vw;
-    bottom: 3.6vw;
+    bottom: 3.5vw;
 }
 
 .ellipse-ch-one-image {
@@ -99,4 +99,47 @@
     width: 71vw;
     max-width: 1027px;
     height: auto;
+}
+
+.character-stats-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4vw;
+}
+
+.character-stats-header {
+    position: absolute;
+    top: 1.5vw;
+    left: 35.2vw;
+
+    width: 32vw;
+    max-width: 496px;
+    height: auto;
+
+    align-self: stretch;
+    color: #000;
+    font-family: "Classic Comic";
+    font-size: 1.7vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.character-stats-text {
+    position: absolute;
+    top: 4.9vw;
+    left: 35.2vw;
+
+    width: 32vw;
+    max-width: 496px;
+    height: auto;
+    
+    align-self: stretch;
+    color: #000;
+    font-family: "Classic Comic";
+    font-size: 1.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

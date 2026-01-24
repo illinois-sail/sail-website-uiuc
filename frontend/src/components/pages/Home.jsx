@@ -25,7 +25,7 @@ function Home() {
       </div>
 
       <div className="ch-one-block">
-        <span className="ch-one-text">CHAPTER 1: INTRODUCTION</span>
+        <span className="ch-one-text">Chapter 1: Introduction</span>
         <img src={CARTOON_FRAME} className="cartoon-frame-image" />
 
         <div className="character-stats-row">
@@ -33,7 +33,13 @@ function Home() {
 
           <div className="ellipse-wrapper">
             <img src={ELLIPSE_CH_ONE} className="ellipse-ch-one-image" />
-            <span className="ellipse-text">WELCOME HEROES. MY NAME IS CAPTAIN CORNELIUS, AND I WILL BE YOUR HELPFUL GUIDE TODAY!</span>
+            <span className="ellipse-text">Welcome heroes. My name is captain Cornelius, and i will be your helpful guide today!</span>
+          </div>
+
+          <div className="character-stats-wrapper">
+            <span className="character-stats-header">CHARACTER STATS</span>
+            <span className="character-stats-text">Backstory: UIUC CS student from 1972 who stumbled upon an Agriculture x Engineering project gone wrong...Powers: Infinite knowledge of UIUC Grainger Etc.</span>
+            {/* Will reformat the above line when finalized */}
           </div>
 
           <img src={CHARACTER_STATS} className="character-stats-image" />
