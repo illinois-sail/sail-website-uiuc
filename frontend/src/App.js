@@ -9,6 +9,7 @@ import Transportation from "./components/pages/Transportation";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
+import Faq from "./components/pages/Faq";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Transportation" element={<Transportation />} />
+        <Route path="/Faq" element={<Faq />} />
 
         {/* <div className="App">
           <header className="App-header">
