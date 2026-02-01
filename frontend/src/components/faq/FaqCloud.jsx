@@ -9,7 +9,7 @@ const CloudPart = ({ cx, cy, rx, ry }) => (
   </g>
 );
 
-const Cloud = () => {
+function FaqCloud() {
   const parts = [
     //center
     { id: "center", cx: 150, cy: 83.59, rx: 125, ry: 43.59 },
@@ -29,9 +29,10 @@ const Cloud = () => {
   ];
 
   return (
+    //Fills container width and proportions
     <svg
-      width="360"
-      height="170"
+      width="100%"
+      height="47.22%"
       viewBox="0 0 360 170"
       style={{ display: "block", margin: "auto" }}
     >
@@ -58,7 +59,7 @@ const Cloud = () => {
         y="95"
         textAnchor="middle"
         style={{
-          fontFamily: "DynaPuff",
+          fontFamily: "DynaPuff, Comic Sans MS, sans-serif",
           fontSize: "48px",
           fontStyle: "normal",
           fontWeight: "400",
@@ -69,6 +70,6 @@ const Cloud = () => {
       </text>
     </svg>
   );
-};
+}
 
-export default Cloud;
+export default FaqCloud;
