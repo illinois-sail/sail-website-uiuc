@@ -1,7 +1,8 @@
 import React from "react";
+import Cloud from "../faq/Cloud";
 
 function Faq() {
-  return <div>Faq</div>;
+  return <Cloud />;
 }
 
 export default Faq;
