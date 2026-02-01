@@ -28,7 +28,7 @@
     margin-left: 15vw;
 }
 
-.ch-one-text {
+.ch-heading-text {
     color: #3F3E3E;
     font-family: "Classic Comic";
     font-size: 2.5vw;
@@ -139,6 +139,95 @@
     color: #000;
     font-family: "Classic Comic";
     font-size: 1.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.ch-two-block {
+    margin-top: 16vw;
+    margin-left: 15vw;
+}
+
+.schedule-note-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: 2.3vw;
+}
+
+.schedule-note-row {
+    position: absolute;
+    display: flex;
+    padding: 1vw 1vw 1vw 1vw;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    border: 0.26vw solid #000;
+    background: #009DFF;
+    box-shadow: 0.26vw 0.26vw 0 0 rgba(0, 0, 0, 0.30);
+    width: 70vw;
+    max-width: 1083px;
+    height: auto;
+    z-index: 2;
+}
+
+.schedule-note-box {
+    display: flex;
+    align-items: center; /* vertical alignment */
+    gap: 0.8vw;
+}
+
+.info-icon {
+    width: 1.5vw;
+    max-width: 24px;
+    height: auto;
+}
+
+.schedule-note-text {
+    color: #FFF;
+    font-family: "Classic Comic";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5vw; /* 150% */
+}
+
+.corn-ch-two-image {
+    position: absolute;
+    transform: rotate(15deg) scaleX(-1);
+    width: 24vw;
+    max-width: 355.392px;
+    height: auto;
+    left: 61vw;
+    top: -17vw;
+    z-index: 1;
+}
+
+.schedule-options-row {
+    margin-top: 9vw;
+    display: flex;
+}
+
+.schedule-option {
+    width: 15.7vw;
+    max-width: 241.164px;
+    height: auto;
+    padding: 1.26vw 1.83vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65vw;
+    border: 0.26vw solid #000;
+    background: #98D2E7;
+    box-shadow: 0.26vw 0.26vw 0 0 #000;
+}
+
+.options-text {
+    color: #000;
+    text-align: center;
+
+    /* Body Text 3 */
+    font-family: "Classic Comic";
+    font-size: 1vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
