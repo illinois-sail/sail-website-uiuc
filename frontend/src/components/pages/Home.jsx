@@ -55,12 +55,22 @@ function Home() {
               <span className="schedule-note-text">Note: This is a sample schedule! When you register, you'll get to choose which classes you want to attend</span>
             </div>
           </div>
-          <img src={CORN} className="corn-ch-two-image"/>
+          <img src={CORN} className="corn-ch-two-image" />
+          <div className="ellipse-wrapper-2">
+            <img src={ELLIPSE} className="ellipse-ch-two-image" />
+            <span className="ellipse-text-2">I bet you’re wondering what the event is gonna be like. Let’s explore the two!</span>
+          </div>
         </div>
 
         <div className="schedule-options-row">
-          <div className = "schedule-option">
-            <span className="options-text">Day 1 - Student Schedule</span>
+          <div className = "schedule-option-active">
+            <span className="options-text">DAY 1 - STUDENT SCHEDULE</span>
+          </div>
+          <div className = "schedule-option-disabled">
+            <span className="options-text">DAY 1 - PARENT SCHEDULE</span>
+          </div>
+          <div className = "schedule-option-disabled">
+            <span className="options-text">DAY 2 - VIRTUAL</span>
           </div>
         </div>
       </div>
