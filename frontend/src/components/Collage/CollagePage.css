@@ -1,0 +1,105 @@
+.collageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 800 / 890;
+  margin: 0 auto;
+}
+
+.photoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photoImage:hover {
+  filter: brightness(95%) contrast(114%) opacity(1);
+}
+
+.topleft-back {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 54%;
+  height: 42%;
+  clip-path: polygon(0% 0%, 100% 0%, 82.5% 100%, 0% 100%);
+}
+.back {
+  background-color: black;
+}
+.topleft {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: calc(54% - 10px);
+  height: calc(42% - 10px);
+  clip-path: polygon(0% 0%, 100% 0%, 82.5% 100%, 0% 100%);
+}
+
+.topright-back {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 53%;
+  height: 46.2%;
+  clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 91%);
+}
+
+.topright {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: calc(53% - 10px);
+  height: calc(46.2% - 10px);
+  clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 91%);
+}
+
+.midleft-back {
+  position: absolute;
+  top: 44%;
+  left: 0%;
+  height: 26.8%;
+  width: 44.5%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+}
+
+.midleft {
+  position: absolute;
+  top: calc(44% + 5px);
+  left: 5px;
+  height: calc(26.8% - 10px);
+  width: calc(44.5% - 10px);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+}
+
+.botleft-back {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  height: 34.75%;
+  width: 44.5%;
+  clip-path: polygon(0% 22.5%, 100% 2.5%, 100% 100%, 0% 100%);
+}
+.botleft {
+  position: absolute;
+  bottom: calc(0% + 5px);
+  left: calc(0% + 5px);
+  height: calc(34.75% - 10px);
+  width: calc(44.5% - 10px);
+  clip-path: polygon(0% 22.5%, 100% 2.5%, 100% 100%, 0% 100%);
+}
+
+.botright-back {
+  position: absolute;
+  bottom: 0%;
+  left: 46.8%;
+  width: 53%;
+  height: 56%;
+  clip-path: polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%);
+}
+.botright {
+  position: absolute;
+  bottom: calc(0% + 5px);
+  left: calc(46.8% + 5px);
+  width: calc(53% - 10px);
+  height: calc(56% - 10px);
+  clip-path: polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%);
+}

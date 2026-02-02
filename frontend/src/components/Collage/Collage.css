@@ -1,0 +1,32 @@
+.collageWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 71.6vw;
+  height: stretch;
+  align-items: center;
+}
+
+.collageWing {
+  display: flex;
+  width: 6%;
+  align-items: center;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.collageContainer {
+  height: fit-content;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.collageSlider {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.collageSlider > * {
+  flex-shrink: 0;
+  width: 100%;
+}
