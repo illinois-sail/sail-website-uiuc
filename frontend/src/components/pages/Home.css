@@ -279,3 +279,46 @@
     font-weight: 400;
     line-height: normal;
 }
+
+.sample-schedule-container {
+    position: relative;
+    width: fit-content;
+    margin-top: 2.7vw;
+}
+
+.sample-schedule {
+    display: flex;
+    width: 66.4vw;
+    max-width: 1083px;
+    height: auto;
+    padding: 2.6vw 2.6vw 0.52vw 2.6vw;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 0.52vw solid #000;
+    background: linear-gradient(135deg, rgba(0, 157, 255, 0.40) 5.77%, #0072B9 100%);
+    box-shadow: 0.78vw 0.78vw 0 0 rgba(0, 0, 0, 0.30);
+}
+
+.sample-schedule-event {
+    display: flex;
+    height: 9vw;
+    padding: 1.3vw 1.3vw .26vw 1.3vw;
+    /* flex-direction: column; */
+    gap: 1.5vw;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+    border: .26vw solid #000;
+    background: #FFF;
+    box-shadow: .26vw .26vw 0 0 rgba(0, 0, 0, 0.30);
+}
+
+.sample-schedule-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Note: this is only temporary styling for me to finish rest of home page */
+.collage {
+    margin-top: 10vw;
+}

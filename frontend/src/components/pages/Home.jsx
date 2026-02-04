@@ -5,10 +5,9 @@ import CARTOON_FRAME from "../../assets/cartoon-frame.png";
 import CORN from "../../assets/corn.png";
 import ELLIPSE from "../../assets/ellipse.png";
 import CHARACTER_STATS from "../../assets/characterstats.png";
+import SS_ICON_1 from "../../assets/ss-icon1.png";
 
-
-import Collage from "../collage/Collage";
-
+import Collage from "../Collage/Collage";
 import image1 from "../../assets/images/collage-1.jpg";
 import image2 from "../../assets/images/collage-2.jpg";
 import image3 from "../../assets/images/collage-3.jpg";
@@ -17,7 +16,7 @@ import image5 from "../../assets/images/collage-5.png";
 
 function Home() {
   return (
-    <div className="home-page" style={{ justifyItems: "center" }}>
+    <div className="home-page">
       <div className="opening-stack">
         <img src={CS_SAIL_IMAGE} className="cs-sail-image" />
         <img src={REGISTER_NOW_BUTTON} className="register-now-image" />
@@ -61,7 +60,6 @@ function Home() {
             <span className="ellipse-text-2">I bet you’re wondering what the event is gonna be like. Let’s explore the two!</span>
           </div>
         </div>
-
         <div className="schedule-options-row">
           <div className = "schedule-option-active">
             <span className="options-text">DAY 1 - STUDENT SCHEDULE</span>
@@ -73,9 +71,24 @@ function Home() {
             <span className="options-text">DAY 2 - VIRTUAL</span>
           </div>
         </div>
+
+        <div className="sample-schedule-container">
+          <div className="sample-schedule">
+            <div className="sample-schedule-event">
+              <img src={SS_ICON_1} />
+              <div className="sample-schedule-info">
+                <p>something</p>
+                <p>Another something should appear below</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <Collage images={[image1, image2, image3, image4, image5]} />
+      {/* Note: the "collage" class is temporary until rest of home page is complete */}
+      <div className="collage">
+        <Collage images={[image1, image2, image3, image4, image5]} />
+      </div>
     </div>
   );
 }
