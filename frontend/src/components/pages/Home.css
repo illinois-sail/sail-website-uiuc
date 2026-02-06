@@ -291,7 +291,7 @@
     width: 66.4vw;
     max-width: 1083px;
     height: auto;
-    padding: 2.6vw 2.6vw 0.52vw 2.6vw;
+    padding: 1.5vw 2.6vw 1.7vw 2.6vw;
     flex-direction: column;
     align-items: flex-start;
     border: 0.52vw solid #000;
@@ -309,13 +309,102 @@
     flex-shrink: 0;
     align-self: stretch;
     border: .26vw solid #000;
-    background: #FFF;
+    background: #FFF; /*FEFCE8*/
     box-shadow: .26vw .26vw 0 0 rgba(0, 0, 0, 0.30);
+    margin-top: 1vw;
+}
+
+.sample-schedule-event-alt {
+    position: relative;
+    display: flex;
+    height: 9vw;
+    padding: 1.3vw 1.3vw .26vw 1.3vw;
+    /* flex-direction: column; */
+    gap: 1.5vw;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+    border: .26vw solid #000;
+    background: #FEFCE8;
+    box-shadow: .26vw .26vw 0 0 rgba(0, 0, 0, 0.30);
+    margin-top: 1vw;
 }
 
 .sample-schedule-info {
     display: flex;
     flex-direction: column;
+}
+
+.time-block {
+    display: flex;
+    width: 7.3vw;
+    height: auto;
+    padding: 0.39vw 0.91vw;
+    justify-content: center;
+    align-items: center;
+    border: 0.2vw solid #000;
+    background: #009DFF;
+}
+
+.time-text {
+    margin-left: 0.6vw;
+    color: #FFF;
+    /* Body Text 3 */
+    font-family: "Classic Comic";
+    font-size: 0.91vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.event-title {
+    margin-top: 0.5vw;
+    color: #0A0A0A;
+    /* Subheading 3 */
+    font-family: "DynaPuff";
+    font-size: 1.6vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.location-text {
+    margin-left: 0.2vw;
+    color: #4A5565;
+    /* Body Text 3 */
+    font-family: "Classic Comic";
+    font-size: 0.91vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.you-choose-block {
+    position: absolute;
+    top: -1vw;
+    left: 60.5vw;
+    display: flex;
+    width: 5.7vw;
+    max-width: 87.464px;
+    height: 2.8vw;
+    transform: rotate(21.129deg);
+    padding: 0.9vw 0.77vw 0.13vw 0.8vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.2vw solid #000;
+    background: #FFDC44;
+}
+
+.you-choose-text {
+    position: absolute;
+    top: 1.90vw;
+    color: #0A0A0A;
+    font-family: Impact;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.01vw; /* 133.333% */
 }
 
 /* Note: this is only temporary styling for me to finish rest of home page */
