@@ -412,6 +412,7 @@ function Home() {
         <div className="temp-container">
           <span className="temp">CLASSES COMING SOON!</span>
         </div>
+        {/* end temporary block */}
       </div>
 
       <div className="ch-four-block">

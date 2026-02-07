@@ -308,7 +308,7 @@
     flex-shrink: 0;
     align-self: stretch;
     border: .26vw solid #000;
-    background: #FFF; /*FEFCE8*/
+    background: #FFF;
     box-shadow: .26vw .26vw 0 0 rgba(0, 0, 0, 0.30);
     margin-top: 1vw;
 }
@@ -534,6 +534,7 @@
     font-weight: 400;
     line-height: normal;
 }
+/* end temporary block */
 
 .ch-four-block {
     margin-top: 14vw;
@@ -599,7 +600,6 @@
     line-height: normal;
 }
 
-/* Note: this is only temporary styling for me to finish rest of home page */
 .collage {
     margin-top: 6vw;
     margin-left: -5vw;
