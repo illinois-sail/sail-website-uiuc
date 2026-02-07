@@ -390,9 +390,43 @@ function Home() {
         </div>
       </div>
 
-      {/* Note: the "collage" class is temporary until rest of home page is complete */}
-      <div className="collage">
-        <Collage images={[image1, image2, image3, image4, image5]} />
+      <div className="ch-three-block">
+        <span className="ch-heading-text">CHapter 3: Classes</span>
+        <div className="adventure-wrapper">
+          <div className="adventure-box">
+            <div className="adventure-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M16 29.3332C23.3638 29.3332 29.3333 23.3636 29.3333 15.9998C29.3333 8.63604 23.3638 2.6665 16 2.6665C8.63621 2.6665 2.66667 8.63604 2.66667 15.9998C2.66667 23.3636 8.63621 29.3332 16 29.3332Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 10.6665V15.9998" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 21.3335H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span className="adventure-title">CHOOSE YOUR OWN ADVENTURE!</span>
+            </div>
+            <div className="adventure-text">
+              During registration, you'll get to select which workshops and classes YOU want to attend! Below are just some sample options to give you a taste of what's available at UIUC.
+            </div>
+          </div>
+          <img src={CORN} className="corn-ch-three-image" />
+        </div>
+        {/* Note: the below is temporary until classes are finalized */}
+        <div className="temp-container">
+          <span className="temp">CLASSES COMING SOON!</span>
+        </div>
+      </div>
+
+      <div className="ch-four-block">
+        <span className="ch-heading-text">CHapter 4: ACTION SHOTS</span>
+        <div className="ch-four-info">
+          <span className="ch-four-text">See heroes in action! Check out moments from previous SAIL adventures.</span>
+          <img src={CORN} className="corn-ch-four-image" />
+          <div className="ellipse-wrapper-4">
+            <img src={ELLIPSE} className="ellipse-ch-four-image" />
+            <span className="ellipse-text-4">Welcome to Our CS Sail gallery! Create your own hero story at Illinois!</span>
+          </div>
+        </div>
+        <div className="collage">
+          <Collage images={[image1, image2, image3, image4, image5]} />
+        </div>
       </div>
     </div>
   );
