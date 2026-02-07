@@ -302,7 +302,7 @@
 .sample-schedule-event {
     display: flex;
     height: 9vw;
-    padding: 1.3vw 1.3vw .26vw 1.3vw;
+    padding: 1.3vw 1.3vw 0.7vw 1.3vw;
     /* flex-direction: column; */
     gap: 1.5vw;
     align-items: flex-start;
@@ -405,6 +405,52 @@
     font-style: normal;
     font-weight: 400;
     line-height: 0.01vw; /* 133.333% */
+}
+
+.lunch-group-options-row {
+    display: flex;
+    gap: 1vw;
+}
+
+.panel-group {
+    display: flex;
+    width: 22vw;
+    max-width: 334px;
+    height: 2vw;
+    margin-top: 0.5vw;
+    padding: 0.1vw 0.3vw;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 0.3vw;
+    border: 0.2vw solid #C27AFF;
+    background: #F3E8FF;
+}
+
+.group-text {
+    color: #0A0A0A;
+
+    /* Body Text 3 */
+    font-family: "Classic Comic";
+    font-size: .91vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.lunch-group {
+    display: flex;
+    width: 17.9vw;
+    max-width: 274px;
+    height: 2vw;
+    margin-top: 0.5vw;
+    padding: 0.1vw 0.3vw 0 0.5vw;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 0.3vw;
+    border: 0.2vw solid #C27AFF;
+    background: #F3E8FF;
 }
 
 /* Note: this is only temporary styling for me to finish rest of home page */
