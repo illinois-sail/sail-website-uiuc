@@ -65,9 +65,8 @@ function Collage({ images }) {
           }}
         >
           {realSlides.map((group, index) => (
-            <div>
+            <div key={index}>
               <CollagePage
-                key={index}
                 image1={group[0]}
                 image2={group[1]}
                 image3={group[2]}

@@ -21,17 +21,35 @@ import image2 from "../../assets/images/collage-2.jpg";
 import image3 from "../../assets/images/collage-3.jpg";
 import image4 from "../../assets/images/collage-4.jpg";
 import image5 from "../../assets/images/collage-5.png";
+import image6 from "../../assets/images/gal1.jpg";
+import image7 from "../../assets/images/gal2.jpg";
+import image8 from "../../assets/images/gal3.jpg";
+import image9 from "../../assets/images/gal4.jpg";
+import image10 from "../../assets/images/gal5.jpg";
+import image11 from "../../assets/images/gal6.jpg";
+import mail_icon from "../../assets/mail.png"; 
+import instagram_icon from "../../assets/instagram.png"; 
+import tiktok_icon from "../../assets/tiktok.png";
 
 function Home() {
   return (
     <div className="home-page">
+      {/* temp navbar */} 
+      <div className="temp-navbar"> 
+        Get ready for a new season of sail! 
+      </div>
+
       <div className="opening-stack">
         <img src={CS_SAIL_IMAGE} className="cs-sail-image" />
-        <img src={REGISTER_NOW_BUTTON} className="register-now-image" />
+        <span className="event-date">April 18 and 19, 2026</span>
+        <a href="https://linktr.ee/cs_sail_2026" target="_blank" rel="noopener noreferrer">
+          <img src={REGISTER_NOW_BUTTON} className="register-now-image" alt="Register Now" />
+        </a>
+
       </div>
       <div className="ch-one-block">
         <span className="ch-heading-text">Chapter 1: Introduction</span>
-        <img src={CARTOON_FRAME} className="cartoon-frame-image" />
+        {/* <img src={CARTOON_FRAME} className="cartoon-frame-image" /> */}
         <div className="character-stats-row">
           <img src={CORN} className="corn-ch-one-image" />
           <div className="ellipse-wrapper">
@@ -72,12 +90,12 @@ function Home() {
           <div className = "schedule-option-active">
             <span className="options-text">DAY 1 - STUDENT SCHEDULE</span>
           </div>
-          <div className = "schedule-option-disabled">
+          {/* <div className = "schedule-option-disabled">
             <span className="options-text">DAY 1 - PARENT SCHEDULE</span>
           </div>
           <div className = "schedule-option-disabled">
             <span className="options-text">DAY 2 - VIRTUAL</span>
-          </div>
+          </div> */}
         </div>
 
         <div className="sample-schedule-container">
@@ -426,9 +444,40 @@ function Home() {
           </div>
         </div>
         <div className="collage">
-          <Collage images={[image1, image2, image3, image4, image5]} />
+          <Collage images={[image1, image2, image3, image4, image5, image6, image7, image8, image9, image10]} />
         </div>
       </div>
+
+      {/* temp footer */}
+      <div className="home-footer-wrapper">
+        <span className="contact-us-text">Contact Us</span>
+
+        <div className="home-footer">
+          <a href="mailto:sail.cs.illinois@gmail.com" aria-label="Email">
+            <img src={mail_icon} alt="Email" />
+          </a>
+
+          <a
+            href="https://www.instagram.com/illinois_cs_sail/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img src={instagram_icon} alt="Instagram" />
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@illinoissail"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+            className="tiktok-link"
+          >
+            <img src={tiktok_icon} alt="TikTok" />
+          </a>
+        </div>
+      </div>
+
     </div>
   );
 }
