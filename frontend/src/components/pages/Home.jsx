@@ -453,7 +453,7 @@ function Home() {
         <span className="contact-us-text">Contact Us</span>
 
         <div className="home-footer">
-          <a href="mailto:sail.cs.illinois@gmail.com" aria-label="Email">
+          <a href="mailto:cs-sail@illinois.edu" aria-label="Email">
             <img src={mail_icon} alt="Email" />
           </a>
 
