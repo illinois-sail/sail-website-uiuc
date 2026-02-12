@@ -77,7 +77,7 @@
     width: 18.5vw;
     max-width: 283px;
     left: 8.2vw;
-    bottom: 3.5vw;
+    bottom: 5.5vw;
 }
 
 .ellipse-ch-one-image {
@@ -104,11 +104,13 @@
     line-height: normal;
 }
 
-.character-stats-image {
-    margin-top: 0;
-    width: 71vw;
+.character-stats-box {
+    width: 70vw;
     max-width: 1027px;
+    min-height: 246px;
     height: auto;
+    border: 0.26vw solid #000;
+    background: #F9F9F9;
 }
 
 .character-stats-wrapper {
@@ -665,4 +667,168 @@
     font-family: "Classic Comic";
     font-size: 3vw;
     font-weight: 500;
+}
+
+@media (max-width: 768px) {
+
+  /* ---------- GLOBAL SPACING ---------- */
+
+  .home-page {
+    height: auto;
+  }
+
+  .temp-navbar {
+    width: 100%;
+  }
+
+  .ch-one-block,
+  .ch-two-block,
+  .ch-three-block,
+  .ch-four-block {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  .ch-heading-text {
+    font-size: 1.5rem;
+  }
+
+  /* ---------- OPENING STACK ---------- */
+
+  .cs-sail-image {
+    width: 80vw;
+  }
+
+  .event-date {
+    font-size: 1.1rem;
+  }
+
+  .register-now-image {
+    width: 55vw;
+  }
+
+  /* ---------- CHAPTER 1 ---------- */
+
+  .character-stats-wrapper {
+    position: static;
+    width: 100%;
+  }
+
+  .character-stats-box {
+    position: static;
+    width: 100%;
+  }
+
+  .character-stats-row {
+    position: static;
+    margin-top: 8vw;
+  }
+
+  .corn-ch-one-image,
+  .ellipse-wrapper,
+  .corn-ch-two-image,
+  .ellipse-wrapper-2,
+  .corn-ch-three-image,
+  .corn-ch-four-image,
+  .ellipse-wrapper-4 {
+    display: none;
+  }
+
+  .character-stats-header {
+    position: static;
+    font-size: 1.2rem;
+  }
+
+  .character-stats-text {
+    position: static;
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- CHAPTER 2 (MAIN FIX) ---------- */
+
+  .info-icon {
+    display: none;
+  }
+
+  .schedule-note-row {
+    position: static;
+    width: 100%;
+    padding: 4vw;
+  }
+
+  .schedule-note-text {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+
+  .schedule-options-row {
+    flex-direction: column;
+    gap: 3vw;
+    margin-top: 6vw;
+  }
+
+  .schedule-option-active,
+  .schedule-option-disabled {
+    width: 100%;
+    text-align: center;
+  }
+
+  .options-text {
+    font-size: 0.95rem;
+  }
+
+  /* ---------- SCHEDULE CONTAINER ---------- */
+
+  .sample-schedule-container {
+    width: 100%;
+  }
+
+  .sample-schedule {
+    width: 100%;
+    padding: 4vw;
+  }
+
+  .sample-schedule-event,
+  .sample-schedule-event-alt {
+    height: auto;
+    flex-direction: column;
+    gap: 3vw;
+    padding: 4vw;
+  }
+
+  /* ---------- TIME BLOCK ---------- */
+
+  .time-block {
+    width: fit-content;
+    padding: 2vw 3vw;
+  }
+
+  .time-text {
+    font-size: 0.85rem;
+  }
+
+  /* ---------- EVENT TEXT ---------- */
+
+  .event-title {
+    font-size: 1.2rem;
+  }
+
+  .location-text {
+    font-size: 0.85rem;
+  }
+
+  /* ---------- YOU CHOOSE STICKER ---------- */
+
+  .you-choose-block {
+    position: static;
+    transform: none;
+    width: fit-content;
+    margin-top: 2vw;
+  }
+
+  .you-choose-text {
+    position: static;
+    font-size: 0.75rem;
+  }
 }

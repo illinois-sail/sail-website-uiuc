@@ -4,7 +4,6 @@ import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
 import CARTOON_FRAME from "../../assets/cartoon-frame.png";
 import CORN from "../../assets/corn.png";
 import ELLIPSE from "../../assets/ellipse.png";
-import CHARACTER_STATS from "../../assets/characterstats.png";
 import SS_ICON_1 from "../../assets/ss-icon1.png";
 import SS_ICON_2 from "../../assets/ss-icon2.png";
 import SS_ICON_3 from "../../assets/ss-icon3.png";
@@ -51,17 +50,18 @@ function Home() {
         <span className="ch-heading-text">Chapter 1: Introduction</span>
         {/* <img src={CARTOON_FRAME} className="cartoon-frame-image" /> */}
         <div className="character-stats-row">
-          <img src={CORN} className="corn-ch-one-image" />
-          <div className="ellipse-wrapper">
-            <img src={ELLIPSE} className="ellipse-ch-one-image" />
-            <span className="ellipse-text">Welcome heroes. My name is captain Cornelius, and i will be your helpful guide today!</span>
+          <div className="character-stats-box">
+            <img src={CORN} className="corn-ch-one-image" />
+            <div className="ellipse-wrapper">
+              <img src={ELLIPSE} className="ellipse-ch-one-image" />
+              <span className="ellipse-text">Welcome heroes. My name is captain Cornelius, and i will be your helpful guide today!</span>
+            </div>
+            <div className="character-stats-wrapper">
+              <span className="character-stats-header">CHARACTER STATS</span>
+              <span className="character-stats-text">Backstory: UIUC CS student from 1972 who stumbled upon an Agriculture x Engineering project gone wrong...Powers: Infinite knowledge of UIUC Grainger Etc.</span>
+              {/* Will reformat the above line when finalized */}
+            </div>
           </div>
-          <div className="character-stats-wrapper">
-            <span className="character-stats-header">CHARACTER STATS</span>
-            <span className="character-stats-text">Backstory: UIUC CS student from 1972 who stumbled upon an Agriculture x Engineering project gone wrong...Powers: Infinite knowledge of UIUC Grainger Etc.</span>
-            {/* Will reformat the above line when finalized */}
-          </div>
-          <img src={CHARACTER_STATS} className="character-stats-image" />
         </div>
       </div>
 
