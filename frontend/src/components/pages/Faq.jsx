@@ -141,9 +141,9 @@ function Faq() {
                 PARENTS ARE INVITED TO JOIN US ON-CAMPUS APRIL 18TH, WHERE WE'VE
                 PARTNERED WITH THE SIEBEL SCHOOL OF COMPUTING AND DATA SCIENCE
                 AND UNDERGRADUATE ADMISSIONS TO OFFER AN EXCLUSIVE SAIL PARENT
-                TRACK. VIEW THE PARENT SCHEDULE <a href={null}>HERE</a> <br />{" "}
-                UNFORTUNATELY, WE ARE NOT ABLE TO ACCOMODATE PARENTS ON THE
-                STUDENT TRACK, THOUGH SOME EVENTS MAY BE HOSTED TOGETHER!
+                TRACK. VIEW THE PARENT SCHEDULE <href id="TODO3">HERE</href>{" "}
+                <br /> UNFORTUNATELY, WE ARE NOT ABLE TO ACCOMODATE PARENTS ON
+                THE STUDENT TRACK, THOUGH SOME EVENTS MAY BE HOSTED TOGETHER!
               </span>
             </div>
           </div>
@@ -166,7 +166,7 @@ function Faq() {
                 SAIL DOES NOT HAVE AN APPLICATION, BUT WE DO HAVE A REQUIRED
                 REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE REACH
                 OUR EVENT CAPACITY. <br /> VIEW REGISTRATION INSTRUCTIONS{" "}
-                <a href={null}>HERE.</a>
+                <href id="TODO">HERE.</href>
               </span>
             </div>
           </div>
@@ -243,9 +243,9 @@ function Faq() {
                 ONSITE THROUGHOUT THE EVENT TO ENSURE THE SAFETY AND WELLBEING
                 OF STUDENTS. <br /> IF A STUDENT UNDER 18 IS ATTENDING ALONE,
                 PLEASE ENSURE THE ELECTIVE/VOLUNTARY ACTIVITY WAIVER (INCLUDED
-                ON THE <href>GRAINGER RESTRATION FORM</href>) HAS BEEN SIGNED BY
-                A PARENT OR LEGAL GUARDIAN PRIOR TO ATTENDING THE EVENT IN ORDER
-                TO PARTICIPATE.
+                ON THE <href id="TODO2">GRAINGER RESTRATION FORM</href>) HAS
+                BEEN SIGNED BY A PARENT OR LEGAL GUARDIAN PRIOR TO ATTENDING THE
+                EVENT IN ORDER TO PARTICIPATE.
               </span>
             </div>
           </div>
