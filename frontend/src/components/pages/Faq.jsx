@@ -32,7 +32,6 @@ function Faq() {
 
   return (
     <div className="faqWrapper">
-      <div className="placementHeader">HEADER WOULD BE HERE AT THIS HEIGHT</div>
       <div className="faqCloudDiv">
         <FaqCloud />
       </div>
