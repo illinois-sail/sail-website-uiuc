@@ -141,7 +141,7 @@ function Faq() {
                 PARENTS ARE INVITED TO JOIN US ON-CAMPUS APRIL 18TH, WHERE WE'VE
                 PARTNERED WITH THE SIEBEL SCHOOL OF COMPUTING AND DATA SCIENCE
                 AND UNDERGRADUATE ADMISSIONS TO OFFER AN EXCLUSIVE SAIL PARENT
-                TRACK. VIEW THE PARENT SCHEDULE <href>HERE</href> <br />{" "}
+                TRACK. VIEW THE PARENT SCHEDULE <a href={null}>HERE</a> <br />{" "}
                 UNFORTUNATELY, WE ARE NOT ABLE TO ACCOMODATE PARENTS ON THE
                 STUDENT TRACK, THOUGH SOME EVENTS MAY BE HOSTED TOGETHER!
               </span>
@@ -166,7 +166,7 @@ function Faq() {
                 SAIL DOES NOT HAVE AN APPLICATION, BUT WE DO HAVE A REQUIRED
                 REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE REACH
                 OUR EVENT CAPACITY. <br /> VIEW REGISTRATION INSTRUCTIONS{" "}
-                <href>HERE.</href>
+                <a href={null}>HERE.</a>
               </span>
             </div>
           </div>
