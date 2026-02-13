@@ -31,10 +31,13 @@ function FaqCloud() {
   return (
     //Fills container width and proportions
     <svg
-      width="100%"
-      height="47.22%"
       viewBox="0 0 360 170"
-      style={{ display: "block", margin: "auto" }}
+      style={{
+        width: "100%",
+        aspectRatio: "360 / 170",
+        display: "block",
+        margin: "auto",
+      }}
     >
       {/* Draw parts of cloud */}
       {parts.map((part) => (

@@ -1,0 +1,20 @@
+.speechButton {
+  pointer-events: all;
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.speechButtonLeft:hover {
+  transform: translate(-5px, -5px);
+  filter: url(#buttonShadowLeft);
+}
+.speechButtonRight:hover {
+  transform: translate(5px, -5px);
+  filter: url(#buttonShadowRight);
+}
+
+.speechButton:active {
+  transform: translate(0, 0);
+  filter: none;
+}
