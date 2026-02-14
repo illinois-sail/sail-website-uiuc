@@ -413,11 +413,13 @@ function Home() {
         <div className="adventure-wrapper">
           <div className="adventure-box">
             <div className="adventure-header">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M16 29.3332C23.3638 29.3332 29.3333 23.3636 29.3333 15.9998C29.3333 8.63604 23.3638 2.6665 16 2.6665C8.63621 2.6665 2.66667 8.63604 2.66667 15.9998C2.66667 23.3636 8.63621 29.3332 16 29.3332Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 10.6665V15.9998" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 21.3335H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <div className="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 29.3332C23.3638 29.3332 29.3333 23.3636 29.3333 15.9998C29.3333 8.63604 23.3638 2.6665 16 2.6665C8.63621 2.6665 2.66667 8.63604 2.66667 15.9998C2.66667 23.3636 8.63621 29.3332 16 29.3332Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 10.6665V15.9998" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 21.3335H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               <span className="adventure-title">CHOOSE YOUR OWN ADVENTURE!</span>
             </div>
             <div className="adventure-text">
