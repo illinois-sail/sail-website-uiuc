@@ -1,0 +1,113 @@
+.aboutTrap {
+  /* position: absolute; */
+  height: 55.2vw;
+  width: 100%;
+  z-index: 1;
+}
+
+.aboutLeftTrap {
+  position: absolute;
+  height: 55.2vw;
+  width: 100%;
+  z-index: 1;
+  clip-path: polygon(0% 0%, 100% 19.3%, 100% 80.7%, 0% 100%);
+}
+.aboutLeftTrapBack {
+  background-color: black;
+  height: 56.2vw;
+  z-index: -1;
+  clip-path: polygon(0% 0%, 100% 19.3%, 100% 80.7%, 0% 100%);
+}
+
+.aboutRightTrap {
+  position: absolute;
+  height: 55.2vw;
+  width: 100%;
+  z-index: 1;
+  clip-path: polygon(0% 19.3%, 100% 0%, 100% 100%, 0% 80.7%);
+}
+.aboutRightTrapBack {
+  background-color: black;
+  height: 56.2vw;
+  z-index: -1;
+  clip-path: polygon(0% 19.3%, 100% 0%, 100% 100%, 0% 80.7%);
+}
+
+.aboutTextA {
+  position: relative;
+  margin-top: 9vw;
+  margin-left: 4vw;
+  background-color: white;
+  width: 33.92vw;
+  height: 10.68vw;
+  color: black;
+  border: 2px solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+  align-content: center;
+  font-size: 1.5vw;
+  z-index: 3;
+}
+
+.aboutTextB {
+  position: relative;
+  margin-left: 48.12vw;
+  margin-top: -9vw;
+  background-color: white;
+  width: 40vw;
+  height: 15.47vw;
+  color: black;
+  border: 2px solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+  align-content: center;
+  font-size: 1.75vw;
+  z-index: 3;
+}
+
+.aboutTitleCloud {
+  position: absolute;
+  height: 12.88vw;
+  width: 52.71vw;
+  margin-left: 23.41vw;
+  margin-top: -11vw;
+  z-index: 3;
+}
+.aboutTwoDayEvent {
+  position: absolute;
+  height: 26.06vw;
+  width: 22.45vw;
+  margin-top: 27vw;
+  margin-left: 6vw;
+  z-index: 3;
+}
+.aboutFreeBubble {
+  position: absolute;
+  height: 16.04vw;
+  width: 20.99vw;
+  margin-top: 1.5vw;
+  margin-left: 74.2vw;
+  z-index: 3;
+}
+.aboutStar1 {
+  position: absolute;
+  height: 7.94vw;
+  width: 12.76vw;
+  margin-top: -2.9vw;
+  margin-left: 7vw;
+  z-index: 3;
+}
+.aboutStar2 {
+  position: absolute;
+  height: 9.1vw;
+  width: 6.38vw;
+  margin-top: 42.75vw;
+  margin-left: 91.73vw;
+  z-index: 3;
+}
