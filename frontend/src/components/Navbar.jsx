@@ -6,11 +6,11 @@ import './Navbar.css';
 function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleFaqMouseEnter = () => {
-    setIsDropdownOpen(true);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(prev => !prev);
   };
 
-  const handleFaqMouseLeave = () => {
+  const closeDropdown = () => {
     setIsDropdownOpen(false);
   };
 
@@ -20,41 +20,54 @@ function Navbar() {
         <Link to="/" className="navbar-logo">
           <img src={sailLogo} alt="SAIL Logo" />
         </Link>
+
         <div className="navbar-right">
-          <Link to="/About" className="navbar-link">
-            About
-          </Link>
-          <Link to="/Classes" className="navbar-link">
-            Classes
-          </Link>
-          <div 
-            className="navbar-faq-container"
-            onMouseEnter={handleFaqMouseEnter}
-            onMouseLeave={handleFaqMouseLeave}
-          >
-            <button className="navbar-link">
+          <Link to="/" className="navbar-link">Home</Link>
+          <Link to="/About" className="navbar-link">About</Link>
+          <Link to="/Classes" className="navbar-link">Classes</Link>
+
+          {/* FAQ DROPDOWN */}
+          <div className="navbar-faq-container">
+            <button
+              className="navbar-link navbar-faq-button"
+              onClick={toggleDropdown}
+            >
               FAQ
+              <span className={`faq-chevron ${isDropdownOpen ? 'open' : ''}`}>
+                ▾
+              </span>
             </button>
+
             {isDropdownOpen && (
               <div className="navbar-dropdown">
-                <Link 
-                  to="/FAQ#how-to-register" 
+                <Link
+                  to="/faq"
                   className="navbar-dropdown-item"
+                  onClick={closeDropdown}
+                >
+                  FAQ
+                </Link>
+
+                <Link
+                  to="/register"
+                  className="navbar-dropdown-item light-pink"
+                  onClick={closeDropdown}
                 >
                   How to Register
                 </Link>
-                <Link 
-                  to="/FAQ#transportation" 
-                  className="navbar-dropdown-item"
+
+                <Link
+                  to="/transportation"
+                  className="navbar-dropdown-item hot-pink"
+                  onClick={closeDropdown}
                 >
                   Transportation
                 </Link>
               </div>
             )}
           </div>
-          <Link to="/Profile" className="navbar-link">
-            Profile
-          </Link>
+
+          <Link to="/Profile" className="navbar-link">Profile</Link>
         </div>
       </div>
     </nav>
