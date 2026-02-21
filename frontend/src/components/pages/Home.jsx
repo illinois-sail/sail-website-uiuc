@@ -4,7 +4,6 @@ import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
 import CARTOON_FRAME from "../../assets/cartoon-frame.png";
 import CORN from "../../assets/corn.png";
 import ELLIPSE from "../../assets/ellipse.png";
-import CHARACTER_STATS from "../../assets/characterstats.png";
 import SS_ICON_1 from "../../assets/ss-icon1.png";
 import SS_ICON_2 from "../../assets/ss-icon2.png";
 import SS_ICON_3 from "../../assets/ss-icon3.png";
@@ -51,17 +50,18 @@ function Home() {
         <span className="ch-heading-text">Chapter 1: Introduction</span>
         {/* <img src={CARTOON_FRAME} className="cartoon-frame-image" /> */}
         <div className="character-stats-row">
-          <img src={CORN} className="corn-ch-one-image" />
-          <div className="ellipse-wrapper">
-            <img src={ELLIPSE} className="ellipse-ch-one-image" />
-            <span className="ellipse-text">Welcome heroes. My name is captain Cornelius, and i will be your helpful guide today!</span>
+          <div className="character-stats-box">
+            <img src={CORN} className="corn-ch-one-image" />
+            <div className="ellipse-wrapper">
+              <img src={ELLIPSE} className="ellipse-ch-one-image" />
+              <span className="ellipse-text">Welcome heroes. My name is captain Cornelius, and i will be your helpful guide today!</span>
+            </div>
+            <div className="character-stats-wrapper">
+              <span className="character-stats-header">CHARACTER STATS</span>
+              <span className="character-stats-text">Backstory: UIUC CS student from 1972 who stumbled upon an Agriculture x Engineering project gone wrong...Powers: Infinite knowledge of UIUC Grainger Etc.</span>
+              {/* Will reformat the above line when finalized */}
+            </div>
           </div>
-          <div className="character-stats-wrapper">
-            <span className="character-stats-header">CHARACTER STATS</span>
-            <span className="character-stats-text">Backstory: UIUC CS student from 1972 who stumbled upon an Agriculture x Engineering project gone wrong...Powers: Infinite knowledge of UIUC Grainger Etc.</span>
-            {/* Will reformat the above line when finalized */}
-          </div>
-          <img src={CHARACTER_STATS} className="character-stats-image" />
         </div>
       </div>
 
@@ -413,11 +413,13 @@ function Home() {
         <div className="adventure-wrapper">
           <div className="adventure-box">
             <div className="adventure-header">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M16 29.3332C23.3638 29.3332 29.3333 23.3636 29.3333 15.9998C29.3333 8.63604 23.3638 2.6665 16 2.6665C8.63621 2.6665 2.66667 8.63604 2.66667 15.9998C2.66667 23.3636 8.63621 29.3332 16 29.3332Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 10.6665V15.9998" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 21.3335H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <div className="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 29.3332C23.3638 29.3332 29.3333 23.3636 29.3333 15.9998C29.3333 8.63604 23.3638 2.6665 16 2.6665C8.63621 2.6665 2.66667 8.63604 2.66667 15.9998C2.66667 23.3636 8.63621 29.3332 16 29.3332Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 10.6665V15.9998" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 21.3335H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               <span className="adventure-title">CHOOSE YOUR OWN ADVENTURE!</span>
             </div>
             <div className="adventure-text">

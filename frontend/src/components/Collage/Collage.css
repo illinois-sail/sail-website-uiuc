@@ -30,3 +30,34 @@
   flex-shrink: 0;
   width: 100%;
 }
+
+
+@media (max-width: 768px) {
+  /* ---------- COLLAGE (MOBILE) ---------- */
+
+.collageWrapper {
+  width: 95vw;              /* 🔥 much larger */
+  margin: 10vw auto 0 auto;
+  flex-direction: row;
+}
+
+.collageWing {
+  width: 10%;               /* slightly bigger arrows */
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.collageContainer {
+  flex: 1;
+  overflow-x: hidden;
+}
+
+.collageSlider {
+  width: 100%;
+}
+
+.collageSlider > * {
+  width: 100%;
+}
+
+}
