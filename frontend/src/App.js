@@ -9,9 +9,7 @@ import SignUp from "./components/pages/SignUp";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
-import FAQ from "./components/pages/FAQ";
-import HowToRegisterRedirect from "./components/pages/HowToRegisterRedirect";
-import TransportationRedirect from "./components/pages/TransportationRedirect";
+import Faq from "./components/pages/Faq";
 
 function App() {
   return (
@@ -26,9 +24,10 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Transportation" element={<TransportationRedirect />} />
+        <Route path="/Transportation" element={<Transportation />} />
+        <Route path="/Faq" element={<Faq />} />
       </Routes>
-      <Footer />
+      <Footer />        
 
         {/* <div className="App">
           <header className="App-header">

@@ -1,0 +1,34 @@
+.collageButtonWrapper {
+  display: flex;
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: #00c950;
+  border-radius: 50%;
+  border: 3px solid black;
+  box-shadow: 2px 2px 0px 0px black;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.1s ease-in-out;
+}
+
+.collageButtonWrapper:hover {
+  box-shadow: 3px 3px 0px 0px black;
+  transform: translate(-1px, -1px);
+}
+
+.collageButtonWrapper:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+.collageButtonCircle {
+  position: absolute;
+  z-index: -1;
+  aspect-ratio: 1;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: #00c950;
+}
