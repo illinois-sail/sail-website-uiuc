@@ -26,9 +26,7 @@ import image8 from "../../assets/images/gal3.jpg";
 import image9 from "../../assets/images/gal4.jpg";
 import image10 from "../../assets/images/gal5.jpg";
 import image11 from "../../assets/images/gal6.jpg";
-import mail_icon from "../../assets/mail.png"; 
-import instagram_icon from "../../assets/instagram.png"; 
-import tiktok_icon from "../../assets/tiktok.png";
+
 
 function Home() {
   return (
@@ -409,7 +407,7 @@ function Home() {
       </div>
 
       <div className="ch-three-block">
-        <span className="ch-heading-text">CHapter 3: Classes</span>
+        <span className="ch-heading-text">Chapter 3: Classes</span>
         <div className="adventure-wrapper">
           <div className="adventure-box">
             <div className="adventure-header">
@@ -436,7 +434,7 @@ function Home() {
       </div>
 
       <div className="ch-four-block">
-        <span className="ch-heading-text">CHapter 4: ACTION SHOTS</span>
+        <span className="ch-heading-text">Chapter 4: ACTION SHOTS</span>
         <div className="ch-four-info">
           <span className="ch-four-text">See heroes in action! Check out moments from previous SAIL adventures.</span>
           <img src={CORN} className="corn-ch-four-image" />
@@ -450,35 +448,7 @@ function Home() {
         </div>
       </div>
 
-      {/* temp footer */}
-      <div className="home-footer-wrapper">
-        <span className="contact-us-text">Contact Us</span>
-
-        <div className="home-footer">
-          <a href="mailto:cs-sail@illinois.edu" aria-label="Email">
-            <img src={mail_icon} alt="Email" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/illinois_cs_sail/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <img src={instagram_icon} alt="Instagram" />
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@illinoissail"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="TikTok"
-            className="tiktok-link"
-          >
-            <img src={tiktok_icon} alt="TikTok" />
-          </a>
-        </div>
-      </div>
+      
 
     </div>
   );

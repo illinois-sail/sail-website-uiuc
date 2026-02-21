@@ -1,6 +1,7 @@
+/* ---------- NAVBAR CONTAINER ---------- */
 .navbar {
   display: flex;
-  padding: 37px 64px 36px 64px;
+  padding: clamp(16px, 3vh, 32px) clamp(24px, 4vw, 64px);
   justify-content: space-between;
   align-items: center;
   background: #12294B;
@@ -8,6 +9,7 @@
   box-sizing: border-box;
 }
 
+/* ---------- INNER CONTENT ---------- */
 .navbar-content {
   display: flex;
   width: 100%;
@@ -16,9 +18,10 @@
   align-items: center;
 }
 
+/* ---------- LOGO ---------- */
 .navbar-logo {
-  width: 49px;
-  height: 44px;
+  width: clamp(36px, 3.5vw, 49px);
+  height: clamp(32px, 3.2vw, 44px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,92 +29,105 @@
 }
 
 .navbar-logo img {
-  width: 49px;
-  height: 44px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
+/* ---------- RIGHT SIDE LINKS ---------- */
 .navbar-right {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 32px;
+  gap: clamp(16px, 2.5vw, 32px);
 }
 
+/* ---------- NAV LINKS ---------- */
 .navbar-link {
   color: #FFF;
   font-family: 'DynaPuff', sans-serif;
-  font-size: 16px;
-  font-style: normal;
+  font-size: clamp(14px, 1.1vw, 18px);
   font-weight: 400;
-  line-height: normal;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   background: none;
   border: none;
   padding: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease;
 }
 
 .navbar-link:hover {
   opacity: 0.8;
 }
 
+/* ---------- FAQ DROPDOWN ---------- */
 .navbar-faq-container {
   position: relative;
 }
 
+/* Dropdown wrapper */
 .navbar-dropdown {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 8px;
+  margin-top: clamp(6px, 1vh, 12px);
   display: flex;
   flex-direction: column;
   z-index: 1000;
-  min-width: 184px;
+  min-width: clamp(160px, 14vw, 184px);
 }
 
+/* Dropdown items */
 .navbar-dropdown-item {
-  width: 184px;
-  height: 47px;
+  width: 100%;
+  height: clamp(40px, 5vh, 47px);
   border: 1px solid #000;
-  background: #AA3C69;
+  background: #AA3C69; /* default dark pink */
   color: #FFF;
   font-family: 'Comic Neue', cursive;
-  font-size: 16px;
-  font-style: normal;
+  font-size: clamp(14px, 1vw, 16px);
   font-weight: 400;
-  line-height: normal;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background 0.2s ease; /* smooth color transition */
 }
 
+/* Rounded corners */
 .navbar-dropdown-item:first-child {
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.8vw, 8px) clamp(6px, 0.8vw, 8px) 0 0;
 }
 
 .navbar-dropdown-item:last-child {
-  border-radius: 0 0 8px 8px;
-  background: #FA5B9C;
-}
-
-/* When there are two items, adjust the first one */
-.navbar-dropdown-item:first-child:not(:only-child) {
-  border-radius: 8px 8px 0 0;
-}
-
-.navbar-dropdown-item:hover {
-  opacity: 0.9;
+  border-radius: 0 0 clamp(6px, 0.8vw, 8px) clamp(6px, 0.8vw, 8px);
 }
 
 .navbar-dropdown-item:only-child {
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.8vw, 8px);
+}
+
+/* On hover, turn hot pink */
+.navbar-dropdown-item:hover {
+  background: #FA5B9C;
+}
+
+.navbar-faq-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.faq-chevron {
+  font-size: 0.8em;
+  transition: transform 0.2s ease;
+}
+
+.faq-chevron.open {
+  transform: rotate(180deg);
 }
 
