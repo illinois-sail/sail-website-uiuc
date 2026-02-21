@@ -1,0 +1,117 @@
+.navbar {
+  display: flex;
+  padding: 37px 64px 36px 64px;
+  justify-content: space-between;
+  align-items: center;
+  background: #12294B;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-content {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 49px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  width: 49px;
+  height: 44px;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-link {
+  color: #FFF;
+  font-family: 'DynaPuff', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.navbar-link:hover {
+  opacity: 0.8;
+}
+
+.navbar-faq-container {
+  position: relative;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  min-width: 184px;
+}
+
+.navbar-dropdown-item {
+  width: 184px;
+  height: 47px;
+  border: 1px solid #000;
+  background: #AA3C69;
+  color: #FFF;
+  font-family: 'Comic Neue', cursive;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.navbar-dropdown-item:first-child {
+  border-radius: 8px;
+}
+
+.navbar-dropdown-item:last-child {
+  border-radius: 0 0 8px 8px;
+  background: #FA5B9C;
+}
+
+/* When there are two items, adjust the first one */
+.navbar-dropdown-item:first-child:not(:only-child) {
+  border-radius: 8px 8px 0 0;
+}
+
+.navbar-dropdown-item:hover {
+  opacity: 0.9;
+}
+
+.navbar-dropdown-item:only-child {
+  border-radius: 8px;
+}
+
