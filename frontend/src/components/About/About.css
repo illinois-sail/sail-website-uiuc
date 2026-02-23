@@ -1,5 +1,4 @@
 .aboutTrap {
-  /* position: absolute; */
   height: 55.2vw;
   width: 100%;
   z-index: 1;
@@ -9,12 +8,15 @@
   position: absolute;
   height: 55.2vw;
   width: 100%;
+  max-width: 100%;
   z-index: 1;
   clip-path: polygon(0% 0%, 100% 19.3%, 100% 80.7%, 0% 100%);
 }
 .aboutLeftTrapBack {
   background-color: black;
   height: 56.2vw;
+  width: 100%;
+  max-width: 100%;
   z-index: -1;
   clip-path: polygon(0% 0%, 100% 19.3%, 100% 80.7%, 0% 100%);
 }
@@ -23,12 +25,15 @@
   position: absolute;
   height: 55.2vw;
   width: 100%;
+  max-width: 100%;
   z-index: 1;
   clip-path: polygon(0% 19.3%, 100% 0%, 100% 100%, 0% 80.7%);
 }
 .aboutRightTrapBack {
   background-color: black;
   height: 56.2vw;
+  width: 100%;
+  max-width: 100%;
   z-index: -1;
   clip-path: polygon(0% 19.3%, 100% 0%, 100% 100%, 0% 80.7%);
 }
@@ -69,6 +74,10 @@
   align-content: center;
   font-size: 1.75vw;
   z-index: 3;
+}
+
+.aboutTextC {
+  max-width: 10vw;
 }
 
 .aboutTitleCloud {

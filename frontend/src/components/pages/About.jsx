@@ -7,7 +7,13 @@ import { ReactComponent as TitleCloud } from "../../assets/about/title_cloud.svg
 
 function About() {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        maxWidth: "100%",
+      }}
+    >
       <div style={{ marginTop: "17.9vw" }}>
         <TitleCloud className="aboutTitleCloud" />
         <TwoDayEvent className="aboutTwoDayEvent" />
@@ -36,6 +42,16 @@ function About() {
           </div>
         </div>
         <div className="aboutTrap aboutLeftTrapBack" />
+      </div>
+      <div className="aboutTextC">
+        <span>
+          FOR STUDENTS, BY STUDENTS! FOUNDED IN 2015 BY CS STUDENTS NATHAN
+          HANDLER (SECURITY ENGINEER, REDDIT) AND MATTHEW DIERKER (SENIOR
+          SOFTWARE ENGINEER, WAYMO), SAIL IS ENTIRELY STUDENT-LED. SUPPORTED BY
+          THE SIEBEL SCHOOL OF COMPUTING AND DATA SCIENCE, WE OFFER HIGH
+          SCHOOLERS AN IMMERSIVE INTRODUCTION TO ILLINOIS CS STRAIGHT FROM THE
+          SOURCE. MEET OUR SAIL 2026 CORE STAFF!
+        </span>
       </div>
       <div>
         <div
