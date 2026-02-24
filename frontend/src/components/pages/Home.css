@@ -1,6 +1,5 @@
 .home-page {
     position: relative;
-    height: 100vh;
 }
 
 .opening-stack {
@@ -77,7 +76,7 @@
     width: 18.5vw;
     max-width: 283px;
     left: 8.2vw;
-    bottom: 3.5vw;
+    bottom: 5.5vw;
 }
 
 .ellipse-ch-one-image {
@@ -104,11 +103,13 @@
     line-height: normal;
 }
 
-.character-stats-image {
-    margin-top: 0;
-    width: 71vw;
+.character-stats-box {
+    width: 70vw;
     max-width: 1027px;
+    min-height: 246px;
     height: auto;
+    border: 0.26vw solid #000;
+    background: #F9F9F9;
 }
 
 .character-stats-wrapper {
@@ -491,7 +492,7 @@
 }
 
 .adventure-title {
-    margin-left: 1vw;
+    margin-left: 1.8vw;
     margin-top: 0.2vw;
     color: #FFF;
     /* Subheading 3 */
@@ -635,34 +636,266 @@
     text-align: center;
 }
 
-.home-footer {
-    display: flex;
-    justify-content: center;
-    gap: 2vw;
-    margin-top: 2vw;
-    padding-bottom: 4vw;
-}
 
-.home-footer img {
-    width: 2.5vw;
-    max-width: 40px;
-    cursor: pointer;
-}
+@media (max-width: 768px) {
 
-.home-footer .tiktok-link img {
-    transform: scale(0.75);
-}
+  /* ---------- GLOBAL SPACING ---------- */
 
-.home-footer-wrapper {
+  .home-page {
+    height: auto;
+  }
+
+  .temp-navbar {
+    width: 100%;
+    font-size: 0.5rem;
+  }
+
+  .ch-one-block,
+  .ch-two-block,
+  .ch-three-block,
+  .ch-four-block {
+    margin-left: 5vw;
+    width: 80%;
+    max-width: 768px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 12vw;
-}
+  }
 
-.contact-us-text {
-    color: #3F3E3E;
-    font-family: "Classic Comic";
-    font-size: 3vw;
-    font-weight: 500;
+  .ch-heading-text {
+    font-size: 1.5rem;
+  }
+
+  /* ---------- OPENING STACK ---------- */
+
+  .cs-sail-image {
+    width: 80vw;
+  }
+
+  .event-date {
+    font-size: 1.1rem;
+  }
+
+  .register-now-image {
+    width: 55vw;
+  }
+
+  /* ---------- CHAPTER 1 ---------- */
+
+  .character-stats-wrapper {
+    position: static;
+    width: 100%;
+  }
+
+  .character-stats-box {
+    width: 100%;
+    padding: 3vw;
+  }
+
+  .character-stats-row {
+    position: static;
+    margin-top: 8vw;
+  }
+
+  .corn-ch-one-image,
+  .ellipse-wrapper,
+  .corn-ch-two-image,
+  .ellipse-wrapper-2,
+  .corn-ch-three-image,
+  .corn-ch-four-image,
+  .ellipse-wrapper-4 {
+    display: none;
+  }
+
+  .character-stats-header {
+    position: static;
+    font-size: 1.2rem;
+  }
+
+  .character-stats-text {
+    position: static;
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- CHAPTER 2 (MAIN FIX) ---------- */
+
+  .info-icon {
+    display: none;
+  }
+
+  .schedule-note-row {
+    position: static;
+    width: 100%;
+    padding: 4vw;
+  }
+
+  .schedule-note-text {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+
+  .schedule-options-row {
+    flex-direction: column;
+    gap: 3vw;
+    margin-top: 6vw;
+  }
+
+  .schedule-option-active,
+  .schedule-option-disabled {
+    width: 100%;
+    text-align: center;
+  }
+
+  .options-text {
+    font-size: 0.95rem;
+  }
+
+  /* ---------- SCHEDULE CONTAINER ---------- */
+
+  .sample-schedule-container {
+    width: 100%;
+  }
+
+  .sample-schedule {
+    width: 100%;
+    padding: 4vw;
+  }
+
+  .sample-schedule-event,
+  .sample-schedule-event-alt {
+    height: auto;
+    flex-direction: column;
+    gap: 3vw;
+    padding: 4vw;
+  }
+
+  /* ---------- TIME BLOCK ---------- */
+
+  .time-block {
+    width: fit-content;
+    padding: 2vw 3vw;
+  }
+
+  .time-text {
+    font-size: 0.85rem;
+  }
+
+  /* ---------- EVENT TEXT ---------- */
+
+  .event-title {
+    font-size: 1.2rem;
+  }
+
+  .location-text {
+    font-size: 0.85rem;
+  }
+
+  /* ---------- YOU CHOOSE STICKER ---------- */
+
+  .you-choose-block {
+    position: static;
+    transform: none;
+    width: fit-content;
+    margin-top: 2vw;
+    padding: 3vw;
+  }
+
+  .you-choose-text {
+    position: static;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- CH2 GROUP BLOCKS MOBILE ---------- */
+
+  .lunch-group-options-row {
+    margin-top: 1vw;
+    flex-direction: column;
+    gap: 1vw;
+    align-items: center;
+  }
+
+  .lunch-group, 
+  .panel-group {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .group-text {
+    font-size: 0.8rem;
+    margin-left: 1rem;
+  }
+
+
+  /* ---------- CHAPTER 3 ---------- */
+
+  .adventure-wrapper {
+    position: static;
+    width: 100%;
+    margin-top: 6vw;
+  }
+
+  .adventure-box {
+    width: 100%;
+    padding: 5vw;
+    align-items: center;
+  }
+
+  .adventure-header {
+    flex-direction: column;
+  }
+
+  .adventure-title {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  .adventure-text {
+    margin: 4vw 0 0 0;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Hide decorative floating corn */
+  .corn-ch-three-image {
+    display: none;
+  }
+
+  /* Temporary block cleanup */
+  .temp {
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 4vw;
+    text-align: center;
+  }
+
+    /* ---------- CHAPTER 4 ---------- */
+  .ch-four-info {
+    position: static;
+    width: 100%;
+    margin-top: 6vw;
+  }
+
+  .ch-four-text {
+    position: static;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Hide floating decorative elements */
+  .corn-ch-four-image,
+  .ellipse-wrapper-4 {
+    display: none;
+  }
+
+  /* Optional: center collage on mobile */
+  .collage {
+    margin: 8vw auto 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+
 }

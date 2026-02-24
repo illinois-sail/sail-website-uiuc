@@ -1,0 +1,67 @@
+
+.home-footer {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 2vw;
+  padding-bottom: 4vw;
+}
+
+.home-footer img {
+  width: 2.5vw;
+  max-width: 40px;
+  cursor: pointer;
+}
+
+.home-footer .tiktok-link img {
+  transform: scale(0.75);
+}
+
+.home-footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12vw;
+}
+
+.contact-us-text {
+  color: #3F3E3E;
+  font-family: "Classic Comic";
+  font-size: 3vw;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+
+  /* ---------- CONTACT US ---------- */
+
+  .home-footer-wrapper {
+    margin-top: 16vw;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-us-text {
+    font-size: 2rem;
+    margin-bottom: 6vw;
+  }
+
+  /* Social icons row */
+  .home-footer {
+    flex-wrap: wrap;
+    gap: 6vw;
+    margin-top: 0;
+    padding-bottom: 10vw;
+  }
+
+  /* Make icons larger and easier to tap */
+  .home-footer img {
+    width: 5vw;
+    max-width: none;
+  }
+
+  /* Keep TikTok scaled nicely */
+  .home-footer .tiktok-link img {
+    transform: scale(0.9);
+  }
+}
