@@ -9,7 +9,7 @@ import SignUp from "./components/pages/SignUp";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
-import FAQ from "./components/pages/Faq";
+import Faq from "./components/pages/Faq";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Classes" element={<Classes />} />
-          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/Faq" element={<Faq />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/SignUp" element={<SignUp />} />
