@@ -53,7 +53,10 @@
   padding-bottom: 2em;
   text-align: center;
   align-content: center;
-  font-size: 1.5vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 1.1vw;
+  font-weight: 700;
+  line-height: 2.35vw;
   z-index: 3;
 }
 
@@ -72,12 +75,22 @@
   padding-bottom: 2em;
   text-align: center;
   align-content: center;
-  font-size: 1.75vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 1.1vw;
+  font-weight: 700;
+  line-height: 2.35vw;
   z-index: 3;
 }
 
 .aboutTextC {
-  max-width: 10vw;
+  width: 90vw;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 7em;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 1.78vw;
+  font-weight: 500;
+  line-height: 2.75vw;
 }
 
 .aboutTitleCloud {
@@ -119,4 +132,90 @@
   margin-top: 42.75vw;
   margin-left: 91.73vw;
   z-index: 3;
+}
+.aboutHeaderCloud {
+  position: relative;
+  height: 15.08vw;
+  width: 42.33vw;
+  align-self: center;
+  margin-top: -0.5em;
+  margin-bottom: 4em;
+}
+.aboutWhoAreThey {
+  width: 21.58vw;
+}
+.aboutLead {
+  position: absolute;
+  height: 11.5vw;
+  aspect-ratio: 1.25;
+  margin-top: -4vw;
+  margin-left: -5.5vw;
+  z-index: 3;
+}
+
+.aboutSegHeader {
+  position: absolute;
+  margin-top: 2.5vw;
+  height: 8.4vw;
+  width: 27.05vw;
+  background-color: #fff;
+  border: 0.35vw solid black;
+  border-radius: 15px;
+  justify-self: center;
+  align-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.25vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  z-index: 2;
+}
+
+.aboutSegSummary {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  height: 29.23vw;
+  width: 42.79vw;
+  left: 51.98vw;
+  background-color: #fff;
+  border: 0.35vw solid black;
+  border-radius: 15px;
+  text-align: center;
+  align-items: center;
+  border: 0.35vw solid black;
+  font-size: 1.75vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 2vw;
+  z-index: 2;
+}
+
+.aboutProfile {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  font-weight: 1100;
+  font-size: 2.5vw;
+  -webkit-text-stroke: 0.8px black;
+  text-shadow: black 1.75px 1.75px;
+  font-family: "DynaPuff", Helvetica, sans-serif;
+}
+.aboutHeadshot {
+  position: absolute;
+  height: 16.72vw;
+  aspect-ratio: 1;
+  object-fit: cover;
+  clip-path: circle();
+  z-index: 3;
+}
+.aboutHeadshotBack {
+  position: absolute;
+  height: 17.42vw;
+  aspect-ratio: 1;
+  background-color: black;
+  clip-path: circle();
+  transform: translate(-0.35vw, -0.35vw);
+  z-index: 2;
 }

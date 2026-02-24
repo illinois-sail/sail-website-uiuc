@@ -4,6 +4,22 @@ import { ReactComponent as FreeBubble } from "../../assets/about/free_bubble.svg
 import { ReactComponent as Star1 } from "../../assets/about/star_1.svg";
 import { ReactComponent as Star2 } from "../../assets/about/star_2.svg";
 import { ReactComponent as TitleCloud } from "../../assets/about/title_cloud.svg";
+import { ReactComponent as HeaderCloud } from "../../assets/about/header_cloud.svg";
+import { ReactComponent as WhoAreThey } from "../../assets/about/who_are_they.svg";
+import { ReactComponent as Lead } from "../../assets/about/lead.svg";
+import Arwen from "../../assets/images/about-arwen.jpg";
+import Connor from "../../assets/images/about-connor.jpg";
+import Isabella from "../../assets/images/about-isabella.jpg";
+import Isha from "../../assets/images/about-isha.jpg";
+import Jewel from "../../assets/images/about-jewel.jpg";
+import Kaytlin from "../../assets/images/about-kaytlin.jpg";
+import Kyle from "../../assets/images/about-kyle.jpg";
+import Lily from "../../assets/images/about-lily.jpg";
+import Meghna from "../../assets/images/about-meghna.jpg";
+import Sean from "../../assets/images/about-sean.jpg";
+import Tia from "../../assets/images/about-tia.jpg";
+import Tulsi from "../../assets/images/about-tulsi.png";
+import Zoya from "../../assets/images/about-zoya.jpg";
 
 function About() {
   return (
@@ -43,6 +59,7 @@ function About() {
         </div>
         <div className="aboutTrap aboutLeftTrapBack" />
       </div>
+      <HeaderCloud className="aboutHeaderCloud" />
       <div className="aboutTextC">
         <span>
           FOR STUDENTS, BY STUDENTS! FOUNDED IN 2015 BY CS STUDENTS NATHAN
@@ -54,6 +71,40 @@ function About() {
         </span>
       </div>
       <div>
+        <div className="aboutSegHeader">
+          <span>DIRECTORS</span>
+        </div>
+        <div
+          className="aboutSegSummary"
+          style={{ lineHeight: "3vw", marginTop: "18vw" }}
+        >
+          <WhoAreThey className="aboutWhoAreThey" />
+          <span>
+            CS SAIL STAFF VETERANS, OUR DIRECTORS ARE EXCITED TO JOIN AGAIN AT
+            THE HELM! WE GUIDE THE TEAM PLANNING SAIL FROM THE GROUND UP, AND
+            CAN'T WAIT TO BRING SAIL 2026 TO YOU!
+          </span>
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "16.5vw", left: "6.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(4.5vw, -4vw)" }}>
+            Arwen
+          </span>
+          <img src={Arwen} className="aboutHeadshot" />
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "28.5vw", left: "26.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(5.4vw, -4vw)" }}>
+            Kyle
+          </span>
+          <img src={Kyle} className="aboutHeadshot" />
+          <div className="aboutHeadshotBack" />
+        </div>
         <div
           className="aboutTrap aboutRightTrap"
           style={{ backgroundColor: "#C12529", marginTop: ".5vw" }}
@@ -61,6 +112,57 @@ function About() {
         <div className="aboutTrap aboutRightTrapBack" />
       </div>
       <div>
+        <div className="aboutSegHeader">
+          <span>DEVELOPERS</span>
+        </div>
+        <div
+          className="aboutSegSummary"
+          style={{
+            lineHeight: "4.5vw",
+            marginTop: "13.5vw",
+          }}
+        >
+          <WhoAreThey className="aboutWhoAreThey" />
+          <span>
+            OUR FULL STACK WEB DEV TEAM PUT THEIR CS SKILLS INTO ACTION,
+            BRINGING THIS YEAR'S FRESH NEW SAIL WEBSITE TO LIFE!
+          </span>
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "8.5vw", left: "6.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(6.3vw, -4vw)" }}>
+            Tia
+          </span>
+          <img
+            src={Tia}
+            className="aboutHeadshot"
+            style={{ objectPosition: "top" }}
+          />
+          <Lead className="aboutLead" />
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "20.5vw", left: "26.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(5vw, -4vw)" }}>
+            Sean
+          </span>
+          <img src={Sean} className="aboutHeadshot" />
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "34.5vw", left: "6.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(3.3vw, -4vw)" }}>
+            Connor
+          </span>
+          <img src={Connor} className="aboutHeadshot" />
+          <div className="aboutHeadshotBack" />
+        </div>
         <div
           className="aboutTrap aboutLeftTrap"
           style={{ backgroundColor: "#FFD830", marginTop: ".5vw" }}
@@ -68,6 +170,48 @@ function About() {
         <div className="aboutTrap aboutLeftTrapBack" />
       </div>
       <div>
+        <div className="aboutSegHeader">
+          <span>LOGISTICS</span>
+        </div>
+        <div
+          className="aboutSegSummary"
+          style={{ lineHeight: "2.4vw", marginTop: "18vw" }}
+        >
+          <WhoAreThey className="aboutWhoAreThey" />
+          <span>
+            LOGISTICS ARE YOUR PEOPLE DOING THE COORDINATION BEHIND ILLINOIS'
+            LARGEST CS OUTREACH EVENT! THEY'RE WORKING HARD TO BRING SAIL 2026
+            TO YOU... INCLUDING EVERYTHING FROM FREE TRANSPORTATION, HANDS-ON
+            CLASSES, PANELS, AND OF COURSE: FOOD!{" "}
+          </span>
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "16.5vw", left: "6.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(3.5vw, -4vw)" }}>
+            Kaytlin
+          </span>
+          <img
+            src={Kaytlin}
+            className="aboutHeadshot"
+            style={{
+              objectPosition: "left",
+              objectViewBox: "inset(18% 0% 0% 0%)",
+            }}
+          />
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "28.5vw", left: "26.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(5vw, -4vw)" }}>
+            Tulsi
+          </span>
+          <img src={Tulsi} className="aboutHeadshot" />
+          <div className="aboutHeadshotBack" />
+        </div>
         <div
           className="aboutTrap aboutRightTrap"
           style={{ backgroundColor: "#F15F23", marginTop: ".5vw" }}
@@ -75,6 +219,77 @@ function About() {
         <div className="aboutTrap aboutRightTrapBack" />
       </div>
       <div>
+        <div className="aboutSegHeader">
+          <span>DESIGNERS</span>
+        </div>
+        <div
+          className="aboutSegSummary"
+          style={{
+            lineHeight: "3.2vw",
+            marginTop: "13.5vw",
+          }}
+        >
+          <WhoAreThey className="aboutWhoAreThey" />
+          <span>
+            OUR DESIGNERS GIVE US OUR SPARK, BRINGING SAIL'S THEME TO LIFE! FIND
+            THIER EXPERTISE IN EVERYTHING FROM OUR WEBSITE AND POST AESTHETICS
+            TO OUR MERCH AND DECORATIONS.
+          </span>
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "8.5vw", left: "6.2vw" }}
+        >
+          <span
+            style={{
+              zIndex: "3",
+              transform: "translate(6vw, -4vw)",
+            }}
+          >
+            Lily
+          </span>
+          <img
+            src={Lily}
+            className="aboutHeadshot"
+            style={{
+              objectPosition: "top",
+              objectFit: "cover",
+              objectPosition: "42% 0%",
+              objectViewBox: "inset(3%)",
+            }}
+          />
+          <Lead className="aboutLead" />
+
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "20.5vw", left: "26.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(3.1vw, -4vw)" }}>
+            Meghna
+          </span>
+          <img src={Meghna} className="aboutHeadshot" />
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "34.5vw", left: "6.2vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(5.2vw, -4vw)" }}>
+            Zoya
+          </span>
+          <img
+            src={Zoya}
+            className="aboutHeadshot"
+            style={{
+              objectFit: "cover",
+              objectPosition: "right bottom",
+              objectViewBox: "inset(48% 11% 25% 24%)",
+            }}
+          />
+          <div className="aboutHeadshotBack" />
+        </div>
         <div
           className="aboutTrap aboutLeftTrap"
           style={{ backgroundColor: "#FF7DB2", marginTop: ".5vw" }}
@@ -82,12 +297,72 @@ function About() {
         <div className="aboutTrap aboutLeftTrapBack" />
       </div>
       <div>
+        <div className="aboutSegHeader">
+          <span>MARKETERS</span>
+        </div>
+        <div
+          className="aboutSegSummary"
+          style={{ lineHeight: "2.75vw", marginTop: "13.5vw", left: "4.17vw" }}
+        >
+          <WhoAreThey className="aboutWhoAreThey" />
+          <span>
+            FROM GETTING STUDENTS AND PROFESSORS ALL AROUND THE UNIVERSITY OF
+            ILLINOIS CAMPUS INVOLVED, BUILDING OUR PUBLIC PROFILE ON SOCIAL
+            MEDIA, TO REACHING OUT TO YOU, OUR MARKETERES BRING IT ALL TOGETHER!
+          </span>
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "8.5vw", left: "76.15vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(3.2vw, -4vw)" }}>
+            Isabella
+          </span>
+          <img
+            src={Isabella}
+            className="aboutHeadshot"
+            style={{ objectPosition: "top" }}
+          />
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "20.5vw", left: "56.15vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(4.3vw, -4vw)" }}>
+            Jewel
+          </span>
+          <img
+            src={Jewel}
+            className="aboutHeadshot"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+              objectViewBox: "inset(26% 19% 17% 33%)",
+            }}
+          />
+          <div className="aboutHeadshotBack" />
+        </div>
+        <div
+          className="aboutProfile"
+          style={{ marginTop: "34.5vw", left: "76.15vw" }}
+        >
+          <span style={{ zIndex: "3", transform: "translate(5.2vw, -4vw)" }}>
+            Isha
+          </span>
+          <img src={Isha} className="aboutHeadshot" />
+          <div className="aboutHeadshotBack" />
+        </div>
         <div
           className="aboutTrap aboutRightTrap"
           style={{ backgroundColor: "#5FB0B7", marginTop: ".5vw" }}
         />
         <div className="aboutTrap aboutRightTrapBack" />
       </div>
+      <div
+        className="aboutSpacer"
+        style={{ height: "36.71vw", width: "100%" }}
+      ></div>
     </div>
   );
 }
