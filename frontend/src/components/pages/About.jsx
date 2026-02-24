@@ -419,10 +419,6 @@ function About() {
         />
         <div className="aboutTrap aboutRightTrapBack" />
       </div>
-      <div
-        className="aboutSpacer"
-        style={{ height: "36.71vw", width: "100%" }}
-      ></div>
     </div>
   );
 }
