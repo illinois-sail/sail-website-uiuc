@@ -31,11 +31,20 @@ function About() {
       }}
     >
       <div style={{ marginTop: "17.9vw" }}>
-        <TitleCloud className="aboutTitleCloud" />
-        <TwoDayEvent className="aboutTwoDayEvent" />
-        <FreeBubble className="aboutFreeBubble" />
-        <Star1 className="aboutStar1" />
-        <Star2 className="aboutStar2" />
+        <TitleCloud
+          className="aboutTitleCloud"
+          alt="A cloud with the words 'What is Sail'"
+        />
+        <TwoDayEvent
+          className="aboutTwoDayEvent"
+          alt="A sound effect bubble with the words '2 Day Event'"
+        />
+        <FreeBubble
+          className="aboutFreeBubble"
+          alt="A sound effect bubble iwth the with the word 'Free'"
+        />
+        <Star1 className="aboutStar1" alt="A stylistic star" />
+        <Star2 className="aboutStar2" alt="A stylistic star" />
         <div
           className="aboutTrap aboutLeftTrap"
           style={{ backgroundColor: "#79CCFF", marginTop: ".5vw" }}
@@ -59,7 +68,10 @@ function About() {
         </div>
         <div className="aboutTrap aboutLeftTrapBack" />
       </div>
-      <HeaderCloud className="aboutHeaderCloud" />
+      <HeaderCloud
+        className="aboutHeaderCloud"
+        alt="A cloud with the words 'Meet The Team!'"
+      />
       <div className="aboutTextC">
         <span>
           FOR STUDENTS, BY STUDENTS! FOUNDED IN 2015 BY CS STUDENTS NATHAN
@@ -78,7 +90,10 @@ function About() {
           className="aboutSegSummary"
           style={{ lineHeight: "3vw", marginTop: "18vw" }}
         >
-          <WhoAreThey className="aboutWhoAreThey" />
+          <WhoAreThey
+            className="aboutWhoAreThey"
+            alt="A header that reads 'Who are they?'"
+          />
           <span>
             CS SAIL STAFF VETERANS, OUR DIRECTORS ARE EXCITED TO JOIN AGAIN AT
             THE HELM! WE GUIDE THE TEAM PLANNING SAIL FROM THE GROUND UP, AND
@@ -92,7 +107,11 @@ function About() {
           <span style={{ zIndex: "3", transform: "translate(4.5vw, -4vw)" }}>
             Arwen
           </span>
-          <img src={Arwen} className="aboutHeadshot" />
+          <img
+            src={Arwen}
+            className="aboutHeadshot"
+            alt="A headshot (photo) of Arwen"
+          />
           <div className="aboutHeadshotBack" />
         </div>
         <div
@@ -102,7 +121,11 @@ function About() {
           <span style={{ zIndex: "3", transform: "translate(5.4vw, -4vw)" }}>
             Kyle
           </span>
-          <img src={Kyle} className="aboutHeadshot" />
+          <img
+            src={Kyle}
+            className="aboutHeadshot"
+            alt="A headshot (photo) of Kyle"
+          />
           <div className="aboutHeadshotBack" />
         </div>
         <div
@@ -122,7 +145,10 @@ function About() {
             marginTop: "13.5vw",
           }}
         >
-          <WhoAreThey className="aboutWhoAreThey" />
+          <WhoAreThey
+            className="aboutWhoAreThey"
+            alt="A header that reads 'Who are they?'"
+          />
           <span>
             OUR FULL STACK WEB DEV TEAM PUT THEIR CS SKILLS INTO ACTION,
             BRINGING THIS YEAR'S FRESH NEW SAIL WEBSITE TO LIFE!
@@ -139,8 +165,9 @@ function About() {
             src={Tia}
             className="aboutHeadshot"
             style={{ objectPosition: "top" }}
+            alt="A headshot (photo) of Tia"
           />
-          <Lead className="aboutLead" />
+          <Lead className="aboutLead" alt="A cartoon bubble that says 'Lead'" />
           <div className="aboutHeadshotBack" />
         </div>
         <div
@@ -150,7 +177,11 @@ function About() {
           <span style={{ zIndex: "3", transform: "translate(5vw, -4vw)" }}>
             Sean
           </span>
-          <img src={Sean} className="aboutHeadshot" />
+          <img
+            src={Sean}
+            className="aboutHeadshot"
+            alt="A headshot (photo) of Sean"
+          />
           <div className="aboutHeadshotBack" />
         </div>
         <div
@@ -160,7 +191,11 @@ function About() {
           <span style={{ zIndex: "3", transform: "translate(3.3vw, -4vw)" }}>
             Connor
           </span>
-          <img src={Connor} className="aboutHeadshot" />
+          <img
+            src={Connor}
+            className="aboutHeadshot"
+            alt="A headshot (photo) of Connor"
+          />
           <div className="aboutHeadshotBack" />
         </div>
         <div
@@ -177,7 +212,10 @@ function About() {
           className="aboutSegSummary"
           style={{ lineHeight: "2.4vw", marginTop: "18vw" }}
         >
-          <WhoAreThey className="aboutWhoAreThey" />
+          <WhoAreThey
+            className="aboutWhoAreThey"
+            alt="A header that reads 'Who are they?'"
+          />
           <span>
             LOGISTICS ARE YOUR PEOPLE DOING THE COORDINATION BEHIND ILLINOIS'
             LARGEST CS OUTREACH EVENT! THEY'RE WORKING HARD TO BRING SAIL 2026
@@ -199,6 +237,7 @@ function About() {
               objectPosition: "left",
               objectViewBox: "inset(18% 0% 0% 0%)",
             }}
+            alt="A headshot (photo) of Kaytlin"
           />
           <div className="aboutHeadshotBack" />
         </div>
@@ -209,7 +248,11 @@ function About() {
           <span style={{ zIndex: "3", transform: "translate(5vw, -4vw)" }}>
             Tulsi
           </span>
-          <img src={Tulsi} className="aboutHeadshot" />
+          <img
+            src={Tulsi}
+            className="aboutHeadshot"
+            alt="A headshot (photo) of Tulsi"
+          />
           <div className="aboutHeadshotBack" />
         </div>
         <div
@@ -229,7 +272,10 @@ function About() {
             marginTop: "13.5vw",
           }}
         >
-          <WhoAreThey className="aboutWhoAreThey" />
+          <WhoAreThey
+            className="aboutWhoAreThey"
+            alt="A header that reads 'Who are they?'"
+          />
           <span>
             OUR DESIGNERS GIVE US OUR SPARK, BRINGING SAIL'S THEME TO LIFE! FIND
             THIER EXPERTISE IN EVERYTHING FROM OUR WEBSITE AND POST AESTHETICS
@@ -252,13 +298,13 @@ function About() {
             src={Lily}
             className="aboutHeadshot"
             style={{
-              objectPosition: "top",
               objectFit: "cover",
               objectPosition: "42% 0%",
               objectViewBox: "inset(3%)",
             }}
+            alt="A headshot (photo) of Lily"
           />
-          <Lead className="aboutLead" />
+          <Lead className="aboutLead" alt="A cartoon bubble that says 'Lead'" />
 
           <div className="aboutHeadshotBack" />
         </div>
@@ -269,7 +315,11 @@ function About() {
           <span style={{ zIndex: "3", transform: "translate(3.1vw, -4vw)" }}>
             Meghna
           </span>
-          <img src={Meghna} className="aboutHeadshot" />
+          <img
+            src={Meghna}
+            className="aboutHeadshot"
+            alt="A headshot (photo) of Meghna"
+          />
           <div className="aboutHeadshotBack" />
         </div>
         <div
@@ -287,6 +337,7 @@ function About() {
               objectPosition: "right bottom",
               objectViewBox: "inset(48% 11% 25% 24%)",
             }}
+            alt="A headshot (photo) of Zoya"
           />
           <div className="aboutHeadshotBack" />
         </div>
@@ -304,7 +355,10 @@ function About() {
           className="aboutSegSummary"
           style={{ lineHeight: "2.75vw", marginTop: "13.5vw", left: "4.17vw" }}
         >
-          <WhoAreThey className="aboutWhoAreThey" />
+          <WhoAreThey
+            className="aboutWhoAreThey"
+            alt="A header that reads 'Who are they?'"
+          />
           <span>
             FROM GETTING STUDENTS AND PROFESSORS ALL AROUND THE UNIVERSITY OF
             ILLINOIS CAMPUS INVOLVED, BUILDING OUR PUBLIC PROFILE ON SOCIAL
@@ -322,6 +376,7 @@ function About() {
             src={Isabella}
             className="aboutHeadshot"
             style={{ objectPosition: "top" }}
+            alt="A headshot (photo) of Isabella"
           />
           <div className="aboutHeadshotBack" />
         </div>
@@ -340,6 +395,7 @@ function About() {
               objectPosition: "center",
               objectViewBox: "inset(26% 19% 17% 33%)",
             }}
+            alt="A headshot (photo) of Jewel"
           />
           <div className="aboutHeadshotBack" />
         </div>
@@ -350,7 +406,11 @@ function About() {
           <span style={{ zIndex: "3", transform: "translate(5.2vw, -4vw)" }}>
             Isha
           </span>
-          <img src={Isha} className="aboutHeadshot" />
+          <img
+            src={Isha}
+            className="aboutHeadshot"
+            alt="A headshot (photo) of Isha"
+          />
           <div className="aboutHeadshotBack" />
         </div>
         <div
