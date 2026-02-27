@@ -2,7 +2,7 @@
   display: flex;
   top: 0px;
   width: 100%;
-  height: calc(0.05 * 100vw);
+  height: 5vw;
   background-color: #1b2948;
   align-items: center;
   justify-content: center;
@@ -13,13 +13,14 @@
   flex-direction: column;
   position: relative;
   width: 100%;
+  min-height: 230vw;
 }
 
 .faqCloudDiv {
   position: absolute;
-  width: calc(0.227 * 100vw);
+  width: 22.7vw;
   height: min-content;
-  top: calc(0.142 * 100vw);
+  top: 7vw;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -27,9 +28,9 @@
 .faqPinkTrapezoid-back {
   position: absolute;
   background-color: black;
-  top: calc(0.254 * 100vw);
+  top: 18.2vw;
   left: 0px;
-  height: calc(0.634 * 100vw);
+  height: 63.4vw;
   width: 100%;
   clip-path: polygon(0% 0%, 100% 21.23%, 100% 78.77%, 0% 100%);
   z-index: 1;
@@ -38,9 +39,9 @@
 .faqPinkTrapezoid {
   position: absolute;
   background-color: #ffaacd;
-  top: calc(0.254 * 100vw + 4px);
+  top: calc(18.2vw + 4px);
   left: 0px;
-  height: calc(0.634 * 100vw - 8px);
+  height: calc(63.4vw - 8px);
   width: 100%;
   clip-path: polygon(0% 0%, 100% 21.23%, 100% 78.77%, 0% 100%);
   z-index: 2;
@@ -48,8 +49,8 @@
 
 .faqStarsA {
   position: relative;
-  height: calc(0.023 * 100vw);
-  width: calc(0.023 * 100vw);
+  height: 2.3vw;
+  width: 2.3vw;
   z-index: 5;
 }
 
@@ -74,47 +75,47 @@
 
 .faqPinkTrapezoidTextboxA {
   position: absolute;
-  width: calc(0.324 * 100vw);
-  height: calc(0.141 * 100vw);
-  top: calc(0.39 * 100vw);
-  left: calc(0.118 * 100vw);
+  width: 32.4vw;
+  height: 14.1vw;
+  top: 31.8vw;
+  left: 11.8vw;
   font-size: 1.8vw;
   z-index: 3;
 }
 
 .faqPinkTrapezoidTextboxB {
   position: absolute;
-  width: calc(0.32 * 100vw);
-  height: calc(0.173 * 100vw);
-  top: calc(0.528 * 100vw);
-  left: calc(0.53 * 100vw);
+  width: 32vw;
+  height: 17.3vw;
+  top: 45.6vw;
+  left: 53vw;
   font-size: 1.6vw;
   z-index: 3;
 }
 
 .faqImpactA {
   position: absolute;
-  width: calc(0.086 * 100vw);
-  top: calc(0.341 * 100vw);
-  left: calc(0.072 * 100vw);
+  width: 8.6vw;
+  top: 26.9vw;
+  left: 7.2vw;
   z-index: 3;
 }
 
 .faqImpactB {
   position: absolute;
-  width: calc(0.086 * 100vw);
-  top: calc(0.685 * 100vw);
-  left: calc(0.817 * 100vw);
+  width: 8.6vw;
+  top: 61.3vw;
+  left: 81.7vw;
   transform: rotate(180deg);
   z-index: 3;
 }
 
 .faqMascot {
   position: absolute;
-  width: calc(0.128 * 100vw);
-  height: calc(0.128 * 100vw);
-  top: calc(0.4645 * 100vw);
-  left: calc(0.4725 * 100vw);
+  width: 12.8vw;
+  height: 12.8vw;
+  top: 39.25vw;
+  left: 47.25vw;
   z-index: 3;
 }
 
@@ -122,7 +123,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: calc(0.888 * 100vw - 4px);
+  top: calc(81.6vw - 4px);
   width: 100%;
 }
 
