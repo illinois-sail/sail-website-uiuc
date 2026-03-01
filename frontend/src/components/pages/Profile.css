@@ -11,7 +11,7 @@
     margin-left: 3.3vw;
 }
 
-.bus-info-title {
+.profile-title {
     width: 23vw;
     height: 2.4vw;
     color: #000;
@@ -20,4 +20,28 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.title-underline {
+    width: 22vw;
+    height: 0.26vw;
+    background: #79CCFF;
+}
+
+.profile-text {
+    width: 20vw;
+    height: 9.8vw;
+    color: #000;
+    font-family: "Classic Comic";
+    font-size: 1.4vw;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+/* Class */
+.classes-svg {
+    width: 100%;
+    height: auto;
+    display: block;
 }
