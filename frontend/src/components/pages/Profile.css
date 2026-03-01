@@ -1,0 +1,23 @@
+/* Bus Information */
+.notice-text {
+    width: 8.6vw;
+    height: 3vw;
+    color: #79CCFF;
+    font-family: "Classic Comic";
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 3.3vw;
+}
+
+.bus-info-title {
+    width: 23vw;
+    height: 2.4vw;
+    color: #000;
+    font-family: "Classic Comic";
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
