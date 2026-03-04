@@ -3,46 +3,6 @@ import axios from "axios";
 import SIEBEL_LOC from "../../assets/siebel_loc.png";
 import "./Profile.css";
 
-const BusInformation = () => {
-  return (
-    <div className="bus-information" style={{
-      display: "flex",
-      marginTop: "5vw", // NOT FINAL
-      marginLeft: "7vw",
-      width: "83vw",
-      height: "44vw",
-      border: "0.26vw solid #000",
-      background: "#FFF"
-    }}>
-      <div className="notice-block" style={{ display: "flex", width: "17vw", height: "44vw", background: "#000", alignItems: "center" }}>
-        <span className="notice-text">Notice</span>
-      </div>
-      <div className="bus-info-body" style={{ display: "flex", width: "66vw", height: "44vw", background: "#FFF" }}>
-        <div className="bus-info-header" style={{ marginTop: "3vw", marginLeft: "3vw" }}>
-          <span className="profile-title">Bus Information</span>
-          <div className="title-underline" />
-          <span className="profile-text">
-              <br/>Buses ARE FREE! You do not have to buy a ticket or pay for them.<br/><br/>
-              There are buses to take you to the Siebel Center for CS and back. Please arrive 15 minutes before the bus is set to depart.
-          </span>
-          <span className="profile-text"><br/><br/><br/>Morning Bus</span>
-          <span className="profile-text" style={{ marginLeft: "3vw", display: "block", width: "58vw" }}>
-            <br/>Union Station, Chicago (225 S Canal St, Chicago, IL 60606)<br/>
-            Depart Union Station @ 5:55 AM<br/>
-            Arrive at Siebel Center for CS @ 8:00 AM<br/>
-          </span>
-          <span className="profile-text">Evening Bus</span>
-          <span className="profile-text" style={{ marginLeft: "3vw", display: "block", width: "58vw" }}>
-            <br/>Union Station, Chicago (225 S Canal St, Chicago, IL 60606)<br/>
-            Depart Siebel Center for CS @ 6:15 PM<br/>
-            Arrive at Union Station @ 8:30 PM
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 const MapLocation = () => {
   return (
     <div className="location-map">
@@ -86,13 +46,93 @@ const ClassesDisplay = () => {
   );
 }
 
+const initialAuthUser = JSON.parse(localStorage.getItem("authUser"));
+
 function Profile() {
+  const [authUser, setAuthUser] = useState(initialAuthUser);
+  const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
+
+  /*
+   * The below is uncommented for testing purposes
+   */
+  // if (!authUser) {
+  //   console.log("No initial authUser found in local storage");
+  //   window.location.href = "/login";
+  // }
+
+  /*
+   * Insert useEffect for getting classes here
+   */
+
+  useEffect(() => {
+    console.log("authUser changed!");
+    if (authUser) {
+      localStorage.setItem("authUser", JSON.stringify(authUser));
+      console.log("changed authUser: ", authUser);
+      console.log("authUser classes: " + authUser.classes);
+    }
+  }, [authUser]);
+
+  const [isEditingFirstName, setIsEditingFirstName] = useState(false);
+  const [isEditingLastName, setIsEditingLastName] = useState(false);
+  const [isEditingEmail, setIsEditingEmail] = useState(false);
+
+  const[isEditing, setIsEditing] = useState(false);
+  
+  const [editedFirstName, setEditedFirstName] = useState("");
+  const [editedLastName, setEditedLastName] = useState("");
+  const [editedEmail, setEditedEmail] = useState("");
+
+  const [originalFirstName, setOriginalFirstName] = useState(authUser ? authUser.first_name : "");
+  const [originalLastName, setOriginalLastName] = useState(authUser ? authUser.last_name : "");
+  const [originalEmail, setOriginalEmail] = useState(authUser ? authUser.email : "");
+
+  const [isSmallScreen, setIsSmallScreen] = useState(window.matchMedia('(max-width: 1200px)').matches);
+  const [flexDirection, setFlexDirection] = useState(isSmallScreen ? "column" : "row");
+  const [displayStyle, setDisplayStyle] = useState(isSmallScreen ? "grid" : "flex");
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isSmallScreen = window.matchMedia("(max-width: 1200px)").matches;
+      setIsSmallScreen(isSmallScreen);
+      setDisplayStyle(isSmallScreen ? "grid" : "flex");
+      setFlexDirection(isSmallScreen ? "column" : "row");
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleSave = () => {
+    // if any field is empty, set it to original value
+    if (editedEmail === "") {
+      setEditedEmail(originalEmail);
+    }
+    if (editedFirstName === "") {
+      setEditedFirstName(originalFirstName);
+    }
+    if (editedLastName === "") {
+      setEditedFirstName(originalLastName);
+    }
+    console.log("editedEmail: ", editedEmail);
+    console.log("originalEmail: ", originalEmail);
+
+    // if user edits email, confirm user actually wants to
+    if (editedEmail !== originalEmail && editedEmail !== "") {
+      if (window.confirm("Are you sure you want to change your email?")) {
+        // then continue with the save
+      }
+      else {
+        // if the user cancels then return
+        return;
+      }
+    }
+  };
+
   return (
     <div>
       COMING SOON!
       {/* <ClassesDisplay/> */}
       {/* <MapLocation/> */}
-      {/* <BusInformation/> */}
     </div>
   );
 }
