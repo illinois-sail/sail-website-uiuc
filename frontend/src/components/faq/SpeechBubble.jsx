@@ -17,7 +17,7 @@ function SpeechBubble({
         preserveAspectRatio="2312/329.3"
         version="1.0"
         viewBox="0 0 1734 300"
-        transform={tailDirection === "right" ? "scale(-1,1)" : null}
+        style={{ transform: tailDirection === "right" ? "scale(-1,1)" : null }}
       >
         <defs>
           <filter
