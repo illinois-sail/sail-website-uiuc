@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SERVER_URL, { PROD_SERVER } from "../server_url";
 import SIEBEL_LOC from "../../assets/siebel_loc.png";
 import "./Profile.css";
 
@@ -126,7 +127,60 @@ function Profile() {
         return;
       }
     }
+
+    // POST request to change user info
+
+    axios.post(`${SERVER_URL}/change_user_info`, {
+      firstName: editedFirstName ? editedFirstName : originalFirstName,
+      lastName: editedLastName ? editedLastName : originalLastName,
+      oldEmail: originalEmail,
+      newEmail: editedEmail ? editedEmail : originalEmail,
+    }, {
+      // withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+        // 'Access-Control-Allow-Origin': 'true',
+      },
+      // mode: 'cors'
+    })
+    .then(response => {
+      // set the authUser to the new information
+      console.log("response: ", response);
+      if (response.data) {
+        localStorage.setItem('authUser', JSON.stringify(response.data));
+        setOriginalFirstName(response.data.first_name);
+        setOriginalLastName(response.data.last_name);
+        setOriginalEmail(response.data.email);
+      }
+
+      // force reload after saving
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 100);
+    })
+    .catch(error => {
+      // handle the error if needed
+      console.log(error);
+    });
+
+    setIsEditing(false);
+    setIsEditingFirstName(false);
+    setIsEditingLastName(false);
+    setIsEditingEmail(false);
   };
+
+  const handleCancel = () => {
+    setEditedFirstName(originalFirstName);
+    setEditedLastName(originalLastName);
+    setEditedEmail(originalEmail);
+
+    setIsEditing(false);
+    setIsEditingFirstName(false);
+    setIsEditingLastName(false);
+    setIsEditingEmail(false);
+  };
+
+  
 
   return (
     <div>
