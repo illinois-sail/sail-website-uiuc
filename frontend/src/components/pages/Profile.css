@@ -1,6 +1,7 @@
+/* Profile Generics */
 .profile-title {
-    width: 23vw;
-    height: 2.4vw;
+    /* width: 23vw; */
+    /* height: 2.4vw; */
     color: #000;
     font-family: "Classic Comic";
     font-size: 2vw;
@@ -16,8 +17,8 @@
 }
 
 .profile-text {
-    width: 20vw;
-    height: 9.8vw;
+    /* width: 20vw; */
+    /* height: 9.8vw; */
     color: #000;
     font-family: "Classic Comic";
     font-size: 1.4vw;
@@ -31,4 +32,39 @@
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* Register for Classes Prompt */
+.register-prompt-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Personal Information */
+.pers-info-container {
+    position: relative;
+    width: 48vw;
+    height: 22vw;
+    border: 0.26vw solid #000;
+    background: #FFF;
+}
+
+.edit-info-btn-container {
+    width: 11vw;
+    height: 3vw;
+    border-radius: 687400vw;
+    border: 0.17vw solid #000;
+    background: linear-gradient(90deg, #FF6900 0%, #F54900 100%);
+    box-shadow: 0.25vw 0.25vw 0 0 #000;
+}
+
+.edit-text {
+    color: #FFF;
+    text-align: center;
+    font-family: "Classic Comic";
+    font-size: 1.63vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

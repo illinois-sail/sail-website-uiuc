@@ -38,11 +38,73 @@ const ClassesDisplay = () => {
       <svg className="classes-svg" xmlns="http://www.w3.org/2000/svg" width="814" height="309" viewBox="0 0 820 309">
         <path d="M2 2H816L671.825 307H2V2Z" fill="#FFF" stroke="black" strokeWidth="4" />
       </svg>
-      <div className="svg-content" style={{ position: "absolute", top: "12%", left: "4%" }}>
+      <div className="classes-svg-content" style={{ position: "absolute", top: "12%", left: "4%" }}>
         <span className="profile-title">Classes</span>
         <div className="title-underline" />
         <span className="profile-text"><br/>COMING SOON!</span>
       </div>
+    </div>
+  );
+}
+
+const RegisterForClasses = () => {
+  return (
+    <div className="register-prompt-wrapper" style={{ position: "relative", width: "32vw" }}>
+      <svg className="register-prompt-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="309" viewBox="0 0 498 309" fill="none">
+        <path d="M149.325 2L3.17603 307H398.578L495.176 2H149.325Z" fill="white" stroke="black" stroke-width="4"/>
+      </svg>
+      <div className="register-prompt-svg-content" style={{ position: "absolute", top: "35%", left: "40%", width: "13vw" }}>
+        <span className="profile-text">Complete Registration <a href="/classes">Here</a></span>
+      </div>
+    </div>
+  );
+}
+
+const PersonalInformation = ({ authUser, isEditing, setIsEditing, editedFirstName, setEditedFirstName, editedLastName, setEditedLastName, editedEmail, setEditedEmail, handleSave, handleCancel }) => {
+  return (
+    <div className="pers-info-container">
+      <div className="pers-info-content" style={{ marginTop: "2vw", marginLeft: "2vw" }}>
+        <span className="profile-title">Personal Information</span>
+        <div className="title-underline" style={{ width: "26.8vw" }}/>
+        {isEditing ? (
+          <>
+            <span className="profile-text"><br/>
+              First Name:
+              <input value={editedFirstName} onChange={(e) => setEditedFirstName(e.target.value)} />
+            </span>
+            <span className="profile-text"><br/>
+              Last Name:
+              <input value={editedLastName} onChange={(e) => setEditedLastName(e.target.value)} />
+            </span>
+            <span className="profile-text"><br/>
+              Email:
+              <input value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} />
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="profile-text"><br/>First Name: {authUser?.first_name}</span>
+            <span className="profile-text"><br/>Last Name: {authUser?.last_name}</span>
+            <span className="profile-text"><br/>Email: {authUser?.email}</span>
+            <span className="profile-text"><br/>Year: 69th Grade</span>
+          </>
+        )}       
+      </div>
+      
+      {isEditing ? (
+        <div style={{ position: "absolute", bottom: "2vw", right: "2vw" }}>
+          <button className="edit-info-btn-container" onClick={handleSave}>
+            <span className="edit-text">Save</span>
+          </button>
+          <button className="edit-info-btn-container" style={{ marginLeft: "1vw", background: "gray" }} onClick={handleCancel}>
+            <span className="edit-text">Cancel</span>
+          </button>
+        </div>
+      ) : (
+        <button className="edit-info-btn-container" style={{ position: "absolute", bottom: "2vw", right: "2vw" }} onClick={() => setIsEditing(true)}>
+          <span className="edit-text">Edit</span>
+        </button>
+      )}
     </div>
   );
 }
@@ -187,6 +249,19 @@ function Profile() {
       COMING SOON!
       {/* <ClassesDisplay/> */}
       {/* <MapLocation/> */}
+      {/* <RegisterForClasses/> */}
+      <PersonalInformation authUser={authUser}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+        editedFirstName={editedFirstName}
+        setEditedFirstName={setEditedFirstName}
+        editedLastName={editedLastName}
+        setEditedLastName={setEditedLastName}
+        editedEmail={editedEmail}
+        setEditedEmail={setEditedEmail}
+        handleSave={handleSave}
+        handleCancel={handleCancel}
+      />
     </div>
   );
 }
