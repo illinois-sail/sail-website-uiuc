@@ -1,0 +1,221 @@
+.aboutTrap {
+  height: 55.2vw;
+  width: 100%;
+  z-index: 1;
+}
+
+.aboutLeftTrap {
+  position: absolute;
+  height: 55.2vw;
+  width: 100%;
+  max-width: 100%;
+  z-index: 1;
+  clip-path: polygon(0% 0%, 100% 19.3%, 100% 80.7%, 0% 100%);
+}
+.aboutLeftTrapBack {
+  background-color: black;
+  height: 56.2vw;
+  width: 100%;
+  max-width: 100%;
+  z-index: -1;
+  clip-path: polygon(0% 0%, 100% 19.3%, 100% 80.7%, 0% 100%);
+}
+
+.aboutRightTrap {
+  position: absolute;
+  height: 55.2vw;
+  width: 100%;
+  max-width: 100%;
+  z-index: 1;
+  clip-path: polygon(0% 19.3%, 100% 0%, 100% 100%, 0% 80.7%);
+}
+.aboutRightTrapBack {
+  background-color: black;
+  height: 56.2vw;
+  width: 100%;
+  max-width: 100%;
+  z-index: -1;
+  clip-path: polygon(0% 19.3%, 100% 0%, 100% 100%, 0% 80.7%);
+}
+
+.aboutTextA {
+  position: relative;
+  margin-top: 9vw;
+  margin-left: 4vw;
+  background-color: white;
+  width: 33.92vw;
+  height: 10.68vw;
+  color: black;
+  border: 2px solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+  align-content: center;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 1.1vw;
+  font-weight: 700;
+  line-height: 2.35vw;
+  z-index: 3;
+}
+
+.aboutTextB {
+  position: relative;
+  margin-left: 48.12vw;
+  margin-top: -9vw;
+  background-color: white;
+  width: 40vw;
+  height: 15.47vw;
+  color: black;
+  border: 2px solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+  align-content: center;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 1.1vw;
+  font-weight: 700;
+  line-height: 2.35vw;
+  z-index: 3;
+}
+
+.aboutTextC {
+  width: 90vw;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 7em;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 1.78vw;
+  font-weight: 500;
+  line-height: 2.75vw;
+}
+
+.aboutTitleCloud {
+  position: absolute;
+  height: 12.88vw;
+  width: 52.71vw;
+  margin-left: 23.41vw;
+  margin-top: -11vw;
+  z-index: 3;
+}
+.aboutTwoDayEvent {
+  position: absolute;
+  height: 26.06vw;
+  width: 22.45vw;
+  margin-top: 27vw;
+  margin-left: 6vw;
+  z-index: 3;
+}
+.aboutFreeBubble {
+  position: absolute;
+  height: 16.04vw;
+  width: 20.99vw;
+  margin-top: 1.5vw;
+  margin-left: 74.2vw;
+  z-index: 3;
+}
+.aboutStar1 {
+  position: absolute;
+  height: 7.94vw;
+  width: 12.76vw;
+  margin-top: -2.9vw;
+  margin-left: 7vw;
+  z-index: 3;
+}
+.aboutStar2 {
+  position: absolute;
+  height: 9.1vw;
+  width: 6.38vw;
+  margin-top: 42.75vw;
+  margin-left: 91.73vw;
+  z-index: 3;
+}
+.aboutHeaderCloud {
+  position: relative;
+  height: 15.08vw;
+  width: 42.33vw;
+  align-self: center;
+  margin-top: -0.5em;
+  margin-bottom: 4em;
+}
+.aboutWhoAreThey {
+  width: 21.58vw;
+}
+.aboutLead {
+  position: absolute;
+  height: 11.5vw;
+  aspect-ratio: 1.25;
+  margin-top: -4vw;
+  margin-left: -5.5vw;
+  z-index: 3;
+}
+
+.aboutSegHeader {
+  position: absolute;
+  margin-top: 2.5vw;
+  height: 8.4vw;
+  width: 27.05vw;
+  background-color: #fff;
+  border: 0.35vw solid black;
+  border-radius: 15px;
+  justify-self: center;
+  align-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.25vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  z-index: 2;
+}
+
+.aboutSegSummary {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  height: 29.23vw;
+  width: 42.79vw;
+  left: 51.98vw;
+  background-color: #fff;
+  border: 0.35vw solid black;
+  border-radius: 15px;
+  text-align: center;
+  align-items: center;
+  border: 0.35vw solid black;
+  font-size: 1.75vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 2vw;
+  z-index: 2;
+}
+
+.aboutProfile {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  font-weight: 1100;
+  font-size: 2.5vw;
+  -webkit-text-stroke: 0.8px black;
+  text-shadow: black 1.75px 1.75px;
+  font-family: "DynaPuff", Helvetica, sans-serif;
+}
+.aboutHeadshot {
+  position: absolute;
+  height: 16.72vw;
+  aspect-ratio: 1;
+  object-fit: cover;
+  clip-path: circle();
+  z-index: 3;
+}
+.aboutHeadshotBack {
+  position: absolute;
+  height: 17.42vw;
+  aspect-ratio: 1;
+  background-color: black;
+  clip-path: circle();
+  transform: translate(-0.35vw, -0.35vw);
+  z-index: 2;
+}
