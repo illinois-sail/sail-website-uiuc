@@ -9,7 +9,7 @@ const CloudPart = ({ cx, cy, rx, ry }) => (
   </g>
 );
 
-function FaqCloud() {
+function FaqCloud({ width = "100%" }) {
   const parts = [
     //center
     { id: "center", cx: 150, cy: 83.59, rx: 125, ry: 43.59 },
@@ -32,9 +32,8 @@ function FaqCloud() {
     //Fills container width and proportions
     <svg
       viewBox="0 0 360 170"
+      width={width}
       style={{
-        width: "100%",
-        aspectRatio: "360 / 170",
         display: "block",
         margin: "auto",
       }}

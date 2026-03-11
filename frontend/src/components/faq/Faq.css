@@ -13,23 +13,17 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  min-height: 230vw;
 }
 
 .faqCloudDiv {
-  position: absolute;
-  width: 22.7vw;
-  height: min-content;
-  top: 7vw;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  padding-top: 7vw;
+  align-items: center;
 }
 
 .faqPinkTrapezoid-back {
-  position: absolute;
+  position: relative;
   background-color: black;
-  top: 18.2vw;
-  left: 0px;
   height: 63.4vw;
   width: 100%;
   clip-path: polygon(0% 0%, 100% 21.23%, 100% 78.77%, 0% 100%);
@@ -37,18 +31,18 @@
 }
 
 .faqPinkTrapezoid {
-  position: absolute;
+  position: relative;
   background-color: #ffaacd;
-  top: calc(18.2vw + 4px);
-  left: 0px;
+  margin-top: calc(-63.4vw + 4px);
   height: calc(63.4vw - 8px);
   width: 100%;
   clip-path: polygon(0% 0%, 100% 21.23%, 100% 78.77%, 0% 100%);
   z-index: 2;
 }
 
-.faqStarsA {
-  position: relative;
+.faqStar {
+  position: absolute;
+  top: 18.2vw;
   height: 2.3vw;
   width: 2.3vw;
   z-index: 5;
@@ -77,7 +71,7 @@
   position: absolute;
   width: 32.4vw;
   height: 14.1vw;
-  top: 31.8vw;
+  top: 12.62vw;
   left: 11.8vw;
   font-size: 1.8vw;
   z-index: 3;
@@ -87,7 +81,7 @@
   position: absolute;
   width: 32vw;
   height: 17.3vw;
-  top: 45.6vw;
+  top: 25.84vw;
   left: 53vw;
   font-size: 1.6vw;
   z-index: 3;
@@ -96,7 +90,7 @@
 .faqImpactA {
   position: absolute;
   width: 8.6vw;
-  top: 26.9vw;
+  top: 7.66vw;
   left: 7.2vw;
   z-index: 3;
 }
@@ -104,7 +98,7 @@
 .faqImpactB {
   position: absolute;
   width: 8.6vw;
-  top: 61.3vw;
+  top: 41.45vw;
   left: 81.7vw;
   transform: rotate(180deg);
   z-index: 3;
@@ -114,7 +108,7 @@
   position: absolute;
   width: 12.8vw;
   height: 12.8vw;
-  top: 39.25vw;
+  top: 19.49vw;
   left: 47.25vw;
   z-index: 3;
 }
@@ -122,8 +116,7 @@
 .faqQuestionInfoWrapper {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: calc(81.6vw - 4px);
+  position: relative;
   width: 100%;
 }
 
@@ -195,8 +188,17 @@
 }
 
 .faqFooterWrapper {
-  height: 15.2vw;
-  align-self: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  padding-top: 8.13vw;
+}
+
+.faqFooter {
+  width: 88.2%;
   font-family:
     "Classic Relief",
     Comic Sans MS,
@@ -206,11 +208,8 @@
   line-height: 3;
   text-align: center;
   background-color: #fefefe;
-  border: 3px solid black;
-  width: 88.2%;
   padding-top: 2rem;
-  padding-bottom: 0rem;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  padding-bottom: 2rem;
+  border: 3px solid black;
   box-shadow: 3px 3px 0 0 rgb(0, 0, 0, 0.5);
 }

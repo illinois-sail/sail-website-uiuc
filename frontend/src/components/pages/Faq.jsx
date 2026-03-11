@@ -19,43 +19,44 @@ function Faq() {
   const [shownH, setShownH] = useState(false);
 
   const starPositionsA = [
-    { top: 0.288, left: 0.299 },
-    { top: 0.332, left: 0.587 },
-    { top: 0.365, left: 0.781 },
-    { top: 0.416, left: 0.664 },
-    { top: 0.518, left: 0.041 },
-    { top: 0.518, left: 0.361 },
-    { top: 0.508, left: 0.952 },
-    { top: 0.574, left: 0.209 },
-    { top: 0.664, left: 0.679 },
-    { top: 0.689, left: 0.389 },
-    { top: 0.75, left: 0.099 },
+    { top: -0.117, left: 0.299 },
+    { top: -0.053, left: 0.587 },
+    { top: -0.02, left: 0.781 },
+    { top: 0.011, left: 0.664 },
+    { top: 0.133, left: 0.041 },
+    { top: 0.133, left: 0.361 },
+    { top: 0.123, left: 0.952 },
+    { top: 0.189, left: 0.209 },
+    { top: 0.279, left: 0.679 },
+    { top: 0.284, left: 0.389 },
+    { top: 0.345, left: 0.099 },
   ];
 
   return (
     <div className="faqWrapper">
       <div className="faqCloudDiv">
-        <FaqCloud />
+        <FaqCloud className="faqCloudDiv" width="22.7vw" />
       </div>
       {/* Pink Trapezoid Section */}
-      <div>
+      <div style={{ position: "relative" }}>
         <div className="faqPinkTrapezoid-back" />
-        <div className="faqPinkTrapezoid" />
-        <div className="faqStarsA">
-          {starPositionsA.map((pos, index) => (
-            <div
-              key={index}
-              style={{
-                position: "absolute",
-                top: `calc(${pos.top} * 100vw)`,
-                left: `calc(${pos.left} * 100vw)`,
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <FaqStar fill="#D72F4E" stroke="#3A260D" />
-            </div>
-          ))}
+        <div className="faqPinkTrapezoid">
+          <div className="faqStar">
+            {starPositionsA.map((pos, index) => (
+              <div
+                key={index}
+                style={{
+                  position: "absolute",
+                  top: `calc(${pos.top} * 100vw)`,
+                  left: `calc(${pos.left} * 100vw)`,
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <FaqStar fill="#D72F4E" stroke="#3A260D" />
+              </div>
+            ))}
+          </div>
         </div>
         <div className="faqImpactA">
           <ImpactMark />
@@ -63,7 +64,7 @@ function Faq() {
         <div className="faqPinkTrapezoidTextbox faqPinkTrapezoidTextboxA">
           YOU PROBABLY HAVE SOME QUESTIONS...
         </div>
-        <img src={mascot} alt="mascot" className="faqMascot"></img>
+        <img src={mascot} alt="mascot" className="faqMascot" />
         <div className="faqPinkTrapezoidTextbox faqPinkTrapezoidTextboxB">
           <span>...DON'T WORRY, WE'VE READ</span>
           <span>YOUR MIND AND HAVE THE</span>
@@ -107,7 +108,7 @@ function Faq() {
               width="80.71vw"
               color="#13294B"
               tailDirection="right"
-              text="WHO CAN ATTEND?"
+              text="WHO CAN ATTEND SAIL?"
               onclick={() => setShownB(!shownB)}
             />
             <div className="faqResponse" hidden={!shownB}>
@@ -221,7 +222,7 @@ function Faq() {
                 <span>
                   WE'LL OFFER A RANGE OF CLASS OPTIONS WITH EXPERIENCE
                   RECOMMENDATIONS (FROM NONE REQUIRED, TO SOME BACKGROUND IN
-                  SPECIFIC TOPICS), AS WELL AS Q+A AND DISCUSSION OPPORTUNITIES
+                  SPECIFIC TOPICS), AS WELL AS Q&A AND DISCUSSION OPPORTUNITIES
                   SO YOU CAN EXPLORE ALL THE POSSIBILITIES IN CS!
                 </span>
               </div>
@@ -306,7 +307,7 @@ function Faq() {
                   NO. PARENTS ARE WELCOME TO ATTEND SAIL AND PARTICIPATE IN OUR
                   PARENT TRACK, BUT ARE NOT REQUIRED. SIEBEL SCHOOL OF COMPUTING
                   AND DATA SCIENCE CAMPUS SECURITY AUTHORITIES WILL BE PRESENT
-                  ONSITE THROUGHOUT THE EVENT TO ENSURE THE SAFETY AND
+                  ON-SITE THROUGHOUT THE EVENT TO ENSURE THE SAFETY AND
                   WELL-BEING OF STUDENTS.
                 </span>
               </div>
@@ -328,27 +329,29 @@ function Faq() {
           </div>
         </div>
         <div className="faqFooterWrapper">
-          <span>
-            HAVE MORE QUESTIONS? CONTACT US AT{" "}
-            <a href="mailto:cs-sail@illinois.edu">CS-SAIL@ILLINOIS.EDU</a>!
-            <br />
-            FOLLOW US ON{" "}
-            <a href="https://www.instagram.com/illinois_cs_sail/">
-              INSTAGRAM
-            </a>{" "}
-            AND <a href="https://www.tiktok.com/@illinoissail">TIKTOK</a> FOR
-            MORE UPDATES!
-          </span>
-          <div className="faqStarsA" style={{ top: "-110%", left: "10%" }}>
+          <div className="faqFooter">
+            <span>
+              HAVE MORE QUESTIONS? CONTACT US AT{" "}
+              <a href="mailto:cs-sail@illinois.edu">CS-SAIL@ILLINOIS.EDU</a>!
+              <br />
+              FOLLOW US ON{" "}
+              <a href="https://www.instagram.com/illinois_cs_sail/">
+                INSTAGRAM
+              </a>{" "}
+              AND <a href="https://www.tiktok.com/@illinoissail">TIKTOK</a> FOR
+              MORE UPDATES!
+            </span>
+          </div>
+          <div className="faqStar" style={{ top: "20%", left: "13%" }}>
             <FaqStar fill="#D72F4E" stroke="#3A260D" />
           </div>
-          <div className="faqStarsA" style={{ top: "30%", left: "-2%" }}>
+          <div className="faqStar" style={{ top: "110%", left: "4%" }}>
             <FaqStar fill="#D72F4E" stroke="#3A260D" />
           </div>
-          <div className="faqStarsA" style={{ top: "-180%", left: "90%" }}>
+          <div className="faqStar" style={{ top: "-5%", left: "86%" }}>
             <FaqStar fill="#D72F4E" stroke="#3A260D" />
           </div>
-          <div className="faqStarsA" style={{ top: "0%", left: "85%" }}>
+          <div className="faqStar" style={{ top: "106%", left: "82%" }}>
             <FaqStar fill="#D72F4E" stroke="#3A260D" />
           </div>
         </div>
