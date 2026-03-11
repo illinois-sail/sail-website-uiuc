@@ -157,24 +157,9 @@
   margin-right: -2.5%;
 }
 
-.faqResponse > .faqResponseStarA {
-  position: absolute;
+.faqResponseStar {
   z-index: 2;
   margin-top: 0.5%;
-  margin-left: -5%;
-}
-
-.faqResponse > .faqResponseStarB {
-  position: absolute;
-  z-index: 2;
-  margin-top: 13.2%;
-  margin-left: -5%;
-}
-.faqResponse > .faqResponseStarC {
-  position: absolute;
-  z-index: 2;
-  margin-top: 9.1%;
-  margin-left: -5%;
 }
 
 .faqResponse {
@@ -190,7 +175,8 @@
   font-size: 1.3vw;
   line-height: 3;
   box-sizing: border-box;
-  padding-left: 8.5%;
+  padding-left: 3%;
+  padding-right: 6%;
   padding-top: 10%;
   padding-bottom: 6%;
   margin-top: -10%;
@@ -199,6 +185,13 @@
 
 .faqResponse > * {
   display: inline;
+}
+
+.faqResponseRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.9vw;
 }
 
 .faqFooterWrapper {

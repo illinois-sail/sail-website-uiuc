@@ -16,6 +16,7 @@ function Faq() {
   const [shownE, setShownE] = useState(false);
   const [shownF, setShownF] = useState(false);
   const [shownG, setShownG] = useState(false);
+  const [shownH, setShownH] = useState(false);
 
   const starPositionsA = [
     { top: 0.288, left: 0.299 },
@@ -93,10 +94,12 @@ function Faq() {
             </div>
             {/* End kluge */}
             <div className="faqResponse" hidden={!shownA}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>SAIL IS COMPLETELY FREE TO ATTEND!</span>
               </div>
-              <span>SAIL IS COMPLETELY FREE TO ATTEND!</span>
             </div>
           </div>
           <div className="faqCard faqCardRight" id="faqCardB">
@@ -108,15 +111,17 @@ function Faq() {
               onclick={() => setShownB(!shownB)}
             />
             <div className="faqResponse" hidden={!shownB}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  CS SAIL IS OPEN TO ANY HIGH SCHOOL STUDENTS (GRADES 9-12)
+                  WORLDWIDE! YOU DO NOT NEED TO BE CURRENTLY ADMITTED OR
+                  APPLYING TO ILLINOIS TO ATTEND, THOUGH WE'RE EXCITED TO
+                  WELCOME ANY FUTURE ILLINI!
+                </span>
               </div>
-              <span>
-                CS SAIL IS OPEN TO ANY HIGH SCHOOL STUDENTS (GRADES 9-12)
-                WORLDWIDE! YOU DO NOT NEED TO BE CURRENTLY ADMITTED OR APPLYING
-                TO ILLINOIS TO ATTEND, THOUGH WE'RE EXCITED TO WELCOME ANY
-                FUTURE ILLINI!
-              </span>
             </div>
           </div>
           <div className="faqCard faqCardLeft" id="faqCardC">
@@ -128,20 +133,26 @@ function Faq() {
               onclick={() => setShownC(!shownC)}
             />
             <div className="faqResponse" hidden={!shownC}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  PARENTS ARE INVITED TO JOIN US ON-CAMPUS APRIL 18TH, WHERE
+                  WE'VE PARTNERED WITH THE SIEBEL SCHOOL OF COMPUTING AND DATA
+                  SCIENCE AND UNDERGRADUATE ADMISSIONS TO OFFER AN EXCLUSIVE
+                  SAIL PARENT TRACK.
+                </span>
               </div>
-              <div className="faqResponseStarB">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  UNFORTUNATELY, WE ARE NOT ABLE TO ACCOMMODATE PARENTS ON THE
+                  STUDENT TRACK, THOUGH SOME EVENTS WILL BE HOSTED TOGETHER!
+                </span>
               </div>
-              <span>
-                PARENTS ARE INVITED TO JOIN US ON-CAMPUS APRIL 18TH, WHERE WE'VE
-                PARTNERED WITH THE SIEBEL SCHOOL OF COMPUTING AND DATA SCIENCE
-                AND UNDERGRADUATE ADMISSIONS TO OFFER AN EXCLUSIVE SAIL PARENT
-                TRACK. <br /> UNFORTUNATELY, WE ARE NOT ABLE TO ACCOMMODATE
-                PARENTS ON THE STUDENT TRACK, THOUGH SOME EVENTS WILL BE HOSTED
-                TOGETHER!
-              </span>
               {/* <span>
                 PARENTS ARE INVITED TO JOIN US ON-CAMPUS APRIL 18TH, WHERE WE'VE
                 PARTNERED WITH THE SIEBEL SCHOOL OF COMPUTING AND DATA SCIENCE
@@ -161,23 +172,27 @@ function Faq() {
               onclick={() => setShownD(!shownD)}
             />
             <div className="faqResponse" hidden={!shownD}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  SAIL DOES NOT HAVE AN APPLICATION, BUT WE DO HAVE A REQUIRED
+                  REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE
+                  REACH OUR EVENT CAPACITY.
+                </span>
               </div>
-              <span>
-                SAIL DOES NOT HAVE AN APPLICATION, BUT WE DO HAVE A REQUIRED
-                REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE REACH
-                OUR EVENT CAPACITY.
-              </span>
-              {/* <div className="faqResponseStarC">
-                <ResponseStar width="3vw" />
-              </div>
-              <span>
-                SAIL DOES NOT HAVE AN APPLICATION, BUT WE DO HAVE A REQUIRED
-                REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE REACH
-                OUR EVENT CAPACITY. <br /> VIEW REGISTRATION INSTRUCTIONS{" "}
-                <href id="TODO">HERE.</href>
-              </span> */}
+              {/* <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  SAIL DOES NOT HAVE AN APPLICATION, BUT WE DO HAVE A REQUIRED
+                  REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE
+                  REACH OUR EVENT CAPACITY. <br /> VIEW REGISTRATION
+                  INSTRUCTIONS <href id="TODO">HERE.</href>
+                </span>
+              </div> */}
             </div>
           </div>
           <div className="faqCard faqCardLeft" id="faqCardE">
@@ -189,21 +204,27 @@ function Faq() {
               onclick={() => setShownE(!shownE)}
             />
             <div className="faqResponse" hidden={!shownE}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  NOPE! SAIL IS OPEN TO HIGH SCHOOL STUDENTS AT ANY LEVEL IN
+                  THEIR CS LEARNING JOURNEY. ANYONE INTERESTED IN LEARNING (OR
+                  LEARNING MORE!) ABOUT CS IS ENCOURAGED TO ATTEND!
+                </span>
               </div>
-              <div className="faqResponseStarC">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  WE'LL OFFER A RANGE OF CLASS OPTIONS WITH EXPERIENCE
+                  RECOMMENDATIONS (FROM NONE REQUIRED, TO SOME BACKGROUND IN
+                  SPECIFIC TOPICS), AS WELL AS Q+A AND DISCUSSION OPPORTUNITIES
+                  SO YOU CAN EXPLORE ALL THE POSSIBILITIES IN CS!
+                </span>
               </div>
-              <span>
-                NOPE! SAIL IS OPEN TO HIGH SCHOOL STUDENTS AT ANY LEVEL IN THEIR
-                CS LEARNING JOURNEY. ANYONE INTERESTED IN LEARNING (OR LEARNING
-                MORE!) ABOUT CS IS ENCOURAGED TO ATTEND! <br /> WE'LL OFFER A
-                RANGE OF CLASS OPTIONS WITH EXPERIENCE RECOMMENDATIONS (FROM
-                NONE REQUIRED, TO SOME BACKGROUND IN SPECIFIC TOPICS), AS WELL
-                AS Q+A AND DISCUSSION OPPORTUNITIES SO YOU CAN EXPLORE ALL THE
-                POSSIBILITIES IN CS!
-              </span>
             </div>
           </div>
           <div className="faqCard faqCardRight" id="faqCardF">
@@ -216,20 +237,26 @@ function Faq() {
               onclick={() => setShownF(!shownF)}
             />
             <div className="faqResponse" hidden={!shownF}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  BREAKFAST WILL BE PROVIDED FOR REGISTERED STUDENTS AND
+                  PARENTS.
+                </span>
               </div>
-              <div className="faqResponseStarC">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  LUNCH WILL BE PROVIDED TO REGISTERED STUDENTS. FOR ADDITIONAL
+                  PARENT MEAL OPTIONS, OUR PARTNERS AT THE CS ADMISSIONS
+                  DEPARTMENT CAN PROVIDE RECOMMENDATIONS FOR LOCAL RESTAURANTS
+                  TO EXPLORE AROUND CAMPUS.
+                </span>
               </div>
-              <span>
-                BREAKFAST WILL BE PROVIDED FOR REGISTERED STUDENTS AND PARENTS.{" "}
-                <br />
-                LUNCH WILL BE PROVIDED TO REGISTERED STUDENTS. FOR ADDITIONAL
-                PARENT MEAL OPTIONS, OUR PARTNERS AT THE CS ADMISSIONS
-                DEPARTMENT CAN PROVIDE RECOMMENDATIONS FOR LOCAL RESTAURANTS TO
-                EXPLORE AROUND CAMPUS.
-              </span>
             </div>
           </div>
           <div className="faqCard faqCardLeft" id="faqCardG">
@@ -241,50 +268,62 @@ function Faq() {
               onclick={() => setShownG(!shownG)}
             />
             <div className="faqResponse" hidden={!shownG}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  BUS TRANSPORTATION FROM THE CHICAGO AREA IS PROVIDED FOR FREE
+                  TO-AND-FROM THE EVENT VIA PEORIA CHARTER. LOG IN TO VIEW THE
+                  BUS SCHEDULE AND AVAILABLE STOPS FROM YOUR{" "}
+                  <Link to="/profile">PROFILE PAGE</Link>
+                </span>
               </div>
-              <div className="faqResponseStarC">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  ANY OTHER TRAVEL PLANS ARE NOT COVERED OR REIMBURSED BY SAIL.
+                </span>
               </div>
-              <span>
-                BUS TRANSPORTATION FROM THE CHICAGO AREA IS PROVIDED FOR FREE
-                TO-AND-FROM THE EVENT VIA PEORIA CHARTER. LOG IN TO VIEW THE BUS
-                SCHEDULE AND AVAILABLE STOPS FROM YOUR{" "}
-                <Link to="/profile">PROFILE PAGE</Link> <br /> ANY OTHER TRAVEL
-                PLANS ARE NOT COVERED OR REIMBURSED BY SAIL.
-              </span>
             </div>
           </div>
-          <div className="faqCard faqCardRight" id="faqCardE">
+          <div className="faqCard faqCardRight" id="faqCardH">
             <SpeechBubble
               width="80.71vw"
-              color="#5FB1B7"
+              color="#13294B"
               tailDirection="right"
               text="IS A CHAPERONE REQUIRED TO ACCOMPANY MINORS TO SAIL?"
-              onclick={() => setShownE(!shownE)}
+              onclick={() => setShownH(!shownH)}
             />
-            <div className="faqResponse" hidden={!shownE}>
-              <div className="faqResponseStarA">
-                <ResponseStar width="3vw" />
+            <div className="faqResponse" hidden={!shownH}>
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  NO. PARENTS ARE WELCOME TO ATTEND SAIL AND PARTICIPATE IN OUR
+                  PARENT TRACK, BUT ARE NOT REQUIRED. SIEBEL SCHOOL OF COMPUTING
+                  AND DATA SCIENCE CAMPUS SECURITY AUTHORITIES WILL BE PRESENT
+                  ONSITE THROUGHOUT THE EVENT TO ENSURE THE SAFETY AND
+                  WELL-BEING OF STUDENTS.
+                </span>
               </div>
-              <div className="faqResponseStarB">
-                <ResponseStar width="3vw" />
+              <div className="faqResponseRow">
+                <div className="faqResponseStar">
+                  <ResponseStar width="3vw" />
+                </div>
+                <span>
+                  IF A STUDENT UNDER 18 IS ATTENDING ALONE, PLEASE ENSURE THE
+                  ELECTIVE/VOLUNTARY ACTIVITY WAIVER (INCLUDED ON THE{" "}
+                  <a href="https://linktr.ee/cs_sail_2026">
+                    GRAINGER REGISTRATION FORM
+                  </a>
+                  ) HAS BEEN SIGNED BY A PARENT OR LEGAL GUARDIAN PRIOR TO
+                  ATTENDING THE EVENT IN ORDER TO PARTICIPATE.
+                </span>
               </div>
-              <span>
-                NO. PARENTS ARE WELCOME TO ATTEND SAIL AND PARTICIPATE IN OUR
-                PARENT TRACK, BUT ARE NOT REQUIRED. SIEBEL SCHOOL OF COMPUTING
-                AND DATA SCIENCE CAMPUS SECURITY AUTHORITIES WILL BE PRESENT
-                ONSITE THROUGHOUT THE EVENT TO ENSURE THE SAFETY AND WELL-BEING
-                OF STUDENTS. <br /> IF A STUDENT UNDER 18 IS ATTENDING ALONE,
-                PLEASE ENSURE THE ELECTIVE/VOLUNTARY ACTIVITY WAIVER (INCLUDED
-                ON THE{" "}
-                <a href="https://linktr.ee/cs_sail_2026">
-                  GRAINGER REGISTRATION FORM
-                </a>
-                ) HAS BEEN SIGNED BY A PARENT OR LEGAL GUARDIAN PRIOR TO
-                ATTENDING THE EVENT IN ORDER TO PARTICIPATE.
-              </span>
             </div>
           </div>
         </div>
