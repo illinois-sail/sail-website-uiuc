@@ -6,6 +6,7 @@ import mascot from "../../assets/images/mascot.svg";
 import SpeechBubble from "../faq/SpeechBubble";
 import { useState } from "react";
 import ResponseStar from "../faq/ResponseStar";
+import { Link } from "react-router-dom";
 
 function Faq() {
   const [shownA, setShownA] = useState(false);
@@ -95,10 +96,7 @@ function Faq() {
               <div className="faqResponseStarA">
                 <ResponseStar width="3vw" />
               </div>
-              <span>
-                SAIL IS COMPLETELY FREE TO ATTEND! NO COST IS REQUIRED TO BE
-                HERE.
-              </span>
+              <span>SAIL IS COMPLETELY FREE TO ATTEND!</span>
             </div>
           </div>
           <div className="faqCard faqCardRight" id="faqCardB">
@@ -106,7 +104,7 @@ function Faq() {
               width="80.71vw"
               color="#13294B"
               tailDirection="right"
-              text="WHO CAN ATTEND THIS EVENT?"
+              text="WHO CAN ATTEND?"
               onclick={() => setShownB(!shownB)}
             />
             <div className="faqResponse" hidden={!shownB}>
@@ -114,7 +112,7 @@ function Faq() {
                 <ResponseStar width="3vw" />
               </div>
               <span>
-                CS SAIL IS OPEN TO ANY HIGH SCHOOL STUDENTS (GRADE 9-12)
+                CS SAIL IS OPEN TO ANY HIGH SCHOOL STUDENTS (GRADES 9-12)
                 WORLDWIDE! YOU DO NOT NEED TO BE CURRENTLY ADMITTED OR APPLYING
                 TO ILLINOIS TO ATTEND, THOUGH WE'RE EXCITED TO WELCOME ANY
                 FUTURE ILLINI!
@@ -140,10 +138,18 @@ function Faq() {
                 PARENTS ARE INVITED TO JOIN US ON-CAMPUS APRIL 18TH, WHERE WE'VE
                 PARTNERED WITH THE SIEBEL SCHOOL OF COMPUTING AND DATA SCIENCE
                 AND UNDERGRADUATE ADMISSIONS TO OFFER AN EXCLUSIVE SAIL PARENT
+                TRACK. <br /> UNFORTUNATELY, WE ARE NOT ABLE TO ACCOMMODATE
+                PARENTS ON THE STUDENT TRACK, THOUGH SOME EVENTS WILL BE HOSTED
+                TOGETHER!
+              </span>
+              {/* <span>
+                PARENTS ARE INVITED TO JOIN US ON-CAMPUS APRIL 18TH, WHERE WE'VE
+                PARTNERED WITH THE SIEBEL SCHOOL OF COMPUTING AND DATA SCIENCE
+                AND UNDERGRADUATE ADMISSIONS TO OFFER AN EXCLUSIVE SAIL PARENT
                 TRACK. VIEW THE PARENT SCHEDULE <href id="TODO3">HERE</href>{" "}
                 <br /> UNFORTUNATELY, WE ARE NOT ABLE TO ACCOMMODATE PARENTS ON
                 THE STUDENT TRACK, THOUGH SOME EVENTS MAY BE HOSTED TOGETHER!
-              </span>
+              </span> */}
             </div>
           </div>
           <div className="faqCard faqCardRight" id="faqCardD">
@@ -158,7 +164,12 @@ function Faq() {
               <div className="faqResponseStarA">
                 <ResponseStar width="3vw" />
               </div>
-              <div className="faqResponseStarC">
+              <span>
+                SAIL DOES NOT HAVE AN APPLICATION, BUT WE DO HAVE A REQUIRED
+                REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE REACH
+                OUR EVENT CAPACITY.
+              </span>
+              {/* <div className="faqResponseStarC">
                 <ResponseStar width="3vw" />
               </div>
               <span>
@@ -166,7 +177,7 @@ function Faq() {
                 REGISTRATION. WE ACCEPT ALL HIGH SCHOOL STUDENTS UNTIL WE REACH
                 OUR EVENT CAPACITY. <br /> VIEW REGISTRATION INSTRUCTIONS{" "}
                 <href id="TODO">HERE.</href>
-              </span>
+              </span> */}
             </div>
           </div>
           <div className="faqCard faqCardLeft" id="faqCardE">
@@ -187,11 +198,11 @@ function Faq() {
               <span>
                 NOPE! SAIL IS OPEN TO HIGH SCHOOL STUDENTS AT ANY LEVEL IN THEIR
                 CS LEARNING JOURNEY. ANYONE INTERESTED IN LEARNING (OR LEARNING
-                MORE!) ABOUT CS IS ENCOURAGED TO ATTEND! <br /> WE OFFER A WIDE
-                RANGE OF CLASS OPTIONS SUITABLE FOR ANY CS LEVEL, WHETHER YOU'RE
-                A COMPLETE BEGINNER OR SOMEONE LOOKING TO EXPAND THEIR KNOWLEDGE
-                IN SPECIFIC TOPICS, AND HOLD Q&A AND DISCUSSION OPPORTUNITIES SO
-                YOU CAN EXPLORE ALL THE POSSIBILITIES IN CS!
+                MORE!) ABOUT CS IS ENCOURAGED TO ATTEND! <br /> WE'LL OFFER A
+                RANGE OF CLASS OPTIONS WITH EXPERIENCE RECOMMENDATIONS (FROM
+                NONE REQUIRED, TO SOME BACKGROUND IN SPECIFIC TOPICS), AS WELL
+                AS Q+A AND DISCUSSION OPPORTUNITIES SO YOU CAN EXPLORE ALL THE
+                POSSIBILITIES IN CS!
               </span>
             </div>
           </div>
@@ -212,11 +223,12 @@ function Faq() {
                 <ResponseStar width="3vw" />
               </div>
               <span>
-                BREAKFAST WILL BE PROVIDED FOR REGISTERED STUDENTS AND PARENTS.
-                LUNCH WILL BE PROVIDED TO REGISTERED STUDENTS. <br /> FOR
-                ADDITIONAL PARENT MEAL OPTIONS, OUR PARTNERS AT THE CS
-                ADMISSIONS DEPARTMENT CAN PROVIDE RECOMMENDATIONS FOR LOCAL
-                RESTAURANTS TO EXPLORE AROUND CAMPUS.
+                BREAKFAST WILL BE PROVIDED FOR REGISTERED STUDENTS AND PARENTS.{" "}
+                <br />
+                LUNCH WILL BE PROVIDED TO REGISTERED STUDENTS. FOR ADDITIONAL
+                PARENT MEAL OPTIONS, OUR PARTNERS AT THE CS ADMISSIONS
+                DEPARTMENT CAN PROVIDE RECOMMENDATIONS FOR LOCAL RESTAURANTS TO
+                EXPLORE AROUND CAMPUS.
               </span>
             </div>
           </div>
@@ -225,10 +237,34 @@ function Faq() {
               width="80.71vw"
               color="#5FB1B7"
               tailDirection="left"
-              text="IS A CHAPERONE REQUIRED TO ACCOMPANY MINORS TO SAIL?"
+              text="IS TRANSPORTATION PROVIDED TO AND FROM SAIL?"
               onclick={() => setShownG(!shownG)}
             />
             <div className="faqResponse" hidden={!shownG}>
+              <div className="faqResponseStarA">
+                <ResponseStar width="3vw" />
+              </div>
+              <div className="faqResponseStarC">
+                <ResponseStar width="3vw" />
+              </div>
+              <span>
+                BUS TRANSPORTATION FROM THE CHICAGO AREA IS PROVIDED FOR FREE
+                TO-AND-FROM THE EVENT VIA PEORIA CHARTER. LOG IN TO VIEW THE BUS
+                SCHEDULE AND AVAILABLE STOPS FROM YOUR{" "}
+                <Link to="/profile">PROFILE PAGE</Link> <br /> ANY OTHER TRAVEL
+                PLANS ARE NOT COVERED OR REIMBURSED BY SAIL.
+              </span>
+            </div>
+          </div>
+          <div className="faqCard faqCardRight" id="faqCardE">
+            <SpeechBubble
+              width="80.71vw"
+              color="#5FB1B7"
+              tailDirection="right"
+              text="IS A CHAPERONE REQUIRED TO ACCOMPANY MINORS TO SAIL?"
+              onclick={() => setShownE(!shownE)}
+            />
+            <div className="faqResponse" hidden={!shownE}>
               <div className="faqResponseStarA">
                 <ResponseStar width="3vw" />
               </div>
@@ -242,9 +278,12 @@ function Faq() {
                 ONSITE THROUGHOUT THE EVENT TO ENSURE THE SAFETY AND WELL-BEING
                 OF STUDENTS. <br /> IF A STUDENT UNDER 18 IS ATTENDING ALONE,
                 PLEASE ENSURE THE ELECTIVE/VOLUNTARY ACTIVITY WAIVER (INCLUDED
-                ON THE <href id="TODO2">GRAINGER REGISTRATION FORM</href>) HAS
-                BEEN SIGNED BY A PARENT OR LEGAL GUARDIAN PRIOR TO ATTENDING THE
-                EVENT IN ORDER TO PARTICIPATE.
+                ON THE{" "}
+                <a href="https://linktr.ee/cs_sail_2026">
+                  GRAINGER REGISTRATION FORM
+                </a>
+                ) HAS BEEN SIGNED BY A PARENT OR LEGAL GUARDIAN PRIOR TO
+                ATTENDING THE EVENT IN ORDER TO PARTICIPATE.
               </span>
             </div>
           </div>
