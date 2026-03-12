@@ -5,12 +5,12 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
-import SignUp from "./components/pages/SignUp";
+import Register from "./components/pages/Register";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
 import Faq from "./components/pages/Faq";
-
+import ForgotPassword from "./components/pages/ForgotPassword";
 function App() {
   return (
     <div className="app-layout">
@@ -24,7 +24,8 @@ function App() {
           <Route path="/Faq" element={<Faq />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Profile" element={<Profile />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
         </Routes>
       </main>
 
