@@ -85,6 +85,15 @@ function Register() {
         // 200 response = success!
         else if (response.status === 200) {
           alert("Account created!");
+
+          const authUserData = { email: data.email, password: data.password }; //todo: probably shouldn't store this in plaintext...
+          localStorage.setItem("authUser", JSON.stringify(authUserData));
+          localStorage.setItem("isLoggedIn", true);
+
+          const authUser = JSON.parse(localStorage.getItem("authUser"));
+          setAuthUser(authUser);
+          setIsLoggedIn(true);
+
           window.location.href = "/login";
         }
       })
