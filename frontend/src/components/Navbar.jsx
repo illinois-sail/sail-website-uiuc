@@ -23,8 +23,8 @@ function Navbar() {
 
         <div className="navbar-right">
           <Link to="/" className="navbar-link">Home</Link>
-          <Link to="/About" className="navbar-link">About</Link>
-          <Link to="/Classes" className="navbar-link">Classes</Link>
+          <Link to="/aboutus" className="navbar-link">About</Link>
+          <Link to="/classes" className="navbar-link">Classes</Link>
 
           {/* FAQ DROPDOWN */}
           <div className="navbar-faq-container">
@@ -48,7 +48,7 @@ function Navbar() {
                   FAQ
                 </Link>
 
-                <Link
+                {/* <Link
                   to="/register"
                   className="navbar-dropdown-item light-pink"
                   onClick={closeDropdown}
@@ -62,12 +62,12 @@ function Navbar() {
                   onClick={closeDropdown}
                 >
                   Transportation
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>
 
-          <Link to="/Profile" className="navbar-link">Profile</Link>
+          {/* <Link to="/profile" className="navbar-link">Profile</Link> */}
         </div>
       </div>
     </nav>

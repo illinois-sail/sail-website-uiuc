@@ -106,21 +106,21 @@ def aboutus():
 # def transportation():
 #     return render_template('index.html')
 
-# @app.route('/faq', methods=['GET'])
-# def faq():
-#     return render_template('index.html')
+@app.route('/faq', methods=['GET'])
+def faq():
+    return render_template('index.html')
 
-# @app.route('/classes', methods=['GET'])
-# def classes():
-#     return render_template('index.html')
+@app.route('/classes', methods=['GET'])
+def classes():
+    return render_template('index.html')
 
 # @app.route('/login', methods=['GET'])
 # def login_page():
 #     return render_template('index.html')
 
-# @app.route('/signup', methods=['GET'])
-# def signup_page():
-#     return render_template('index.html')
+@app.route('/signup', methods=['GET'])
+def signup_page():
+    return render_template('index.html')
 
 # @app.route('/profile', methods=['GET'])
 # def profile():

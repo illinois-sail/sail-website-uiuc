@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.70bc497e.css",
-    "main.js": "/static/js/main.0113610e.js",
+    "main.css": "/static/css/main.fbbb074b.css",
+    "main.js": "/static/js/main.360dfe7b.js",
     "static/js/453.117b0875.chunk.js": "/static/js/453.117b0875.chunk.js",
     "static/media/about-lily.jpg": "/static/media/about-lily.f2f6047587b980a9f72e.jpg",
     "static/media/gal2.jpg": "/static/media/gal2.9ace5421413f238109eb.jpg",
@@ -49,12 +49,12 @@
     "static/media/star_2.svg": "/static/media/star_2.5da2bc51020aa5bf9b1f2791ae93b447.svg",
     "static/media/sail-logo.svg": "/static/media/sail-logo.7968e30b43a6d7624d16e7d633f22242.svg",
     "index.html": "/index.html",
-    "main.70bc497e.css.map": "/static/css/main.70bc497e.css.map",
-    "main.0113610e.js.map": "/static/js/main.0113610e.js.map",
+    "main.fbbb074b.css.map": "/static/css/main.fbbb074b.css.map",
+    "main.360dfe7b.js.map": "/static/js/main.360dfe7b.js.map",
     "453.117b0875.chunk.js.map": "/static/js/453.117b0875.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70bc497e.css",
-    "static/js/main.0113610e.js"
+    "static/css/main.fbbb074b.css",
+    "static/js/main.360dfe7b.js"
   ]
 }

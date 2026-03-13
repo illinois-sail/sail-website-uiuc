@@ -1,0 +1,26 @@
+.classes-page {
+    position: relative;
+}
+
+.opening-stack {
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vw;
+}
+
+.event-date {
+    color: #3F3E3E;
+    font-family: "Classic Comic";
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+.register-now-image {
+    width: 17vw;
+    max-width: 257px;
+    height: auto;
+}

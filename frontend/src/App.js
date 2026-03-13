@@ -18,13 +18,21 @@ function App() {
 
       <main className="page-content">
         <Routes>
+          {/* Main pages */}
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          {/* <Route path="/Classes" element={<Classes />} /> */}
-          <Route path="/FAQ" element={<FAQ />} />
-          {/* <Route path="/Login" element={<Login />} /> */}
-          {/* <Route path="/Profile" element={<Profile />} /> */}
-          {/* <Route path="/SignUp" element={<SignUp />} /> */}
+          <Route path="/aboutus" element={<About />} />
+          <Route path="/classes" element={<Classes />} />
+          <Route path="/faq" element={<Faq />} />
+          {/* <Route path="/transportation" element={<Transportation />} /> */}
+          {/* <Route path="/register" element={<Register />} /> */}
+
+          {/* Auth pages */}
+          {/* <Route path="/login" element={<Login />} /> */}
+          {/* <Route path="/profile" element={<Profile />} /> */}
+          <Route path="/signUp" element={<SignUp />} />
+          {/* <Route path="/reset_password" element={<ResetPassword />} /> */}
+          {/* <Route path="/profile" element={<Profile />} /> */}
+          {/* <Route path="/logout" element={<Logout />} /> */}
         </Routes>
       </main>
 
