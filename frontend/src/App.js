@@ -10,7 +10,9 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
 import Faq from "./components/pages/Faq";
-import ForgotPassword from "./components/pages/ForgotPassword";
+import SignUp from "./components/pages/SignUp"
+import ResetPassword from "./components/pages/ResetPassword";
+
 function App() {
   return (
     <div className="app-layout">
@@ -18,14 +20,22 @@ function App() {
 
       <main className="page-content">
         <Routes>
+          {/* Main pages */}
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Classes" element={<Classes />} />
-          <Route path="/Faq" element={<Faq />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/aboutus" element={<About />} />
+          <Route path="/classes" element={<Classes />} />
+          <Route path="/faq" element={<Faq />} />
+          {/* <Route path="/transportation" element={<Transportation />} /> */}
+          <Route path="/register" element={<Register />} />
+
+          {/* Auth pages */}
+          <Route path="/login" element={<Login />} /> 
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/reset_password" element={<ResetPassword />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </main>
 
