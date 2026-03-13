@@ -4,13 +4,25 @@ import SERVER_URL, { PROD_SERVER } from "../server_url";
 import SIEBEL_LOC from "../../assets/siebel_loc.png";
 import "./Profile.css";
 
+const ProfileHeader = () => {
+  return (
+    <div className="profile-header" style={{ width: "80vw", height: "20vw", border: "0.30vw solid #000", background: "#79CCFF", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <span className="profile-header-text">My Profile</span>
+    </div>
+  );
+}
+
 const MapLocation = () => {
   return (
     <div className="location-map">
       <a href="https://www.google.com/maps/place/Thomas+M.+Siebel+Center+for+Computer+Science/@40.1138069,-88.2274801,16z/data=!3m2!4b1!5s0x880cd76a5762dfb7:0xcf6a023935717398!4m6!3m5!1s0x880cd76baa8479a9:0x4e9f01d40d359630!8m2!3d40.1138028!4d-88.2249052!16s%2Fm%2F0yqkg1s?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D" 
          target="_blank" 
          rel="noopener noreferrer">
-        <img src={SIEBEL_LOC} className="siebel-loc-image" alt="Siebel CS Location" />
+        <img src={SIEBEL_LOC} className="siebel-loc-image" alt="Siebel CS Location" style={{
+          width: "32.7vw",
+          height: "21.9vw",
+          border: "0.3vw solid #000"
+        }}/>
       </a>
     </div>
   );
@@ -54,7 +66,8 @@ const RegisterForClasses = () => {
         <path d="M149.325 2L3.17603 307H398.578L495.176 2H149.325Z" fill="white" stroke="black" stroke-width="4"/>
       </svg>
       <div className="register-prompt-svg-content" style={{ position: "absolute", top: "35%", left: "40%", width: "13vw" }}>
-        <span className="profile-text">Complete Registration <a href="/classes">Here</a></span>
+        {/* <span className="profile-text">Complete Registration <a href="/classes">Here</a></span> */}
+        <span className="profile-text">Class Registration Coming Soon!</span>
       </div>
     </div>
   );
@@ -86,7 +99,6 @@ const PersonalInformation = ({ authUser, isEditing, setIsEditing, editedFirstNam
             <span className="profile-text"><br/>First Name: {authUser?.first_name}</span>
             <span className="profile-text"><br/>Last Name: {authUser?.last_name}</span>
             <span className="profile-text"><br/>Email: {authUser?.email}</span>
-            <span className="profile-text"><br/>Year: 69th Grade</span>
           </>
         )}       
       </div>
@@ -174,7 +186,7 @@ function Profile() {
       setEditedFirstName(originalFirstName);
     }
     if (editedLastName === "") {
-      setEditedFirstName(originalLastName);
+      setEditedLastName(originalLastName);
     }
     console.log("editedEmail: ", editedEmail);
     console.log("originalEmail: ", originalEmail);
@@ -245,23 +257,28 @@ function Profile() {
   
 
   return (
-    <div>
-      COMING SOON!
-      {/* <ClassesDisplay/> */}
-      {/* <MapLocation/> */}
-      {/* <RegisterForClasses/> */}
-      <PersonalInformation authUser={authUser}
-        isEditing={isEditing}
-        setIsEditing={setIsEditing}
-        editedFirstName={editedFirstName}
-        setEditedFirstName={setEditedFirstName}
-        editedLastName={editedLastName}
-        setEditedLastName={setEditedLastName}
-        editedEmail={editedEmail}
-        setEditedEmail={setEditedEmail}
-        handleSave={handleSave}
-        handleCancel={handleCancel}
-      />
+    <div className="profile" style={{ marginTop: "7vw", display: "flex", alignItems: "center", flexDirection: "column", gap: "2vw" }}>
+      <ProfileHeader/>
+      <div className="first-row" style={{ display: "flex", gap: "2vw" }}>
+        <PersonalInformation 
+          authUser={authUser}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+          editedFirstName={editedFirstName}
+          setEditedFirstName={setEditedFirstName}
+          editedLastName={editedLastName}
+          setEditedLastName={setEditedLastName}
+          editedEmail={editedEmail}
+          setEditedEmail={setEditedEmail}
+          handleSave={handleSave}
+          handleCancel={handleCancel}
+        />
+        <MapLocation/>
+      </div>
+      <div className="second-row" style={{ display: "flex" }}>
+        <ClassesDisplay/>
+        <RegisterForClasses/>
+      </div>
     </div>
   );
 }

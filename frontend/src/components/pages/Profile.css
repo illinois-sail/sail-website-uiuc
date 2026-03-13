@@ -1,7 +1,17 @@
+/* Profile Header */
+.profile-header-text {
+    color: #0072B9;
+    font-family: "Classic Comic";
+    font-size: 10vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+    -webkit-text-stroke: 0.32vw white;
+    filter: drop-shadow(0 15px 4px rgba(0, 0, 0, 0.34));
+}
+
 /* Profile Generics */
 .profile-title {
-    /* width: 23vw; */
-    /* height: 2.4vw; */
     color: #000;
     font-family: "Classic Comic";
     font-size: 2vw;
@@ -17,8 +27,6 @@
 }
 
 .profile-text {
-    /* width: 20vw; */
-    /* height: 9.8vw; */
     color: #000;
     font-family: "Classic Comic";
     font-size: 1.4vw;
@@ -46,7 +54,7 @@
     position: relative;
     width: 48vw;
     height: 22vw;
-    border: 0.26vw solid #000;
+    border: 0.30vw solid #000;
     background: #FFF;
 }
 
