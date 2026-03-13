@@ -12,6 +12,7 @@ import Classes from "./components/pages/Classes";
 import Faq from "./components/pages/Faq";
 import SignUp from "./components/pages/SignUp"
 import ResetPassword from "./components/pages/ResetPassword";
+
 function App() {
   return (
     <div className="app-layout">
@@ -21,19 +22,20 @@ function App() {
         <Routes>
           {/* Main pages */}
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/aboutus" element={<About />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/faq" element={<Faq />} />
           {/* <Route path="/transportation" element={<Transportation />} /> */}
-          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="/register" element={<Register />} />
 
           {/* Auth pages */}
           <Route path="/login" element={<Login />} /> 
           <Route path="/profile" element={<Profile />} />
-          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/reset_password" element={<ResetPassword />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
-          {/* <Route path="/logout" element={<Logout />} /> */}
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </main>
 

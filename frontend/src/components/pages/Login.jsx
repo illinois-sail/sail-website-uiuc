@@ -173,7 +173,7 @@ function Login() {
           fontWeight: "500",
         }}
       >
-        Don't have an account yet? <Link to="/register">Create one here</Link>!
+        Don't have an account yet? <Link to="/signup">Create one here</Link>!
       </span>
     </div>
   );
