@@ -21,6 +21,7 @@ function AccountInput({
   inputType = "text",
   enterKeyHint = "next",
   onKeyDown = () => {},
+  onChange = () => {},
 }) {
   return (
     <div className={className}>
@@ -42,6 +43,7 @@ function AccountInput({
         className="accountInput"
         enterKeyHint={enterKeyHint}
         onKeyDown={onKeyDown}
+        onChange={onChange}
       />
     </div>
   );

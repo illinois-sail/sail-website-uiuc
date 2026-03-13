@@ -1,11 +1,28 @@
 import "../Account/Account.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import AccountInput from "../Account/AccountInput";
 import { ReactComponent as Cloud } from "../../assets/account/register-cloud.svg";
 import { ReactComponent as QuestionMarks } from "../../assets/account/register-question.svg";
 import { ReactComponent as Star } from "../../assets/account/register-star.svg";
+import axios from "axios";
+import AuthContext, { useAuth } from "./AuthContext";
+import SERVER_URL from "./server_url";
 
 function Register() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    grade: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e, field) => {
+    setFormData({ ...formData, [field]: e.target.value });
+  };
+
   // Handle Enter key to move focus to the next input instead of submitting the form
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -29,9 +46,43 @@ function Register() {
     }
   };
 
+  const handleSubmission = (e) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      alert("Hey!  Passwords don't match!  Please try again...");
+      return;
+    }
+    const { firstName, lastName, email, password } = formData; //unpackage specified fields
+    const data = { firstName, lastName, email, password }; //repackage
+    axios
+      .post(`${SERVER_URL}/signup`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log("Response:", response);
+        // 400 response = email already being used
+        if (response.status === 401) {
+          alert("Email is already in use");
+        }
+        // 200 response = success!
+        else if (response.status === 200) {
+          alert("Account created!");
+          window.location.href = "/login";
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        if (error.response.status === 401) {
+          alert("Email is already in use");
+        }
+      });
+  };
+
   return (
     <div>
-      <form className="accountWrapper" onSubmit={(e) => e.preventDefault()}>
+      <form className="accountWrapper" onSubmit={(e) => handleSubmission(e)}>
         <span className="accountTitle">Create Account</span>
         {/* First and Last Name */}
         <div className="accountNames">
@@ -44,6 +95,7 @@ function Register() {
             inputType="text"
             enterKeyHint="next"
             onKeyDown={handleKeyDown}
+            onChange={(e) => handleChange(e, "firstName")}
           />
           {/* Last Name */}
           <AccountInput
@@ -54,6 +106,7 @@ function Register() {
             inputType="text"
             enterKeyHint="next"
             onKeyDown={handleKeyDown}
+            onChange={(e) => handleChange(e, "lastName")}
           />
         </div>
         {/* Email & Grade */}
@@ -67,6 +120,7 @@ function Register() {
             inputType="email"
             enterKeyHint="next"
             onKeyDown={handleKeyDown}
+            onChange={(e) => handleChange(e, "email")}
           />
           {/* Grade */}
           <AccountInput
@@ -77,6 +131,7 @@ function Register() {
             inputType="text"
             enterKeyHint="next"
             onKeyDown={handleKeyDown}
+            onChange={(e) => handleChange(e, "grade")}
           />
         </div>
         {/* Password */}
@@ -88,6 +143,7 @@ function Register() {
           inputType="password"
           enterKeyHint="next"
           onKeyDown={handleKeyDown}
+          onChange={(e) => handleChange(e, "password")}
         />
         {/* Confirm Password */}
         <AccountInput
@@ -98,6 +154,7 @@ function Register() {
           inputType="password"
           enterKeyHint="done"
           onKeyDown={handleKeyDown}
+          onChange={(e) => handleChange(e, "confirmPassword")}
         />
         {/* Create Account Button */}
         <button className="accountButton" type="submit">

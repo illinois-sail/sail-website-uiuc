@@ -1,9 +1,20 @@
 import "../Account/Account.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import ImpactMark from "../faq/ImpactMark";
 import AccountInput from "../Account/AccountInput";
 
 function Login() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    password: "",
+  });
+
+  const handleChange = (e, field) => {
+    setFormData({ ...formData, [field]: e.target.value });
+  };
+
   // Handle Enter key to move focus to the next input instead of submitting the form
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -48,6 +59,7 @@ function Login() {
             inputType="text"
             enterKeyHint="next"
             onKeyDown={handleKeyDown}
+            onChange={(e) => handleChange(e, "firstName")}
           />
           {/* Last Name */}
           <AccountInput
@@ -58,6 +70,7 @@ function Login() {
             inputType="text"
             enterKeyHint="next"
             onKeyDown={handleKeyDown}
+            onChange={(e) => handleChange(e, "lastName")}
           />
         </div>
         {/* Password */}
@@ -69,6 +82,7 @@ function Login() {
           inputType="password"
           enterKeyHint="done"
           onKeyDown={handleKeyDown}
+          onChange={(e) => handleChange(e, "password")}
         />
 
         {/* Forgot Password Text */}
