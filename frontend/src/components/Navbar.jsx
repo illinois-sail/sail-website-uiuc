@@ -48,7 +48,7 @@ function Navbar() {
                   FAQ
                 </Link>
 
-                {/* <Link
+                <Link
                   to="/register"
                   className="navbar-dropdown-item light-pink"
                   onClick={closeDropdown}
@@ -62,7 +62,7 @@ function Navbar() {
                   onClick={closeDropdown}
                 >
                   Transportation
-                </Link> */}
+                </Link>
               </div>
             )}
           </div>

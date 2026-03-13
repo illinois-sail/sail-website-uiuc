@@ -1,0 +1,217 @@
+/* Reuses .aboutTrap / .aboutLeftTrap / .aboutLeftTrapBack from About.css for the intro section */
+
+.registerTitleCloud {
+    position: absolute;
+    height: 12.88vw;
+    width: 52.71vw;
+    margin-left: 23.41vw;
+    margin-top: -11vw;
+    z-index: 3;
+  }
+  
+  .registerStar1 {
+    position: absolute;
+    height: 7.94vw;
+    width: 12.76vw;
+    margin-top: -2.9vw;
+    margin-left: 7vw;
+    z-index: 3;
+  }
+  
+  .registerStar2 {
+    position: absolute;
+    height: 9.1vw;
+    width: 6.38vw;
+    margin-top: 42.75vw;
+    margin-left: 91.73vw;
+    z-index: 3;
+  }
+  
+  /* Intro text boxes inside the first trapezoid */
+  .registerIntroBox {
+    position: relative;
+    margin-top: 9vw;
+    margin-left: 4vw;
+    background-color: white;
+    width: 33.92vw;
+    height: auto;
+    min-height: 10.68vw;
+    color: black;
+    border: 2px solid black;
+    padding: 2em 1em;
+    text-align: center;
+    align-content: center;
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    line-height: 2.35vw;
+    z-index: 3;
+  }
+  
+  .registerIntroBox2 {
+    position: relative;
+    margin-left: 48.12vw;
+    margin-top: -9vw;
+    background-color: white;
+    width: 40vw;
+    height: auto;
+    min-height: 15.47vw;
+    color: black;
+    border: 2px solid black;
+    padding: 2em 1em;
+    text-align: center;
+    align-content: center;
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    line-height: 2.35vw;
+    z-index: 3;
+  }
+  
+  /* Two-column wrapper for the two steps */
+  .registerStepsWrapper {
+    display: flex;
+    gap: 3vw;
+    padding: 6vw 8vw 8vw 8vw;
+    align-items: flex-start;
+  }
+  
+  /* Each step column */
+  .registerStep {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vw;
+  }
+  
+  /* Step header pill */
+  .registerStepHeader {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 8.4vw;
+    border: 0.35vw solid black;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5vw;
+    font-weight: 700;
+    font-size: 2vw;
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    box-shadow: 0.3vw 0.3vw 0 0 rgba(0, 0, 0, 0.25);
+    margin-bottom: 0.5vw;
+    box-sizing: border-box;
+  }
+  
+  .registerStepSubtext {
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1vw;
+    font-weight: 700;
+    color: #3f3e3e;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.3vw 0;
+  }
+  
+  /* Individual card */
+  .registerCard {
+    background-color: #fff;
+    border: 0.26vw solid #000;
+    box-shadow: 0.26vw 0.26vw 0 0 rgba(0, 0, 0, 0.3);
+    padding: 1.2vw 1.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6vw;
+  }
+  
+  .registerCardHeader {
+    font-family: "DynaPuff", Helvetica, sans-serif;
+    font-size: 1.25vw;
+    font-weight: 400;
+    color: #0a0a0a;
+  }
+  
+  .registerCardBody {
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 0.95vw;
+    color: #4a5565;
+    line-height: 1.6;
+  }
+  
+  /* Link buttons */
+  .registerLink {
+    display: inline-block;
+    margin-top: 0.4vw;
+    padding: 0.5vw 1vw;
+    background-color: #009dff;
+    color: #fff;
+    border: 0.2vw solid #000;
+    box-shadow: 0.2vw 0.2vw 0 0 rgba(0, 0, 0, 0.3);
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 0.9vw;
+    font-weight: 700;
+    text-decoration: none;
+    width: fit-content;
+    transition: background-color 0.15s ease;
+  }
+  
+  .registerLink:hover {
+    background-color: #0072b9;
+  }
+  
+  .registerLinkGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6vw;
+    margin-top: 0.4vw;
+  }
+  
+  .registerLinkInperson {
+    background-color: #ffdc44;
+    color: #0a0a0a;
+  }
+  
+  .registerLinkInperson:hover {
+    background-color: #f5c800;
+  }
+  
+  .registerLinkVirtual {
+    background-color: #ff7db2;
+    color: #fff;
+  }
+  
+  .registerLinkVirtual:hover {
+    background-color: #e85d96;
+  }
+  
+  @media (max-width: 768px) {
+    .registerStepsWrapper {
+      flex-direction: column;
+      padding: 8vw 5vw;
+      gap: 8vw;
+    }
+  
+    .registerStepHeader {
+      min-height: auto;
+      padding: 4vw;
+      font-size: 1.1rem;
+      border-radius: 10px;
+    }
+  
+    .registerStepSubtext {
+      font-size: 0.85rem;
+    }
+  
+    .registerCardHeader {
+      font-size: 1rem;
+    }
+  
+    .registerCardBody {
+      font-size: 0.85rem;
+    }
+  
+    .registerLink {
+      font-size: 0.85rem;
+      padding: 2vw 3vw;
+    }
+  }

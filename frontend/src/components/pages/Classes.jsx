@@ -1,14 +1,15 @@
 import "./Classes.css";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
+import { Link } from "react-router-dom";
 
 function Classes() {
   return (
     <div className="classes-page">
       <div className="opening-stack">
         <span className="event-date">Coming soon!</span>
-        <a href="https://linktr.ee/cs_sail_2026" target="_blank" rel="noopener noreferrer">
+        <Link to="/signUp">
           <img src={REGISTER_NOW_BUTTON} className="register-now-image" alt="Register Now" />
-        </a>
+        </Link>
 
       </div>
 
