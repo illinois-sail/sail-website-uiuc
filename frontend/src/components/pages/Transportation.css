@@ -1,0 +1,233 @@
+/* Reuses .aboutTrap / .aboutLeftTrap / .aboutLeftTrapBack from About.css for the intro section */
+
+.transportTitleCloud {
+    position: absolute;
+    height: 12.88vw;
+    width: 52.71vw;
+    margin-left: 23.41vw;
+    margin-top: -11vw;
+    z-index: 3;
+  }
+  
+  .transportStar1 {
+    position: absolute;
+    height: 7.94vw;
+    width: 12.76vw;
+    margin-top: -2.9vw;
+    margin-left: 7vw;
+    z-index: 3;
+  }
+  
+  .transportStar2 {
+    position: absolute;
+    height: 9.1vw;
+    width: 6.38vw;
+    margin-top: 42.75vw;
+    margin-left: 91.73vw;
+    z-index: 3;
+  }
+  
+  /* Intro text boxes inside the first trapezoid */
+  .transportIntroBox {
+    position: relative;
+    margin-top: 9vw;
+    margin-left: 4vw;
+    background-color: white;
+    width: 33.92vw;
+    height: auto;
+    min-height: 10.68vw;
+    color: black;
+    border: 2px solid black;
+    padding: 2em 1em;
+    text-align: center;
+    align-content: center;
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    line-height: 2.35vw;
+    z-index: 3;
+  }
+  
+  .transportIntroBox2 {
+    position: relative;
+    margin-left: 48.12vw;
+    margin-top: -9vw;
+    background-color: white;
+    width: 40vw;
+    height: auto;
+    min-height: 15.47vw;
+    color: black;
+    border: 2px solid black;
+    padding: 2em 1em;
+    text-align: center;
+    align-content: center;
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    line-height: 2.35vw;
+    z-index: 3;
+  }
+  
+  /* Two-column wrapper for morning + evening sections */
+  .transportSectionsWrapper {
+    display: flex;
+    gap: 3vw;
+    padding: 6vw 8vw 8vw 8vw;
+    align-items: flex-start;
+  }
+  
+  /* Each section column */
+  .transportSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vw;
+  }
+  
+  /* Section header pill */
+  .transportSegHeader {
+    display: flex;
+    width: 100%;
+    height: 8.4vw;
+    border: 0.35vw solid black;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.25vw;
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    box-shadow: 0.3vw 0.3vw 0 0 rgba(0, 0, 0, 0.25);
+    margin-bottom: 0.5vw;
+  }
+  
+  .transportDirectionLabel {
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1vw;
+    font-weight: 700;
+    color: #3f3e3e;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.3vw 0;
+  }
+  
+  /* Individual bus stop card */
+  .transportCard {
+    background-color: #fff;
+    border: 0.26vw solid #000;
+    box-shadow: 0.26vw 0.26vw 0 0 rgba(0, 0, 0, 0.3);
+    padding: 1vw 1.3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4vw;
+  }
+  
+  .transportCardHeader {
+    font-family: "DynaPuff", Helvetica, sans-serif;
+    font-size: 1.25vw;
+    font-weight: 400;
+    color: #0a0a0a;
+  }
+  
+  .transportCardAddress {
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 0.85vw;
+    color: #4a5565;
+    line-height: 1.4;
+  }
+  
+  .transportCardTimes {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin-top: 0.5vw;
+  }
+  
+  .transportTime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2vw;
+  }
+  
+  .transportTimeLabel {
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 0.7vw;
+    font-weight: 700;
+    color: #fff;
+    background-color: #009dff;
+    padding: 0.2vw 0.5vw;
+    border: 0.15vw solid #000;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  
+  .transportTime.arrive .transportTimeLabel {
+    background-color: #ff7db2;
+  }
+  
+  .transportTimeValue {
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: #0a0a0a;
+  }
+  
+  .transportArrow {
+    font-size: 1.5vw;
+    color: #3f3e3e;
+    font-weight: 700;
+  }
+  
+  @media (max-width: 768px) {
+    .transportSectionsWrapper {
+      flex-direction: column;
+      padding: 8vw 5vw;
+      gap: 8vw;
+    }
+  
+    .transportSegHeader {
+      height: auto;
+      padding: 3vw;
+      font-size: 1.2rem;
+      border-radius: 10px;
+    }
+  
+    .transportDirectionLabel {
+      font-size: 0.85rem;
+    }
+  
+    .transportCardHeader {
+      font-size: 1rem;
+    }
+  
+    .transportCardAddress {
+      font-size: 0.8rem;
+    }
+  
+    .transportTimeLabel {
+      font-size: 0.65rem;
+    }
+  
+    .transportTimeValue {
+      font-size: 0.95rem;
+    }
+  
+    .transportArrow {
+      font-size: 1.2rem;
+    }
+  }
+
+  .transportDateBanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vw 8vw 0 8vw;
+    padding: 1.2vw 2vw;
+    border: 0.26vw solid #000;
+    background-color: #F15F23;
+    box-shadow: 0.26vw 0.26vw 0 0 rgba(0, 0, 0, 0.3);
+    font-family: "Classic Comic", Helvetica, sans-serif;
+    font-size: 1.3vw;
+    font-weight: 700;
+    text-align: center;
+  }

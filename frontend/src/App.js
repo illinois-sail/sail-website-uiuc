@@ -6,11 +6,13 @@ import Footer from "./components/Footer";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
 import Register from "./components/pages/Register";
+import Transportation from "./components/pages/Transportation";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
 import Faq from "./components/pages/Faq";
 import SignUp from "./components/pages/SignUp"
+import Logout from "./components/pages/Logout";
 import ResetPassword from "./components/pages/ResetPassword";
 
 function App() {
@@ -26,7 +28,7 @@ function App() {
           <Route path="/aboutus" element={<About />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/faq" element={<Faq />} />
-          {/* <Route path="/transportation" element={<Transportation />} /> */}
+          <Route path="/transportation" element={<Transportation />} /> 
           <Route path="/register" element={<Register />} />
 
           {/* Auth pages */}
