@@ -11,7 +11,7 @@ import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
 import Faq from "./components/pages/Faq";
 import SignUp from "./components/pages/SignUp"
-import ForgotPassword from "./components/pages/ForgotPassword";
+import ResetPassword from "./components/pages/ResetPassword";
 function App() {
   return (
     <div className="app-layout">
