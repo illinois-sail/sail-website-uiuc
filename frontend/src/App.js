@@ -5,12 +5,13 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
-import SignUp from "./components/pages/SignUp";
+import Register from "./components/pages/Register";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes";
 import Faq from "./components/pages/Faq";
-
+import SignUp from "./components/pages/SignUp"
+import ForgotPassword from "./components/pages/ForgotPassword";
 function App() {
   return (
     <div className="app-layout">
@@ -27,10 +28,10 @@ function App() {
           {/* <Route path="/register" element={<Register />} /> */}
 
           {/* Auth pages */}
-          {/* <Route path="/login" element={<Login />} /> */}
-          {/* <Route path="/profile" element={<Profile />} /> */}
+          <Route path="/login" element={<Login />} /> 
+          <Route path="/profile" element={<Profile />} />
           <Route path="/signUp" element={<SignUp />} />
-          {/* <Route path="/reset_password" element={<ResetPassword />} /> */}
+          <Route path="/reset_password" element={<ResetPassword />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/logout" element={<Logout />} /> */}
         </Routes>

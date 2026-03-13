@@ -1,0 +1,145 @@
+.accountWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8.15vw;
+  position: relative;
+  box-sizing: border-box;
+  width: 80.56%;
+  height: fit-content;
+  margin-top: 7.51vw;
+  padding-top: 3.23vw;
+  padding-left: 6.18%;
+  padding-right: 4.2%;
+  padding-bottom: 2.89vw;
+  margin-bottom: 2vw;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  background-color: #ea2e04;
+  border: 3px solid black;
+  box-shadow: 3px 3px black;
+  text-align: end;
+}
+
+.accountWrapper > div {
+  width: 100%;
+}
+
+.accountTitle {
+  font-family: "DynaPuff", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 3.75vw;
+  color: white;
+  text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    0 0 2px #000;
+  left: 0;
+  margin-left: -3.09%;
+}
+
+.accountSpeechWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.accountSpeech {
+  position: absolute;
+  top: -4.63vw;
+  left: -2.58vw;
+}
+
+.accountLabel {
+  position: absolute;
+  width: 25vw;
+  top: -4.12vw;
+  left: -1.7vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 2vw;
+  font-weight: 700;
+  text-align: left;
+  z-index: 1;
+}
+
+.accountInput {
+  width: 100%;
+  height: 6.2vw;
+  background-color: #fff;
+  border: 2px solid black;
+  box-shadow: 2px 2px #000;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 1.62vw;
+  text-indent: 1.5vw;
+}
+
+.accountNames {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.accountFirstName {
+  position: relative;
+  width: 45.84%;
+}
+
+.accountLastName {
+  position: relative;
+  width: 44.64%;
+}
+
+.registerEmailGrade {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.accountEmail {
+  position: relative;
+  width: 61.3%;
+}
+
+.registerGrade {
+  position: relative;
+  width: 30.47%;
+}
+
+.accountPassword {
+  position: relative;
+  width: 100%;
+}
+
+.accountConfirmPassword {
+  position: relative;
+  width: 100%;
+}
+
+.accountButton {
+  width: 43.27%;
+  height: 7.1vw;
+  margin-top: -4vw;
+  background-color: #ffd830;
+  border: 2px solid black;
+  border-radius: 1.5vw;
+  font-family: "Classic Comic", Helvetica, sans-serif;
+  font-size: 2.25vw;
+  font-weight: 500;
+}
+
+.accountButton:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 #000;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+}
+
+.accountButton:active {
+  transform: translate(0, 0);
+  box-shadow: none;
+}
