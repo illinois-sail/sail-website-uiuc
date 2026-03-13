@@ -1,12 +1,12 @@
 import "../Account/Account.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AccountInput from "../Account/AccountInput";
 import { ReactComponent as Cloud } from "../../assets/account/register-cloud.svg";
 import { ReactComponent as QuestionMarks } from "../../assets/account/register-question.svg";
 import { ReactComponent as Star } from "../../assets/account/register-star.svg";
 import axios from "axios";
-import AuthContext, { useAuth } from "./AuthContext";
+import { useAuth } from "./AuthContext";
 import SERVER_URL from "./server_url";
 
 function Register() {
@@ -17,6 +17,17 @@ function Register() {
     grade: "",
     password: "",
     confirmPassword: "",
+  });
+
+  const { setAuthUser, setIsLoggedIn } = useAuth();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("authUser");
+    if (storedUser) {
+      setIsLoggedIn(true);
+      setAuthUser(JSON.parse(storedUser));
+      window.location.href = "/";
+    }
   });
 
   const handleChange = (e, field) => {
@@ -53,9 +64,14 @@ function Register() {
       return;
     }
     const { firstName, lastName, email, password } = formData; //unpackage specified fields
-    const data = { firstName, lastName, email, password }; //repackage
+    const data = {
+      firstName: firstName.trim().toLowerCase(),
+      lastName: lastName.trim().toLowerCase(),
+      email: email.trim().toLowerCase(),
+      password,
+    }; //repackage
     axios
-      .post(`${SERVER_URL}/signup`, formData, {
+      .post(`${SERVER_URL}/signup`, data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -76,6 +92,8 @@ function Register() {
         console.error("Error:", error);
         if (error.response.status === 401) {
           alert("Email is already in use");
+        } else {
+          alert("Something went wrong!  Please try again later...");
         }
       });
   };

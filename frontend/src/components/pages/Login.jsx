@@ -1,14 +1,27 @@
 import "../Account/Account.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ImpactMark from "../faq/ImpactMark";
 import AccountInput from "../Account/AccountInput";
+import axios from "axios";
+import { useAuth } from "./AuthContext";
+import SERVER_URL from "./server_url";
 
 function Login() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    email: "",
     password: "",
+  });
+
+  const { setAuthUser, setIsLoggedIn } = useAuth();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("authUser");
+    if (storedUser) {
+      setIsLoggedIn(true);
+      setAuthUser(JSON.parse(storedUser));
+      window.location.href = "/";
+    }
   });
 
   const handleChange = (e, field) => {
@@ -38,41 +51,68 @@ function Login() {
     }
   };
 
+  const handleSubmission = (e) => {
+    e.preventDefault();
+    const { email, password } = formData; //unpackage specified fields
+    const data = { email: email.trim().toLowerCase(), password }; //repackage
+    axios
+      .post(`${SERVER_URL}/login`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        // console.log("Response:", response);
+        // No error but unable to login
+        if (response.status === 400) {
+          alert(
+            "Email not found or Password is incorrect!  Please try again...",
+          );
+        }
+        // 200 response = success!
+        else if (response.status === 200) {
+          localStorage.setItem("authUser", JSON.stringify(data));
+          localStorage.setItem("isLoggedIn", true);
+
+          const authUser = JSON.parse(localStorage.getItem("authUser"));
+          setAuthUser(authUser);
+          setIsLoggedIn(true);
+
+          window.location.href = "/profile";
+        }
+      })
+      //Handles errors
+      .catch((error) => {
+        if (error.status === 400) {
+          alert("Incorrect credentials!  Please try again...");
+        } else {
+          // console.error("Error:", error);
+          alert("Something went wrong!  Please try again later!");
+        }
+      });
+  };
+
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <form
         className="accountWrapper"
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={(e) => handleSubmission(e)}
         style={{ backgroundColor: "#79CCFF" }}
       >
         <span className="accountTitle">Log In</span>
-        {/* First and Last Name */}
-        <div className="accountNames">
-          {/* First Name */}
-          <AccountInput
-            className="accountFirstName"
-            size="medium"
-            label="FIRST NAME:"
-            placeholder="First Name"
-            inputType="text"
-            enterKeyHint="next"
-            onKeyDown={handleKeyDown}
-            onChange={(e) => handleChange(e, "firstName")}
-          />
-          {/* Last Name */}
-          <AccountInput
-            className="accountLastName"
-            size="medium"
-            label="LAST NAME:"
-            placeholder="Last Name"
-            inputType="text"
-            enterKeyHint="next"
-            onKeyDown={handleKeyDown}
-            onChange={(e) => handleChange(e, "lastName")}
-          />
-        </div>
+        {/* Email */}
+        <AccountInput
+          className="accountEmail"
+          size="small"
+          label="EMAIL:"
+          placeholder="Email"
+          inputType="email"
+          enterKeyHint="done"
+          onKeyDown={handleKeyDown}
+          onChange={(e) => handleChange(e, "email")}
+        />
         {/* Password */}
         <AccountInput
           className="accountPassword"
