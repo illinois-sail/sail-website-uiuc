@@ -102,9 +102,9 @@ def home():
 def aboutus():
     return render_template('index.html')
 
-# @app.route('/transportation', methods=['GET'])
-# def transportation():
-#     return render_template('index.html')
+@app.route('/transportation', methods=['GET'])
+def transportation():
+    return render_template('index.html')
 
 @app.route('/faq', methods=['GET'])
 def faq():
@@ -114,9 +114,9 @@ def faq():
 def classes():
     return render_template('index.html')
 
-# @app.route('/login', methods=['GET'])
-# def login_page():
-#     return render_template('index.html')
+@app.route('/login', methods=['GET'])
+def login_page():
+    return render_template('index.html')
 
 @app.route('/signup', methods=['GET'])
 def signup_page():
@@ -126,17 +126,17 @@ def signup_page():
 # def profile():
 #     return render_template('index.html')
 
-# @app.route('/logout', methods=['GET'])
-# def logout():
-#     return render_template('index.html')
+@app.route('/logout', methods=['GET'])
+def logout():
+    return render_template('index.html')
 
-# @app.route('/register', methods=['GET'])
-# def registration():
-#     return render_template('index.html')
+@app.route('/register', methods=['GET'])
+def registration():
+    return render_template('index.html')
 
-# @app.route('/reset_password', methods=['GET'])
-# def reset_password_page():
-#     return render_template('index.html')
+@app.route('/reset_password', methods=['GET'])
+def reset_password_page():
+    return render_template('index.html')
 
 PROD_SERVER = "https://sail.cs.illinois.edu"
 
