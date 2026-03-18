@@ -155,14 +155,17 @@
 
 .aboutSegHeader {
   position: absolute;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
   margin-top: 2.5vw;
   height: 8.4vw;
   width: 27.05vw;
   background-color: #fff;
   border: 0.35vw solid black;
   border-radius: 15px;
-  justify-self: center;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-weight: 700;
   font-size: 2.25vw;
