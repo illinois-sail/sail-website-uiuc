@@ -1,4 +1,5 @@
 import "./Home.css";
+import { Link } from "react-router-dom";
 import CS_SAIL_IMAGE from "../../assets/cssail.png";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
 import CARTOON_FRAME from "../../assets/cartoon-frame.png";
@@ -39,9 +40,9 @@ function Home() {
       <div className="opening-stack">
         <img src={CS_SAIL_IMAGE} className="cs-sail-image" />
         <span className="event-date">April 18 and 19, 2026</span>
-        <a href="https://linktr.ee/cs_sail_2026" target="_blank" rel="noopener noreferrer">
+        <Link to="/register">
           <img src={REGISTER_NOW_BUTTON} className="register-now-image" alt="Register Now" />
-        </a>
+        </Link>
 
       </div>
       <div className="ch-one-block">

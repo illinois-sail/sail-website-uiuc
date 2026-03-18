@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import SERVER_URL, { PROD_SERVER } from "../server_url";
+import SERVER_URL from "../server_url";
 import SIEBEL_LOC from "../../assets/siebel_loc.png";
 import "./Profile.css";
 
@@ -113,7 +113,16 @@ const PersonalInformation = ({ authUser, isEditing, setIsEditing, editedFirstNam
           </button>
         </div>
       ) : (
-        <button className="edit-info-btn-container" style={{ position: "absolute", bottom: "2vw", right: "2vw" }} onClick={() => setIsEditing(true)}>
+        <button 
+          className="edit-info-btn-container" 
+          style={{ position: "absolute", bottom: "2vw", right: "2vw" }} 
+          onClick={() => {
+            setEditedFirstName(authUser?.first_name || "");
+            setEditedLastName(authUser?.last_name || "");
+            setEditedEmail(authUser?.email || "");
+            setIsEditing(true);
+          }}
+        >
           <span className="edit-text">Edit</span>
         </button>
       )}
@@ -127,17 +136,11 @@ function Profile() {
   const [authUser, setAuthUser] = useState(initialAuthUser);
   const [dataFetched, setDataFetched] = useState(false); // Track if data has been fetched
 
-  /*
-   * The below is uncommented for testing purposes
-   */
-  // if (!authUser) {
-  //   console.log("No initial authUser found in local storage");
-  //   window.location.href = "/login";
-  // }
-
-  /*
-   * Insert useEffect for getting classes here
-   */
+  // Redirect to login if not logged in
+  if (!authUser) {
+    console.log("No initial authUser found in local storage");
+    window.location.href = "/login";
+  }
 
   useEffect(() => {
     console.log("authUser changed!");
@@ -152,11 +155,11 @@ function Profile() {
   const [isEditingLastName, setIsEditingLastName] = useState(false);
   const [isEditingEmail, setIsEditingEmail] = useState(false);
 
-  const[isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   
-  const [editedFirstName, setEditedFirstName] = useState("");
-  const [editedLastName, setEditedLastName] = useState("");
-  const [editedEmail, setEditedEmail] = useState("");
+  const [editedFirstName, setEditedFirstName] = useState(authUser ? authUser.first_name : "");
+  const [editedLastName, setEditedLastName] = useState(authUser ? authUser.last_name : "");
+  const [editedEmail, setEditedEmail] = useState(authUser ? authUser.email : "");
 
   const [originalFirstName, setOriginalFirstName] = useState(authUser ? authUser.first_name : "");
   const [originalLastName, setOriginalLastName] = useState(authUser ? authUser.last_name : "");
@@ -195,15 +198,13 @@ function Profile() {
     if (editedEmail !== originalEmail && editedEmail !== "") {
       if (window.confirm("Are you sure you want to change your email?")) {
         // then continue with the save
-      }
-      else {
+      } else {
         // if the user cancels then return
         return;
       }
     }
 
     // POST request to change user info
-
     axios.post(`${SERVER_URL}/change_user_info`, {
       firstName: editedFirstName ? editedFirstName : originalFirstName,
       lastName: editedLastName ? editedLastName : originalLastName,
@@ -253,8 +254,6 @@ function Profile() {
     setIsEditingLastName(false);
     setIsEditingEmail(false);
   };
-
-  
 
   return (
     <div className="profile" style={{ marginTop: "7vw", display: "flex", alignItems: "center", flexDirection: "column", gap: "2vw" }}>

@@ -71,7 +71,7 @@ function Login() {
         }
         // 200 response = success!
         else if (response.status === 200) {
-          localStorage.setItem("authUser", JSON.stringify(data));
+          localStorage.setItem("authUser", JSON.stringify(response.data));
           localStorage.setItem("isLoggedIn", true);
 
           const authUser = JSON.parse(localStorage.getItem("authUser"));
