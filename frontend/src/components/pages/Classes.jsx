@@ -7,7 +7,7 @@ function Classes() {
     <div className="classes-page">
       <div className="opening-stack">
         <span className="event-date">Coming soon!</span>
-        <Link to="/signUp">
+        <Link to="/register">
           <img src={REGISTER_NOW_BUTTON} className="register-now-image" alt="Register Now" />
         </Link>
 

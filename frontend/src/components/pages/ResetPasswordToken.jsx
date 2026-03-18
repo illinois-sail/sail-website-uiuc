@@ -73,7 +73,7 @@ function ResetPasswordToken() {
 
       <AccountInput
         className="accountPassword"
-        size="medium"
+        size="large"
         label="NEW PASSWORD:"
         placeholder="New Password"
         inputType="password"

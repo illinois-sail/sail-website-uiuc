@@ -14,7 +14,6 @@ function SignUp() {
     firstName: "",
     lastName: "",
     email: "",
-    grade: "",
     password: "",
     confirmPassword: "",
   });
@@ -85,15 +84,16 @@ function SignUp() {
         // 200 response = success!
         else if (response.status === 200) {
           alert("Account created!");
-
-          const authUserData = { email: data.email, password: data.password }; //todo: probably shouldn't store this in plaintext...
+        
+          // Store the full user data returned from the server
+          const authUserData = response.data;
           localStorage.setItem("authUser", JSON.stringify(authUserData));
           localStorage.setItem("isLoggedIn", true);
-
+        
           const authUser = JSON.parse(localStorage.getItem("authUser"));
           setAuthUser(authUser);
           setIsLoggedIn(true);
-
+        
           window.location.href = "/login";
         }
       })
@@ -136,31 +136,17 @@ function SignUp() {
             onChange={(e) => handleChange(e, "lastName")}
           />
         </div>
-        {/* Email & Grade */}
-        <div className="registerEmailGrade">
-          {/* Email */}
-          <AccountInput
-            className="accountEmail"
-            size="small"
-            label="EMAIL:"
-            placeholder="Email"
-            inputType="email"
-            enterKeyHint="next"
-            onKeyDown={handleKeyDown}
-            onChange={(e) => handleChange(e, "email")}
-          />
-          {/* Grade */}
-          <AccountInput
-            className="registerGrade"
-            size="small"
-            label="GRADE:"
-            placeholder="11th"
-            inputType="text"
-            enterKeyHint="next"
-            onKeyDown={handleKeyDown}
-            onChange={(e) => handleChange(e, "grade")}
-          />
-        </div>
+        {/* Email */}
+        <AccountInput
+          className="accountEmail"
+          size="small"
+          label="EMAIL:"
+          placeholder="Email"
+          inputType="email"
+          enterKeyHint="next"
+          onKeyDown={handleKeyDown}
+          onChange={(e) => handleChange(e, "email")}
+        />
         {/* Password */}
         <AccountInput
           className="accountPassword"

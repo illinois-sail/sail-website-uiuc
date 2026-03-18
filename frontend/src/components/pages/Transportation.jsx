@@ -34,7 +34,7 @@ function Transportation() {
           </div>
           <div className="transportIntroBox2">
             <span>
-              BUSES WILL TAKE YOU TO AND FROM THE SIEBEL CENTER FOR CS.
+              BUSES WILL TAKE YOU TO AND FROM THE CAMPUS INSTRUCTIONAL FACILITY (CIF).
               PLEASE ARRIVE AT YOUR STOP <strong>15 MINUTES EARLY</strong>{" "}
               BEFORE DEPARTURE!
             </span>
@@ -55,72 +55,92 @@ function Transportation() {
           <div className="transportSegHeader" style={{ backgroundColor: "#FFDC44" }}>
             <span>MORNING BUSES</span>
           </div>
-          <p className="transportDirectionLabel">DEPARTURES → SIEBEL CENTER</p>
+          <p className="transportDirectionLabel">DEPARTURES → CAMPUS INSTRUCTIONAL FACILITY (CIF)</p>
 
           <div className="transportCard">
-            <div className="transportCardHeader">Naperville Metra Station</div>
+            <div className="transportCardHeader">Naperville Metra Station (Bus A)</div>
             <div className="transportCardAddress">105 E 4th Ave, Naperville, IL 60540</div>
             <div className="transportCardTimes">
+              <div className="transportTime depart">
+                <span className="transportTimeLabel">PICKUP</span>
+                <span className="transportTimeValue">5:30 AM</span>
+              </div>
+              <div className="transportArrow">→</div>
               <div className="transportTime depart">
                 <span className="transportTimeLabel">DEPART</span>
                 <span className="transportTimeValue">5:45 AM</span>
               </div>
               <div className="transportArrow">→</div>
               <div className="transportTime arrive">
-                <span className="transportTimeLabel">ARRIVE</span>
-                <span className="transportTimeValue">8:00 AM</span>
+                <span className="transportTimeLabel">ARRIVE CIF</span>
+                <span className="transportTimeValue">~8:15 AM</span>
               </div>
             </div>
           </div>
 
           <div className="transportCard">
-            <div className="transportCardHeader">Union Station, Chicago</div>
+            <div className="transportCardHeader">Union Station, Chicago (Bus B)</div>
             <div className="transportCardAddress">225 S Canal St, Chicago, IL 60606</div>
             <div className="transportCardTimes">
+              <div className="transportTime depart">
+                <span className="transportTimeLabel">PICKUP</span>
+                <span className="transportTimeValue">5:40 AM</span>
+              </div>
+              <div className="transportArrow">→</div>
               <div className="transportTime depart">
                 <span className="transportTimeLabel">DEPART</span>
                 <span className="transportTimeValue">5:55 AM</span>
               </div>
               <div className="transportArrow">→</div>
               <div className="transportTime arrive">
-                <span className="transportTimeLabel">ARRIVE</span>
-                <span className="transportTimeValue">8:00 AM</span>
+                <span className="transportTimeLabel">ARRIVE CIF</span>
+                <span className="transportTimeValue">~8:15 AM</span>
               </div>
             </div>
           </div>
 
           <div className="transportCard">
-            <div className="transportCardHeader">Woodfield Mall, Schaumburg</div>
+            <div className="transportCardHeader">Woodfield Mall, Schaumburg (Bus C)</div>
             <div className="transportCardAddress">
               5 Woodfield Mall, Schaumburg, IL 60173 — Lot E-30 & E-31 (near Ashley HomeStore)
             </div>
             <div className="transportCardTimes">
               <div className="transportTime depart">
-                <span className="transportTimeLabel">DEPART</span>
+                <span className="transportTimeLabel">PICKUP</span>
                 <span className="transportTimeValue">5:45 AM</span>
+              </div>
+              <div className="transportArrow">→</div>
+              <div className="transportTime depart">
+                <span className="transportTimeLabel">DEPART</span>
+                <span className="transportTimeValue">6:00 AM</span>
               </div>
               <div className="transportArrow">→</div>
               <div className="transportTime arrive">
                 <span className="transportTimeLabel">NEXT STOP</span>
-                <span className="transportTimeValue">6:00 AM</span>
+                <span className="transportTimeValue">Oakbrook</span>
               </div>
             </div>
           </div>
 
           <div className="transportCard">
-            <div className="transportCardHeader">Oakbrook Center, Oak Brook</div>
+            <div className="transportCardHeader">Oakbrook Center, Oak Brook (Bus C)</div>
             <div className="transportCardAddress">
               100 Oakbrook Center, Oak Brook, IL 60523 — Lot E (Southwest corner)
             </div>
             <div className="transportCardTimes">
               <div className="transportTime depart">
+                <span className="transportTimeLabel">PICKUP</span>
+                <span className="transportTimeValue">6:10 AM</span>
+              </div>
+              <div className="transportArrow">→</div>
+              <div className="transportTime depart">
                 <span className="transportTimeLabel">DEPART</span>
-                <span className="transportTimeValue">6:15 AM</span>
+                <span className="transportTimeValue">6:25 AM</span>
               </div>
               <div className="transportArrow">→</div>
               <div className="transportTime arrive">
-                <span className="transportTimeLabel">ARRIVE</span>
-                <span className="transportTimeValue">8:15 AM</span>
+                <span className="transportTimeLabel">ARRIVE CIF</span>
+                <span className="transportTimeValue">~8:30 AM</span>
               </div>
             </div>
           </div>
@@ -131,9 +151,13 @@ function Transportation() {
           <div className="transportSegHeader" style={{ backgroundColor: "#FF7DB2" }}>
             <span>EVENING BUSES</span>
           </div>
-          <p className="transportDirectionLabel">SIEBEL CENTER → DEPARTURES</p>
+          <p className="transportDirectionLabel">CAMPUS INSTRUCTIONAL FACILITY (CIF) → DEPARTURES</p>
 
-          <div className="transportCard">
+          <p style={{ fontFamily: '"Classic Comic", Helvetica, sans-serif', fontSize: "1.1vw", color: "#3f3e3e", marginTop: "1vw" }}>
+            INFORMATION COMING SOON!
+          </p>
+
+          {/* <div className="transportCard">
             <div className="transportCardHeader">Naperville Metra Station</div>
             <div className="transportCardAddress">105 E 4th Ave, Naperville, IL 60540</div>
             <div className="transportCardTimes">
@@ -199,7 +223,7 @@ function Transportation() {
                 <span className="transportTimeValue">9:00 PM</span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
       </div>
