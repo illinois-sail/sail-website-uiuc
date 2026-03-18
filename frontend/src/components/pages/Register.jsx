@@ -49,9 +49,9 @@ function Register() {
         {/* Step 1 */}
         <div className="registerStep">
           <div className="registerStepHeader" style={{ backgroundColor: "#79CCFF" }}>
-            <span>STEP 1: REGISTER FOR SAIL</span>
+            <span>STEP 1: REGISTER FOR THE EVENT</span>
           </div>
-          <p className="registerStepSubtext">REGISTER THROUGH GRAINGER / THE UNIVERSITY OF ILLINOIS</p>
+          <p className="registerStepSubtext">SIGN UP THROUGH THE UNIVERSITY OF ILLINOIS TO ATTEND SAIL</p>
 
           {/* Admitted students */}
           <div className="registerCard">
@@ -101,9 +101,9 @@ function Register() {
         {/* Step 2 */}
         <div className="registerStep">
           <div className="registerStepHeader" style={{ backgroundColor: "#F15F23" }}>
-            <span>STEP 2: REGISTER ON OUR SITE</span>
+            <span>STEP 2: SIGN UP FOR CLASSES</span>
           </div>
-          <p className="registerStepSubtext">CREATE AN ACCOUNT AND SIGN UP FOR CLASSES</p>
+          <p className="registerStepSubtext">CREATE AN ACCOUNT ON OUR SITE TO CHOOSE YOUR CLASSES</p>
 
           <div className="registerCard">
             <div className="registerCardHeader">Create an Account</div>

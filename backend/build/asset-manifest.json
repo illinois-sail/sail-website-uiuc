@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d0fc5f96.css",
-    "main.js": "/static/js/main.16813dab.js",
+    "main.js": "/static/js/main.b3c0fa88.js",
     "static/js/453.117b0875.chunk.js": "/static/js/453.117b0875.chunk.js",
     "static/media/about-lily.jpg": "/static/media/about-lily.f2f6047587b980a9f72e.jpg",
     "static/media/gal2.jpg": "/static/media/gal2.9ace5421413f238109eb.jpg",
@@ -58,11 +58,11 @@
     "static/media/sail-logo.svg": "/static/media/sail-logo.7968e30b43a6d7624d16e7d633f22242.svg",
     "index.html": "/index.html",
     "main.d0fc5f96.css.map": "/static/css/main.d0fc5f96.css.map",
-    "main.16813dab.js.map": "/static/js/main.16813dab.js.map",
+    "main.b3c0fa88.js.map": "/static/js/main.b3c0fa88.js.map",
     "453.117b0875.chunk.js.map": "/static/js/453.117b0875.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0fc5f96.css",
-    "static/js/main.16813dab.js"
+    "static/js/main.b3c0fa88.js"
   ]
 }
