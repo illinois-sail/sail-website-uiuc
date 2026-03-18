@@ -1,0 +1,78 @@
+/* Profile Header */
+.profile-header-text {
+    color: #0072B9;
+    font-family: "Classic Comic";
+    font-size: 10vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+    -webkit-text-stroke: 0.32vw white;
+    filter: drop-shadow(0 15px 4px rgba(0, 0, 0, 0.34));
+}
+
+/* Profile Generics */
+.profile-title {
+    color: #000;
+    font-family: "Classic Comic";
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.title-underline {
+    width: 22vw;
+    height: 0.26vw;
+    background: #79CCFF;
+}
+
+.profile-text {
+    color: #000;
+    font-family: "Classic Comic";
+    font-size: 1.4vw;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+/* Class */
+.classes-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Register for Classes Prompt */
+.register-prompt-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Personal Information */
+.pers-info-container {
+    position: relative;
+    width: 48vw;
+    height: 22vw;
+    border: 0.30vw solid #000;
+    background: #FFF;
+}
+
+.edit-info-btn-container {
+    width: 11vw;
+    height: 3vw;
+    border-radius: 687400vw;
+    border: 0.17vw solid #000;
+    background: linear-gradient(90deg, #FF6900 0%, #F54900 100%);
+    box-shadow: 0.25vw 0.25vw 0 0 #000;
+}
+
+.edit-text {
+    color: #FFF;
+    text-align: center;
+    font-family: "Classic Comic";
+    font-size: 1.63vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

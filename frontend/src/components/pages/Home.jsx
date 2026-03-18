@@ -113,7 +113,7 @@ function Home() {
                       </clipPath>
                     </defs>
                   </svg>
-                  <span className="time-text">8:00 AM</span>
+                  <span className="time-text">9:00 AM</span>
                 </div>
                 <span className="event-title">Check-In & Breakfast</span>
                 <div className="location-block">
