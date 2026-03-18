@@ -22,7 +22,7 @@ function Login() {
       setAuthUser(JSON.parse(storedUser));
       window.location.href = "/";
     }
-  });
+  }, []);
 
   const handleChange = (e, field) => {
     setFormData({ ...formData, [field]: e.target.value });
@@ -127,7 +127,7 @@ function Login() {
 
         {/* Forgot Password Text */}
         <Link
-          to="/forgotPassword"
+          to="/reset_password"
           style={{
             fontFamily: "Classic Comic",
             fontSize: "1.25vw",

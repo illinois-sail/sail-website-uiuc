@@ -1,114 +1,69 @@
 import "../Account/Account.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AccountInput from "../Account/AccountInput";
-import { ReactComponent as SpeechSmall } from "../../assets/account/account-speech-sm.svg";
-import { ReactComponent as SpeechMedium } from "../../assets/account/account-speech-md.svg";
-import { ReactComponent as SpeechLarge } from "../../assets/account/account-speech-lg.svg";
 import { ReactComponent as Exclamation } from "../../assets/account/forgot-exclaim.svg";
 import { ReactComponent as Lightning } from "../../assets/account/forgot-lightning.svg";
+import { useAuth } from "./AuthContext";
+import SERVER_URL from "./server_url";
 
-function ForgotPassword() {
-  // Handle Enter key to move focus to the next input instead of submitting the form
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      const form = e.target.form;
-      // Get all form elements as an array
-      const elements = Array.from(form.elements);
-      const index = elements.indexOf(e.target);
+function ResetPassword() {
+  const [email, setEmail] = useState("");
+  const { setAuthUser, setIsLoggedIn } = useAuth();
 
-      // Find the next focusable input
-      const nextElement = elements[index + 1];
-
-      // Check if the next element is an input (and not the submit button)
-      if (nextElement && nextElement.tagName === "INPUT") {
-        // STOP the form from submitting
-        e.preventDefault();
-        // Move the focus to the next box
-        nextElement.focus();
-      } else {
-        e.target.blur(); // Remove focus from the last input - DOES NOT SUBMIT
-      }
+  useEffect(() => {
+    const storedUser = localStorage.getItem("authUser");
+    if (storedUser) {
+      setIsLoggedIn(true);
+      setAuthUser(JSON.parse(storedUser));
+      window.location.href = "/";
     }
+  }, []);
+
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    const formData = { email };
+    fetch(`${SERVER_URL}/reset_password`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.status === 401) {
+          alert("Email does not exist. Email not sent.");
+        } else if (response.status === 200) {
+          alert(`An email has been sent to ${email} with reset instructions.`);
+          window.location.href = "/login";
+        }
+      })
+      .catch((error) => {
+        alert("Invalid request. Password was not reset.");
+        console.error(error);
+      });
   };
 
-  const [confirmed, setConfirmed] = useState(false); //temp var to show whether email has been confirmed
   return (
     <form
       className="accountWrapper"
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={handleResetPassword}
       style={{ backgroundColor: "#F05E22" }}
     >
       <span className="accountTitle">Forgot Password?</span>
-      {/* First and Last Name */}
-      <div className="accountNames">
-        {/* First Name */}
-        <AccountInput
-          className="accountFirstName"
-          size="medium"
-          label="FIRST NAME:"
-          placeholder="First Name"
-          inputType="text"
-          enterKeyHint="next"
-          onKeyDown={handleKeyDown}
-        />
-        {/* Last Name */}
-        <AccountInput
-          className="accountLastName"
-          size="medium"
-          label="LAST NAME:"
-          placeholder="Last Name"
-          inputType="text"
-          enterKeyHint="next"
-          onKeyDown={handleKeyDown}
-        />
-      </div>
-      {/* Email */}
+
       <AccountInput
         className="accountEmail"
         size="small"
         label="EMAIL:"
         placeholder="Email"
         inputType="email"
-        enterKeyHint="next"
-        onKeyDown={handleKeyDown}
+        enterKeyHint="done"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
-      {/* TODO Confirm Email Button - currently just toggles the variable */}
-      <button
-        className="accountButton forgotConfirm"
-        onClick={() => setConfirmed(!confirmed)}
-      >
-        CONFIRM EMAIL
+
+      <button className="accountButton forgotConfirm" type="submit">
+        SEND RESET EMAIL
       </button>
-      {/* Only show if email is confirmed */}
-      {confirmed && (
-        <>
-          {/* Password */}
-          <AccountInput
-            className="accountPassword"
-            size="medium"
-            label="PASSWORD:"
-            placeholder="Password"
-            inputType="password"
-            enterKeyHint="next"
-            onKeyDown={handleKeyDown}
-          />
-          {/* Confirm password */}
-          <AccountInput
-            className="accountConfirmPassword"
-            size="large"
-            label="CONFIRM PASSWORD:"
-            placeholder="Confirm Password"
-            inputType="password"
-            enterKeyHint="done"
-            onKeyDown={handleKeyDown}
-          />
-          {/* Reset Password Button */}
-          <button className="accountButton" type="submit">
-            RESET PASSWORD
-          </button>
-        </>
-      )}
-      {/* Graphics */}
+
       <Exclamation
         style={{
           position: "absolute",
@@ -131,4 +86,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;
+export default ResetPassword;

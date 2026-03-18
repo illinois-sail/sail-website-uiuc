@@ -28,7 +28,7 @@ function SignUp() {
       setAuthUser(JSON.parse(storedUser));
       window.location.href = "/";
     }
-  });
+  }, []);
 
   const handleChange = (e, field) => {
     setFormData({ ...formData, [field]: e.target.value });

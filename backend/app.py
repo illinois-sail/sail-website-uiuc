@@ -30,7 +30,15 @@ app = Flask(__name__, static_url_path='/', static_folder='./build', template_fol
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///student_accounts.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_student_accounts.db'
 
-CORS(app, supports_credentials=True, origins=['http://sail.cs.illinois.edu:3000', 'http://localhost:3000', 'http://192.168.1.9:5000'])
+CORS(app, supports_credentials=True, origins=[
+    'http://sail.cs.illinois.edu:3000',
+    'http://localhost:3000',
+    'http://192.168.1.9:5000',
+    'http://192.168.0.109:8000',
+    'http://192.168.0.109:3000',
+    'http://192.168.50.2:8000',
+    'http://192.168.50.2:3000'
+])
 db = SQLAlchemy(app)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -122,9 +130,9 @@ def login_page():
 def signup_page():
     return render_template('index.html')
 
-# @app.route('/profile', methods=['GET'])
-# def profile():
-#     return render_template('index.html')
+@app.route('/profile', methods=['GET'])
+def profile():
+    return render_template('index.html')
 
 @app.route('/logout', methods=['GET'])
 def logout():
