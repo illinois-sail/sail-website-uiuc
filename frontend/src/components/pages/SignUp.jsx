@@ -14,7 +14,6 @@ function SignUp() {
     firstName: "",
     lastName: "",
     email: "",
-    grade: "",
     password: "",
     confirmPassword: "",
   });
@@ -137,31 +136,17 @@ function SignUp() {
             onChange={(e) => handleChange(e, "lastName")}
           />
         </div>
-        {/* Email & Grade */}
-        <div className="registerEmailGrade">
-          {/* Email */}
-          <AccountInput
-            className="accountEmail"
-            size="small"
-            label="EMAIL:"
-            placeholder="Email"
-            inputType="email"
-            enterKeyHint="next"
-            onKeyDown={handleKeyDown}
-            onChange={(e) => handleChange(e, "email")}
-          />
-          {/* Grade */}
-          <AccountInput
-            className="registerGrade"
-            size="small"
-            label="GRADE:"
-            placeholder="11th"
-            inputType="text"
-            enterKeyHint="next"
-            onKeyDown={handleKeyDown}
-            onChange={(e) => handleChange(e, "grade")}
-          />
-        </div>
+        {/* Email */}
+        <AccountInput
+          className="accountEmail"
+          size="small"
+          label="EMAIL:"
+          placeholder="Email"
+          inputType="email"
+          enterKeyHint="next"
+          onKeyDown={handleKeyDown}
+          onChange={(e) => handleChange(e, "email")}
+        />
         {/* Password */}
         <AccountInput
           className="accountPassword"
