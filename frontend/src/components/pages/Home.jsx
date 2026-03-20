@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import CS_SAIL_IMAGE from "../../assets/cssail.png";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
-import CARTOON_FRAME from "../../assets/cartoon-frame.png";
+import CARTOON_FRAME from "../../assets/home/cartoon-frame.png";
 import CORN from "../../assets/corn.png";
 import ELLIPSE from "../../assets/ellipse.png";
-import SS_ICON_1 from "../../assets/ss-icon1.png";
-import SS_ICON_2 from "../../assets/ss-icon2.png";
-import SS_ICON_3 from "../../assets/ss-icon3.png";
-import SS_ICON_4 from "../../assets/ss-icon4.png";
-import SS_ICON_5 from "../../assets/ss-icon5.png";
-import SS_ICON_6 from "../../assets/ss-icon6.png";
-import SS_ICON_7 from "../../assets/ss-icon7.png";
-import SS_ICON_8 from "../../assets/ss-icon8.png";
+import SS_ICON_1 from "../../assets/home/ss-icon1.png";
+import SS_ICON_2 from "../../assets/home/ss-icon2.png";
+import SS_ICON_3 from "../../assets/home/ss-icon3.png";
+import SS_ICON_4 from "../../assets/home/ss-icon4.png";
+import SS_ICON_5 from "../../assets/home/ss-icon5.png";
+import SS_ICON_6 from "../../assets/home/ss-icon6.png";
+import SS_ICON_7 from "../../assets/home/ss-icon7.png";
+import SS_ICON_8 from "../../assets/home/ss-icon8.png";
 
 
 import Collage from "../Collage/Collage";

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SERVER_URL from "../server_url";
-import SIEBEL_LOC from "../../assets/siebel_loc.png";
+import SIEBEL_LOC from "../../assets/profile/siebel_loc.png";
+import PIZAZZ1 from "../../assets/profile/pizazz1.png";
+import CLOUD from "../../assets/profile/cloud.png";
+import STAR from "../../assets/account/register-star.svg";
+import LIGHTNING from "../../assets/profile/lightning.png";
 import "./Profile.css";
 
 const ProfileHeader = () => {
@@ -61,7 +65,7 @@ const ClassesDisplay = () => {
 
 const RegisterForClasses = () => {
   return (
-    <div className="register-prompt-wrapper" style={{ position: "relative", width: "32vw" }}>
+    <div className="register-prompt-wrapper" style={{ position: "relative", width: "32vw", marginLeft: "-4vw" }}>
       <svg className="register-prompt-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="309" viewBox="0 0 498 309" fill="none">
         <path d="M149.325 2L3.17603 307H398.578L495.176 2H149.325Z" fill="white" stroke="black" stroke-width="4"/>
       </svg>
@@ -257,8 +261,10 @@ function Profile() {
 
   return (
     <div className="profile" style={{ marginTop: "7vw", display: "flex", alignItems: "center", flexDirection: "column", gap: "2vw" }}>
+      <img src={STAR} style={{ position: "absolute", width: "9vw", transform: "translateX(440%) translateY(-30%)" }}/>
       <ProfileHeader/>
-      <div className="first-row" style={{ display: "flex", gap: "2vw" }}>
+      <div className="first-row" style={{ display: "flex", position: "relative", gap: "2vw" }}>
+        <img src={LIGHTNING} style={{ position: "absolute", width: "10vw", transform: "translateX(-50%) translateY(-70%)", zIndex: 3 }}/>
         <PersonalInformation 
           authUser={authUser}
           isEditing={isEditing}
@@ -272,10 +278,12 @@ function Profile() {
           handleSave={handleSave}
           handleCancel={handleCancel}
         />
+        <img src={CLOUD} style={{ position: "absolute", width: "11vw", transform: "translateX(150%) translateY(190%)", zIndex: 3 }}/>
         <MapLocation/>
       </div>
-      <div className="second-row" style={{ display: "flex" }}>
+      <div className="second-row" style={{ display: "flex", position: "relative", alignItems: "center" }}>
         <ClassesDisplay/>
+        <img src={PIZAZZ1} style={{ position: "absolute", transform: "translateX(90%)", left: "45%", width: "10vw", zIndex: 3 }}/>
         <RegisterForClasses/>
       </div>
     </div>
