@@ -8,6 +8,9 @@ import STAR from "../../assets/account/register-star.svg";
 import LIGHTNING from "../../assets/profile/lightning.png";
 import "./Profile.css";
 
+// TEMPORARY:
+import allClasses from "../Classes_TEMP.js";
+
 const ProfileHeader = () => {
   return (
     <div className="profile-header" style={{ width: "80vw", height: "20vw", border: "0.30vw solid #000", background: "#79CCFF", display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -48,7 +51,7 @@ function getClasses(bitsequence, classes) {
   return classesTaking;
 }
 
-const ClassesDisplay = () => {
+const ClassesDisplay = ({ userClasses }) => {
   return (
     <div className="classes-svg-wrapper" style={{ position: "relative", width: "53vw" }}>
       <svg className="classes-svg" xmlns="http://www.w3.org/2000/svg" width="814" height="309" viewBox="0 0 820 309">
@@ -56,8 +59,9 @@ const ClassesDisplay = () => {
       </svg>
       <div className="classes-svg-content" style={{ position: "absolute", top: "12%", left: "4%" }}>
         <span className="profile-title">Classes</span>
-        <div className="title-underline" />
-        <span className="profile-text"><br/>COMING SOON!</span>
+        <div className="title-underline-c" />
+        {/* NEXT STEPS: edit here for getting classes in profile!!! */}
+        <span className="profile-text"><br/>- COMING SOON!</span>
       </div>
     </div>
   );
@@ -82,7 +86,7 @@ const PersonalInformation = ({ authUser, isEditing, setIsEditing, editedFirstNam
     <div className="pers-info-container">
       <div className="pers-info-content" style={{ marginTop: "2vw", marginLeft: "2vw" }}>
         <span className="profile-title">Personal Information</span>
-        <div className="title-underline" style={{ width: "26.8vw" }}/>
+        <div className="title-underline-pi" />
         {isEditing ? (
           <>
             <span className="profile-text"><br/>
@@ -259,12 +263,14 @@ function Profile() {
     setIsEditingEmail(false);
   };
 
+  const userClasses = authUser?.classes ? getClasses(authUser.classes, allClasses) : [];
+
   return (
     <div className="profile" style={{ marginTop: "7vw", display: "flex", alignItems: "center", flexDirection: "column", gap: "2vw" }}>
-      <img src={STAR} style={{ position: "absolute", width: "9vw", transform: "translateX(440%) translateY(-30%)" }}/>
+      <img src={STAR} className="floating-img" style={{ position: "absolute", width: "9vw", transform: "translateX(440%) translateY(-30%)" }}/>
       <ProfileHeader/>
       <div className="first-row" style={{ display: "flex", position: "relative", gap: "2vw" }}>
-        <img src={LIGHTNING} style={{ position: "absolute", width: "10vw", transform: "translateX(-50%) translateY(-70%)", zIndex: 3 }}/>
+        <img src={LIGHTNING} className="floating-img" style={{ position: "absolute", width: "10vw", transform: "translateX(-50%) translateY(-70%)", zIndex: 3 }}/>
         <PersonalInformation 
           authUser={authUser}
           isEditing={isEditing}
@@ -278,12 +284,12 @@ function Profile() {
           handleSave={handleSave}
           handleCancel={handleCancel}
         />
-        <img src={CLOUD} style={{ position: "absolute", width: "11vw", transform: "translateX(150%) translateY(190%)", zIndex: 3 }}/>
+        <img src={CLOUD} className="floating-img" style={{ position: "absolute", width: "11vw", transform: "translateX(150%) translateY(190%)", zIndex: 3 }}/>
         <MapLocation/>
       </div>
       <div className="second-row" style={{ display: "flex", position: "relative", alignItems: "center" }}>
-        <ClassesDisplay/>
-        <img src={PIZAZZ1} style={{ position: "absolute", transform: "translateX(90%)", left: "45%", width: "10vw", zIndex: 3 }}/>
+        <ClassesDisplay userClasses={userClasses}/>
+        <img src={PIZAZZ1} className="floating-img" style={{ position: "absolute", transform: "translateX(90%)", left: "45%", width: "10vw", zIndex: 3 }}/>
         <RegisterForClasses/>
       </div>
     </div>
