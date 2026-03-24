@@ -9,7 +9,7 @@ import LIGHTNING from "../../assets/profile/lightning.png";
 import "./Profile.css";
 
 // TEMPORARY:
-import allClasses from "../Classes_TEMP.js";
+import allClasses from "./Classes_TEMP.js";
 
 const ProfileHeader = () => {
   return (
