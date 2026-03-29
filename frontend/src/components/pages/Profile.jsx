@@ -6,6 +6,8 @@ import PIZAZZ1 from "../../assets/profile/pizazz1.png";
 import CLOUD from "../../assets/profile/cloud.png";
 import STAR from "../../assets/account/register-star.svg";
 import LIGHTNING from "../../assets/profile/lightning.png";
+import { ReactComponent as CountdownCloud } from "../../assets/account/register-cloud.svg";
+
 import "./Profile.css";
 
 // TEMPORARY:
@@ -54,28 +56,47 @@ function getClasses(bitsequence, classes) {
 const ClassesDisplay = ({ userClasses }) => {
   return (
     <div className="classes-svg-wrapper" style={{ position: "relative", width: "53vw" }}>
-      <svg className="classes-svg" xmlns="http://www.w3.org/2000/svg" width="814" height="309" viewBox="0 0 820 309">
-        <path d="M2 2H816L671.825 307H2V2Z" fill="#FFF" stroke="black" strokeWidth="4" />
+      <svg className="classes-svg" xmlns="http://www.w3.org/2000/svg" width="819" height="484" viewBox="0 0 819 484">
+        <path d="M2 2H816L671.825 482H2V2Z" fill="#FFF" stroke="black" strokeWidth="4" />
       </svg>
       <div className="classes-svg-content" style={{ position: "absolute", top: "12%", left: "4%" }}>
         <span className="profile-title">Classes</span>
         <div className="title-underline-c" />
-        {/* NEXT STEPS: edit here for getting classes in profile!!! */}
-        <span className="profile-text"><br/>- COMING SOON!</span>
+
+        {userClasses.length === 0 ? (
+          <span className="profile-text"><br/>No Registered Classes!</span>
+        ) : (
+          <ul className="profile-text">
+            {userClasses.map((cls, index) => (
+              <li key={index}>
+                {cls.className}
+                <ul><li>({cls.room === "Zoom" ? "April 19" : "April 18"}, {cls.time}, {cls.room})</li></ul>
+              </li>
+            ))}
+          </ul>
+        )}
+
       </div>
     </div>
   );
 }
 
-const RegisterForClasses = () => {
+const SailCountdown = () => {
   return (
-    <div className="register-prompt-wrapper" style={{ position: "relative", width: "32vw", marginLeft: "-4vw" }}>
-      <svg className="register-prompt-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="309" viewBox="0 0 498 309" fill="none">
-        <path d="M149.325 2L3.17603 307H398.578L495.176 2H149.325Z" fill="white" stroke="black" stroke-width="4"/>
+    <div className="countdown-wrapper" style={{ position: "relative", width: "32vw", marginLeft: "-4vw" }}>
+      <svg className="countdown-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="484" viewBox="0 0 498 484" fill="none">
+        <path d="M148.848 2L2.69971 482H398.102L494.7 2H148.848Z" fill="#C1E7FF" stroke="black" stroke-width="4"/>
       </svg>
-      <div className="register-prompt-svg-content" style={{ position: "absolute", top: "35%", left: "40%", width: "13vw" }}>
-        {/* <span className="profile-text">Complete Registration <a href="/classes">Here</a></span> */}
-        <span className="profile-text">Class Registration Coming Soon!</span>
+      <div className="countdown-svg-content" style={{ position: "absolute", top: "35%", left: "40%", width: "13vw" }}>
+        <div style={{ position: "relative" }}>
+          <CountdownCloud
+            className="countdown-cloud"
+            width="20vw"
+            style={{ position: "absolute", bottom: "-7vw", right: "-2vw" }}
+          />
+          <span className="countdown-text">21</span>
+        </div>
+        {/* <span>please display these text i want os jee hat is going to happen</span> */}
       </div>
     </div>
   );
@@ -263,7 +284,13 @@ function Profile() {
     setIsEditingEmail(false);
   };
 
-  const userClasses = authUser?.classes ? getClasses(authUser.classes, allClasses) : [];
+  // NOTE: the below line is the actual code
+  // const userClasses = authUser?.classes ? getClasses(authUser.classes, allClasses) : [];
+
+  // temporary stuff!!
+  const testBitstring = "111111";
+  const userClasses = getClasses(testBitstring, allClasses);
+  console.log("userClasses:", userClasses);
 
   return (
     <div className="profile" style={{ marginTop: "7vw", display: "flex", alignItems: "center", flexDirection: "column", gap: "2vw" }}>
@@ -290,7 +317,7 @@ function Profile() {
       <div className="second-row" style={{ display: "flex", position: "relative", alignItems: "center" }}>
         <ClassesDisplay userClasses={userClasses}/>
         <img src={PIZAZZ1} className="floating-img" style={{ position: "absolute", transform: "translateX(90%)", left: "45%", width: "10vw", zIndex: 3 }}/>
-        <RegisterForClasses/>
+        <SailCountdown/>
       </div>
     </div>
   );

@@ -42,11 +42,25 @@
     background: #79CCFF;
 }
 
-/* Register for Classes Prompt */
-.register-prompt-svg {
+/* Countdown */
+.countdown-svg {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.countdown-text {
+    position: absolute;
+    z-index: 5;
+    color: #0072B9;
+    font-family: "Classic Comic";
+    font-size: 6vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+    -webkit-text-stroke: 0.2vw black;
+    bottom: -5.5vw;
+    right: 6vw;
 }
 
 /* Personal Information */
@@ -98,7 +112,7 @@
   /* Full-width cards */
   .pers-info-container,
   .classes-svg-wrapper,
-  .register-prompt-wrapper {
+  .countdown-wrapper {
     width: 90vw !important;
     margin-left: 0 !important;
   }
@@ -116,21 +130,27 @@
 
   /* Remove SVG shapes */
   .classes-svg,
-  .register-prompt-svg {
+  .countdown-svg,
+  .countdown-cloud {
     display: none;
   }
 
   /* Turn wrappers into simple boxes */
-  .classes-svg-wrapper,
-  .register-prompt-wrapper {
+  .classes-svg-wrapper {
     background: #FFF;
+    border: 0.3vw solid #000;
+    padding: 4vw;
+  }
+
+  .countdown-wrapper {
+    background: #C1E7FF;
     border: 0.3vw solid #000;
     padding: 4vw;
   }
 
   /* Reset absolute positioning inside SVG content */
   .classes-svg-content,
-  .register-prompt-svg-content {
+  .countdown-svg-content {
     position: static !important;
     width: 100% !important;
   }
