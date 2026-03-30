@@ -7,11 +7,8 @@ import CLOUD from "../../assets/profile/cloud.png";
 import STAR from "../../assets/account/register-star.svg";
 import LIGHTNING from "../../assets/profile/lightning.png";
 import { ReactComponent as CountdownCloud } from "../../assets/account/register-cloud.svg";
-
 import "./Profile.css";
-
-// TEMPORARY:
-import allClasses from "./Classes_TEMP.js";
+import allClasses from "./Classes.js";
 
 const ProfileHeader = () => {
   return (
@@ -82,6 +79,22 @@ const ClassesDisplay = ({ userClasses }) => {
 }
 
 const SailCountdown = () => {
+  const [daysLeft, setDaysLeft] = useState(0);
+
+  useEffect(() => {
+    const targetDate = new Date("April 18, 2026");
+    const calculateDaysLeft = () => {
+      const today = new Date();
+      const diffTime = targetDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      setDaysLeft(diffDays > 0 ? diffDays : 0);
+    }
+
+    calculateDaysLeft();
+    const interval = setInterval(calculateDaysLeft, 1000 * 60 * 60)
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="countdown-wrapper" style={{ position: "relative", width: "32vw", marginLeft: "-4vw" }}>
       <svg className="countdown-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="484" viewBox="0 0 498 484" fill="none">
@@ -94,9 +107,9 @@ const SailCountdown = () => {
             width="20vw"
             style={{ position: "absolute", bottom: "-7vw", right: "-2vw" }}
           />
-          <span className="countdown-text">21</span>
+          <span className="countdown-text">{daysLeft}</span>
         </div>
-        {/* <span>please display these text i want os jee hat is going to happen</span> */}
+        <span className="profile-text" style={{ position: "absolute", top: "8vw", marginLeft: "-2vw" }}>DAYS TILL SAIL!</span>
       </div>
     </div>
   );
@@ -284,13 +297,7 @@ function Profile() {
     setIsEditingEmail(false);
   };
 
-  // NOTE: the below line is the actual code
-  // const userClasses = authUser?.classes ? getClasses(authUser.classes, allClasses) : [];
-
-  // temporary stuff!!
-  const testBitstring = "111111";
-  const userClasses = getClasses(testBitstring, allClasses);
-  console.log("userClasses:", userClasses);
+  const userClasses = authUser?.classes ? getClasses(authUser.classes, allClasses) : [];
 
   return (
     <div className="profile" style={{ marginTop: "7vw", display: "flex", alignItems: "center", flexDirection: "column", gap: "2vw" }}>

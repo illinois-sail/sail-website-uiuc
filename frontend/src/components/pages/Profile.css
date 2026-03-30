@@ -60,7 +60,7 @@
     line-height: normal;
     -webkit-text-stroke: 0.2vw black;
     bottom: -5.5vw;
-    right: 6vw;
+    right: 5.5vw;
 }
 
 /* Personal Information */
@@ -198,5 +198,38 @@
     width: 67vw;
     height: 0.26vw;
     background: #79CCFF;
+  }
+
+  /* Fix countdown layout on mobile */
+  .countdown-svg-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+  }
+
+  /* Reset the container that was using absolute positioning */
+  .countdown-svg-content > div {
+    position: static !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Fix the number */
+  .countdown-text {
+    position: static !important;
+    font-size: 12vw;
+    -webkit-text-stroke: 0.4vw black;
+    margin: 2vw 0;
+  }
+
+  /* Fix the label text */
+  .countdown-svg-content .profile-text {
+    position: static !important;
+    margin: 0 !important;
+    text-align: center;
+    font-size: 4vw;
   }
 }
