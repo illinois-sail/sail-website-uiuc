@@ -3,35 +3,33 @@ import { useState } from "react";
 import ClassCard from "../Classes/ClassCard";
 import { ReactComponent as TitleCloud } from "../../assets/classes/classes-title.svg";
 import { ReactComponent as Impact } from "../../assets/classes/classes-impact.svg";
-
-const dummyClasses = [
-  { data: "1" },
-  { data: "2" },
-  { data: "3" },
-  { data: "4" },
-  { data: "5" },
-  { data: "6" },
-  { data: "7" },
-  { data: "8" },
-  { data: "9" },
-  { data: "10" },
-  { data: "11" },
-  { data: "12" },
-  { data: "13" },
-  { data: "14" },
-  { data: "15" },
-  { data: "16" },
-  { data: "17" },
-  { data: "18" },
-  { data: "19" },
-  { data: "20" },
-];
+import {
+  inPersonMorningClassesFirst,
+  inPersonMorningClassesSecond,
+  inPersonAfternoonClasses,
+  virtualMorningClasses,
+  virtualAfternoonClasses,
+} from "./ClassList";
 
 function Classes() {
   const [currentDay, setCurrentDay] = useState(0); //0, 1
   const [currentTime, setCurrentTime] = useState(0); //0, 1, 2
 
-  const currClasses = dummyClasses;
+  const classMap = {
+    // Day 1
+    0: {
+      0: inPersonMorningClassesFirst,
+      1: inPersonMorningClassesSecond,
+      2: inPersonAfternoonClasses,
+    },
+    // Day 2
+    1: {
+      0: virtualMorningClasses,
+      1: virtualAfternoonClasses,
+    },
+  };
+
+  const currClasses = classMap[currentDay][currentTime] || [];
 
   return (
     <div className="classes-page">
@@ -163,8 +161,11 @@ function Classes() {
       </div>
       {/* Mapped classes */}
       <div className="classesCards">
-        {currClasses.map((item, index) => (
-          <ClassCard key={index} text={item.data} />
+        {currClasses.map((course, index) => (
+          <ClassCard
+            key={course.classIndex || index}
+            text={course.className || "Name not found"}
+          />
         ))}
       </div>
       <Impact
