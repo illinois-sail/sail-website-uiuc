@@ -1,6 +1,7 @@
 import "./Classes.css";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
 import { Link } from "react-router-dom";
+import ClassCard from "../Classes/ClassCard";
 
 function Classes() {
   return (
@@ -10,6 +11,7 @@ function Classes() {
         <Link to="/register">
           <img src={REGISTER_NOW_BUTTON} className="register-now-image" alt="Register Now" />
         </Link>
+        <ClassCard />
 
       </div>
 
