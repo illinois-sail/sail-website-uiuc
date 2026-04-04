@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SERVER_URL from "../server_url";
-import SIEBEL_LOC from "../../assets/siebel_loc.png";
+import SIEBEL_LOC from "../../assets/profile/siebel_loc.png";
+import PIZAZZ1 from "../../assets/profile/pizazz1.png";
+import CLOUD from "../../assets/profile/cloud.png";
+import STAR from "../../assets/account/register-star.svg";
+import LIGHTNING from "../../assets/profile/lightning.png";
+import { ReactComponent as CountdownCloud } from "../../assets/account/register-cloud.svg";
 import "./Profile.css";
+import allClasses from "./Classes.js";
 
 const ProfileHeader = () => {
   return (
@@ -44,30 +50,66 @@ function getClasses(bitsequence, classes) {
   return classesTaking;
 }
 
-const ClassesDisplay = () => {
+const ClassesDisplay = ({ userClasses }) => {
   return (
     <div className="classes-svg-wrapper" style={{ position: "relative", width: "53vw" }}>
-      <svg className="classes-svg" xmlns="http://www.w3.org/2000/svg" width="814" height="309" viewBox="0 0 820 309">
-        <path d="M2 2H816L671.825 307H2V2Z" fill="#FFF" stroke="black" strokeWidth="4" />
+      <svg className="classes-svg" xmlns="http://www.w3.org/2000/svg" width="819" height="484" viewBox="0 0 819 484">
+        <path d="M2 2H816L671.825 482H2V2Z" fill="#FFF" stroke="black" strokeWidth="4" />
       </svg>
       <div className="classes-svg-content" style={{ position: "absolute", top: "12%", left: "4%" }}>
         <span className="profile-title">Classes</span>
-        <div className="title-underline" />
-        <span className="profile-text"><br/>COMING SOON!</span>
+        <div className="title-underline-c" />
+
+        {userClasses.length === 0 ? (
+          <span className="profile-text"><br/>No Registered Classes!</span>
+        ) : (
+          <ul className="profile-text">
+            {userClasses.map((cls, index) => (
+              <li key={index}>
+                {cls.className}
+                <ul><li>({cls.room === "Zoom" ? "April 19" : "April 18"}, {cls.time}, {cls.room})</li></ul>
+              </li>
+            ))}
+          </ul>
+        )}
+
       </div>
     </div>
   );
 }
 
-const RegisterForClasses = () => {
+const SailCountdown = () => {
+  const [daysLeft, setDaysLeft] = useState(0);
+
+  useEffect(() => {
+    const targetDate = new Date("April 18, 2026");
+    const calculateDaysLeft = () => {
+      const today = new Date();
+      const diffTime = targetDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      setDaysLeft(diffDays > 0 ? diffDays : 0);
+    }
+
+    calculateDaysLeft();
+    const interval = setInterval(calculateDaysLeft, 1000 * 60 * 60)
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="register-prompt-wrapper" style={{ position: "relative", width: "32vw" }}>
-      <svg className="register-prompt-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="309" viewBox="0 0 498 309" fill="none">
-        <path d="M149.325 2L3.17603 307H398.578L495.176 2H149.325Z" fill="white" stroke="black" stroke-width="4"/>
+    <div className="countdown-wrapper" style={{ position: "relative", width: "32vw", marginLeft: "-4vw" }}>
+      <svg className="countdown-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="484" viewBox="0 0 498 484" fill="none">
+        <path d="M148.848 2L2.69971 482H398.102L494.7 2H148.848Z" fill="#C1E7FF" stroke="black" stroke-width="4"/>
       </svg>
-      <div className="register-prompt-svg-content" style={{ position: "absolute", top: "35%", left: "40%", width: "13vw" }}>
-        {/* <span className="profile-text">Complete Registration <a href="/classes">Here</a></span> */}
-        <span className="profile-text">Class Registration Coming Soon!</span>
+      <div className="countdown-svg-content" style={{ position: "absolute", top: "35%", left: "40%", width: "13vw" }}>
+        <div style={{ position: "relative" }}>
+          <CountdownCloud
+            className="countdown-cloud"
+            width="20vw"
+            style={{ position: "absolute", bottom: "-7vw", right: "-2vw" }}
+          />
+          <span className="countdown-text">{daysLeft}</span>
+        </div>
+        <span className="profile-text" style={{ position: "absolute", top: "8vw", marginLeft: "-2vw" }}>DAYS TILL SAIL!</span>
       </div>
     </div>
   );
@@ -78,7 +120,7 @@ const PersonalInformation = ({ authUser, isEditing, setIsEditing, editedFirstNam
     <div className="pers-info-container">
       <div className="pers-info-content" style={{ marginTop: "2vw", marginLeft: "2vw" }}>
         <span className="profile-title">Personal Information</span>
-        <div className="title-underline" style={{ width: "26.8vw" }}/>
+        <div className="title-underline-pi" />
         {isEditing ? (
           <>
             <span className="profile-text"><br/>
@@ -255,10 +297,14 @@ function Profile() {
     setIsEditingEmail(false);
   };
 
+  const userClasses = authUser?.classes ? getClasses(authUser.classes, allClasses) : [];
+
   return (
     <div className="profile" style={{ marginTop: "7vw", display: "flex", alignItems: "center", flexDirection: "column", gap: "2vw" }}>
+      <img src={STAR} className="floating-img" style={{ position: "absolute", width: "9vw", transform: "translateX(440%) translateY(-30%)" }}/>
       <ProfileHeader/>
-      <div className="first-row" style={{ display: "flex", gap: "2vw" }}>
+      <div className="first-row" style={{ display: "flex", position: "relative", gap: "2vw" }}>
+        <img src={LIGHTNING} className="floating-img" style={{ position: "absolute", width: "10vw", transform: "translateX(-50%) translateY(-70%)", zIndex: 3 }}/>
         <PersonalInformation 
           authUser={authUser}
           isEditing={isEditing}
@@ -272,11 +318,13 @@ function Profile() {
           handleSave={handleSave}
           handleCancel={handleCancel}
         />
+        <img src={CLOUD} className="floating-img" style={{ position: "absolute", width: "11vw", transform: "translateX(150%) translateY(190%)", zIndex: 3 }}/>
         <MapLocation/>
       </div>
-      <div className="second-row" style={{ display: "flex" }}>
-        <ClassesDisplay/>
-        <RegisterForClasses/>
+      <div className="second-row" style={{ display: "flex", position: "relative", alignItems: "center" }}>
+        <ClassesDisplay userClasses={userClasses}/>
+        <img src={PIZAZZ1} className="floating-img" style={{ position: "absolute", transform: "translateX(90%)", left: "45%", width: "10vw", zIndex: 3 }}/>
+        <SailCountdown/>
       </div>
     </div>
   );
