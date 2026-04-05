@@ -68,7 +68,7 @@ function ClassCard({ className, room, time, description, onRegisterClick, index,
                 </div>
                 {!authUser ? (
                     // if no authUser + virtual
-                    room === "Zoom" || room == "Virtual" ? (
+                    room === "Zoom" || room === "Virtual" ? (
                         <div className="card-class-logistics">
                             Zoom · {time}
                         </div>
@@ -109,8 +109,14 @@ function ClassCard({ className, room, time, description, onRegisterClick, index,
                     Remaining Seats: {seatsRemaining} / {capacity}
                 </div>
                 {authUser ? (
-                    <button className="class-register-btn" style={{ marginTop: "0.5vw" }} onClick={() => { setIsRegistered(!isRegistered); onRegisterClick(index); }}>
-                        <span className="class-rem-seats" style={{ color: "#FFF", fontFamily: "Classic Comic"}}>Register</span>
+                    <button className="class-register-btn" style={{ marginTop: "0.5vw" }} onClick={() => { setIsRegistered(!isRegistered); onRegisterClick(index); }} disabled={!activated || seatsRemaining === "loading" || (!isRegistered && seatsRemaining === 0)}>
+                        <span className="class-rem-seats" style={{ color: "#FFF", fontFamily: "Classic Comic"}}>
+                            {seatsRemaining === 0 && !isRegistered
+                                ? "Full"
+                                : isRegistered
+                                    ? "Unregister"
+                                    : "Register"}
+                        </span>
                     </button>
                 ) : (
                     <></>

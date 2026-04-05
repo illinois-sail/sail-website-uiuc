@@ -11,7 +11,7 @@ function Classes() {
         <Link to="/register">
           <img src={REGISTER_NOW_BUTTON} className="register-now-image" alt="Register Now" />
         </Link>
-        <ClassCard />
+        {/* <ClassCard /> add Class Cards here!! */}
 
       </div>
 
