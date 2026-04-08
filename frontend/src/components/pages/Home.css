@@ -455,6 +455,7 @@
     height: 2vw;
     margin-top: 0.5vw;
     padding: 0.1vw 0.3vw 0 0.5vw;
+    justify-content: center;
     align-items: center;
     flex: 1 0 0;
     align-self: stretch;
