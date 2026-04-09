@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.d0fc5f96.css",
-    "main.js": "/static/js/main.86edb54f.js",
-    "static/js/453.117b0875.chunk.js": "/static/js/453.117b0875.chunk.js",
+    "main.css": "/static/css/main.08deb53a.css",
+    "main.js": "/static/js/main.d629efb9.js",
+    "static/js/453.e9e7ec89.chunk.js": "/static/js/453.e9e7ec89.chunk.js",
     "static/media/about-lily.jpg": "/static/media/about-lily.f2f6047587b980a9f72e.jpg",
     "static/media/gal2.jpg": "/static/media/gal2.9ace5421413f238109eb.jpg",
     "static/media/gal1.jpg": "/static/media/gal1.883cb8547110ed715349.jpg",
@@ -44,6 +44,7 @@
     "static/media/lead.svg": "/static/media/lead.b8204e4b64d26abb206496e6e13c10fb.svg",
     "static/media/registernow.png": "/static/media/registernow.ae1fa196d13fcc75d195.png",
     "static/media/forgot-exclaim.svg": "/static/media/forgot-exclaim.0507bb4c05e49c987e9c4d70a6c0f0a5.svg",
+    "static/media/pizazz1.png": "/static/media/pizazz1.8be219df8c3a9c37b3ce.png",
     "static/media/header_cloud.svg": "/static/media/header_cloud.ca3924bbfd3eb6f97dbbaaec1d28e4d5.svg",
     "static/media/2_day_bubble.svg": "/static/media/2_day_bubble.44e18c54496f4cdf3f77d6addada1fca.svg",
     "static/media/register-star.svg": "/static/media/register-star.ac8618cfc0ce768f0520d987272e4760.svg",
@@ -57,12 +58,12 @@
     "static/media/star_2.svg": "/static/media/star_2.5da2bc51020aa5bf9b1f2791ae93b447.svg",
     "static/media/sail-logo.svg": "/static/media/sail-logo.7968e30b43a6d7624d16e7d633f22242.svg",
     "index.html": "/index.html",
-    "main.d0fc5f96.css.map": "/static/css/main.d0fc5f96.css.map",
-    "main.86edb54f.js.map": "/static/js/main.86edb54f.js.map",
-    "453.117b0875.chunk.js.map": "/static/js/453.117b0875.chunk.js.map"
+    "main.08deb53a.css.map": "/static/css/main.08deb53a.css.map",
+    "main.d629efb9.js.map": "/static/js/main.d629efb9.js.map",
+    "453.e9e7ec89.chunk.js.map": "/static/js/453.e9e7ec89.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0fc5f96.css",
-    "static/js/main.86edb54f.js"
+    "static/css/main.08deb53a.css",
+    "static/js/main.d629efb9.js"
   ]
 }

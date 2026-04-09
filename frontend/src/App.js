@@ -10,7 +10,7 @@ import Register from "./components/pages/Register";
 import Transportation from "./components/pages/Transportation";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
-import Classes from "./components/pages/Classes";
+import Classes from "./components/pages/Classes.jsx";
 import Faq from "./components/pages/Faq";
 import SignUp from "./components/pages/SignUp";
 import Logout from "./components/pages/Logout";
