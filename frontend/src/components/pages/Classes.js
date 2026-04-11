@@ -73,15 +73,6 @@ const allClasses = [
       zoomLink: null,
     },
     {
-      className: 'Python Mosaic',
-      time: '10:00am-10:50am',
-      room: 'Siebel 3102',
-      capacity: 14,
-      description: "Materials: device, optional image dataset.",
-      classIndex: 8,
-      zoomLink: null,
-    },
-    {
       className: 'Intro to Game Development w/ Roblox Studio',
       time: '10:00am-10:50am',
       room: 'Siebel 3124',
@@ -366,15 +357,6 @@ const allClasses = [
       zoomLink: null,
     },
     {
-      className: 'Python Mosaic',
-      time: '2:00pm-2:50pm',
-      room: 'Siebel 3102',
-      capacity: 14,
-      description: "Materials: device, optional image dataset.",
-      classIndex: 42,
-      zoomLink: null,
-    },
-    {
       className: 'None to Billions -- Logic. Induction. Recursion.',
       time: '2:00pm-2:50pm',
       room: 'Siebel 3124',
@@ -624,7 +606,27 @@ const allClasses = [
   //   classIndex: 17,
   //   zoomLink: null,
   // },
-  
+
+  // {
+  //   className: 'Python Mosaic',
+  //   time: '10:00am-10:50am',
+  //   room: 'Siebel 3102',
+  //   capacity: 14,
+  //   description: "Materials: device, optional image dataset.",
+  //   classIndex: 8,
+  //   zoomLink: null,
+  // },
+
+   // {
+   //   className: 'Python Mosaic',
+   //   time: '2:00pm-2:50pm',
+   //   room: 'Siebel 3102',
+   //   capacity: 14,
+   //   description: "Materials: device, optional image dataset.",
+   //   classIndex: 42,
+   //   zoomLink: null,
+   // },
+    
   
   allClasses.forEach((c) => {
     if (!c.zoomLink) {
