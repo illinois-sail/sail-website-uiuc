@@ -1,5 +1,5 @@
 const PROD_SERVER = "https://sail.cs.illinois.edu";
-const TEST_SERVER = "http://192.168.50.2:8000";
+const TEST_SERVER = "http://localhost:8000";
 
 // server URL based on the url of the window
 const SERVER_URL = window.location.href.includes("sail.cs.illinois.edu")

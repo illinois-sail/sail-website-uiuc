@@ -20,12 +20,6 @@
     line-height: normal;
 }
 
-.title-underline {
-    width: 22vw;
-    height: 0.26vw;
-    background: #79CCFF;
-}
-
 .profile-text {
     color: #000;
     font-family: "Classic Comic";
@@ -42,11 +36,31 @@
     display: block;
 }
 
-/* Register for Classes Prompt */
-.register-prompt-svg {
+.title-underline-c {
+    width: 10vw;
+    height: 0.26vw;
+    background: #79CCFF;
+}
+
+/* Countdown */
+.countdown-svg {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.countdown-text {
+    position: absolute;
+    z-index: 5;
+    color: #0072B9;
+    font-family: "Classic Comic";
+    font-size: 6vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+    -webkit-text-stroke: 0.2vw black;
+    bottom: -5.5vw;
+    right: 5.5vw;
 }
 
 /* Personal Information */
@@ -56,6 +70,12 @@
     height: 22vw;
     border: 0.30vw solid #000;
     background: #FFF;
+}
+
+.title-underline-pi {
+    width: 26.8vw;
+    height: 0.26vw;
+    background: #79CCFF;
 }
 
 .edit-info-btn-container {
@@ -75,4 +95,141 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+  /* Stack rows vertically */
+  .first-row,
+  .second-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 4vw;
+  }
+
+  /* Full-width cards */
+  .pers-info-container,
+  .classes-svg-wrapper,
+  .countdown-wrapper {
+    width: 90vw !important;
+    margin-left: 0 !important;
+  }
+
+  /* Let content expand naturally */
+  .pers-info-container {
+    height: auto;
+    padding-bottom: 6vw;
+  }
+
+  /* Hide decorative floating images */
+  .floating-img {
+    display: none;
+  }
+
+  /* Remove SVG shapes */
+  .classes-svg,
+  .countdown-svg,
+  .countdown-cloud {
+    display: none;
+  }
+
+  /* Turn wrappers into simple boxes */
+  .classes-svg-wrapper {
+    background: #FFF;
+    border: 0.3vw solid #000;
+    padding: 4vw;
+  }
+
+  .countdown-wrapper {
+    background: #C1E7FF;
+    border: 0.3vw solid #000;
+    padding: 4vw;
+  }
+
+  /* Reset absolute positioning inside SVG content */
+  .classes-svg-content,
+  .countdown-svg-content {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  /* Typography scaling */
+  .profile-header-text {
+    font-size: 12vw;
+  }
+
+  .profile-title {
+    font-size: 5vw;
+  }
+
+  .profile-text {
+    font-size: 4vw;
+  }
+
+  .edit-text {
+    font-size: 4vw;
+  }
+
+  /* Button sizing */
+  .edit-info-btn-container {
+    width: 20vw;
+    height: 10vw;
+  }
+
+  /* Overall spacing */
+  .profile {
+    gap: 5vw;
+  }
+
+  .siebel-loc-image {
+    width: 90vw !important;
+    height: auto !important;
+  }
+
+  .title-underline-c {
+    width: 25vw;
+    height: 0.26vw;
+    background: #79CCFF;
+  }
+
+  .title-underline-pi {
+    width: 67vw;
+    height: 0.26vw;
+    background: #79CCFF;
+  }
+
+  /* Fix countdown layout on mobile */
+  .countdown-svg-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+  }
+
+  /* Reset the container that was using absolute positioning */
+  .countdown-svg-content > div {
+    position: static !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Fix the number */
+  .countdown-text {
+    position: static !important;
+    font-size: 12vw;
+    -webkit-text-stroke: 0.4vw black;
+    margin: 2vw 0;
+  }
+
+  /* Fix the label text */
+  .countdown-svg-content .profile-text {
+    position: static !important;
+    margin: 0 !important;
+    text-align: center;
+    font-size: 4vw;
+  }
 }
