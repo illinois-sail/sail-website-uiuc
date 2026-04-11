@@ -28,6 +28,7 @@ import image8 from "../../assets/images/gal3.jpg";
 import image9 from "../../assets/images/gal4.jpg";
 import image10 from "../../assets/images/gal5.jpg";
 import image11 from "../../assets/images/gal6.jpg";
+import ClassCard from "../Classes/ClassCard";
 
 
 function Home() {
@@ -559,8 +560,11 @@ function Home() {
           </div>
           <img src={CORN} className="corn-ch-three-image" />
         </div>
-        <div className="temp-container">
-          <Link to="/classes" className="temp">CLASSES OUT NOW!</Link>
+        <div className="classes-subtitle">
+          <span className="classes-sub-text">Explore some of the legendary courses available at UIUC! Each class is designed to unlock new superpowers in your CS journey.</span>
+        </div>
+        <div className="class-cards">
+          <ClassCard/>
         </div>
       </div>
 

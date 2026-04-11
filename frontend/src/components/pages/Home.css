@@ -528,25 +528,27 @@
     z-index: 1;
 }
 
-/* Note: this is temporary until classes are finalized */
-.temp-container {
+.classes-subtitle {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
-.temp {
+.classes-sub-text {
     margin-top: 1vw;
     width: 63vw;
     color: #364153;
     /* Body Text 2 */
     font-family: "Classic Comic";
-    font-size: 2.3vw;
+    font-size: 1.1vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
-/* end temporary block */
+
+.class-cards {
+  margin-top: 3vw;
+}
 
 .ch-four-block {
     margin-top: 14vw;
@@ -863,12 +865,17 @@
     display: none;
   }
 
-  /* Temporary block cleanup */
-  .temp {
+  /* Classes sub */
+  .classes-subtitle {
     width: 100%;
     font-size: 1rem;
     margin-top: 4vw;
     text-align: center;
+  }
+
+  .classes-sub-text {
+    width: 100%;
+    font-size: 1rem;
   }
 
     /* ---------- CHAPTER 4 ---------- */
