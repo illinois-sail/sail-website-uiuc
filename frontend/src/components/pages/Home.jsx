@@ -14,6 +14,7 @@ import SS_ICON_5 from "../../assets/home/ss-icon5.png";
 import SS_ICON_6 from "../../assets/home/ss-icon6.png";
 import SS_ICON_7 from "../../assets/home/ss-icon7.png";
 import SS_ICON_8 from "../../assets/home/ss-icon8.png";
+import EXPLORE_MORE from "../../assets/home/exploremore.png";
 
 
 import Collage from "../Collage/Collage";
@@ -28,8 +29,8 @@ import image8 from "../../assets/images/gal3.jpg";
 import image9 from "../../assets/images/gal4.jpg";
 import image10 from "../../assets/images/gal5.jpg";
 import image11 from "../../assets/images/gal6.jpg";
-import ClassCard from "../Classes/ClassCard";
-
+import homeClasses from "../Home/home_classes";
+import AltClassCard from "../Home/AltClassCard.jsx";
 
 function Home() {
   const [activeSchedule, setActiveSchedule] = useState("day1")
@@ -564,8 +565,18 @@ function Home() {
           <span className="classes-sub-text">Explore some of the legendary courses available at UIUC! Each class is designed to unlock new superpowers in your CS journey.</span>
         </div>
         <div className="class-cards">
-          <ClassCard/>
+          {homeClasses.map((course) => (
+            <AltClassCard
+              className={course.className}
+              room={course.room}
+              time={course.time}
+              description={course.description}
+            />
+          ))}
         </div>
+        <Link to="/classes">
+          <img src={EXPLORE_MORE} className="explore-btn" alt="Explore More Classes" />
+        </Link>
       </div>
 
       <div className="ch-four-block">

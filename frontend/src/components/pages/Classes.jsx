@@ -35,6 +35,11 @@ function Classes() {
 
   const currClasses = classMap[currentDay][currentTime] || [];
 
+  // scroll to Top (especially on reroute from Home - Explore more button)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Restore saved tab position after reload
   useEffect(() => {
     const savedDay = localStorage.getItem("savedDay");

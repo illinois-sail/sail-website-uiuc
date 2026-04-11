@@ -547,7 +547,15 @@
 }
 
 .class-cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 1vw;
   margin-top: 3vw;
+  transform: translateX(-5%);
+}
+
+.explore-btn {
+  transform: translate(155%, 75%);
 }
 
 .ch-four-block {
@@ -876,6 +884,14 @@
   .classes-sub-text {
     width: 100%;
     font-size: 1rem;
+  }
+
+  .class-cards {
+    grid-template-columns: 1fr; /* stack cards vertically */
+    gap: 4vw;
+    transform: none; /* remove weird offset */
+    margin-top: 6vw;
+    width: 100%;
   }
 
     /* ---------- CHAPTER 4 ---------- */
