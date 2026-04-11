@@ -5,7 +5,7 @@ import SERVER_URL from "../server_url.js";
 
 const initialAuthUser = JSON.parse(localStorage.getItem("authUser"));
 
-function ClassCard({ className, room, time, description, onRegisterClick, index, activated, capacity, zoomLink }) {
+function ClassCard({ className, room, time, description, onRegisterClick, onUnregisterClick, index, activated, capacity, zoomLink }) {
     const [authUser, setAuthUser] = useState(initialAuthUser);
     const [dataFetched, setDataFetched] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
@@ -26,19 +26,19 @@ function ClassCard({ className, room, time, description, onRegisterClick, index,
             }
         }
         if (seatsRemaining === "loading") {
-        axios.get(`${SERVER_URL}/get_seats_remaining`)
-            .then((response) => {
-                setSeatsRemaining(response.data[index].remainingSeats);
-            })
-            .catch((error) => {
-                console.error("error fetching seats remaining:", error);
-            });
+            axios.get(`${SERVER_URL}/get_seats_remaining`)
+                .then((response) => {
+                    setSeatsRemaining(Number(response.data[index].remainingSeats));
+                })
+                .catch((error) => {
+                    console.error("error fetching seats remaining:", error);
+                });
         }
     }, [authUser, dataFetched, seatsRemaining]);
 
     useEffect(() => {
         if (authUser) {
-        localStorage.setItem('authUser', JSON.stringify(authUser));
+            localStorage.setItem('authUser', JSON.stringify(authUser));
         }
     }, [authUser]);
 
@@ -46,22 +46,39 @@ function ClassCard({ className, room, time, description, onRegisterClick, index,
         setAuthUser(JSON.parse(localStorage.getItem('authUser')));
     }, [isRegistered]);
 
+    const handleButtonClick = () => {
+        if (isRegistered) {
+            setIsRegistered(false);
+            onUnregisterClick(index);
+        } else {
+            setIsRegistered(true);
+            onRegisterClick(index);
+        }
+    };
+
+    const isDisabled = !activated || seatsRemaining === "loading" || (!isRegistered && seatsRemaining === 0);
+
     return (
         <div className="card-outline" style={{
             border: "0.39vw solid #000",
             background: "#FFF",
             boxShadow: "-0.978vw 0.978vw 0.30vw 0 rgba(0, 0, 0, 0.40)",
             width: "26vw",
-            height: "32vw"
+            height: "32vw",
+            display: "flex",
+            flexDirection: "column",
         }}>
             <div className="card-title" style={{
                 display: "flex",
                 flexDirection: "column",
                 width: "26vw",
-                height: "6vw",
+                minHeight: "6vw",
+                height: "auto",
                 background: "linear-gradient(0deg, #7FD6F7 0%, #7FD6F7 100%), linear-gradient(0deg, #FA5B9C 0%, #FA5B9C 100%), #FA5B9C",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
+                padding: "0.5vw 0.8vw",
+                boxSizing: "border-box",
             }}>
                 <div className="card-class-name">
                     {className}
@@ -94,23 +111,34 @@ function ClassCard({ className, room, time, description, onRegisterClick, index,
                     )
                 )}
             </div>
-            <div className="card-body" style={{ 
+            <div className="card-body" style={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
                 width: "26vw",
-                height: "26vw"
+                flex: 1,
+                padding: "0.5vw",
+                boxSizing: "border-box",
             }}>
-                <div className="class-desc" style={{ height: "19.5" }}>
+                <div className="class-desc" style={{ height: "15vw", overflow: "auto", padding: "0.5vw 1vw" }}>
                     {description}
                 </div>
                 <div className="class-rem-seats" style={{ marginTop: "1.5vw" }}>
                     Remaining Seats: {seatsRemaining} / {capacity}
                 </div>
                 {authUser ? (
-                    <button className="class-register-btn" style={{ marginTop: "0.5vw" }} onClick={() => { setIsRegistered(!isRegistered); onRegisterClick(index); }} disabled={!activated || seatsRemaining === "loading" || (!isRegistered && seatsRemaining === 0)}>
-                        <span className="class-rem-seats" style={{ color: "#FFF", fontFamily: "Classic Comic"}}>
+                    <button
+                        className="class-register-btn"
+                        style={{
+                            marginTop: "0.5vw",
+                            opacity: isDisabled ? 0.4 : 1,
+                            cursor: isDisabled ? "not-allowed" : "pointer",
+                        }}
+                        onClick={handleButtonClick}
+                        disabled={isDisabled}
+                    >
+                        <span className="class-rem-seats" style={{ color: "#FFF", fontFamily: "Classic Comic" }}>
                             {seatsRemaining === 0 && !isRegistered
                                 ? "Full"
                                 : isRegistered

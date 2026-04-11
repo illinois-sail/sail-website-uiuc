@@ -1,5 +1,5 @@
 import "./Classes.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ClassCard from "../Classes/ClassCard";
 import { ReactComponent as TitleCloud } from "../../assets/classes/classes-title.svg";
 import { ReactComponent as Impact } from "../../assets/classes/classes-impact.svg";
@@ -9,20 +9,24 @@ import {
   inPersonAfternoonClasses,
   virtualMorningClasses,
   virtualAfternoonClasses,
-} from "./ClassList";
+} from "./Classes.js";
+import axios from "axios";
+import SERVER_URL from "../server_url.js";
+
+const initialAuthUser = JSON.parse(localStorage.getItem("authUser"));
 
 function Classes() {
-  const [currentDay, setCurrentDay] = useState(0); //0, 1
-  const [currentTime, setCurrentTime] = useState(0); //0, 1, 2
+  const [currentDay, setCurrentDay] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [authUser, setAuthUser] = useState(initialAuthUser);
+  const [isRegisteredForSection, setIsRegisteredForSection] = useState(false);
 
   const classMap = {
-    // Day 1
     0: {
       0: inPersonMorningClassesFirst,
       1: inPersonMorningClassesSecond,
       2: inPersonAfternoonClasses,
     },
-    // Day 2
     1: {
       0: virtualMorningClasses,
       1: virtualAfternoonClasses,
@@ -31,40 +35,91 @@ function Classes() {
 
   const currClasses = classMap[currentDay][currentTime] || [];
 
+  // Restore saved tab position after reload
+  useEffect(() => {
+    const savedDay = localStorage.getItem("savedDay");
+    const savedTime = localStorage.getItem("savedTime");
+    if (savedDay !== null) setCurrentDay(Number(savedDay));
+    if (savedTime !== null) setCurrentTime(Number(savedTime));
+    // Clear after restoring so it doesn't persist across fresh visits
+    localStorage.removeItem("savedDay");
+    localStorage.removeItem("savedTime");
+  }, []);
+
+  useEffect(() => {
+    if (authUser) {
+      axios.get(`${SERVER_URL}/get_classes/${authUser.email}`)
+        .then((response) => {
+          let isRegistered = false;
+          for (let i = 0; i < currClasses.length; i++) {
+            if (response.data.classes[currClasses[i].classIndex] === "1") {
+              isRegistered = true;
+              break;
+            }
+          }
+          setIsRegisteredForSection(isRegistered);
+        })
+        .catch((error) => console.error(error));
+    }
+  }, [currentDay, currentTime, currClasses]);
+
+  useEffect(() => {
+    if (authUser) {
+      localStorage.setItem("authUser", JSON.stringify(authUser));
+    }
+  }, [authUser]);
+
+  function onRegisterClick(index) {
+    localStorage.setItem("savedDay", currentDay);
+    localStorage.setItem("savedTime", currentTime);
+    axios.post(`${SERVER_URL}/registerForCourse`, { email: authUser.email, classIndex: index })
+      .then((response) => {
+        setIsRegisteredForSection(true);
+        setAuthUser(response.data.authUser);
+        alert("You have successfully REGISTERED for the class!");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("There was an error registering for the class. Please try again later.");
+        window.location.reload();
+      });
+  }
+
+  function onUnregisterClick(index) {
+    localStorage.setItem("savedDay", currentDay);
+    localStorage.setItem("savedTime", currentTime);
+    axios.post(`${SERVER_URL}/unregisterForCourse`, { email: authUser.email, classIndex: index })
+      .then((response) => {
+        setIsRegisteredForSection(false);
+        setAuthUser(response.data.authUser);
+        alert("You have successfully UNREGISTERED for the class!");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("There was an error unregistering for the class. Please try again later.");
+        window.location.reload();
+      });
+  }
+
   return (
     <div className="classes-page">
       <TitleCloud className="classesTitleCloud" />
       {/* Day 1 / Day 2 Headers */}
       <div className="classesHeaders classesDayHeaders">
-        {/* Day 1 Header */}
         <span
-          onClick={() => {
-            if (currentDay === 1) {
-              setCurrentDay(0);
-              setCurrentTime(0);
-            }
-          }}
-          className={
-            currentDay === 0 ? "classesHeaderActive" : "classesHeaderInactive"
-          }
+          onClick={() => { if (currentDay === 1) { setCurrentDay(0); setCurrentTime(0); } }}
+          className={currentDay === 0 ? "classesHeaderActive" : "classesHeaderInactive"}
         >
           DAY 1: IN-PERSON
         </span>
-        {/* Day 2 Header */}
         <span
-          onClick={() => {
-            if (currentDay === 0) {
-              setCurrentDay(1);
-              setCurrentTime(0);
-            }
-          }}
-          className={
-            currentDay === 1 ? "classesHeaderActive" : "classesHeaderInactive"
-          }
+          onClick={() => { if (currentDay === 0) { setCurrentDay(1); setCurrentTime(0); } }}
+          className={currentDay === 1 ? "classesHeaderActive" : "classesHeaderInactive"}
         >
           DAY 2: VIRTUAL
         </span>
-        {/* Underline for Day 1 / Day 2 Header */}
         <span
           className={
             currentDay === 0
@@ -75,43 +130,17 @@ function Classes() {
       </div>
       {/* Times Headers */}
       <div className="classesHeaders classesTimeHeaders">
-        {/* Day 1 Headers */}
         {currentDay === 0 && (
           <>
-            {/* Time 1 Header */}
-            <span
-              onClick={() => setCurrentTime(0)}
-              className={
-                currentTime === 0
-                  ? "classesHeaderActive"
-                  : "classesHeaderInactive"
-              }
-            >
+            <span onClick={() => setCurrentTime(0)} className={currentTime === 0 ? "classesHeaderActive" : "classesHeaderInactive"}>
               10:00AM - 10:50AM
             </span>
-            {/* Time 2 Header */}
-            <span
-              onClick={() => setCurrentTime(1)}
-              className={
-                currentTime === 1
-                  ? "classesHeaderActive"
-                  : "classesHeaderInactive"
-              }
-            >
-              11:00AM - 11:50PM
+            <span onClick={() => setCurrentTime(1)} className={currentTime === 1 ? "classesHeaderActive" : "classesHeaderInactive"}>
+              11:00AM - 11:50AM
             </span>
-            {/* Time 3 Header */}
-            <span
-              onClick={() => setCurrentTime(2)}
-              className={
-                currentTime === 2
-                  ? "classesHeaderActive"
-                  : "classesHeaderInactive"
-              }
-            >
+            <span onClick={() => setCurrentTime(2)} className={currentTime === 2 ? "classesHeaderActive" : "classesHeaderInactive"}>
               2:00PM - 2:50PM
             </span>
-            {/* Underline for Day 1 Times Headers */}
             <span
               className={
                 currentTime === 0
@@ -123,32 +152,14 @@ function Classes() {
             />
           </>
         )}
-        {/* Day 2 Headers */}
         {currentDay === 1 && (
           <>
-            {/* Time 1 Header */}
-            <span
-              onClick={() => setCurrentTime(0)}
-              className={
-                currentTime === 0
-                  ? "classesHeaderActive"
-                  : "classesHeaderInactive"
-              }
-            >
-              12:30pm - 1:20pm
+            <span onClick={() => setCurrentTime(0)} className={currentTime === 0 ? "classesHeaderActive" : "classesHeaderInactive"}>
+              12:30PM - 1:20PM
             </span>
-            {/* Time 2 Header */}
-            <span
-              onClick={() => setCurrentTime(1)}
-              className={
-                currentTime === 1
-                  ? "classesHeaderActive"
-                  : "classesHeaderInactive"
-              }
-            >
+            <span onClick={() => setCurrentTime(1)} className={currentTime === 1 ? "classesHeaderActive" : "classesHeaderInactive"}>
               1:30PM - 2:20PM
             </span>
-            {/* Unerline for Day 2 Times Headers  */}
             <span
               className={
                 currentTime === 0
@@ -161,29 +172,29 @@ function Classes() {
       </div>
       {/* Mapped classes */}
       <div className="classesCards">
-        {currClasses.map((course, index) => (
+        {currClasses.map((course) => (
           <ClassCard
-            key={course.classIndex || index}
-            text={course.className || "Name not found"}
+            key={course.classIndex}
+            className={course.className}
+            capacity={course.capacity}
+            room={course.room}
+            time={course.time}
+            description={course.description}
+            index={course.classIndex}
+            activated={!isRegisteredForSection || authUser?.classes?.[course.classIndex] === "1"}
+            zoomLink={course.zoomLink}
+            onRegisterClick={onRegisterClick}
+            onUnregisterClick={onUnregisterClick}
           />
         ))}
       </div>
       <Impact
         width="5.2vw"
-        style={{
-          position: "absolute",
-          top: "18vw",
-          left: "16vw",
-          transform: "scale(-1, 1)",
-        }}
+        style={{ position: "absolute", top: "18vw", left: "16vw", transform: "scale(-1, 1)" }}
       />
       <Impact
         width="5.2vw"
-        style={{
-          position: "absolute",
-          top: "18vw",
-          left: "76.5vw",
-        }}
+        style={{ position: "absolute", top: "18vw", left: "76.5vw" }}
       />
     </div>
   );

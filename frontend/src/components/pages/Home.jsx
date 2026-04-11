@@ -559,11 +559,9 @@ function Home() {
           </div>
           <img src={CORN} className="corn-ch-three-image" />
         </div>
-        {/* Note: the below is temporary until classes are finalized */}
         <div className="temp-container">
-          <span className="temp">CLASSES COMING SOON!</span>
+          <Link to="/classes" className="temp">CLASSES OUT NOW!</Link>
         </div>
-        {/* end temporary block */}
       </div>
 
       <div className="ch-four-block">
