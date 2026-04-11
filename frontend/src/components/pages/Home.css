@@ -367,7 +367,8 @@
     line-height: normal;
 }
 
-.event-title {
+.event-title,
+.clickable-event-title {
     margin-top: 0.5vw;
     color: #0A0A0A;
     /* Subheading 3 */
@@ -376,6 +377,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.clickable-event-title:hover {
+  color: #1b5fcc;
+  transform: translateY(-1px);
 }
 
 .location-text {
@@ -794,7 +800,8 @@
 
   /* ---------- EVENT TEXT ---------- */
 
-  .event-title {
+  .event-title,
+  .clickable-event-title {
     font-size: 1.2rem;
   }
 
@@ -887,11 +894,16 @@
   }
 
   .class-cards {
-    grid-template-columns: 1fr; /* stack cards vertically */
-    gap: 4vw;
-    transform: none; /* remove weird offset */
-    margin-top: 6vw;
-    width: 100%;
+    transform: translateX(5%);
+  }
+
+  .explore-btn {
+    transform: none !important;
+    display: block;
+    margin: 6vw auto 0 auto;
+    width: 60vw;
+    max-width: 300px;
+    height: auto;
   }
 
     /* ---------- CHAPTER 4 ---------- */
