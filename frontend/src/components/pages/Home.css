@@ -367,7 +367,8 @@
     line-height: normal;
 }
 
-.event-title {
+.event-title,
+.clickable-event-title {
     margin-top: 0.5vw;
     color: #0A0A0A;
     /* Subheading 3 */
@@ -376,6 +377,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.clickable-event-title:hover {
+  color: #1b5fcc;
+  transform: translateY(-1px);
 }
 
 .location-text {
@@ -455,6 +461,7 @@
     height: 2vw;
     margin-top: 0.5vw;
     padding: 0.1vw 0.3vw 0 0.5vw;
+    justify-content: center;
     align-items: center;
     flex: 1 0 0;
     align-self: stretch;
@@ -527,25 +534,35 @@
     z-index: 1;
 }
 
-/* Note: this is temporary until classes are finalized */
-.temp-container {
+.classes-subtitle {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
-.temp {
+.classes-sub-text {
     margin-top: 1vw;
     width: 63vw;
     color: #364153;
     /* Body Text 2 */
     font-family: "Classic Comic";
-    font-size: 2.3vw;
+    font-size: 1.1vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
-/* end temporary block */
+
+.class-cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 1vw;
+  margin-top: 3vw;
+  transform: translateX(-5%);
+}
+
+.explore-btn {
+  transform: translate(155%, 75%);
+}
 
 .ch-four-block {
     margin-top: 14vw;
@@ -783,7 +800,8 @@
 
   /* ---------- EVENT TEXT ---------- */
 
-  .event-title {
+  .event-title,
+  .clickable-event-title {
     font-size: 1.2rem;
   }
 
@@ -862,12 +880,30 @@
     display: none;
   }
 
-  /* Temporary block cleanup */
-  .temp {
+  /* Classes sub */
+  .classes-subtitle {
     width: 100%;
     font-size: 1rem;
     margin-top: 4vw;
     text-align: center;
+  }
+
+  .classes-sub-text {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .class-cards {
+    transform: translateX(5%);
+  }
+
+  .explore-btn {
+    transform: none !important;
+    display: block;
+    margin: 6vw auto 0 auto;
+    width: 60vw;
+    max-width: 300px;
+    height: auto;
   }
 
     /* ---------- CHAPTER 4 ---------- */

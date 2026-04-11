@@ -1,5 +1,6 @@
+import React, { useEffect } from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import CS_SAIL_IMAGE from "../../assets/cssail.png";
 import REGISTER_NOW_BUTTON from "../../assets/registernow.png";
@@ -14,6 +15,7 @@ import SS_ICON_5 from "../../assets/home/ss-icon5.png";
 import SS_ICON_6 from "../../assets/home/ss-icon6.png";
 import SS_ICON_7 from "../../assets/home/ss-icon7.png";
 import SS_ICON_8 from "../../assets/home/ss-icon8.png";
+import EXPLORE_MORE from "../../assets/home/exploremore.png";
 
 
 import Collage from "../Collage/Collage";
@@ -28,10 +30,21 @@ import image8 from "../../assets/images/gal3.jpg";
 import image9 from "../../assets/images/gal4.jpg";
 import image10 from "../../assets/images/gal5.jpg";
 import image11 from "../../assets/images/gal6.jpg";
-
+import homeClasses from "../Home/home_classes";
+import AltClassCard from "../Home/AltClassCard.jsx";
 
 function Home() {
-  const [activeSchedule, setActiveSchedule] = useState("day1")
+  const [activeSchedule, setActiveSchedule] = useState("day1student");
+  const navigate = useNavigate();
+
+  function goToClass(day, time) {
+    navigate("/classes", { state: { day, time } });
+  }
+
+  // scroll to Top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="home-page">
@@ -90,11 +103,18 @@ function Home() {
         </div>
         <div className="schedule-options-row">
           <div
-            className={activeSchedule === "day1" ? "schedule-option-active" : "schedule-option-disabled"}
-            onClick={() => setActiveSchedule("day1")}
+            className={activeSchedule === "day1student" ? "schedule-option-active" : "schedule-option-disabled"}
+            onClick={() => setActiveSchedule("day1student")}
             style={{ cursor: "pointer" }}
           >
-            <span className="options-text">DAY 1 - IN-PERSON</span>
+            <span className="options-text">DAY 1 - STUDENT SCHEDULE</span>
+          </div>
+          <div
+            className={activeSchedule === "day1parent" ? "schedule-option-active" : "schedule-option-disabled"}
+            onClick={() => setActiveSchedule("day1parent")}
+            style={{ cursor: "pointer" }}
+          >
+            <span className="options-text">DAY 1 - PARENT SCHEDULE</span>
           </div>
           <div
             className={activeSchedule === "day2" ? "schedule-option-active" : "schedule-option-disabled"}
@@ -105,7 +125,8 @@ function Home() {
           </div>
         </div>
 
-        {activeSchedule === "day1" && (
+        {/* Day 1 Student Schedule */}
+        {activeSchedule === "day1student" && (
           <div className="sample-schedule-container">
             <div className="sample-schedule">
               <div className="sample-schedule-event">
@@ -125,7 +146,7 @@ function Home() {
                     </svg>
                     <span className="time-text">9:00 AM</span>
                   </div>
-                  <span className="event-title">Check-In & Breakfast</span>
+                  <span className="event-title">Check-In, Breakfast & Resource Fair</span>
                   <div className="location-block">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
@@ -159,7 +180,7 @@ function Home() {
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">CIF</span>
+                    <span className="location-text">CIF 0027 - Auditorium</span>
                   </div>
                 </div>
               </div>
@@ -181,13 +202,13 @@ function Home() {
                     </svg>
                     <span className="time-text">10:00 AM</span>
                   </div>
-                  <span className="event-title">Class #1</span>
+                  <span className="clickable-event-title" onClick={() => goToClass(0, 0)} style={{ cursor: "pointer" }}>Class #1</span>
                   <div className="location-block">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">Siebel Center</span>
+                    <span className="location-text">Siebel Center for CS</span>
                   </div>
                 </div>
                 <div className="you-choose-block">
@@ -212,13 +233,13 @@ function Home() {
                     </svg>
                     <span className="time-text">11:00 AM</span>
                   </div>
-                  <span className="event-title">Class #2</span>
+                  <span className="clickable-event-title" onClick={() => goToClass(0, 1)} style={{ cursor: "pointer" }}>Class #2</span>
                   <div className="location-block">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">Siebel Center</span>
+                    <span className="location-text">Siebel Center for CS</span>
                   </div>
                 </div>
                 <div className="you-choose-block">
@@ -249,14 +270,14 @@ function Home() {
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">Siebel Center</span>
+                    <span className="location-text">Siebel Center: 2nd Floor Atrium (Lunch), 1404 (Panel)</span>
                   </div>
                   <div className="lunch-group-options-row">
                     <div className="lunch-group">
-                      <span className="group-text">GROUP A: Lunch</span>
+                      <span className="group-text">DC: Lunch</span>
                     </div>
                     <div className="panel-group">
-                      <span className="group-text">GROUP b: Q&A PANEL WITH cs students</span>
+                      <span className="group-text">Marvel: First Year Experience Panel</span>
                     </div>
                   </div>
                 </div>
@@ -285,14 +306,14 @@ function Home() {
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">Siebel Center</span>
+                    <span className="location-text">Siebel Center: 1404 (Panel), 2nd Floor Atrium (Lunch)</span>
                   </div>
                   <div className="lunch-group-options-row">
                     <div className="panel-group">
-                      <span className="group-text">GROUP A: Q&A PANEL WITH cs students</span>
+                      <span className="group-text">DC: First Year Experience Panel</span>
                     </div>
                     <div className="lunch-group">
-                      <span className="group-text">GROUP B: Lunch</span>
+                      <span className="group-text">Marvel: Lunch</span>
                     </div>
                   </div>
                 </div>
@@ -315,13 +336,13 @@ function Home() {
                     </svg>
                     <span className="time-text">2:00 PM</span>
                   </div>
-                  <span className="event-title">Class #3</span>
+                  <span className="clickable-event-title" onClick={() => goToClass(0, 2)} style={{ cursor: "pointer" }}>Class #3</span>
                   <div className="location-block">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">Siebel Center</span>
+                    <span className="location-text">Siebel Center for CS</span>
                   </div>
                 </div>
                 <div className="you-choose-block">
@@ -352,7 +373,7 @@ function Home() {
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">Campus Wide</span>
+                    <span className="location-text">Bardeen Engineering Quad</span>
                   </div>
                 </div>
               </div>
@@ -374,13 +395,13 @@ function Home() {
                     </svg>
                     <span className="time-text">4:00 PM</span>
                   </div>
-                  <span className="event-title">Professor Wade Talk</span>
+                  <span className="event-title">Professor Talk: Wade Fagen-Ulmschneider</span>
                   <div className="location-block">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">CIF</span>
+                    <span className="location-text">CIF 0027 - Auditorium</span>
                   </div>
                 </div>
               </div>
@@ -408,7 +429,7 @@ function Home() {
                       <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span className="location-text">Siebel Center</span>
+                    <span className="location-text">CIF 0027 - Auditorium</span>
                   </div>
                 </div>
               </div>
@@ -416,6 +437,238 @@ function Home() {
           </div>
         )}
 
+        {/* Day 1 Parent Schedule */}
+        {activeSchedule === "day1parent" && (
+          <div className="sample-schedule-container">
+            <div className="sample-schedule">
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_1} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">9:00 AM</span>
+                  </div>
+                  <span className="event-title">Check-In, Breakfast & Resource Fair (with Students)</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF Basement</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_2} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">9:30 AM</span>
+                  </div>
+                  <span className="event-title">Opening Ceremony (with Students)</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF 0027 - Auditorium</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_7} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">10:00 AM</span>
+                  </div>
+                  <span className="event-title">Presentation with Professor Luther Tychonievich</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_6} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">11:00 AM</span>
+                  </div>
+                  <span className="event-title">Tour with Grainger Engineering Tour Guides</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_4} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">12:00 PM</span>
+                  </div>
+                  <span className="event-title">Lunch</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_5} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">1:00 PM</span>
+                  </div>
+                  <span className="event-title">Presentation and Q&A with James Rhyne, Academic Advisor and Recruiter</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_7} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">4:00 PM</span>
+                  </div>
+                  <span className="event-title">Professor Talk: Wade Fagen-Ulmschneider (with Students)</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF 0027 - Auditorium</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sample-schedule-event">
+                <img src={SS_ICON_8} />
+                <div className="sample-schedule-info">
+                  <div className="time-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <g clip-path="url(#clip0_1336_19939)">
+                        <path d="M6 3V6L8 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1336_19939">
+                          <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="time-text">5:00 PM</span>
+                  </div>
+                  <span className="event-title">Closing Ceremony (with Students)</span>
+                  <div className="location-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 5C10 7.4965 7.2305 10.0965 6.3005 10.8995C6.21386 10.9646 6.1084 10.9999 6 10.9999C5.8916 10.9999 5.78614 10.9646 5.6995 10.8995C4.7695 10.0965 2 7.4965 2 5C2 3.93913 2.42143 2.92172 3.17157 2.17157C3.92172 1.42143 4.93913 1 6 1C7.06087 1 8.07828 1.42143 8.82843 2.17157C9.57857 2.92172 10 3.93913 10 5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z" stroke="#4A5565" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span className="location-text">CIF 0027 - Auditorium</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Day 2 Virtual */}
         {activeSchedule === "day2" && (
           <div className="sample-schedule-container">
             <div className="sample-schedule">
@@ -559,9 +812,22 @@ function Home() {
           </div>
           <img src={CORN} className="corn-ch-three-image" />
         </div>
-        <div className="temp-container">
-          <Link to="/classes" className="temp">CLASSES OUT NOW!</Link>
+        <div className="classes-subtitle">
+          <span className="classes-sub-text">Explore some of the legendary courses available at UIUC! Each class is designed to unlock new superpowers in your CS journey.</span>
         </div>
+        <div className="class-cards">
+          {homeClasses.map((course) => (
+            <AltClassCard
+              className={course.className}
+              room={course.room}
+              time={course.time}
+              description={course.description}
+            />
+          ))}
+        </div>
+        <Link to="/classes">
+          <img src={EXPLORE_MORE} className="explore-btn" alt="Explore More Classes" />
+        </Link>
       </div>
 
       <div className="ch-four-block">
