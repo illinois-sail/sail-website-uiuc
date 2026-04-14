@@ -431,15 +431,6 @@ const allClasses = [
       zoomLink: null,
     },
     {
-      className: 'CS Explained Through Anime and Shows',
-      time: '12:30pm-1:20pm',
-      room: 'Zoom',
-      capacity: 100,
-      description: "Ever wanted to learn what Computer Science is all about? Well now you can learn about Computer Science through Anime and Shows! This will be a course where you get to talk about and learn from your favorite shows through the lens of Computer Science. Learn about how computer scientists think about problems! Materials: device.",
-      classIndex: 51,
-      zoomLink: 'https://illinois.zoom.us/j/83474597131?pwd=LzCfnbkxbavnPdo5aj7XDo8aP1qdXe.1',
-    },
-    {
       className: 'Baby\'s First Vim Motions',
       time: '12:30pm-1:20pm',
       room: 'Zoom',
@@ -477,15 +468,6 @@ const allClasses = [
     },
   
     // ==================== 1:30pm - 2:20pm (Day 2 Virtual) ====================
-    {
-      className: 'How Your Computer Lies to You: An Introduction to Numerical Analysis',
-      time: '1:30pm-2:20pm',
-      room: 'Zoom',
-      capacity: 100,
-      description: "This course will go over the basics of Numerical Analysis and is focused on making the topics approachable and interactive. It covers ways that computers misrepresent information, approximation methods, optimization, and also a bit of advice for prospective college students. Materials: optional note-taking materials.",
-      classIndex: 56,
-      zoomLink: null,
-    },
     {
       className: 'Red-teaming: Finding the Cracks in AI',
       time: '1:30pm-2:20pm',
@@ -626,6 +608,26 @@ const allClasses = [
    //   classIndex: 42,
    //   zoomLink: null,
    // },
+
+  //  {
+  //   className: 'CS Explained Through Anime and Shows',
+  //   time: '12:30pm-1:20pm',
+  //   room: 'Zoom',
+  //   capacity: 100,
+  //   description: "Ever wanted to learn what Computer Science is all about? Well now you can learn about Computer Science through Anime and Shows! This will be a course where you get to talk about and learn from your favorite shows through the lens of Computer Science. Learn about how computer scientists think about problems! Materials: device.",
+  //   classIndex: 51,
+  //   zoomLink: 'https://illinois.zoom.us/j/83474597131?pwd=LzCfnbkxbavnPdo5aj7XDo8aP1qdXe.1',
+  // },
+
+  // {
+  //   className: 'How Your Computer Lies to You: An Introduction to Numerical Analysis',
+  //   time: '1:30pm-2:20pm',
+  //   room: 'Zoom',
+  //   capacity: 100,
+  //   description: "This course will go over the basics of Numerical Analysis and is focused on making the topics approachable and interactive. It covers ways that computers misrepresent information, approximation methods, optimization, and also a bit of advice for prospective college students. Materials: optional note-taking materials.",
+  //   classIndex: 56,
+  //   zoomLink: null,
+  // },
     
   
   allClasses.forEach((c) => {
