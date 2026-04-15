@@ -146,40 +146,23 @@ function Transportation() {
           </div>
         </div>
 
-        {/* Evening Buses */}
-        <div className="transportSection">
+                {/* Evening Buses */}
+                <div className="transportSection">
           <div className="transportSegHeader" style={{ backgroundColor: "#FF7DB2" }}>
             <span>EVENING BUSES</span>
           </div>
-          <p className="transportDirectionLabel">CAMPUS INSTRUCTIONAL FACILITY (CIF) → DEPARTURES</p>
+          <p className="transportDirectionLabel">SIEBEL CENTER FOR CS → DROPOFF LOCATIONS</p>
 
-          <p style={{ fontFamily: '"Classic Comic", Helvetica, sans-serif', fontSize: "1.1vw", color: "#3f3e3e", marginTop: "1vw" }}>
-            INFORMATION COMING SOON!
-          </p>
-
-          {/* <div className="transportCard">
-            <div className="transportCardHeader">Naperville Metra Station</div>
-            <div className="transportCardAddress">105 E 4th Ave, Naperville, IL 60540</div>
-            <div className="transportCardTimes">
-              <div className="transportTime depart">
-                <span className="transportTimeLabel">DEPART</span>
-                <span className="transportTimeValue">6:00 PM</span>
-              </div>
-              <div className="transportArrow">→</div>
-              <div className="transportTime arrive">
-                <span className="transportTimeLabel">ARRIVE</span>
-                <span className="transportTimeValue">8:15 PM</span>
-              </div>
-            </div>
-          </div>
-
+          {/* Bus C */}
           <div className="transportCard">
-            <div className="transportCardHeader">Union Station, Chicago</div>
-            <div className="transportCardAddress">225 S Canal St, Chicago, IL 60606</div>
+            <div className="transportCardHeader">Oakbrook Center, Oak Brook (Bus C)</div>
+            <div className="transportCardAddress">
+              100 Oakbrook Center, Oak Brook, IL 60523 — Lot E (Southwest corner)
+            </div>
             <div className="transportCardTimes">
               <div className="transportTime depart">
-                <span className="transportTimeLabel">DEPART</span>
-                <span className="transportTimeValue">6:15 PM</span>
+                <span className="transportTimeLabel">DEPART SIEBEL</span>
+                <span className="transportTimeValue">5:30 PM</span>
               </div>
               <div className="transportArrow">→</div>
               <div className="transportTime arrive">
@@ -190,14 +173,14 @@ function Transportation() {
           </div>
 
           <div className="transportCard">
-            <div className="transportCardHeader">Oakbrook Center, Oak Brook</div>
+            <div className="transportCardHeader">Woodfield Mall, Schaumburg (Bus C)</div>
             <div className="transportCardAddress">
-              100 Oakbrook Center, Oak Brook, IL 60523 — Lot E (Southwest corner)
+              5 Woodfield Mall, Schaumburg, IL 60173 — Lot E-30 & E-31 (near Ashley HomeStore)
             </div>
             <div className="transportCardTimes">
               <div className="transportTime depart">
-                <span className="transportTimeLabel">DEPART</span>
-                <span className="transportTimeValue">6:30 PM</span>
+                <span className="transportTimeLabel">DEPART OAKBROOK</span>
+                <span className="transportTimeValue">~8:35 PM</span>
               </div>
               <div className="transportArrow">→</div>
               <div className="transportTime arrive">
@@ -207,15 +190,14 @@ function Transportation() {
             </div>
           </div>
 
+          {/* Bus B */}
           <div className="transportCard">
-            <div className="transportCardHeader">Woodfield Mall, Schaumburg</div>
-            <div className="transportCardAddress">
-              5 Woodfield Mall, Schaumburg, IL 60173 — Lot E-30 & E-31 (near Ashley HomeStore)
-            </div>
+            <div className="transportCardHeader">Union Station, Chicago (Bus B)</div>
+            <div className="transportCardAddress">225 S Canal St, Chicago, IL 60606</div>
             <div className="transportCardTimes">
               <div className="transportTime depart">
-                <span className="transportTimeLabel">DEPART OAK BROOK</span>
-                <span className="transportTimeValue">8:50 PM</span>
+                <span className="transportTimeLabel">DEPART SIEBEL</span>
+                <span className="transportTimeValue">5:45 PM</span>
               </div>
               <div className="transportArrow">→</div>
               <div className="transportTime arrive">
@@ -223,9 +205,29 @@ function Transportation() {
                 <span className="transportTimeValue">9:00 PM</span>
               </div>
             </div>
-          </div> */}
-        </div>
+          </div>
 
+          {/* Bus A */}
+          <div className="transportCard">
+            <div className="transportCardHeader">Naperville Metra Station (Bus A)</div>
+            <div className="transportCardAddress">105 E 4th Ave, Naperville, IL 60540</div>
+            <div className="transportCardTimes">
+              <div className="transportTime depart">
+                <span className="transportTimeLabel">DEPART SIEBEL</span>
+                <span className="transportTimeValue">6:00 PM</span>
+              </div>
+              <div className="transportArrow">→</div>
+              <div className="transportTime arrive">
+                <span className="transportTimeLabel">ARRIVE</span>
+                <span className="transportTimeValue">9:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+
+      
       </div>
     </div>
   );
