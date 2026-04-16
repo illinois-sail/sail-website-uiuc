@@ -493,7 +493,7 @@ const allClasses = [
       capacity: 100,
       description: "Learn how to collaborate on projects large and small using Git, the industry standard tool for versioning and sharing code! This is a hands-on class where students will learn the fundamentals of the Git version control system, workflows and how to use it for collaboration and contributing to OSS. Materials: device.",
       classIndex: 59,
-      zoomLink: null, // zoom link available, skipped until further verification
+      zoomLink: "https://illinois.zoom.us/j/88661024310?pwd=JPwzMvv2HWaWaNXkcyB9AmBRAgGgJa.1",
     },
     {
       className: 'Beyond the Keyboard: Navigating Digital Tech Project Management',
@@ -565,6 +565,17 @@ const allClasses = [
       capacity: 100,
       description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
       classIndex: 67,
+      zoomLink: null,
+    },
+
+    // ==================== Added Classes ====================
+    {
+      className: "Running with the Bulls: Data Science in Sports Analytics",
+      time: "2:00pm-2:50pm",
+      room: "Siebel 2407",
+      capacity: 20,
+      description: "Become a Lead Data Scientist for the Chicago Bulls! In this interactive coding class, students will use Python and pandas to explore player datasets, respond to coaching requests, and build a winning roster. Through guided coding and data analysis, teams will compete to create the strongest draft class using real data science techniques.",
+      classIndex: 68,
       zoomLink: null,
     },
   ];

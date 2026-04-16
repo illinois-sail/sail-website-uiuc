@@ -25,9 +25,11 @@ function ClassCard({ className, room, time, description, onRegisterClick, onUnre
                 });
             }
         }
+        console.log("seatsRemaining", seatsRemaining);
         if (seatsRemaining === "loading") {
             axios.get(`${SERVER_URL}/get_seats_remaining`)
                 .then((response) => {
+                    console.log("response", response);
                     setSeatsRemaining(Number(response.data[index].remainingSeats));
                 })
                 .catch((error) => {
