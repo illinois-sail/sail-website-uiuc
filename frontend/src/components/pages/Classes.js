@@ -147,7 +147,7 @@ const allClasses = [
   
     // ==================== 11:00am - 11:50am (Day 1 In-Person) ====================
     {
-      className: 'Tiling Problems of Domino and Higher Dimensions',
+      className: 'From Domino Puzzles to Math and Computer Science',
       time: '11:00am-11:50am',
       room: 'Siebel 0218',
       capacity: 47,
@@ -541,7 +541,7 @@ const allClasses = [
       zoomLink: null,
     },
     {
-      className: 'Tiling Problems of Domino and Higher Dimensions',
+      className: 'From Domino Puzzles to Math and Computer Science',
       time: '1:30pm-2:20pm',
       room: 'Zoom',
       capacity: 100,
