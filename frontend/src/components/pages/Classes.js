@@ -419,7 +419,7 @@ const allClasses = [
       capacity: 100,
       description: "This 50-minute interactive session introduces high school students to Artificial Intelligence from a mathematical and conceptual perspective. Students will explore how neural networks work, participate in a guided hands-on activity, and learn how AI is studied and developed at the University of Illinois Urbana-Champaign. Materials: device.",
       classIndex: 49,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/82009416374?pwd=3m7SPJXWUk7Mu5zG766MTxx9wLzZS8.1",
     },
     {
       className: 'Beyond the Keyboard: Navigating Digital Tech Project Management',
@@ -493,7 +493,7 @@ const allClasses = [
       capacity: 100,
       description: "Learn how to collaborate on projects large and small using Git, the industry standard tool for versioning and sharing code! This is a hands-on class where students will learn the fundamentals of the Git version control system, workflows and how to use it for collaboration and contributing to OSS. Materials: device.",
       classIndex: 59,
-      zoomLink: null,
+      zoomLink: null, // zoom link available, skipped until further verification
     },
     {
       className: 'Beyond the Keyboard: Navigating Digital Tech Project Management',
@@ -520,7 +520,7 @@ const allClasses = [
       capacity: 100,
       description: "Learn how to break into the CS industry from two Google interns! Get an overview of what projects and resources to look out for, how to interview prep, and how to be successful at your internship! Some free swag will be provided thanks to the Google Ambassador Program. Please bring a resume if you wish for it to be reviewed. Materials: recommended resume.",
       classIndex: 62,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/88686187936?pwd=aEsU8zx1sAzVVplavxmdiUva3MFfXR.1",
     },
     {
       className: 'Code Meets Cosmos',
@@ -556,7 +556,7 @@ const allClasses = [
       capacity: 100,
       description: "The Engineering Pathways Program is a community college transfer plan that offers guaranteed admission into the Grainger College of Engineering for your major of choice, including Computer Science. In this session, you'll learn about the application process, eligibility requirements and other important information. I'll also include advice from myself and other Pathways CS students about school and securing a successful career in tech.",
       classIndex: 66,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/81158412041?pwd=pPrI8LcofwbnP5tXKJbEgvaE3UY9K3.1",
     },
     {
       className: 'Cybersecurity Ninja Training',
