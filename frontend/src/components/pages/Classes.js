@@ -428,7 +428,7 @@ const allClasses = [
       capacity: 100,
       description: "Ever wonder what project managers actually do? Join this interactive lesson to learn the basics of balancing time, quality, and cost! Through hands-on simulations and fun activities, you'll explore Agile, Scrum, Gantt charts, and popular software. Discover how to plan projects, uncover exciting career paths, and review salary expectations. Materials: device.",
       classIndex: 50,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/6133787845?pwd=wRnBhiGrsruZzCJ2f2IzcNWtV3kXjT.1",
     },
     {
       className: 'Baby\'s First Vim Motions',
@@ -502,7 +502,7 @@ const allClasses = [
       capacity: 100,
       description: "Ever wonder what project managers actually do? Join this interactive lesson to learn the basics of balancing time, quality, and cost! Through hands-on simulations and fun activities, you'll explore Agile, Scrum, Gantt charts, and popular software. Discover how to plan projects, uncover exciting career paths, and review salary expectations. Materials: device.",
       classIndex: 60,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/6133787845?pwd=wRnBhiGrsruZzCJ2f2IzcNWtV3kXjT.1",
     },
     {
       className: 'Beyond the Classroom: Finding Your Community with RSOs in CS @ Illinois',
@@ -538,7 +538,7 @@ const allClasses = [
       capacity: 100,
       description: "Ever wanted to know what kind of thinking goes into Game development? In this class, we provide a general introduction to game development concepts, including System Design, Raycasting, Anti-cheat, and State Machines, using Super Mario Bros. Level 1-1 as a case study. No knowledge of Roblox Studio required, but an understanding of programming is very helpful. Materials: device.",
       classIndex: 64,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/3679837562?pwd=WpArGYv9KhwniLgG1vVZgfHOan1Z3x.1",
     },
     {
       className: 'From Domino Puzzles to Math and Computer Science',
