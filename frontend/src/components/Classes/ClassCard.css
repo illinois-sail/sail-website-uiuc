@@ -45,3 +45,18 @@
     border: 0.3vw solid #000;
     background: #E84136;
 }
+
+@media (max-width: 768px) {
+    .class-register-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .class-register-btn span {
+        font-size: 1vw;
+        line-height: 1;
+        white-space: nowrap;
+    }
+}
