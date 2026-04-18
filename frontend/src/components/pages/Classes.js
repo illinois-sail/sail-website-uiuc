@@ -10,15 +10,6 @@ const allClasses = [
       zoomLink: null,
     },
     {
-      className: 'Cybersecurity Ninja Training',
-      time: '10:00am-10:50am',
-      room: 'Siebel 0218',
-      capacity: 47,
-      description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
-      classIndex: 1,
-      zoomLink: null,
-    },
-    {
       className: 'Recursion: A Non-tree-vial Introduction',
       time: '10:00am-10:50am',
       room: 'Siebel 0220',
@@ -291,15 +282,6 @@ const allClasses = [
       capacity: 93,
       description: "Explore Machine Learning through a unique lens — your own brain. This class draws simple parallels between how models learn from data and how human experiences shape thinking and behavior. Discover why ML matters, how it works, and why it's an exciting path for future students in computer science. No prior experience needed! Laptop required. Materials: device, active Google account.",
       classIndex: 34,
-      zoomLink: null,
-    },
-    {
-      className: 'Cybersecurity Ninja Training',
-      time: '2:00pm-2:50pm',
-      room: 'Siebel 0218',
-      capacity: 47,
-      description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
-      classIndex: 35,
       zoomLink: null,
     },
     {
@@ -637,6 +619,26 @@ const allClasses = [
   //   capacity: 100,
   //   description: "This course will go over the basics of Numerical Analysis and is focused on making the topics approachable and interactive. It covers ways that computers misrepresent information, approximation methods, optimization, and also a bit of advice for prospective college students. Materials: optional note-taking materials.",
   //   classIndex: 56,
+  //   zoomLink: null,
+  // },
+
+  // {
+  //   className: 'Cybersecurity Ninja Training',
+  //   time: '10:00am-10:50am',
+  //   room: 'Siebel 0218',
+  //   capacity: 47,
+  //   description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
+  //   classIndex: 1,
+  //   zoomLink: null,
+  // },
+
+  // {
+  //   className: 'Cybersecurity Ninja Training',
+  //   time: '2:00pm-2:50pm',
+  //   room: 'Siebel 0218',
+  //   capacity: 47,
+  //   description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
+  //   classIndex: 35,
   //   zoomLink: null,
   // },
     
