@@ -540,15 +540,6 @@ const allClasses = [
       classIndex: 66,
       zoomLink: "https://illinois.zoom.us/j/81158412041?pwd=pPrI8LcofwbnP5tXKJbEgvaE3UY9K3.1",
     },
-    {
-      className: 'Cybersecurity Ninja Training',
-      time: '1:30pm-2:20pm',
-      room: 'Zoom',
-      capacity: 100,
-      description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
-      classIndex: 67,
-      zoomLink: null,
-    },
 
     // ==================== Added Classes ====================
     {
@@ -639,6 +630,16 @@ const allClasses = [
   //   capacity: 47,
   //   description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
   //   classIndex: 35,
+  //   zoomLink: null,
+  // },
+
+  // {
+  //   className: 'Cybersecurity Ninja Training',
+  //   time: '1:30pm-2:20pm',
+  //   room: 'Zoom',
+  //   capacity: 100,
+  //   description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
+  //   classIndex: 67,
   //   zoomLink: null,
   // },
     
