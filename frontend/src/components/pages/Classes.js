@@ -392,7 +392,7 @@ const allClasses = [
       capacity: 100,
       description: "How do computers search and organize huge amounts of data so quickly? In this interactive class, students will explore how sorting and searching algorithms work through demonstrations and activities, and learn how efficient algorithms allow computers to solve problems at massive scale. Materials: pen and paper.",
       classIndex: 48,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/9954358839?pwd=KO8NRBeOBdbbtwuBygGtKxVqXT6Axb.1&omn=88367954458",
     },
     {
       className: 'Introduction to Artificial Intelligence & Neural Networks',
@@ -466,7 +466,7 @@ const allClasses = [
       capacity: 100,
       description: "This course is an introduction to getting started in research in the computing field. We will explore various research opportunities, share research grant resources, and discuss how research is an enriching experience that builds valuable skills, builds powerful connections, and paves way for a successful career.",
       classIndex: 58,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/86249130681?pwd=ae0VVVSkKsppWNfAaqNTCjwxsqd2h2.1",
     },
     {
       className: '"Git" Gud at Version Control',
