@@ -28,7 +28,7 @@ function Navbar() {
         </Link>
 
         <div className="navbar-right">
-          <Link to="/" className="navbar-link">Home</Link>
+          {/* <Link to="/" className="navbar-link">Home</Link> */}
           <Link to="/aboutus" className="navbar-link">About</Link>
           <Link to="/classes" className="navbar-link">Classes</Link>
 

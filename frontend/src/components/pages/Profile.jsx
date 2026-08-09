@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios, { all } from "axios";
 import SERVER_URL from "../server_url";
 import SIEBEL_LOC from "../../assets/profile/siebel_loc.png";
 import PIZAZZ1 from "../../assets/profile/pizazz1.png";
@@ -36,17 +36,31 @@ const MapLocation = () => {
 
 function getClasses(bitsequence, classes) {
   let classesTaking = [];
-  for (let i = 0; i < Math.min(bitsequence.length, classes.length); i++) {
+
+  const classMap = new Map( classes.map(c => [Number(c.classIndex), c]) );
+
+  for (let i = 0; i < bitsequence.length; i++) {
     if (bitsequence[i] === "1") {
-      // find the class and add to classesTaking
-      for (let j = 0; j < classes.length; j++) {
-        if (classes[j].classIndex === i) {
-          classesTaking.push(classes[j]);
-          break;
-        }
+      if (classMap.has(i)) {
+        classesTaking.push(classMap.get(i));
+      } else {
+        console.warn("Missing class for index:", i);
       }
     }
   }
+
+  // for (let i = 0; i < Math.min(bitsequence.length, classes.length); i++) {
+  //   if (bitsequence[i] === "1") {
+  //     // find the class and add to classesTaking
+  //     for (let j = 0; j < classes.length; j++) {
+  //       if (classes[j].classIndex === i) {
+  //         classesTaking.push(classes[j]);
+  //         break;
+  //       }
+  //     }
+  //   }
+  // }
+
   return classesTaking;
 }
 
@@ -98,7 +112,7 @@ const SailCountdown = () => {
   return (
     <div className="countdown-wrapper" style={{ position: "relative", width: "32vw", marginLeft: "-4vw" }}>
       <svg className="countdown-svg" xmlns="http://www.w3.org/2000/svg" width="498" height="484" viewBox="0 0 498 484" fill="none">
-        <path d="M148.848 2L2.69971 482H398.102L494.7 2H148.848Z" fill="#C1E7FF" stroke="black" stroke-width="4"/>
+        <path d="M148.848 2L2.69971 482H398.102L494.7 2H148.848Z" fill="#C1E7FF" stroke="black" strokeWidth="4"/>
       </svg>
       <div className="countdown-svg-content" style={{ position: "absolute", top: "35%", left: "40%", width: "13vw" }}>
         <div style={{ position: "relative" }}>

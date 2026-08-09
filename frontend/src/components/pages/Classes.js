@@ -10,15 +10,6 @@ const allClasses = [
       zoomLink: null,
     },
     {
-      className: 'Cybersecurity Ninja Training',
-      time: '10:00am-10:50am',
-      room: 'Siebel 0218',
-      capacity: 47,
-      description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
-      classIndex: 1,
-      zoomLink: null,
-    },
-    {
       className: 'Recursion: A Non-tree-vial Introduction',
       time: '10:00am-10:50am',
       room: 'Siebel 0220',
@@ -147,7 +138,7 @@ const allClasses = [
   
     // ==================== 11:00am - 11:50am (Day 1 In-Person) ====================
     {
-      className: 'Tiling Problems of Domino and Higher Dimensions',
+      className: 'From Domino Puzzles to Math and Computer Science',
       time: '11:00am-11:50am',
       room: 'Siebel 0218',
       capacity: 47,
@@ -294,15 +285,6 @@ const allClasses = [
       zoomLink: null,
     },
     {
-      className: 'Cybersecurity Ninja Training',
-      time: '2:00pm-2:50pm',
-      room: 'Siebel 0218',
-      capacity: 47,
-      description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
-      classIndex: 35,
-      zoomLink: null,
-    },
-    {
       className: 'Intro to LLMs',
       time: '2:00pm-2:50pm',
       room: 'Siebel 0220',
@@ -410,7 +392,7 @@ const allClasses = [
       capacity: 100,
       description: "How do computers search and organize huge amounts of data so quickly? In this interactive class, students will explore how sorting and searching algorithms work through demonstrations and activities, and learn how efficient algorithms allow computers to solve problems at massive scale. Materials: pen and paper.",
       classIndex: 48,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/9954358839?pwd=KO8NRBeOBdbbtwuBygGtKxVqXT6Axb.1&omn=88367954458",
     },
     {
       className: 'Introduction to Artificial Intelligence & Neural Networks',
@@ -419,7 +401,7 @@ const allClasses = [
       capacity: 100,
       description: "This 50-minute interactive session introduces high school students to Artificial Intelligence from a mathematical and conceptual perspective. Students will explore how neural networks work, participate in a guided hands-on activity, and learn how AI is studied and developed at the University of Illinois Urbana-Champaign. Materials: device.",
       classIndex: 49,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/82009416374?pwd=3m7SPJXWUk7Mu5zG766MTxx9wLzZS8.1",
     },
     {
       className: 'Beyond the Keyboard: Navigating Digital Tech Project Management',
@@ -428,7 +410,7 @@ const allClasses = [
       capacity: 100,
       description: "Ever wonder what project managers actually do? Join this interactive lesson to learn the basics of balancing time, quality, and cost! Through hands-on simulations and fun activities, you'll explore Agile, Scrum, Gantt charts, and popular software. Discover how to plan projects, uncover exciting career paths, and review salary expectations. Materials: device.",
       classIndex: 50,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/6133787845?pwd=wRnBhiGrsruZzCJ2f2IzcNWtV3kXjT.1",
     },
     {
       className: 'Baby\'s First Vim Motions',
@@ -484,7 +466,7 @@ const allClasses = [
       capacity: 100,
       description: "This course is an introduction to getting started in research in the computing field. We will explore various research opportunities, share research grant resources, and discuss how research is an enriching experience that builds valuable skills, builds powerful connections, and paves way for a successful career.",
       classIndex: 58,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/86249130681?pwd=ae0VVVSkKsppWNfAaqNTCjwxsqd2h2.1",
     },
     {
       className: '"Git" Gud at Version Control',
@@ -493,7 +475,7 @@ const allClasses = [
       capacity: 100,
       description: "Learn how to collaborate on projects large and small using Git, the industry standard tool for versioning and sharing code! This is a hands-on class where students will learn the fundamentals of the Git version control system, workflows and how to use it for collaboration and contributing to OSS. Materials: device.",
       classIndex: 59,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/88661024310?pwd=JPwzMvv2HWaWaNXkcyB9AmBRAgGgJa.1",
     },
     {
       className: 'Beyond the Keyboard: Navigating Digital Tech Project Management',
@@ -502,7 +484,7 @@ const allClasses = [
       capacity: 100,
       description: "Ever wonder what project managers actually do? Join this interactive lesson to learn the basics of balancing time, quality, and cost! Through hands-on simulations and fun activities, you'll explore Agile, Scrum, Gantt charts, and popular software. Discover how to plan projects, uncover exciting career paths, and review salary expectations. Materials: device.",
       classIndex: 60,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/6133787845?pwd=wRnBhiGrsruZzCJ2f2IzcNWtV3kXjT.1",
     },
     {
       className: 'Beyond the Classroom: Finding Your Community with RSOs in CS @ Illinois',
@@ -520,7 +502,7 @@ const allClasses = [
       capacity: 100,
       description: "Learn how to break into the CS industry from two Google interns! Get an overview of what projects and resources to look out for, how to interview prep, and how to be successful at your internship! Some free swag will be provided thanks to the Google Ambassador Program. Please bring a resume if you wish for it to be reviewed. Materials: recommended resume.",
       classIndex: 62,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/88686187936?pwd=aEsU8zx1sAzVVplavxmdiUva3MFfXR.1",
     },
     {
       className: 'Code Meets Cosmos',
@@ -538,10 +520,10 @@ const allClasses = [
       capacity: 100,
       description: "Ever wanted to know what kind of thinking goes into Game development? In this class, we provide a general introduction to game development concepts, including System Design, Raycasting, Anti-cheat, and State Machines, using Super Mario Bros. Level 1-1 as a case study. No knowledge of Roblox Studio required, but an understanding of programming is very helpful. Materials: device.",
       classIndex: 64,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/3679837562?pwd=WpArGYv9KhwniLgG1vVZgfHOan1Z3x.1",
     },
     {
-      className: 'Tiling Problems of Domino and Higher Dimensions',
+      className: 'From Domino Puzzles to Math and Computer Science',
       time: '1:30pm-2:20pm',
       room: 'Zoom',
       capacity: 100,
@@ -556,15 +538,17 @@ const allClasses = [
       capacity: 100,
       description: "The Engineering Pathways Program is a community college transfer plan that offers guaranteed admission into the Grainger College of Engineering for your major of choice, including Computer Science. In this session, you'll learn about the application process, eligibility requirements and other important information. I'll also include advice from myself and other Pathways CS students about school and securing a successful career in tech.",
       classIndex: 66,
-      zoomLink: null,
+      zoomLink: "https://illinois.zoom.us/j/81158412041?pwd=pPrI8LcofwbnP5tXKJbEgvaE3UY9K3.1",
     },
+
+    // ==================== Added Classes ====================
     {
-      className: 'Cybersecurity Ninja Training',
-      time: '1:30pm-2:20pm',
-      room: 'Zoom',
-      capacity: 100,
-      description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
-      classIndex: 67,
+      className: "Running with the Bulls: Data Science in Sports Analytics",
+      time: "2:00pm-2:50pm",
+      room: "Siebel 2407",
+      capacity: 20,
+      description: "Become a Lead Data Scientist for the Chicago Bulls! In this interactive coding class, students will use Python and pandas to explore player datasets, respond to coaching requests, and build a winning roster. Through guided coding and data analysis, teams will compete to create the strongest draft class using real data science techniques.",
+      classIndex: 68,
       zoomLink: null,
     },
   ];
@@ -626,6 +610,36 @@ const allClasses = [
   //   capacity: 100,
   //   description: "This course will go over the basics of Numerical Analysis and is focused on making the topics approachable and interactive. It covers ways that computers misrepresent information, approximation methods, optimization, and also a bit of advice for prospective college students. Materials: optional note-taking materials.",
   //   classIndex: 56,
+  //   zoomLink: null,
+  // },
+
+  // {
+  //   className: 'Cybersecurity Ninja Training',
+  //   time: '10:00am-10:50am',
+  //   room: 'Siebel 0218',
+  //   capacity: 47,
+  //   description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
+  //   classIndex: 1,
+  //   zoomLink: null,
+  // },
+
+  // {
+  //   className: 'Cybersecurity Ninja Training',
+  //   time: '2:00pm-2:50pm',
+  //   room: 'Siebel 0218',
+  //   capacity: 47,
+  //   description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
+  //   classIndex: 35,
+  //   zoomLink: null,
+  // },
+
+  // {
+  //   className: 'Cybersecurity Ninja Training',
+  //   time: '1:30pm-2:20pm',
+  //   room: 'Zoom',
+  //   capacity: 100,
+  //   description: "Interested in cybersecurity or learning to \"hack\"? This course will introduce you to basic security (and ethics) concepts through an interactive demo where we will try to break into a system! Laptop not required, no prior experience necessary.",
+  //   classIndex: 67,
   //   zoomLink: null,
   // },
     
