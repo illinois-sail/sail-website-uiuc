@@ -28,12 +28,12 @@ function Navbar() {
         </Link>
 
         <div className="navbar-right">
-          {/* <Link to="/" className="navbar-link">Home</Link> */}
+          <Link to="/" className="navbar-link">Home</Link>
           <Link to="/aboutus" className="navbar-link">About</Link>
-          <Link to="/classes" className="navbar-link">Classes</Link>
+          {/* <Link to="/classes" className="navbar-link">Classes</Link> */}
 
           {/* FAQ DROPDOWN */}
-          <div className="navbar-faq-container">
+          {/* <div className="navbar-faq-container">
             <button
               className="navbar-link navbar-faq-button"
               onClick={toggleDropdown}
@@ -49,17 +49,17 @@ function Navbar() {
                 <Link to="/transportation" className="navbar-dropdown-item hot-pink" onClick={closeDropdown}>Transportation</Link>
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* Auth links */}
-          {isLoggedIn ? (
+          {/* {isLoggedIn ? (
             <>
               <Link to="/profile" className="navbar-link">Profile</Link>
               <Link to="/logout" className="navbar-link">Logout</Link>
             </>
           ) : (
             <Link to="/login" className="navbar-link">Login</Link>
-          )}
+          )} */}
         </div>
       </div>
     </nav>

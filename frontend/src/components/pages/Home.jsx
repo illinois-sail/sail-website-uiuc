@@ -23,10 +23,10 @@ import image1 from "../../assets/images/collage-1.jpg";
 import image2 from "../../assets/images/collage-2.jpg";
 import image3 from "../../assets/images/collage-3.jpg";
 import image4 from "../../assets/images/collage-4.jpg";
-import image5 from "../../assets/images/collage-5.png";
+import image5 from "../../assets/images/2026-1.jpg";
 import image6 from "../../assets/images/gal1.jpg";
 import image7 from "../../assets/images/gal2.jpg";
-import image8 from "../../assets/images/gal3.jpg";
+import image8 from "../../assets/images/2026-2.JPG";
 import image9 from "../../assets/images/gal4.jpg";
 import image10 from "../../assets/images/gal5.jpg";
 import image11 from "../../assets/images/gal6.jpg";
@@ -41,29 +41,24 @@ function Home() {
     navigate("/classes", { state: { day, time } });
   }
 
-  // scroll to Top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="home-page">
       {/* temp navbar */} 
-      <div className="temp-navbar"> 
+      {/* <div className="temp-navbar"> 
         Get ready for a new season of sail! 
-      </div>
+      </div> */}
 
       <div className="opening-stack">
         <img src={CS_SAIL_IMAGE} className="cs-sail-image" />
-        <span className="event-date">April 18 and 19, 2026</span>
-        <Link to="/register">
+        <span className="event-date">Get Ready for Sail 2027!</span>
+        {/* <Link to="/register">
           <img src={REGISTER_NOW_BUTTON} className="register-now-image" alt="Register Now" />
-        </Link>
+        </Link> */}
 
       </div>
-      <div className="ch-one-block">
+      {/* <div className="ch-one-block">
         <span className="ch-heading-text">Chapter 1: Introduction</span>
-        {/* <img src={CARTOON_FRAME} className="cartoon-frame-image" /> */}
+        <img src={CARTOON_FRAME} className="cartoon-frame-image" />
         <div className="character-stats-row">
           <div className="character-stats-box">
             <img src={CORN} className="corn-ch-one-image" />
@@ -74,13 +69,12 @@ function Home() {
             <div className="character-stats-wrapper">
               <span className="character-stats-header">CHARACTER STATS</span>
               <span className="character-stats-text">Backstory: UIUC CS student from 1972 who stumbled upon an Agriculture x Engineering project gone wrong...Powers: Infinite knowledge of UIUC Grainger Etc.</span>
-              {/* Will reformat the above line when finalized */}
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="ch-two-block">
+      {/* <div className="ch-two-block">
         <span className="ch-heading-text">Chapter 2: Schedule</span>
         <div className="schedule-note-wrapper">
           <div className="schedule-note-row">
@@ -125,7 +119,6 @@ function Home() {
           </div>
         </div>
 
-        {/* Day 1 Student Schedule */}
         {activeSchedule === "day1student" && (
           <div className="sample-schedule-container">
             <div className="sample-schedule">
@@ -437,7 +430,6 @@ function Home() {
           </div>
         )}
 
-        {/* Day 1 Parent Schedule */}
         {activeSchedule === "day1parent" && (
           <div className="sample-schedule-container">
             <div className="sample-schedule">
@@ -668,7 +660,6 @@ function Home() {
           </div>
         )}
         
-        {/* Day 2 Virtual */}
         {activeSchedule === "day2" && (
           <div className="sample-schedule-container">
             <div className="sample-schedule">
@@ -790,9 +781,9 @@ function Home() {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
 
-      <div className="ch-three-block">
+      {/* <div className="ch-three-block">
         <span className="ch-heading-text">Chapter 3: Classes</span>
         <div className="adventure-wrapper">
           <div className="adventure-box">
@@ -828,16 +819,23 @@ function Home() {
         <Link to="/classes">
           <img src={EXPLORE_MORE} className="explore-btn" alt="Explore More Classes" />
         </Link>
-      </div>
+      </div> */}
 
       <div className="ch-four-block">
-        <span className="ch-heading-text">Chapter 4: ACTION SHOTS</span>
+        <span className="ch-heading-text">Sail 2026 Recap</span>
         <div className="ch-four-info">
-          <span className="ch-four-text">See heroes in action! Check out moments from previous SAIL adventures.</span>
+          <span className="ch-four-text">
+            In Sail 2026, we had
+            <li>200+ students, professors, advisors, and department staff</li>
+            <li>50+ Student Teachers</li>
+            <li>70+ Volunteers</li>
+            <li>39 Unique Classes</li>
+            <li>Participants across 3 countries and 17 US States</li>
+          </span>
           <img src={CORN} className="corn-ch-four-image" />
           <div className="ellipse-wrapper-4">
             <img src={ELLIPSE} className="ellipse-ch-four-image" />
-            <span className="ellipse-text-4">Welcome to Our CS Sail gallery! Create your own hero story at Illinois!</span>
+            <span className="ellipse-text-4">See heroes in action! Check out moments from previous SAIL adventures.</span>
           </div>
         </div>
         <div className="collage">
