@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.d7fda9db.css",
-    "main.js": "/static/js/main.4ccbd128.js",
+    "main.css": "/static/css/main.1330c8c2.css",
+    "main.js": "/static/js/main.69ec938d.js",
     "static/js/453.e9e7ec89.chunk.js": "/static/js/453.e9e7ec89.chunk.js",
     "static/media/about-lily.jpg": "/static/media/about-lily.f2f6047587b980a9f72e.jpg",
+    "static/media/2026-2.JPG": "/static/media/2026-2.c5e9feea9041c2fea177.JPG",
     "static/media/gal2.jpg": "/static/media/gal2.9ace5421413f238109eb.jpg",
     "static/media/gal1.jpg": "/static/media/gal1.883cb8547110ed715349.jpg",
     "static/media/about-tia.jpg": "/static/media/about-tia.c4d4d5e9251ee2d49027.jpg",
@@ -14,15 +15,14 @@
     "static/media/about-arwen.jpg": "/static/media/about-arwen.44b6dde2c0898999c0b3.jpg",
     "static/media/about-connor.jpg": "/static/media/about-connor.e5a12242f18219a21330.jpg",
     "static/media/collage-4.jpg": "/static/media/collage-4.9c8c44e774edee91e8ca.jpg",
-    "static/media/gal3.jpg": "/static/media/gal3.b28ecd1dfd6c95295719.jpg",
     "static/media/about-tulsi.png": "/static/media/about-tulsi.6ea23bf470d1b1405427.png",
     "static/media/about-zoya.jpg": "/static/media/about-zoya.9711bc095857712f5290.jpg",
     "static/media/about-isha.jpg": "/static/media/about-isha.a07f22830d5be365d49b.jpg",
+    "static/media/2026-1.jpg": "/static/media/2026-1.f20f0100550e15bbc533.jpg",
     "static/media/collage-1.jpg": "/static/media/collage-1.0960fd7dc112d84f1694.jpg",
     "static/media/cartoon-frame.png": "/static/media/cartoon-frame.5ccdf71862fdd532ebfd.png",
     "static/media/collage-3.jpg": "/static/media/collage-3.4effe65102cf3f783e15.jpg",
     "static/media/about-kaytlin.jpg": "/static/media/about-kaytlin.898b5122986953ba7810.jpg",
-    "static/media/collage-5.png": "/static/media/collage-5.8a0e30db1ca8801f6071.png",
     "static/media/collage-2.jpg": "/static/media/collage-2.d7cec3fbe0a4ec56ef8e.jpg",
     "static/media/about-meghna.jpg": "/static/media/about-meghna.f9eb6ed314c2b91db944.jpg",
     "static/media/footer.png": "/static/media/footer.d065ba2f8f4ff1470e33.png",
@@ -60,12 +60,12 @@
     "static/media/sail-logo.svg": "/static/media/sail-logo.7968e30b43a6d7624d16e7d633f22242.svg",
     "index.html": "/index.html",
     "static/media/classes-impact.svg": "/static/media/classes-impact.83236e6652f043256cc4e3d953c4c592.svg",
-    "main.d7fda9db.css.map": "/static/css/main.d7fda9db.css.map",
-    "main.4ccbd128.js.map": "/static/js/main.4ccbd128.js.map",
+    "main.1330c8c2.css.map": "/static/css/main.1330c8c2.css.map",
+    "main.69ec938d.js.map": "/static/js/main.69ec938d.js.map",
     "453.e9e7ec89.chunk.js.map": "/static/js/453.e9e7ec89.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7fda9db.css",
-    "static/js/main.4ccbd128.js"
+    "static/css/main.1330c8c2.css",
+    "static/js/main.69ec938d.js"
   ]
 }
