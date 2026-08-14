@@ -1,20 +1,47 @@
+/* =========================
+   FOOTER
+   ========================= */
+
 .home-footer-wrapper {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
   margin-top: 12vw;
 }
+
+.footer-buildings {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* =========================
+   FOOTER CONTENT
+   ========================= */
 
 .footer-content {
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   z-index: 1;
+}
+
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.contact-us-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5vw;
 }
 
 .contact-us-text {
@@ -22,64 +49,91 @@
   font-family: "Classic Comic";
   font-size: 3vw;
   font-weight: 500;
-}
-
-.contact-us-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5vw;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .contact-us-effect {
-  height: 2em;
   width: auto;
+  height: 2em;
   margin-top: -1em;
 }
 
+
+/* =========================
+   SOCIAL LINKS
+   ========================= */
+
 .home-footer {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 2vw;
   margin-top: 2vw;
 }
 
+.home-footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .home-footer img {
+  display: block;
   width: 2.5vw;
   max-width: 40px;
-  cursor: pointer;
+  height: auto;
 }
 
 .home-footer .tiktok-link img {
   transform: scale(0.75);
 }
 
-.footer-buildings {
-  width: 100%;
-  display: block;
-}
+
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 768px) {
+
   .home-footer-wrapper {
-    margin-top: 16vw;
+    margin-top: 18vw;
+  }
+
+  .footer-content {
+    /*
+      Don't rely on the desktop percentage positioning.
+      Anchor the content around the visual center of the
+      footer artwork instead.
+    */
+    top: 25%;
+    width: 100%;
+  }
+
+  .contact-us-row {
+    gap: 2vw;
   }
 
   .contact-us-text {
     font-size: 2rem;
-    margin-bottom: 6vw;
+  }
+
+  .contact-us-effect {
+    height: 1.5em;
+    margin-top: -0.6em;
   }
 
   .home-footer {
-    flex-wrap: wrap;
-    gap: 6vw;
-    margin-top: 0;
+    gap: 7vw;
+    margin-top: 5vw;
   }
 
   .home-footer img {
-    width: 5vw;
-    max-width: none;
+    width: 7vw;
+    max-width: 32px;
   }
 
   .home-footer .tiktok-link img {
-    transform: scale(0.9);
+    transform: scale(0.85);
   }
 }

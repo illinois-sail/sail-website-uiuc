@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1330c8c2.css",
-    "main.js": "/static/js/main.69ec938d.js",
+    "main.css": "/static/css/main.240bfeac.css",
+    "main.js": "/static/js/main.f1c99f5d.js",
     "static/js/453.e9e7ec89.chunk.js": "/static/js/453.e9e7ec89.chunk.js",
     "static/media/about-lily.jpg": "/static/media/about-lily.f2f6047587b980a9f72e.jpg",
     "static/media/2026-2.JPG": "/static/media/2026-2.c5e9feea9041c2fea177.JPG",
@@ -9,7 +9,6 @@
     "static/media/gal1.jpg": "/static/media/gal1.883cb8547110ed715349.jpg",
     "static/media/about-tia.jpg": "/static/media/about-tia.c4d4d5e9251ee2d49027.jpg",
     "static/media/about-jewel.jpg": "/static/media/about-jewel.f1d5ba7c73c709b863dc.jpg",
-    "static/media/gal6.jpg": "/static/media/gal6.fe80ca327e71b407545b.jpg",
     "static/media/gal5.jpg": "/static/media/gal5.8c9cef10641d357c8f6c.jpg",
     "static/media/gal4.jpg": "/static/media/gal4.60797014df661cc8460c.jpg",
     "static/media/about-arwen.jpg": "/static/media/about-arwen.44b6dde2c0898999c0b3.jpg",
@@ -20,7 +19,6 @@
     "static/media/about-isha.jpg": "/static/media/about-isha.a07f22830d5be365d49b.jpg",
     "static/media/2026-1.jpg": "/static/media/2026-1.f20f0100550e15bbc533.jpg",
     "static/media/collage-1.jpg": "/static/media/collage-1.0960fd7dc112d84f1694.jpg",
-    "static/media/cartoon-frame.png": "/static/media/cartoon-frame.5ccdf71862fdd532ebfd.png",
     "static/media/collage-3.jpg": "/static/media/collage-3.4effe65102cf3f783e15.jpg",
     "static/media/about-kaytlin.jpg": "/static/media/about-kaytlin.898b5122986953ba7810.jpg",
     "static/media/collage-2.jpg": "/static/media/collage-2.d7cec3fbe0a4ec56ef8e.jpg",
@@ -42,7 +40,6 @@
     "static/media/about-isabella.jpg": "/static/media/about-isabella.3f2cd6794ba3eae40174.jpg",
     "static/media/register-question.svg": "/static/media/register-question.40e8139cdc9a662ee7f4f12bfd22e04a.svg",
     "static/media/lead.svg": "/static/media/lead.b8204e4b64d26abb206496e6e13c10fb.svg",
-    "static/media/registernow.png": "/static/media/registernow.ae1fa196d13fcc75d195.png",
     "static/media/forgot-exclaim.svg": "/static/media/forgot-exclaim.0507bb4c05e49c987e9c4d70a6c0f0a5.svg",
     "static/media/pizazz1.png": "/static/media/pizazz1.8be219df8c3a9c37b3ce.png",
     "static/media/header_cloud.svg": "/static/media/header_cloud.ca3924bbfd3eb6f97dbbaaec1d28e4d5.svg",
@@ -60,12 +57,12 @@
     "static/media/sail-logo.svg": "/static/media/sail-logo.7968e30b43a6d7624d16e7d633f22242.svg",
     "index.html": "/index.html",
     "static/media/classes-impact.svg": "/static/media/classes-impact.83236e6652f043256cc4e3d953c4c592.svg",
-    "main.1330c8c2.css.map": "/static/css/main.1330c8c2.css.map",
-    "main.69ec938d.js.map": "/static/js/main.69ec938d.js.map",
+    "main.240bfeac.css.map": "/static/css/main.240bfeac.css.map",
+    "main.f1c99f5d.js.map": "/static/js/main.f1c99f5d.js.map",
     "453.e9e7ec89.chunk.js.map": "/static/js/453.e9e7ec89.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1330c8c2.css",
-    "static/js/main.69ec938d.js"
+    "static/css/main.240bfeac.css",
+    "static/js/main.f1c99f5d.js"
   ]
 }

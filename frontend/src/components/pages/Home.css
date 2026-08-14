@@ -1,13 +1,23 @@
+/* =========================
+   HOME PAGE
+   ========================= */
+
 .home-page {
     position: relative;
+    width: 100%;
 }
 
+
+/* =========================
+   OPENING
+   ========================= */
+
 .opening-stack {
-    margin-top: 5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4vw;
+    margin-top: 5vw;
 }
 
 .cs-sail-image {
@@ -23,17 +33,16 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-  }
-  
-
-.register-now-image {
-    width: 17vw;
-    max-width: 257px;
-    height: auto;
 }
 
-.ch-one-block {
-    margin-top: 10vw;
+
+/* =========================
+   SAIL 2026 RECAP
+   ========================= */
+
+.ch-four-block {
+    position: relative;
+    margin-top: 14vw;
     margin-left: 15vw;
 }
 
@@ -46,539 +55,21 @@
     line-height: normal;
 }
 
-.cartoon-frame-image {
-    margin-top: 3vw;
-    width: 71vw;
-    max-width: 1027px;
-    height: auto;
-}
 
-.character-stats-row {
-    position: relative;
-    width: fit-content;
-    margin-top: 5vw;
-}
-
-.corn-ch-one-image {
-    position: absolute;
-    width: 24vw;
-    max-width: 355.392px;
-    height: auto;
-    left: -9.97vw;
-    top: -2vw;
-    transform: rotate(1.762deg);
-    grid-template-rows: repeat(1, minmax(0, 1fr));
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.ellipse-wrapper {
-    position: absolute;
-    width: 18.5vw;
-    max-width: 283px;
-    left: 8.2vw;
-    bottom: 5.5vw;
-}
-
-.ellipse-ch-one-image {
-    width: 100%;
-    height: auto;
-}
-
-.ellipse-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-45%, -50%);
-
-    width: 11.3vw;
-    max-width: 173px;
-    height: auto;
-
-    color: #000;
-    text-align: center;
-    font-family: "Classic Comic";
-    font-size: 1vw;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.character-stats-box {
-    width: 70vw;
-    max-width: 1027px;
-    min-height: 246px;
-    height: auto;
-    border: 0.26vw solid #000;
-    background: #F9F9F9;
-}
-
-.character-stats-wrapper {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 1.4vw;
-}
-
-.character-stats-header {
-    position: absolute;
-    top: 1.5vw;
-    left: 35.2vw;
-
-    width: 32vw;
-    max-width: 496px;
-    height: auto;
-
-    align-self: stretch;
-    color: #000;
-    font-family: "Classic Comic";
-    font-size: 1.7vw;
-    font-style: italic;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.character-stats-text {
-    position: absolute;
-    top: 4.9vw;
-    left: 35.2vw;
-
-    width: 32vw;
-    max-width: 496px;
-    height: auto;
-    
-    align-self: stretch;
-    color: #000;
-    font-family: "Classic Comic";
-    font-size: 1.1vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.ch-two-block {
-    margin-top: 16vw;
-    margin-left: 15vw;
-}
-
-.schedule-note-wrapper {
-    position: relative;
-    width: fit-content;
-    margin-top: 2.3vw;
-}
-
-.schedule-note-row {
-    position: absolute;
-    display: flex;
-    padding: 1vw 1vw 1vw 1vw;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: stretch;
-    border: 0.26vw solid #000;
-    background: #009DFF;
-    box-shadow: 0.26vw 0.26vw 0 0 rgba(0, 0, 0, 0.30);
-    width: 70vw;
-    max-width: 1083px;
-    height: auto;
-    z-index: 2;
-}
-
-.schedule-note-box {
-    display: flex;
-    align-items: center; /* vertical alignment */
-    gap: 0.8vw;
-}
-
-.info-icon {
-    width: 1.5vw;
-    max-width: 24px;
-    height: auto;
-}
-
-.schedule-note-text {
-    color: #FFF;
-    font-family: "Classic Comic";
-    font-size: 1vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5vw; /* 150% */
-}
-
-.corn-ch-two-image {
-    position: absolute;
-    transform: rotate(15deg) scaleX(-1);
-    width: 24vw;
-    max-width: 355.392px;
-    height: auto;
-    left: 61vw;
-    top: -17vw;
-    z-index: 1;
-}
-
-.ellipse-wrapper-2 {
-    position: absolute;
-    left: 48vw;
-    top: -16vw;
-    z-index: 2;
-}
-
-.ellipse-ch-two-image {
-    transform: scaleX(-1);
-    width: 19vw;
-    max-width: 294.734px;
-    height: auto;
-}
-
-.ellipse-text-2 {
-    position: absolute;
-    top: 50%;
-    left: 44%;
-    transform: translate(-45%, -50%);
-
-    width: 13vw;
-    max-width: 200px;
-    height: auto;
-
-    color: #000;
-    text-align: center;
-    font-family: "Classic Comic";
-    font-size: 1.2vw;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.schedule-options-row {
-    margin-top: 9vw;
-    display: flex;
-    gap: 1vw;
-}
-
-.schedule-option-active {
-    width: 15.7vw;
-    max-width: 241.164px;
-    height: auto;
-    padding: 1.26vw 1.83vw;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65vw;
-    border: 0.26vw solid #000;
-    background: #98D2E7;
-    box-shadow: 0.26vw 0.26vw 0 0 #000;
-}
-
-.schedule-option-disabled {
-    width: 15.7vw;
-    max-width: 241.164px;
-    height: auto;
-    padding: 1.26vw 1.83vw;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65vw;
-    border: 0.26vw solid #000;
-    background: #FFF;
-    box-shadow: 0.26vw 0.26vw 0 0 #000;
-}
-
-.options-text {
-    color: #000;
-    text-align: center;
-
-    /* Body Text 3 */
-    font-family: "Classic Comic";
-    font-size: 1vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.sample-schedule-container {
-    position: relative;
-    width: fit-content;
-    margin-top: 2.7vw;
-}
-
-.sample-schedule {
-    display: flex;
-    width: 66.4vw;
-    max-width: 1083px;
-    height: auto;
-    padding: 1.5vw 2.6vw 1.7vw 2.6vw;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 0.52vw solid #000;
-    background: linear-gradient(135deg, rgba(0, 157, 255, 0.40) 5.77%, #0072B9 100%);
-    box-shadow: 0.78vw 0.78vw 0 0 rgba(0, 0, 0, 0.30);
-}
-
-.sample-schedule-event {
-    display: flex;
-    height: 9vw;
-    padding: 1.3vw 1.3vw 0.7vw 1.3vw;
-    gap: 1.5vw;
-    align-items: flex-start;
-    flex-shrink: 0;
-    align-self: stretch;
-    border: .26vw solid #000;
-    background: #FFF;
-    box-shadow: .26vw .26vw 0 0 rgba(0, 0, 0, 0.30);
-    margin-top: 1vw;
-}
-
-.sample-schedule-event-alt {
-    position: relative;
-    display: flex;
-    height: 9vw;
-    padding: 1.3vw 1.3vw .26vw 1.3vw;
-    /* flex-direction: column; */
-    gap: 1.5vw;
-    align-items: flex-start;
-    flex-shrink: 0;
-    align-self: stretch;
-    border: .26vw solid #000;
-    background: #FEFCE8;
-    box-shadow: .26vw .26vw 0 0 rgba(0, 0, 0, 0.30);
-    margin-top: 1vw;
-}
-
-.sample-schedule-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.time-block {
-    display: flex;
-    width: 7.3vw;
-    height: auto;
-    padding: 0.39vw 0.91vw;
-    justify-content: center;
-    align-items: center;
-    border: 0.2vw solid #000;
-    background: #009DFF;
-}
-
-.time-text {
-    margin-left: 0.6vw;
-    color: #FFF;
-    /* Body Text 3 */
-    font-family: "Classic Comic";
-    font-size: 0.91vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.event-title,
-.clickable-event-title {
-    margin-top: 0.5vw;
-    color: #0A0A0A;
-    /* Subheading 3 */
-    font-family: "DynaPuff";
-    font-size: 1.6vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.clickable-event-title:hover {
-  color: #1b5fcc;
-  transform: translateY(-1px);
-}
-
-.location-text {
-    margin-left: 0.2vw;
-    color: #4A5565;
-    /* Body Text 3 */
-    font-family: "Classic Comic";
-    font-size: 0.91vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.you-choose-block {
-    position: absolute;
-    top: -1vw;
-    left: 60.5vw;
-    display: flex;
-    width: 5.7vw;
-    max-width: 87.464px;
-    height: 2.8vw;
-    transform: rotate(21.129deg);
-    padding: 0.9vw 0.77vw 0.13vw 0.8vw;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 0.2vw solid #000;
-    background: #FFDC44;
-}
-
-.you-choose-text {
-    position: absolute;
-    top: 1.90vw;
-    color: #0A0A0A;
-    font-family: Impact;
-    font-size: 1vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 0.01vw; /* 133.333% */
-}
-
-.lunch-group-options-row {
-    display: flex;
-    gap: 1vw;
-}
-
-.panel-group {
-    display: flex;
-    width: 22vw;
-    max-width: 334px;
-    height: 2vw;
-    margin-top: 0.5vw;
-    padding: 0.1vw 0.3vw;
-    justify-content: center;
-    align-items: center;
-    align-self: stretch;
-    border-radius: 0.3vw;
-    border: 0.2vw solid #C27AFF;
-    background: #F3E8FF;
-}
-
-.group-text {
-    color: #0A0A0A;
-
-    /* Body Text 3 */
-    font-family: "Classic Comic";
-    font-size: .91vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.lunch-group {
-    display: flex;
-    width: 17.9vw;
-    max-width: 274px;
-    height: 2vw;
-    margin-top: 0.5vw;
-    padding: 0.1vw 0.3vw 0 0.5vw;
-    justify-content: center;
-    align-items: center;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 0.3vw;
-    border: 0.2vw solid #C27AFF;
-    background: #F3E8FF;
-}
-
-.ch-three-block {
-    margin-top: 14vw;
-    margin-left: 15vw;
-}
-
-.adventure-wrapper {
-    position: relative;
-    width: fit-content;
-    margin-top: 1.32vw;
-}
-
-.adventure-box {
-    display: flex;
-    width: 70.5vw;
-    max-width: 1083px;
-    height: auto;
-    flex-direction: column;
-    padding: 1vw 1vw 1vw 1vw;
-    align-items: flex-start;
-    border: 0.29vw solid #000;
-    background: linear-gradient(0deg, #FF7DB2 0%, #FF7DB2 100%);
-    box-shadow: 0.39vw 0.39vw 0 0 rgba(0, 0, 0, 0.30);
-}
-
-.adventure-header {
-    display: flex;
-}
-
-.adventure-title {
-    margin-left: 1.8vw;
-    margin-top: 0.2vw;
-    color: #FFF;
-    /* Subheading 3 */
-    font-family: "DynaPuff";
-    font-size: 1.7vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.adventure-text {
-    margin-top: 1vw;
-    margin-left: 3.45vw;
-    width: 63vw;
-    color: #FFF;
-    /* Body Text 2 */
-    font-family: "Classic Comic";
-    font-size: 1vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.corn-ch-three-image {
-    position: absolute;
-    transform: rotate(15deg) scaleX(-1);
-    width: 24vw;
-    max-width: 355.392px;
-    height: auto;
-    left: 61vw;
-    top: -11vw;
-    z-index: 1;
-}
-
-.classes-subtitle {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-}
-
-.classes-sub-text {
-    margin-top: 1vw;
-    width: 63vw;
-    color: #364153;
-    /* Body Text 2 */
-    font-family: "Classic Comic";
-    font-size: 1.1vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.class-cards {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 1vw;
-  margin-top: 3vw;
-  transform: translateX(-5%);
-}
-
-.explore-btn {
-  transform: translate(155%, 75%);
-}
-
-.ch-four-block {
-    margin-top: 14vw;
-    margin-left: 15vw;
-}
+/* =========================
+   RECAP INTRO
+   ========================= */
 
 .ch-four-info {
     position: relative;
     margin-top: 1vw;
+    min-height: 12vw;
 }
 
 .ch-four-text {
-    position: absolute;
     width: 42vw;
+
     color: #364153;
-    /* Body Text 2 */
     font-family: "Classic Comic";
     font-size: 1.1vw;
     font-style: normal;
@@ -586,41 +77,62 @@
     line-height: normal;
 }
 
+
+/* =========================
+   DECORATIVE CORN
+   ========================= */
+
 .corn-ch-four-image {
     position: absolute;
-    transform: rotate(15deg) scaleX(-1);
+
     width: 24vw;
-    max-width: 355.392px;
+    max-width: 355px;
     height: auto;
+
     left: 55vw;
     top: -9vw;
+
+    transform: rotate(15deg) scaleX(-1);
     z-index: 1;
 }
 
+
+/* =========================
+   SPEECH BUBBLE
+   ========================= */
+
 .ellipse-wrapper-4 {
     position: absolute;
+
     left: 44vw;
     top: -11vw;
+
     z-index: 2;
 }
 
 .ellipse-ch-four-image {
-    transform: scaleX(-1);
+    display: block;
     width: 19vw;
-    max-width: 294.734px;
+    max-width: 295px;
     height: auto;
+
+    transform: scaleX(-1);
 }
 
 .ellipse-text-4 {
     position: absolute;
-    transform: translate(-120%, 70%);
+
+    top: 50%;
+    left: 50%;
 
     width: 14.5vw;
     max-width: 223px;
-    height: auto;
-    
+
+    transform: translate(-50%, -50%);
+
     color: #454545;
     text-align: center;
+
     font-family: "Classic Comic";
     font-size: 1.15vw;
     font-style: normal;
@@ -628,310 +140,89 @@
     line-height: normal;
 }
 
+
+/* =========================
+   COLLAGE
+   ========================= */
+
 .collage {
     margin-top: 10vw;
     margin-left: -5vw;
 }
 
-/* temporary */
 
-
-.temp-navbar {
-    width: 100%;
-    height: 5vw;
-    background-color: #0072B9;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-    font-family: "Classic Comic";
-    font-size: 1.6vw;
-    font-weight: 500;
-
-    text-align: center;
-}
-
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 768px) {
 
-  /* ---------- GLOBAL SPACING ---------- */
+    .opening-stack {
+        gap: 6vw;
+        margin-top: 8vw;
+    }
 
-  .home-page {
-    height: auto;
-  }
+    .cs-sail-image {
+        width: 80vw;
+    }
 
-  .temp-navbar {
-    width: 100%;
-    font-size: 0.5rem;
-  }
-
-  .ch-one-block,
-  .ch-two-block,
-  .ch-three-block,
-  .ch-four-block {
-    margin-left: 5vw;
-    width: 80%;
-    max-width: 768px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .ch-heading-text {
-    font-size: 1.5rem;
-  }
-
-  /* ---------- OPENING STACK ---------- */
-
-  .cs-sail-image {
-    width: 80vw;
-  }
-
-  .event-date {
-    font-size: 1.1rem;
-  }
-
-  .register-now-image {
-    width: 55vw;
-  }
-
-  /* ---------- CHAPTER 1 ---------- */
-
-  .character-stats-wrapper {
-    position: static;
-    width: 100%;
-  }
-
-  .character-stats-box {
-    width: 100%;
-    padding: 3vw;
-  }
-
-  .character-stats-row {
-    position: static;
-    margin-top: 8vw;
-  }
-
-  .corn-ch-one-image,
-  .ellipse-wrapper,
-  .corn-ch-two-image,
-  .ellipse-wrapper-2,
-  .corn-ch-three-image,
-  .corn-ch-four-image,
-  .ellipse-wrapper-4 {
-    display: none;
-  }
-
-  .character-stats-header {
-    position: static;
-    font-size: 1.2rem;
-  }
-
-  .character-stats-text {
-    position: static;
-    width: 100%;
-    font-size: 0.95rem;
-  }
-
-  /* ---------- CHAPTER 2 (MAIN FIX) ---------- */
-
-  .info-icon {
-    display: none;
-  }
-
-  .schedule-note-row {
-    position: static;
-    width: 100%;
-    padding: 4vw;
-  }
-
-  .schedule-note-text {
-    font-size: 0.9rem;
-    line-height: 1.4rem;
-  }
-
-  .schedule-options-row {
-    flex-direction: column;
-    gap: 3vw;
-    margin-top: 6vw;
-  }
-
-  .schedule-option-active,
-  .schedule-option-disabled {
-    width: 100%;
-    text-align: center;
-  }
-
-  .options-text {
-    font-size: 0.95rem;
-  }
-
-  /* ---------- SCHEDULE CONTAINER ---------- */
-
-  .sample-schedule-container {
-    width: 100%;
-  }
-
-  .sample-schedule {
-    width: 100%;
-    padding: 4vw;
-  }
-
-  .sample-schedule-event,
-  .sample-schedule-event-alt {
-    height: auto;
-    flex-direction: column;
-    gap: 3vw;
-    padding: 4vw;
-  }
-
-  /* ---------- TIME BLOCK ---------- */
-
-  .time-block {
-    width: fit-content;
-    padding: 2vw 3vw;
-  }
-
-  .time-text {
-    font-size: 0.85rem;
-  }
-
-  /* ---------- EVENT TEXT ---------- */
-
-  .event-title,
-  .clickable-event-title {
-    font-size: 1.2rem;
-  }
-
-  .location-text {
-    font-size: 0.85rem;
-  }
-
-  /* ---------- YOU CHOOSE STICKER ---------- */
-
-  .you-choose-block {
-    position: static;
-    transform: none;
-    width: fit-content;
-    margin-top: 2vw;
-    padding: 3vw;
-  }
-
-  .you-choose-text {
-    position: static;
-    font-size: 0.95rem;
-  }
-
-  /* ---------- CH2 GROUP BLOCKS MOBILE ---------- */
-
-  .lunch-group-options-row {
-    margin-top: 1vw;
-    flex-direction: column;
-    gap: 1vw;
-    align-items: center;
-  }
-
-  .lunch-group, 
-  .panel-group {
-    width: 80%;
-    max-width: 300px;
-    height: auto;
-  }
-
-  .group-text {
-    font-size: 0.8rem;
-    margin-left: 1rem;
-  }
+    .event-date {
+        font-size: 1.1rem;
+        text-align: center;
+    }
 
 
-  /* ---------- CHAPTER 3 ---------- */
+    /* Sail recap */
 
-  .adventure-wrapper {
-    position: static;
-    width: 100%;
-    margin-top: 6vw;
-  }
+    .ch-four-block {
+        width: 90%;
+        margin: 20vw auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .adventure-box {
-    width: 100%;
-    padding: 5vw;
-    align-items: center;
-  }
+    .ch-heading-text {
+        font-size: 1.5rem;
+        text-align: center;
+    }
 
-  .adventure-header {
-    flex-direction: column;
-  }
 
-  .adventure-title {
-    margin: 0;
-    font-size: 1.4rem;
-  }
+    /* Recap text */
 
-  .adventure-text {
-    margin: 4vw 0 0 0;
-    width: 100%;
-    font-size: 1rem;
-  }
+    .ch-four-info {
+        width: 100%;
+        min-height: 0;
+        margin-top: 6vw;
+    }
 
-  /* Hide decorative floating corn */
-  .corn-ch-three-image {
-    display: none;
-  }
+    .ch-four-text {
+        width: 100%;
+        font-size: 1rem;
+        text-align: center;
+    }
 
-  /* Classes sub */
-  .classes-subtitle {
-    width: 100%;
-    font-size: 1rem;
-    margin-top: 4vw;
-    text-align: center;
-  }
 
-  .classes-sub-text {
-    width: 100%;
-    font-size: 1rem;
-  }
+    /* Hide decorative desktop elements */
 
-  .class-cards {
-    transform: translateX(5%);
-  }
+    .corn-ch-four-image,
+    .ellipse-wrapper-4 {
+        display: none;
+    }
 
-  .explore-btn {
-    transform: none !important;
-    display: block;
-    margin: 6vw auto 0 auto;
-    width: 60vw;
-    max-width: 300px;
-    height: auto;
-  }
 
-    /* ---------- CHAPTER 4 ---------- */
-  .ch-four-info {
-    position: static;
-    width: 100%;
-    margin-top: 6vw;
-  }
+    /* Collage */
 
-  .ch-four-text {
-    position: static;
-    width: 100%;
-    font-size: 1rem;
-    text-align: center;
-  }
+    .collage {
+        width: 100%;
+        margin: 8vw auto 0;
+        display: flex;
+        justify-content: center;
+    }
 
-  /* Hide floating decorative elements */
-  .corn-ch-four-image,
-  .ellipse-wrapper-4 {
-    display: none;
-  }
-
-  /* Optional: center collage on mobile */
-  .collage {
-    margin: 8vw auto 0 auto;
-    display: flex;
-    justify-content: center;
-  }
-  
-
+    .ch-four-text ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 }
