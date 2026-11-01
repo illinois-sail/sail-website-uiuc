@@ -13,6 +13,11 @@ function Register() {
         overflowX: "hidden",
       }}
     >
+      {/* temp navbar */} 
+      <div className="temp-navbar"> 
+        ⓘ Heads up! You're viewing content from the 2026 website. The 2027 website is currently in development.
+      </div>
+
       {/* Title / intro trapezoid */}
       <div style={{ marginTop: "17.9vw" }}>
         <TitleCloud

@@ -109,6 +109,11 @@ function SignUp() {
 
   return (
     <div>
+      {/* temp navbar */} 
+      <div className="temp-navbar"> 
+        ⓘ Heads up! You're viewing content from the 2026 website. The 2027 website is currently in development.
+      </div>
+
       <form className="accountWrapper" onSubmit={(e) => handleSubmission(e)}>
         <span className="accountTitle">Create Account</span>
         {/* First and Last Name */}
@@ -170,8 +175,8 @@ function SignUp() {
           onChange={(e) => handleChange(e, "confirmPassword")}
         />
         {/* Create Account Button */}
-        <button className="accountButton" type="submit">
-          CREATE
+        <button className="accountButton" type="submit" disabled={true}>
+          Not Available At This Time
         </button>
         {/* Graphics */}
         <Star

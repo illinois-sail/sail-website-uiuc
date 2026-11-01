@@ -110,6 +110,11 @@ function Classes() {
 
   return (
     <div className="classes-page">
+      {/* temp navbar */} 
+      <div className="temp-navbar"> 
+        ⓘ Heads up! You're viewing content from the 2026 website. The 2027 website is currently in development.
+      </div>
+      
       <TitleCloud className="classesTitleCloud" />
       {/* Day 1 / Day 2 Headers */}
       <div className="classesHeaders classesDayHeaders">

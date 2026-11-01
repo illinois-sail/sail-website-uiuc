@@ -42,47 +42,54 @@ function ResetPassword() {
   };
 
   return (
-    <form
-      className="accountWrapper"
-      onSubmit={handleResetPassword}
-      style={{ backgroundColor: "#F05E22" }}
-    >
-      <span className="accountTitle">Forgot Password?</span>
+    <div>
+      {/* temp navbar */} 
+      <div className="temp-navbar"> 
+        ⓘ Heads up! You're viewing content from the 2026 website. The 2027 website is currently in development.
+      </div>
 
-      <AccountInput
-        className="accountEmail"
-        size="small"
-        label="EMAIL:"
-        placeholder="Email"
-        inputType="email"
-        enterKeyHint="done"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+      <form
+        className="accountWrapper"
+        onSubmit={handleResetPassword}
+        style={{ backgroundColor: "#F05E22" }}
+      >
+        <span className="accountTitle">Forgot Password?</span>
 
-      <button className="accountButton forgotConfirm" type="submit">
-        SEND RESET EMAIL
-      </button>
+        <AccountInput
+          className="accountEmail"
+          size="small"
+          label="EMAIL:"
+          placeholder="Email"
+          inputType="email"
+          enterKeyHint="done"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <Exclamation
-        style={{
-          position: "absolute",
-          width: "7.23vw",
-          top: "0",
-          left: "0",
-          transform: "translate(10%, -50%)",
-        }}
-      />
-      <Lightning
-        style={{
-          position: "absolute",
-          width: "10.12vw",
-          top: "0",
-          right: "0",
-          transform: "translate(64%, -61%)",
-        }}
-      />
-    </form>
+        <button className="accountButton forgotConfirm" type="submit" disabled={true}>
+          Not Available At This Time
+        </button>
+
+        <Exclamation
+          style={{
+            position: "absolute",
+            width: "7.23vw",
+            top: "0",
+            left: "0",
+            transform: "translate(10%, -50%)",
+          }}
+        />
+        <Lightning
+          style={{
+            position: "absolute",
+            width: "10.12vw",
+            top: "0",
+            right: "0",
+            transform: "translate(64%, -61%)",
+          }}
+        />
+      </form>
+    </div>
   );
 }
 

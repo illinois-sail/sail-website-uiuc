@@ -30,6 +30,11 @@ function About() {
         maxWidth: "100%",
       }}
     >
+      {/* temp navbar */} 
+      <div className="temp-navbar"> 
+        ⓘ Heads up! You're viewing content from the 2026 website. The 2027 website is currently in development.
+      </div>
+
       <div style={{ marginTop: "17.9vw" }}>
         <TitleCloud
           className="aboutTitleCloud"

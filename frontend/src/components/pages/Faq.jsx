@@ -34,6 +34,11 @@ function Faq() {
 
   return (
     <div className="faqWrapper">
+      {/* temp navbar */} 
+      <div className="temp-navbar"> 
+        ⓘ Heads up! You're viewing content from the 2026 website. The 2027 website is currently in development.
+      </div>
+
       <div className="faqCloudDiv">
         <FaqCloud className="faqCloudDiv" width="22.7vw" />
       </div>

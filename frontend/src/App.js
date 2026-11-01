@@ -9,6 +9,7 @@ import Profile from "./components/pages/Profile";
 import Register from "./components/pages/Register";
 import Transportation from "./components/pages/Transportation";
 import Home from "./components/pages/Home";
+import HomeSail2026 from "./components/pages/HomeSail2026.jsx";
 import About from "./components/pages/About";
 import Classes from "./components/pages/Classes.jsx";
 import Faq from "./components/pages/Faq";
@@ -27,17 +28,18 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/sail2026" element={<HomeSail2026 />} />
             <Route path="/aboutus" element={<About />} />
-            {/* <Route path="/classes" element={<Classes />} /> */}
-            {/* <Route path="/faq" element={<Faq />} /> */}
-            {/* <Route path="/transportation" element={<Transportation />} /> */}
-            {/* <Route path="/register" element={<Register />} /> */}
-            {/* <Route path="/login" element={<Login />} /> */}
-            {/* <Route path="/profile" element={<Profile />} /> */}
-            {/* <Route path="/signup" element={<SignUp />} /> */}
-            {/* <Route path="/reset_password" element={<ResetPassword />} /> */}
-            {/* <Route path="/reset_password/:token" element={<ResetPasswordToken />} /> */}
-            {/* <Route path="/logout" element={<Logout />} /> */}
+            <Route path="/classes" element={<Classes />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/transportation" element={<Transportation />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/reset_password" element={<ResetPassword />} />
+            <Route path="/reset_password/:token" element={<ResetPasswordToken />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
         </main>
 
