@@ -63,8 +63,19 @@ function PreRegisterModal({ onClose }) {
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <h2 id="pre-register-title">Pre-Register for Sail 2027</h2>
-
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <h2 id="pre-register-title">Pre-Register for Sail 2027</h2>
+              <h4
+                style={{
+                  textAlign: "center",
+                  marginTop: "-3%",
+                  marginBottom: "4%",
+                  color: "#4F4E4E",
+                }}
+              >
+                You will be notified when official registration comes out!
+              </h4>
+            </div>
             <label htmlFor="firstName">First Name</label>
             <input
               id="firstName"
