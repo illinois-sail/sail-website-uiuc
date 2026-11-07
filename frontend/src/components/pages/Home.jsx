@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Home.css";
 import CS_SAIL_IMAGE from "../../assets/cssail.png";
 import CORN from "../../assets/corn.png";
 import ELLIPSE from "../../assets/ellipse.png";
 
 import Collage from "../Collage/Collage";
+import PreRegisterModal from "../PreRegisterModal/PreRegisterModal"; 
 import image1 from "../../assets/images/collage-1.jpg";
 import image2 from "../../assets/images/collage-2.jpg";
 import image3 from "../../assets/images/collage-3.jpg";
@@ -17,6 +18,7 @@ import image9 from "../../assets/images/gal4.jpg";
 import image10 from "../../assets/images/gal5.jpg";
 
 function Home() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="home-page">
 
@@ -27,7 +29,17 @@ function Home() {
           alt="Logo for CS Sail"
         />
         <h1 className="event-date">Get Ready for Sail 2027!</h1>
+
+        <button 
+        className="pre-register-button"
+        onClick={() => setShowModal(true)}
+        >
+          Pre-register for Sail 2027!
+        </button>  
+      
       </div>
+      
+      {showModal && <PreRegisterModal onClose={() => setShowModal(false)} />}
 
       <div className="ch-four-block">
         <h2 className="ch-heading-text">Sail 2026 Recap</h2>
