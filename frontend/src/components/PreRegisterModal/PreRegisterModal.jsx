@@ -3,8 +3,8 @@ import "./PreRegisterModal.css";
 
 function PreRegisterModal({ onClose }) {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "" });
-  const [status, setStatus] = useState("idle"); 
-  
+  const [status, setStatus] = useState("idle");
+
   useEffect(() => {
     const handleKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handleKey);
@@ -21,13 +21,17 @@ function PreRegisterModal({ onClose }) {
 
     try {
       // TODO: replace with your real endpoint  (Google Apps Script)
-      const res = await fetch("https://your-endpoint-here", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbzlyjdV9wWtQQJcOqOeK_xgeuN0zeFd4knmecIdt4WoncNKOWOsEbUfkw83k5F459I/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        },
+      );
 
-      if (!res.ok) throw new Error("Request failed");
+      // if (!res.ok) throw new Error("Request failed");
       setStatus("success");
     } catch (err) {
       setStatus("error");
@@ -50,7 +54,9 @@ function PreRegisterModal({ onClose }) {
         {status === "success" ? (
           <div className="modal-success">
             <h2 id="pre-register-title">You're on the list!</h2>
-            <p>Thanks for pre-registering for Sail 2027. We'll be in touch soon.</p>
+            <p>
+              Thanks for pre-registering for Sail 2027. We'll be in touch soon.
+            </p>
             <button className="modal-submit" onClick={onClose}>
               Close
             </button>
@@ -90,7 +96,9 @@ function PreRegisterModal({ onClose }) {
             />
 
             {status === "error" && (
-              <p className="modal-error">Something went wrong. Please try again.</p>
+              <p className="modal-error">
+                Something went wrong. Please try again.
+              </p>
             )}
 
             <button
