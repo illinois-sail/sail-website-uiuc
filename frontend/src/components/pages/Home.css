@@ -11,7 +11,39 @@
 /* =========================
    OPENING
    ========================= */
+.pre-register-button {
+    font-family: "Classic Comic";
+    font-size: clamp(1rem, 1.6vw, 1.6rem);
+    font-weight: 500;
+    line-height: normal;
 
+    padding: 0.7em 1.8em;
+    background-color: #FFD84D;   /* corn yellow: swap for your site's accent */
+    color: #3F3E3E;
+
+    border: 3px solid #3F3E3E;
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 #3F3E3E;
+
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.pre-register-button:hover {
+    background-color: #FFE27A;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #3F3E3E;
+}
+
+.pre-register-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 #3F3E3E;
+}
+
+.pre-register-button:focus-visible {
+    outline: 3px solid #3F3E3E;
+    outline-offset: 4px;
+}
 .opening-stack {
     display: flex;
     flex-direction: column;
@@ -169,6 +201,11 @@
     .event-date {
         font-size: 1.1rem;
         text-align: center;
+    }
+
+    .pre-register-button {
+        font-size: 1.1rem;
+        padding: 0.7rem 2rem;
     }
 
 

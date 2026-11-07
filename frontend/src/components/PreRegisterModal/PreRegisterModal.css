@@ -1,0 +1,136 @@
+/* =========================
+   OVERLAY
+   ========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+
+/* =========================
+   MODAL BOX
+   ========================= */
+
+.modal-content,
+.modal-content input,
+.modal-content button {
+    font-family: "Classic Comic";
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    color: #3F3E3E;
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    border: 3px solid #3F3E3E;
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 #364153;
+}
+
+.modal-content h2 {
+    margin: 0 0 1.25rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+/* =========================
+   FORM FIELDS
+   ========================= */
+
+.modal-content label {
+    display: block;
+    margin: 0.75rem 0 0.25rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 2px solid #3F3E3E;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.modal-content input:focus {
+    outline: 2px solid #3F3E3E;
+    outline-offset: 2px;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+   ========================= */
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.9rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #3F3E3E;
+}
+
+.modal-close:hover {
+    color: #364153;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+   ========================= */
+
+.modal-submit {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: #3F3E3E;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #364153;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.modal-submit:hover:not(:disabled) {
+    background: #364153;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 #364153;
+}
+
+.modal-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   STATES
+   ========================= */
+
+.modal-error {
+    color: #c00;
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+}
+
+.modal-success {
+    text-align: center;
+}
