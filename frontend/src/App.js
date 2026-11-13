@@ -10,6 +10,15 @@ function App() {
       <Routes>
         <Route path = '/' element = {<Home />}/>
         <Route path = '/About' element = {<About />}/>
+        <Route path = '/Classes' element = {<Classes />}/>
+        <Route path = '/Faq' element = {<Faq />}/>
+        <Route path = '/Login' element = {<Login />}/>
+        <Route path = '/Logout' element = {<Logout />}/>
+        <Route path = '/Profile' element = {<Profile />}/>
+        <Route path = '/Register' element = {<Register />}/>
+        <Route path = '/ResetPassword' element = {<ResetPassword />}/>
+        <Route path = '/Signup' element = {<Signup />}/>
+        <Route path = '/Transportation' element = {<Transportation />}/>
       </Routes>
     </div>
   );
