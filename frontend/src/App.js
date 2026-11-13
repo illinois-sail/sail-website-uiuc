@@ -8,7 +8,12 @@ import Classes from './pages/Classes';
 import Faq from './pages/Faq';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
-  
+import Profile from './pages/Profile';
+import Register from './pages/Register';
+import ResetPassword from './pages/ResetPassword'; 
+import Signup from './pages/Signup';
+import Transportation from './pages/Transportation';
+
 function App() {
   return (
     <div className="App">
