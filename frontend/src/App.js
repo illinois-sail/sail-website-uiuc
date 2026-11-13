@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import ResetPassword from './pages/ResetPassword'; 
 import Signup from './pages/Signup';
 import Transportation from './pages/Transportation';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
         <Route path = '/ResetPassword' element = {<ResetPassword />}/>
         <Route path = '/Signup' element = {<Signup />}/>
         <Route path = '/Transportation' element = {<Transportation />}/>
+
+        <Route path = '*' element = {<NotFound />}/>
       </Routes>
     </div>
   );

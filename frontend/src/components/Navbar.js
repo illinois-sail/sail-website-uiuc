@@ -4,7 +4,7 @@ export default function Navbar() {
     return (
         <nav>
             <Link to = "/">Home</Link>
-            <Link to = "/About"> About</Link>
+            <Link to = "/About">About</Link>
             <Link to = "/Classes">Classes</Link>
             <Link to = "/Faq">Faq</Link>
             <Link to = "/Login">Login</Link>
