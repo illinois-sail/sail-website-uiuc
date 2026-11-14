@@ -14,6 +14,7 @@ import ResetPassword from './pages/ResetPassword';
 import Signup from './pages/Signup';
 import Transportation from './pages/Transportation';
 import NotFound from './pages/NotFound';
+import HowToRegister from './pages/HowToRegister';
 
 function App() {
   return (
